@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYLO ⚡ Funky, Cute & Trendy Finds</title>
+    <!-- Google Fonts for Funky & Playful Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Quicksand:wght@500;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5E7E;
+            --primary-dark: #E03E63;
+            --neon-yellow: #FFEE55;
+            --light-blue: #70D6FF;
+            --light-purple: #FF9770;
+            --cream: #FFF5F7;
+            --white: #FFFFFF;
+            --text-dark: #1E1E24;
+            --accent-pink: #FF70A6;
+            --funky-green: #64B9AA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #64B9AA;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, transparent 0.75px), radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, #64B9AA 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Fredoka One', cursive, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Funky Ticker Marquee */
+        .ticker-wrap {
+            background: var(--neon-yellow);
+            color: var(--text-dark);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 3px dashed var(--text-dark);
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 4px 0 var(--text-dark);
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .ticker span {
+            margin-right: 40px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--text-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 0 rgba(30, 30, 36, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger-btn {
+            background: var(--neon-yellow);
+            border: 2px solid var(--text-dark);
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-dark);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0 var(--text-dark);
+            transition: all 0.2s ease;
+        }
+
+        .hamburger-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+            background: var(--accent-pink);
+            color: var(--white);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 2px 2px 0 var(--text-dark);
+        }
+
+        .logo img {
+            height: 44px;
+            width: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-dark);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--text-dark);
+            width: 280px;
+            z-index: 1500;
+            display: none;
+            padding: 15px 0;
+            border: 3px solid var(--text-dark);
+        }
+
+        .dropdown-menu.open {
+            display: block;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu ul li a {
+            display: block;
+            padding: 12px 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu ul li a:hover {
+            background-color: var(--neon-yellow);
+            padding-left: 30px;
+            color: var(--text-dark);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+            align-items: center;
+        }
+
+        .cart-icon-btn {
+            background: var(--light-blue);
+            border: 2px solid var(--text-dark);
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 16px;
+            color: var(--text-dark);
+            box-shadow: 3px 3px 0 var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .cart-icon-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
+        .cart-badge {
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            padding: 2px 7px;
+            border-radius: 50%;
+            border: 1px solid var(--text-dark);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-pink));
+            padding: 90px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--text-dark);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 8px 0 rgba(30, 30, 36, 0.1);
+        }
+
+        .banner h1 {
+            font-size: 52px;
+            color: var(--white);
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 0 var(--text-dark);
+            transform: rotate(-1deg);
+        }
+
+        .banner p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            font-weight: 700;
+            background: var(--neon-yellow);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--text-dark);
+            box-shadow: 3px 3px 0 var(--text-dark);
+        }
+
+        .cta-btn {
+            background-color: var(--text-dark);
+            color: var(--neon-yellow);
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+            box-shadow: 5px 5px 0 var(--accent-pink);
+            transition: all 0.2s ease;
+            display: inline-block;
+            border: 2px solid var(--text-dark);
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 var(--text-dark);
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: var(--neon-yellow);
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-shadow: 3px 3px 0 var(--text-dark);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
+        /* Sparkle float elements */
+        .sparkle {
+            position: absolute;
+            font-size: 32px;
+            animation: float 2.5s ease-in-out infinite;
+        }
+        .s1 { top: 15%; left: 8%; animation-delay: 0s; }
+        .s2 { top: 55%; right: 10%; animation-delay: 1s; transform: rotate(15deg); }
+        .s3 { top: 25%; right: 15%; animation-delay: 0.5s; transform: rotate(-15deg); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-12px) rotate(15deg) scale(1.1); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+            color: var(--white);
+            position: relative;
+            text-shadow: 3px 3px 0 var(--text-dark);
+        }
+
+        /* Shop by Category */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 25px;
+            padding: 30px 15px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 5px 5px 0 var(--text-dark);
+            border: 3px solid var(--text-dark);
+            transition: all 0.2s ease;
+        }
+
+        .category-card:hover {
+            background-color: var(--neon-yellow);
+            transform: translate(-4px, -4px);
+            box-shadow: 9px 9px 0 var(--text-dark);
+        }
+
+        .category-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--text-dark);
+            border: 3px solid var(--text-dark);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px) rotate(1deg);
+            box-shadow: 10px 10px 0 var(--text-dark);
+        }
+
+        .product-img {
+            height: 240px;
+            background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-bottom: 3px solid var(--text-dark);
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .price {
+            background: var(--neon-yellow);
+            color: var(--text-dark);
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            border: 2px solid var(--text-dark);
+            box-shadow: 2px 2px 0 var(--text-dark);
+            font-family: 'Fredoka One', cursive;
+        }
+
+        /* Cart Sidebar Drawer */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 30, 36, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 380px;
+            height: 100%;
+            background: var(--white);
+            z-index: 2100;
+            box-shadow: -8px 0 0 var(--text-dark);
+            border-left: 3px solid var(--text-dark);
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            background: var(--neon-yellow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--text-dark);
+        }
+
+        .cart-header h3 {
+            font-size: 22px;
+            color: var(--text-dark);
+        }
+
+        .close-cart {
+            background: var(--primary);
+            border: 2px solid var(--text-dark);
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0 var(--text-dark);
+        }
+
+        .close-cart:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-body-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-items {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--cream);
+            border: 2px solid var(--text-dark);
+            border-radius: 15px;
+            box-shadow: 3px 3px 0 var(--text-dark);
+        }
+
+        .cart-item-info h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .cart-item-info p {
+            font-size: 13px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qty-btn {
+            background: var(--light-blue);
+            border: 2px solid var(--text-dark);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 1px 1px 0 var(--text-dark);
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff3366;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 6px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 3px solid var(--text-dark);
+            background: var(--white);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-family: 'Fredoka One', cursive;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .checkout-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--text-dark);
+            width: 100%;
+            padding: 14px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-family: 'Fredoka One', cursive;
+            font-size: 17px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .checkout-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--text-dark);
+            background-color: var(--primary-dark);
+        }
+
+        /* Checkout Form Styling */
+        .checkout-form-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .checkout-form-container h4 {
+            font-size: 20px;
+            color: var(--text-dark);
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 10px 14px;
+            border: 2px solid var(--text-dark);
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            outline: none;
+            background: var(--cream);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            background: var(--white);
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .back-cart-btn {
+            background: #ddd;
+            border: 2px solid var(--text-dark);
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            flex: 1;
+            font-family: 'Fredoka One', cursive;
+            box-shadow: 3px 3px 0 var(--text-dark);
+        }
+
+        .place-order-btn {
+            background-color: #25D366;
+            color: var(--white);
+            border: 2px solid var(--text-dark);
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            flex: 2;
+            font-family: 'Fredoka One', cursive;
+            box-shadow: 3px 3px 0 var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .place-order-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
+        /* About Zylo Section */
+        .about-section {
+            background-color: var(--white);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 7px 7px 0 var(--text-dark);
+            border: 3px solid var(--text-dark);
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Formspree Contact Form */
+        .formspree-contact {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+        
+        .formspree-contact input,
+        .formspree-contact textarea {
+            width: 100%;
+            padding: 14px;
+            border: 3px solid var(--text-dark);
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 15px;
+            background: var(--cream);
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 var(--text-dark);
+            outline: none;
+            color: var(--text-dark);
+        }
+        
+        .formspree-contact input::placeholder,
+        .formspree-contact textarea::placeholder {
+            color: #888;
+            font-weight: 600;
+        }
+        
+        .formspree-contact input:focus,
+        .formspree-contact textarea:focus {
+            border-color: var(--primary);
+            background: var(--white);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--text-dark);
+        }
+
+        /* Instagram Section */
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .insta-box {
+            height: 240px;
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 5px 5px 0 var(--text-dark);
+            border: 3px solid var(--text-dark);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .insta-box:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 var(--text-dark);
+        }
+
+        .insta-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .insta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 94, 126, 0.85);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .insta-box:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+            border-top: 4px solid var(--neon-yellow);
+        }
+
+        footer h3 {
+            color: var(--neon-yellow);
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #ddd;
+            margin-top: 8px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            header { padding: 12px 15px; }
+            .logo { font-size: 24px; }
+            .logo img { height: 34px; width: 34px; }
+            .banner { padding: 50px 15px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+            .banner h1 { font-size: 32px; }
+            .banner p { font-size: 15px; }
+            .cta-btn { padding: 12px 26px; font-size: 16px; }
+            section { padding: 40px 15px; }
+            .section-title { font-size: 28px; margin-bottom: 30px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .product-img { height: 150px; padding: 10px; }
+            .product-info { padding: 12px 10px; }
+            .product-info h3 { font-size: 13px; }
+            .price { font-size: 13px; padding: 4px 10px; }
+            .add-to-cart-btn { padding: 8px 6px; font-size: 12px; margin-top: 8px; border-radius: 12px; box-shadow: 2px 2px 0 var(--text-dark); }
+            .categories-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .category-card { padding: 20px 8px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .category-icon { font-size: 28px; }
+            .category-card h3 { font-size: 12px; }
+            .about-section { padding: 25px 15px; margin: 20px 10px; border-radius: 20px; box-shadow: 4px 4px 0 var(--text-dark); }
+            .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .insta-box { height: 150px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .cart-drawer { max-width: 100%; right: -100%; }
+            .dropdown-menu { width: calc(100% - 30px); left: 15px; }
+        }
+
+        @media (max-width: 400px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product-img { height: 130px; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Funky Marquee Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>⚡ FREE DELIVERY ON ORDERS UP TO RS. 2,000! ✨</span>
+            <span>💖 HANDMADE WITH LOVE & SPARKLES 🧸</span>
+            <span>🌷 EXPLORE THE NEW FUNKY DROP TODAY! 🚀</span>
+            <span>⚡ FREE DELIVERY ON ORDERS UP TO RS. 2,000! ✨</span>
+            <span>💖 HANDMADE WITH LOVE & SPARKLES 🧸</span>
+            <span>🌷 EXPLORE THE NEW FUNKY DROP TODAY! 🚀</span>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-left">
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+            <a href="#" class="logo">
+                <img src="logo zylo.png" alt="ZYLO Logo">
+                ZYLO
+            </a>
+        </div>
+        <div class="nav-icons">
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                🛍️ <span class="cart-badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <ul>
+            <li><a href="#shop" onclick="toggleMenu()">🛍️ Shop All</a></li>
+            <li><a href="#flowers" onclick="toggleMenu()">🌷 Flowers Collection</a></li>
+            <li><a href="#keychains" onclick="toggleMenu()">🔑 Keychains Collection</a></li>
+            <li><a href="#plushies" onclick="toggleMenu()">🧸 Plushies Collection</a></li>
+            <li><a href="#decor" onclick="toggleMenu()">🪴 Decor Collection</a></li>
+            <li><a href="#accessories" onclick="toggleMenu()">🎀 Accessories Collection</a></li>
+            <li><a href="#about" onclick="toggleMenu()">✨ About ZYLO</a></li>
+            <li><a href="#social" onclick="toggleMenu()">📸 Instagram / Social</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">💌 Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <span class="sparkle s1">⚡</span>
+        <span class="sparkle s2">💖</span>
+        <span class="sparkle s3">✨</span>
+        <h1>Funky, Cute & Trendy Finds!</h1>
+        <p>Elevate your aesthetic with magical accessories 🚀</p>
+        <br>
+        <a href="#shop" class="cta-btn">Shop The Drop ✨</a>
+    </section>
+
+    <!-- Best Sellers -->
+    <section>
+        <h2 class="section-title">Best Sellers 🔥</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
+                <div class="product-info">
+                    <div><h3>thai rose</h3><div class="price">Rs. 1,100</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Handmade Crochet Rose Stem', 1100)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
+                <div class="product-info">
+                    <div><h3>Cute Chick Keychain</h3><div class="price">Rs. 350</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Cute Chick Keychain', 350)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
+                <div class="product-info">
+                    <div><h3>rose brooche</h3><div class="price">Rs. 250</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Suit Rose Lapel Pin', 250)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
+                <div class="product-info">
+                    <div><h3> glasses holder</h3><div class="price">Rs. 750</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Smiley Face Glasses Case', 750)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section id="shop">
+        <h2 class="section-title">Shop By Category ⚡</h2>
+        <div class="categories-grid">
+            <a href="#flowers" class="category-card"><div class="category-icon">🌷</div><h3>Flowers</h3></a>
+            <a href="#keychains" class="category-card"><div class="category-icon">🔑</div><h3>Keychains</h3></a>
+            <a href="#plushies" class="category-card"><div class="category-icon">🧸</div><h3>Plushies</h3></a>
+            <a href="#decor" class="category-card"><div class="category-icon">🪴</div><h3>Decor</h3></a>
+            <a href="#accessories" class="category-card"><div class="category-icon">🎀</div><h3>Accessories</h3></a>
+        </div>
+    </section>
+
+    <!-- Flowers Collection Section -->
+    <section id="flowers">
+        <h2 class="section-title">Flower Collection 🌷</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="flower 1 zylo.jpeg" alt="Tangled Inspired Flower Stand"></div>
+                <div class="product-info">
+                    <div><h3>Tangled Inspired Flower Stand</h3><div class="price">Rs. 2,500</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Tangled Inspired Flower Stand', 2500)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="flower 5 zylo.jpeg" alt="Thai Rose"></div>
+                <div class="product-info">
+                    <div><h3>Thai Rose</h3><div class="price">Rs. 1,100</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Thai Rose', 1100)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="flowers zylo.jpeg" alt="Roses Each"></div>
+                <div class="product-info">
+                    <div><h3>Roses (Each)</h3><div class="price">Rs. 300</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Roses (Each)', 300)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="flower 3 zylo.jpeg" alt="3 Sunflower Bouquet"></div>
+                <div class="product-info">
+                    <div><h3>3 Sunflower Bouquet</h3><div class="price">Rs. 1,500</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('3 Sunflower Bouquet', 1500)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="flower 4 zylo.jpeg" alt="7 Roses Bouquet"></div>
+                <div class="product-info">
+                    <div><h3>7 Roses Bouquet</h3><div class="price">Rs. 2,300</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('7 Roses Bouquet', 2300)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="flower 6 zylo.jpeg" alt="Sunflower Bouquet"></div>
+                <div class="product-info">
+                    <div><h3>Sunflower</h3><div class="price">Rs. 450 (Each)</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bouquet', 2200)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keychains Collection Section -->
+    <section id="keychains">
+        <h2 class="section-title">Keychain Collection 🔑</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
+                <div class="product-info">
+                    <div><h3>Luffy Inspired Crocheted Plushie Keychain</h3><div class="price">Rs. 1,000</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Luffy Inspired Crocheted Plushie Keychain', 1000)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 2 zylo.jpg" alt="Batman Keychains"></div>
+                <div class="product-info">
+                    <div><h3>Matching Batman Keychains</h3><div class="price">Rs. 1,300</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Batman Keychains', 1300)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 3 zylo.jpg" alt="Capybara Keychains"></div>
+                <div class="product-info">
+                    <div><h3>Matching Capybara Keychains</h3><div class="price">Rs. 600</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Capybara Keychains', 600)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 4 zylo.jpg" alt="Strawberry Keychain"></div>
+                <div class="product-info">
+                    <div><h3>Strawberry Keychain</h3><div class="price">Rs. 300</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Keychain', 300)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 5 zylo.jpg" alt="Hello Kitty Keychain"></div>
+                <div class="product-info">
+                    <div><h3>Hello Kitty Keychain</h3><div class="price">Rs. 650</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Hello Kitty Keychain', 650)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="key chain 6 zylo.jpg" alt="Strawberry Mushroom Keychain"></div>
+                <div class="product-info">
+                    <div><h3>Strawberry Mushroom Keychain</h3><div class="price">Rs. 450</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Mushroom Keychain', 450)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plushies Collection Section -->
+    <section id="plushies">
+        <h2 class="section-title">Plushies Collection 🧸</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="plushies zylo 1.jpeg" alt="Mr. Bean Teddy"></div>
+                <div class="product-info">
+                    <div><h3>Mr. Bean Teddy</h3><div class="price">Rs. 1,000</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mr. Bean Teddy', 1000)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="plushies zylo 2.jpeg" alt="Bunny holding a heart"></div>
+                <div class="product-info">
+                    <div><h3>Bunny Holding a Heart</h3><div class="price">Rs. 5,000</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Bunny Holding a Heart', 5000)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="plushies zylo 3.jpeg" alt="Penguin"></div>
+                <div class="product-info">
+                    <div><h3>Penguin</h3><div class="price">Rs. 700</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Penguin', 700)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="plushies zylo 4.jpeg" alt="Fav Bean"></div>
+                <div class="product-info">
+                    <div><h3>Fav Bean</h3><div class="price">Rs. 550</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fav Bean', 550)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="plushies zylo 5.jpeg" alt="Mini Bunny"></div>
+                <div class="product-info">
+                    <div><h3>Mini Bunny</h3><div class="price">Rs. 1,500</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mini Bunny', 1500)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decor Collection Section -->
+    <section id="decor">
+        <h2 class="section-title">Decor Collection 🪴</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="decor zylo 1.jpeg" alt="Sunflower Desk Pot"></div>
+                <div class="product-info">
+                    <div><h3>Sunflower Desk Pot</h3><div class="price">Rs. 700</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Desk Pot', 700)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="decor zylo 4.jpeg" alt="Glasses Holder"></div>
+                <div class="product-info">
+                    <div><h3>Glasses Holder</h3><div class="price">Rs. 750</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Glasses Holder', 750)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="decor zylo 3.jpeg" alt="Sunflower Bookmark"></div>
+                <div class="product-info">
+                    <div><h3>Sunflower Bookmark</h3><div class="price">Rs. 150</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bookmark', 150)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="decor zylo 2.jpeg" alt="Book Cover with Zipper Pouch"></div>
+                <div class="product-info">
+                    <div><h3>Book Cover with Attached Zipper Pouch</h3><div class="price">Rs. 1,600</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Book Cover with Attached Zipper Pouch', 1600)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Collection Section -->
+    <section id="accessories">
+        <h2 class="section-title">Accessories Collection 🎀</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="custom categary 1 zylo.jpeg" alt="Angry Clip"></div>
+                <div class="product-info">
+                    <div><h3>Angry Clip</h3><div class="price">Rs. 250</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Angry Clip', 250)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="custom categary 2 zylo.jpeg" alt="Matching Bracelets"></div>
+                <div class="product-info">
+                    <div><h3>Matching Bracelets (Pair of 3)</h3><div class="price">Rs. 450</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Bracelets (Pair of 3)', 450)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="custom categary 5 zylo.jpeg" alt="Mesh Tote Bag"></div>
+                <div class="product-info">
+                    <div><h3>Mesh Tote Bag</h3><div class="price">Rs. 4,000</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mesh Tote Bag', 4000)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="custom categary 4 zylo.jpeg" alt="Y2K Mini Suitcase Bag"></div>
+                <div class="product-info">
+                    <div><h3>Y2K Kawaii Mini Suitcase Bag</h3><div class="price">Rs. 6,000</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Y2K Kawaii Mini Suitcase Bag', 6000)">Add to Cart ✨</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="custom categary 3 zylo.jpeg" alt="Star Clip"></div>
+                <div class="product-info">
+                    <div><h3>Star Clip</h3><div class="price">Rs. 100</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Star Clip', 100)">Add to Cart ✨</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Zylo Section -->
+    <section id="about">
+        <div class="about-section">
+            <h2 class="section-title" style="margin-bottom: 10px; color: var(--text-dark); text-shadow: none;">About ZYLO</h2>
+            <p>Discover the most adorable handmade crochet pieces, crafted with love to add a little extra charm to your everyday life. From cute little details to timeless handmade treasures, Zylo brings you pieces that are effortlessly aesthetic, irresistibly cute, and made to make you smile. 🎀✨</p>
+        </div>
+    </section>
+
+    <!-- Instagram / Social Media Section -->
+    <section id="social">
+        <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
+        <div class="insta-grid">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+                <img src="best seller 1 zylo.jpeg" alt="Zylo Instagram Post 1">
+                <div class="insta-overlay">Show on Insta ✨</div>
+            </a>
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+                <img src="flower 1 zylo.jpeg" alt="Zylo Instagram Post 2">
+                <div class="insta-overlay">Show on Insta ✨</div>
+            </a>
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+                <img src="key chain 1 zylo.jpg" alt="Zylo Instagram Post 3">
+                <div class="insta-overlay">Show on Insta ✨</div>
+            </a>
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+                <img src="plushies zylo 1.jpeg" alt="Zylo Instagram Post 4">
+                <div class="insta-overlay">Show on Insta ✨</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Formspree Contact Section -->
+    <section id="contact">
+        <div class="about-section" style="margin-top: 0; padding-top: 30px;">
+            <h2 class="section-title" style="margin-bottom: 10px; color: var(--text-dark); text-shadow: none;">Get In Touch 💌</h2>
+            <p style="margin-bottom: 20px;">Have a question or a custom request? Send a magical message directly to our team!</p>
+            <form action="https://formspree.io/f/xaewjqvg" method="POST" class="formspree-contact">
+                <div class="form-group">
+                    <input type="text" name="Name" placeholder="Your Name ✨" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Your Email 💌" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="Message" rows="4" placeholder="What's on your mind? 🎀" required></textarea>
+                </div>
+                <button type="submit" class="cta-btn" style="margin-top: 15px; width: 100%; border-radius: 20px;">Send Message 🚀</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>⚡ ZYLO</h3>
+        <p>&copy; 2026 ZYLO. All rights reserved. Made with love, stars, and sparkles ✨</p>
+        <p style="margin-top: 12px; font-size: 13px; color: #b0c4c1;">Made by ahmad | Phone: <a href="https://wa.me/923244231008" target="_blank" style="color: inherit; text-decoration: underline;">03244231008</a> | Mail: <a href="mailto:ahmadkamran0978@gmail.com" style="color: inherit; text-decoration: underline;">ahmadkamran0978@gmail.com</a></p>
+        <p style="margin-top: 6px; font-size: 13px; color: #b0c4c1;">Zylo by Zaynah</p>
+    </footer>
+
+    <!-- Cart Drawer & Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3 id="cart-drawer-title">🛍️ Your Cute Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        
+        <div class="cart-body-content" id="cart-body-content">
+            <!-- Dynamic Cart Items view -->
+            <div class="cart-items" id="cart-items-container">
+                <p style="text-align: center; color: #777; margin-top: 40px; font-weight: bold;">Your cart is empty! ✨</p>
+            </div>
+            <div class="cart-footer" id="cart-footer-section">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">Rs. 0</span>
+                </div>
+                <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Cart, Dropdown Menu & Checkout Functionality -->
+    <script>
+        let cart = [];
+
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('open');
+        }
+
+        // Close dropdown menu when clicking outside
+        window.addEventListener('click', function(e) {
+            const menu = document.getElementById('dropdown-menu');
+            const hamburger = document.querySelector('.hamburger-btn');
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            drawer.classList.toggle('open');
+            overlay.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            const cartCountBadge = document.getElementById('cart-count');
+            cartCountBadge.style.transform = 'scale(1.4)';
+            setTimeout(() => cartCountBadge.style.transform = 'scale(1)', 200);
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const countBadge = document.getElementById('cart-count');
+            const totalPriceElement = document.getElementById('cart-total-price');
+
+            let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            countBadge.innerText = totalCount;
+
+            if (cart.length === 0) {
+                if (container) {
+                    container.innerHTML = '<p style="text-align: center; color: #777; margin-top: 40px; font-weight: bold;">Your cart is empty! ✨</p>';
+                }
+                if (totalPriceElement) {
+                    totalPriceElement.innerText = 'Rs. 0';
+                }
+                return;
+            }
+
+            if (!container) return;
+            container.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>Rs. ${item.price.toLocaleString()} x ${item.quantity}</p>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            <button class="remove-item" onclick="removeFromCart(${index})">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalPriceElement.innerText = `Rs. ${Math.round(subtotal).toLocaleString()}`;
+        }
+
+        function showCheckoutForm() {
+            if (cart.length === 0) {
+                alert('Your cart is empty! Add some magical items first ✨');
+                return;
+            }
+
+            document.getElementById('cart-drawer-title').innerText = '📋 Online Payment Checkout';
+            const bodyContent = document.getElementById('cart-body-content');
+
+            bodyContent.innerHTML = `
+                <div class="checkout-form-container">
+                    <h4>Online Payment (Sadapay)</h4>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: bold;">Please transfer the total amount via Sadapay before submitting your order ✨</p>
+                    
+                    <div style="background: var(--cream); border: 2px dashed var(--text-dark); padding: 12px; border-radius: 12px; margin-bottom: 15px; font-size: 13px; color: var(--text-dark);">
+                        <strong>Sadapay Details:</strong><br>
+                        • Method: <strong>Sadapay</strong><br>
+                        • Account Name: <strong>Isra Yassir</strong><br>
+                        • Account Number: <strong>03499003714</strong>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cust-name">Full Name *</label>
+                        <input type="text" id="cust-name" placeholder="e.g. Ayesha Khan" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cust-phone">Phone Number *</label>
+                        <input type="tel" id="cust-phone" placeholder="e.g. 03001234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cust-address">Delivery Address *</label>
+                        <textarea id="cust-address" rows="3" placeholder="House #, Street, Area..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cust-city">City *</label>
+                        <input type="text" id="cust-city" placeholder="e.g. Lahore" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cust-trx">Sadapay Transaction ID / Reference *</label>
+                        <input type="text" id="cust-trx" placeholder="Enter your payment reference ID" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button class="back-cart-btn" onclick="backToCartView()">Back</button>
+                        <button class="place-order-btn" onclick="submitOrderToAdmin()">Place Order ✨</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function backToCartView() {
+            document.getElementById('cart-drawer-title').innerText = '🛍️ Your Cute Cart';
+            const bodyContent = document.getElementById('cart-body-content');
+            
+            bodyContent.innerHTML = `
+                <div class="cart-items" id="cart-items-container"></div>
+                <div class="cart-footer" id="cart-footer-section">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total-price">Rs. 0</span>
+                    </div>
+                    <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout ✨</button>
+                </div>
+            `;
+            updateCartUI();
+        }
+
+        function submitOrderToAdmin() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const city = document.getElementById('cust-city').value.trim();
+            const trx = document.getElementById('cust-trx').value.trim();
+
+            if (!name || !phone || !address || !city || !trx) {
+                alert('Please fill in all required fields and provide your Sadapay Transaction ID ✨');
+                return;
+            }
+
+            // Compile the order summary for the email message
+            let orderSummary = cart.map(item => `${item.name} (Qty: ${item.quantity}) - Rs. ${(item.price * item.quantity).toLocaleString()}`).join('\n');
+            let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            const formData = new FormData();
+            formData.append('Customer Name', name);
+            formData.append('Phone Number', phone);
+            formData.append('Delivery Address', address);
+            formData.append('City', city);
+            formData.append('Payment Method', 'Sadapay');
+            formData.append('Account Name', 'Isra Yassir');
+            formData.append('Account Number', '03499003714');
+            formData.append('Transaction ID', trx);
+            formData.append('Order Items', orderSummary);
+            formData.append('Total Amount', `Rs. ${total.toLocaleString()}`);
+            formData.append('_subject', `New Paid Order (Sadapay) from ${name} - ZYLO`);
+
+            // Send order data via mail/Formspree endpoint
+            fetch('https://formspree.io/f/xaewjqvg', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Thanks! Your order and Sadapay payment details have been submitted successfully ✨');
+                    cart = [];
+                    backToCartView();
+                    toggleCart();
+                } else {
+                    alert('Oops! There was a problem submitting your order. Please try again.');
+                }
+            }).catch(error => {
+                alert('Network error! Please check your connection and try again.');
+            });
+        }
+    </script>
+</body>
+</html>
