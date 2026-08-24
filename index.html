@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZYLO ⚡ Funky, Cute & Trendy Finds</title>
+    <meta name="description" content="ZYLO – handmade crochet flowers, keychains, plushies, decor & accessories. Funky, cute & trendy finds made with love. 🎀✨">
+    <meta name="theme-color" content="#FF5E7E">
+    <link rel="icon" type="image/png" href="logo zylo.png">
     <!-- Google Fonts for Funky & Playful Vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Quicksand:wght@500;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Quicksand:wght@500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF5E7E;
@@ -26,12 +31,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #64B9AA;
+            background-color: var(--funky-green);
             color: var(--text-dark);
             overflow-x: hidden;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, transparent 0.75px), radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, #64B9AA 0.75px);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, transparent 0.75px), radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, var(--funky-green) 0.75px);
             background-size: 30px 30px;
             background-position: 0 0, 15px 15px;
         }
@@ -41,9 +51,28 @@
             letter-spacing: 1px;
         }
 
+        ::selection {
+            background: var(--accent-pink);
+            color: var(--white);
+        }
+
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--accent-pink));
+            border-radius: 8px;
+            border: 3px solid var(--cream);
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         /* Funky Ticker Marquee */
         .ticker-wrap {
-            background: var(--neon-yellow);
+            background: linear-gradient(90deg, var(--neon-yellow), #FFE07A, var(--neon-yellow));
             color: var(--text-dark);
             padding: 10px 0;
             overflow: hidden;
@@ -51,17 +80,17 @@
             border-bottom: 3px dashed var(--text-dark);
             font-weight: 700;
             font-size: 15px;
-            box-shadow: 0 4px 0 var(--text-dark);
+            box-shadow: 0 4px 0 rgba(30, 30, 36, 0.12);
         }
 
         .ticker {
             display: inline-block;
-            animation: marquee 25s linear infinite;
+            animation: marquee 28s linear infinite;
         }
 
-        .ticker span {
-            margin-right: 40px;
-        }
+        .ticker-wrap:hover .ticker { animation-play-state: paused; }
+
+        .ticker span { margin-right: 40px; }
 
         @keyframes marquee {
             0% { transform: translateX(0%); }
@@ -70,8 +99,10 @@
 
         /* Header & Navigation */
         header {
-            background-color: var(--white);
-            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px) saturate(1.4);
+            -webkit-backdrop-filter: blur(8px) saturate(1.4);
+            padding: 13px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,7 +110,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 0 rgba(30, 30, 36, 0.1);
+            box-shadow: 0 4px 14px rgba(30, 30, 36, 0.12);
         }
 
         .header-left {
@@ -111,6 +142,13 @@
             color: var(--white);
         }
 
+        .hamburger-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(90deg) translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
         .logo {
             font-size: 32px;
             font-weight: 700;
@@ -122,13 +160,24 @@
             text-shadow: 2px 2px 0 var(--text-dark);
         }
 
+        .logo:hover { animation: wiggle 0.5s ease; }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-4deg); }
+            75% { transform: rotate(4deg); }
+        }
+
         .logo img {
             height: 44px;
             width: 44px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--text-dark);
+            transition: transform 0.3s ease;
         }
+
+        .logo:hover img { transform: scale(1.1) rotate(10deg); }
 
         /* Dropdown Menu */
         .dropdown-menu {
@@ -139,6 +188,8 @@
             border-radius: 20px;
             box-shadow: 6px 6px 0 var(--text-dark);
             width: 280px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
             z-index: 1500;
             display: none;
             padding: 15px 0;
@@ -151,13 +202,11 @@
         }
 
         @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
+            0% { transform: scale(0.85); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .dropdown-menu ul {
-            list-style: none;
-        }
+        .dropdown-menu ul { list-style: none; }
 
         .dropdown-menu ul li a {
             display: block;
@@ -166,12 +215,14 @@
             color: var(--text-dark);
             font-weight: 700;
             font-size: 15px;
+            border-left: 5px solid transparent;
             transition: all 0.2s;
         }
 
         .dropdown-menu ul li a:hover {
             background-color: var(--neon-yellow);
             padding-left: 30px;
+            border-left-color: var(--primary);
             color: var(--text-dark);
         }
 
@@ -213,40 +264,66 @@
             border: 1px solid var(--text-dark);
             font-family: 'Quicksand', sans-serif;
             font-weight: bold;
+            transition: transform 0.2s ease;
         }
 
         /* Banner Section */
         .banner {
-            background: linear-gradient(135deg, var(--light-blue), var(--accent-pink));
-            padding: 90px 20px;
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-pink), var(--light-purple), var(--light-blue));
+            background-size: 300% 300%;
+            animation: gradientShift 14s ease infinite;
+            padding: 95px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
             border-bottom: 4px solid var(--text-dark);
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
-            box-shadow: 0 8px 0 rgba(30, 30, 36, 0.1);
+            box-shadow: 0 8px 0 rgba(30, 30, 36, 0.12);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.35) 2px, transparent 2px);
+            background-size: 26px 26px;
+            pointer-events: none;
         }
 
         .banner h1 {
-            font-size: 52px;
+            font-size: clamp(34px, 6vw, 56px);
             color: var(--white);
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-shadow: 4px 4px 0 var(--text-dark);
             transform: rotate(-1deg);
+            position: relative;
+            animation: bannerPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes bannerPop {
+            0% { transform: rotate(-1deg) translateY(24px) scale(0.92); opacity: 0; }
+            100% { transform: rotate(-1deg) translateY(0) scale(1); opacity: 1; }
         }
 
         .banner p {
-            font-size: 20px;
+            font-size: clamp(16px, 2.4vw, 20px);
             margin-bottom: 30px;
             color: var(--text-dark);
             font-weight: 700;
             background: var(--neon-yellow);
             display: inline-block;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 20px;
             border: 2px solid var(--text-dark);
             box-shadow: 3px 3px 0 var(--text-dark);
+            position: relative;
         }
 
         .cta-btn {
@@ -263,6 +340,19 @@
             display: inline-block;
             border: 2px solid var(--text-dark);
             cursor: pointer;
+            position: relative;
+        }
+
+        .cta-btn::after {
+            content: '↓';
+            display: inline-block;
+            margin-left: 8px;
+            animation: bounceDown 1.4s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
         }
 
         .cta-btn:hover {
@@ -271,6 +361,8 @@
             transform: translate(-3px, -3px);
             box-shadow: 8px 8px 0 var(--text-dark);
         }
+
+        .cta-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--text-dark); }
 
         /* Add to Cart Button */
         .add-to-cart-btn {
@@ -289,10 +381,15 @@
         }
 
         .add-to-cart-btn:hover {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
             color: var(--white);
             transform: translate(-2px, -2px);
             box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
+        .add-to-cart-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 var(--text-dark);
         }
 
         /* Sparkle float elements */
@@ -300,10 +397,15 @@
             position: absolute;
             font-size: 32px;
             animation: float 2.5s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(2px 2px 0 rgba(30, 30, 36, 0.35));
         }
         .s1 { top: 15%; left: 8%; animation-delay: 0s; }
         .s2 { top: 55%; right: 10%; animation-delay: 1s; transform: rotate(15deg); }
         .s3 { top: 25%; right: 15%; animation-delay: 0.5s; transform: rotate(-15deg); }
+        .s4 { bottom: 18%; left: 16%; font-size: 26px; animation-delay: 1.4s; }
+        .s5 { top: 60%; left: 45%; font-size: 24px; animation-delay: 0.8s; }
+        .s6 { top: 12%; right: 30%; font-size: 28px; animation-delay: 1.8s; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
@@ -319,12 +421,43 @@
 
         .section-title {
             text-align: center;
-            font-size: 38px;
-            margin-bottom: 45px;
+            font-size: clamp(28px, 4.5vw, 38px);
+            margin-bottom: 48px;
             color: var(--white);
             position: relative;
             text-shadow: 3px 3px 0 var(--text-dark);
         }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 110px;
+            height: 9px;
+            margin: 14px auto 0;
+            background: var(--neon-yellow);
+            border: 2px solid var(--text-dark);
+            border-radius: 99px;
+            box-shadow: 2px 2px 0 var(--text-dark);
+            transform: skewX(-20deg);
+        }
+
+        /* Scroll Reveal (added via JS so no-JS visitors see everything) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-grid > .reveal:nth-child(2), .categories-grid > .reveal:nth-child(2), .insta-grid > .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .product-grid > .reveal:nth-child(3), .categories-grid > .reveal:nth-child(3), .insta-grid > .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .product-grid > .reveal:nth-child(4), .categories-grid > .reveal:nth-child(4), .insta-grid > .reveal:nth-child(4) { transition-delay: 0.24s; }
+        .product-grid > .reveal:nth-child(5), .categories-grid > .reveal:nth-child(5), .insta-grid > .reveal:nth-child(5) { transition-delay: 0.32s; }
+        .product-grid > .reveal:nth-child(6) { transition-delay: 0.4s; }
 
         /* Shop by Category */
         .categories-grid {
@@ -336,7 +469,7 @@
         .category-card {
             background-color: var(--white);
             border-radius: 25px;
-            padding: 30px 15px;
+            padding: 28px 15px;
             text-align: center;
             text-decoration: none;
             color: var(--text-dark);
@@ -345,15 +478,30 @@
             transition: all 0.2s ease;
         }
 
+        .category-card:nth-child(1) { background: #FFD9E8; }
+        .category-card:nth-child(2) { background: #D3F1FF; }
+        .category-card:nth-child(3) { background: #E8DBFF; }
+        .category-card:nth-child(4) { background: #D9F6E6; }
+        .category-card:nth-child(5) { background: #FFE8D6; }
+
         .category-card:hover {
-            background-color: var(--neon-yellow);
-            transform: translate(-4px, -4px);
+            transform: translate(-4px, -4px) rotate(-1deg);
             box-shadow: 9px 9px 0 var(--text-dark);
+            filter: brightness(1.03) saturate(1.15);
         }
 
         .category-icon {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 12px;
+            width: 66px;
+            height: 66px;
+            line-height: 66px;
+            margin-left: auto;
+            margin-right: auto;
+            background: var(--white);
+            border: 2px solid var(--text-dark);
+            border-radius: 50%;
+            box-shadow: 2px 2px 0 var(--text-dark);
             animation: bounce 2s infinite;
         }
 
@@ -362,9 +510,7 @@
             50% { transform: translateY(-6px); }
         }
 
-        .category-card h3 {
-            font-size: 18px;
-        }
+        .category-card h3 { font-size: 18px; }
 
         /* Product Grid */
         .product-grid {
@@ -393,7 +539,9 @@
 
         .product-img {
             height: 240px;
-            background-color: var(--cream);
+            background-color: var(--white);
+            background-image: radial-gradient(#FFE3EC 2px, transparent 2px);
+            background-size: 18px 18px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -407,12 +555,34 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            transition: transform 0.4s ease;
+            filter: drop-shadow(0 6px 10px rgba(30, 30, 36, 0.14));
+            transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .product-card:hover .product-img img {
-            transform: scale(1.1);
+            transform: scale(1.12) rotate(-2deg);
         }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--primary);
+            color: var(--white);
+            font-family: 'Fredoka One', cursive;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            border: 2px solid var(--text-dark);
+            box-shadow: 2px 2px 0 var(--text-dark);
+            transform: rotate(-6deg);
+            z-index: 2;
+        }
+
+        .badge.blue { background: var(--light-blue); color: var(--text-dark); }
+        .badge.green { background: #7BE0C3; color: var(--text-dark); }
+        .badge.purple { background: #CBA9FF; color: var(--text-dark); }
 
         .product-info {
             padding: 20px;
@@ -425,8 +595,9 @@
 
         .product-info h3 {
             font-size: 18px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--text-dark);
+            line-height: 1.35;
         }
 
         .price {
@@ -458,7 +629,7 @@
         .cart-drawer {
             position: fixed;
             top: 0;
-            right: -420px;
+            right: -430px;
             width: 100%;
             max-width: 380px;
             height: 100%;
@@ -471,13 +642,11 @@
             flex-direction: column;
         }
 
-        .cart-drawer.open {
-            right: 0;
-        }
+        .cart-drawer.open { right: 0; }
 
         .cart-header {
             padding: 20px;
-            background: var(--neon-yellow);
+            background: linear-gradient(135deg, var(--neon-yellow), #FFD9E8);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -503,11 +672,10 @@
             align-items: center;
             justify-content: center;
             box-shadow: 2px 2px 0 var(--text-dark);
+            transition: all 0.2s;
         }
 
-        .close-cart:hover {
-            transform: scale(1.1);
-        }
+        .close-cart:hover { transform: scale(1.12) rotate(90deg); }
 
         .cart-body-content {
             flex-grow: 1;
@@ -524,6 +692,32 @@
             gap: 15px;
         }
 
+        .cart-empty {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .cart-empty .cart-empty-icon {
+            font-size: 58px;
+            display: block;
+            margin-bottom: 12px;
+            animation: bounce 2s infinite;
+        }
+
+        .cart-empty p {
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .cart-empty small {
+            color: #888;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
@@ -533,7 +727,10 @@
             border: 2px solid var(--text-dark);
             border-radius: 15px;
             box-shadow: 3px 3px 0 var(--text-dark);
+            transition: transform 0.15s ease;
         }
+
+        .cart-item:hover { transform: translateX(-2px); }
 
         .cart-item-info h4 {
             font-size: 15px;
@@ -566,12 +763,16 @@
             align-items: center;
             justify-content: center;
             box-shadow: 1px 1px 0 var(--text-dark);
+            transition: all 0.15s;
         }
 
         .qty-btn:hover {
             background: var(--primary);
             color: var(--white);
+            transform: scale(1.1);
         }
+
+        .qty-btn:active { transform: scale(0.92); }
 
         .remove-item {
             background: none;
@@ -580,7 +781,10 @@
             cursor: pointer;
             font-size: 16px;
             margin-left: 6px;
+            transition: transform 0.15s;
         }
+
+        .remove-item:hover { transform: scale(1.25) rotate(10deg); }
 
         .cart-footer {
             padding: 20px;
@@ -598,7 +802,7 @@
         }
 
         .checkout-btn {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
             color: var(--white);
             border: 2px solid var(--text-dark);
             width: 100%;
@@ -615,8 +819,10 @@
         .checkout-btn:hover {
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0 var(--text-dark);
-            background-color: var(--primary-dark);
+            filter: brightness(1.06);
         }
+
+        .checkout-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text-dark); }
 
         /* Checkout Form Styling */
         .checkout-form-container {
@@ -652,12 +858,13 @@
             font-size: 14px;
             outline: none;
             background: var(--cream);
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary);
             background: var(--white);
+            box-shadow: 0 0 0 4px rgba(255, 94, 126, 0.15);
         }
 
         .form-buttons {
@@ -667,7 +874,7 @@
         }
 
         .back-cart-btn {
-            background: #ddd;
+            background: var(--white);
             border: 2px solid var(--text-dark);
             padding: 12px;
             border-radius: 25px;
@@ -676,7 +883,10 @@
             flex: 1;
             font-family: 'Fredoka One', cursive;
             box-shadow: 3px 3px 0 var(--text-dark);
+            transition: all 0.2s;
         }
+
+        .back-cart-btn:hover { background: var(--cream); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--text-dark); }
 
         .place-order-btn {
             background-color: #25D366;
@@ -695,7 +905,10 @@
         .place-order-btn:hover {
             transform: translate(-2px, -2px);
             box-shadow: 5px 5px 0 var(--text-dark);
+            filter: brightness(1.05);
         }
+
+        .place-order-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text-dark); }
 
         /* About Zylo Section */
         .about-section {
@@ -707,14 +920,25 @@
             margin: 40px auto;
             box-shadow: 7px 7px 0 var(--text-dark);
             border: 3px solid var(--text-dark);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 2px dashed var(--accent-pink);
+            border-radius: 22px;
+            pointer-events: none;
         }
 
         .about-section p {
-            line-height: 1.8;
+            line-height: 1.85;
             color: var(--text-dark);
             font-size: 17px;
             font-weight: 600;
             margin-top: 15px;
+            position: relative;
         }
 
         /* Formspree Contact Form */
@@ -724,8 +948,9 @@
             flex-direction: column;
             gap: 15px;
             text-align: left;
+            position: relative;
         }
-        
+
         .formspree-contact input,
         .formspree-contact textarea {
             width: 100%;
@@ -740,13 +965,13 @@
             outline: none;
             color: var(--text-dark);
         }
-        
+
         .formspree-contact input::placeholder,
         .formspree-contact textarea::placeholder {
-            color: #888;
+            color: #999;
             font-weight: 600;
         }
-        
+
         .formspree-contact input:focus,
         .formspree-contact textarea:focus {
             border-color: var(--primary);
@@ -763,7 +988,7 @@
         }
 
         .insta-box {
-            height: 240px;
+            height: 250px;
             background-color: var(--white);
             border-radius: 20px;
             overflow: hidden;
@@ -771,15 +996,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 12px;
             box-shadow: 5px 5px 0 var(--text-dark);
             border: 3px solid var(--text-dark);
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
         }
 
         .insta-box:hover {
-            transform: translate(-3px, -3px);
+            transform: translate(-3px, -3px) rotate(-1deg);
             box-shadow: 8px 8px 0 var(--text-dark);
         }
 
@@ -790,13 +1015,12 @@
             transition: transform 0.4s ease;
         }
 
+        .insta-box:hover img { transform: scale(1.08); }
+
         .insta-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 94, 126, 0.85);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 94, 126, 0.88), rgba(183, 110, 255, 0.82));
             backdrop-filter: blur(2px);
             display: flex;
             align-items: center;
@@ -810,25 +1034,89 @@
             padding: 10px;
         }
 
-        .insta-box:hover .insta-overlay {
-            opacity: 1;
+        .insta-box:hover .insta-overlay { opacity: 1; }
+
+        /* Wave Divider + Footer */
+        .wave-divider {
+            margin-top: 40px;
+            line-height: 0;
         }
 
-        /* Footer */
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: 60px;
+        }
+
         footer {
             background-color: var(--text-dark);
             color: var(--white);
             text-align: center;
-            padding: 50px 20px;
-            margin-top: 60px;
+            padding: 44px 20px 36px;
             font-size: 14px;
-            border-top: 4px solid var(--neon-yellow);
         }
 
         footer h3 {
             color: var(--neon-yellow);
-            font-size: 26px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 18px rgba(255, 238, 85, 0.35);
+        }
+
+        footer .footer-tagline {
+            color: #cfcfcf;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 26px;
+            margin: 22px 0;
+            font-family: 'Fredoka One', cursive;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 2px dashed transparent;
+            transition: all 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-yellow);
+            border-bottom-color: var(--neon-yellow);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .footer-social-btn {
+            display: inline-block;
+            padding: 9px 20px;
+            border: 2px solid var(--neon-yellow);
+            border-radius: 999px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Fredoka One', cursive;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .footer-social-btn:hover {
+            background: var(--neon-yellow);
+            color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(255, 238, 85, 0.25);
         }
 
         footer p {
@@ -836,38 +1124,127 @@
             margin-top: 8px;
         }
 
+        footer .credits {
+            color: #b0c4c1;
+        }
+
+        footer .credits a { color: inherit; }
+        footer .credits a:hover { color: var(--neon-yellow); }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--neon-yellow);
+            color: var(--text-dark);
+            border: 3px solid var(--text-dark);
+            box-shadow: 4px 4px 0 var(--text-dark);
+            font-size: 22px;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            z-index: 1600;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--text-dark);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 13px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--neon-yellow);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: calc(100vw - 40px);
+            text-align: center;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         /* Mobile Styles */
         @media (max-width: 768px) {
             header { padding: 12px 15px; }
             .logo { font-size: 24px; }
             .logo img { height: 34px; width: 34px; }
-            .banner { padding: 50px 15px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
-            .banner h1 { font-size: 32px; }
-            .banner p { font-size: 15px; }
+            .banner { padding: 55px 15px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+            .sparkle { font-size: 24px; }
+            .s4, .s5, .s6 { display: none; }
             .cta-btn { padding: 12px 26px; font-size: 16px; }
             section { padding: 40px 15px; }
-            .section-title { font-size: 28px; margin-bottom: 30px; }
+            .section-title { margin-bottom: 30px; }
+            .section-title::after { margin-top: 10px; width: 84px; height: 7px; }
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .product-img { height: 150px; padding: 10px; }
             .product-info { padding: 12px 10px; }
             .product-info h3 { font-size: 13px; }
             .price { font-size: 13px; padding: 4px 10px; }
             .add-to-cart-btn { padding: 8px 6px; font-size: 12px; margin-top: 8px; border-radius: 12px; box-shadow: 2px 2px 0 var(--text-dark); }
+            .badge { font-size: 9px; padding: 4px 8px; top: 8px; left: 8px; }
             .categories-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .category-card { padding: 20px 8px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
-            .category-icon { font-size: 28px; }
+            .category-card { padding: 18px 8px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .category-icon { font-size: 26px; width: 46px; height: 46px; line-height: 46px; }
             .category-card h3 { font-size: 12px; }
-            .about-section { padding: 25px 15px; margin: 20px 10px; border-radius: 20px; box-shadow: 4px 4px 0 var(--text-dark); }
+            .about-section { padding: 30px 18px; margin: 20px 10px; border-radius: 20px; box-shadow: 4px 4px 0 var(--text-dark); }
+            .about-section::before { inset: 7px; }
+            .about-section p { font-size: 15px; }
             .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .insta-box { height: 150px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .insta-box { height: 155px; border-radius: 15px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .insta-overlay { font-size: 14px; }
             .cart-drawer { max-width: 100%; right: -100%; }
             .dropdown-menu { width: calc(100% - 30px); left: 15px; }
+            .wave-divider svg { height: 40px; }
+            footer { padding: 34px 15px 30px; }
+            .footer-social-btn { padding: 8px 16px; font-size: 12px; }
+            .back-to-top { width: 44px; height: 44px; font-size: 18px; bottom: 18px; right: 18px; }
+            .toast { bottom: 76px; font-size: 13px; padding: 11px 18px; }
         }
 
         @media (max-width: 400px) {
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .product-img { height: 130px; }
             .categories-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -888,7 +1265,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="header-left">
-            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
             <a href="#" class="logo">
                 <img src="logo zylo.png" alt="ZYLO Logo">
                 ZYLO
@@ -921,6 +1298,9 @@
         <span class="sparkle s1">⚡</span>
         <span class="sparkle s2">💖</span>
         <span class="sparkle s3">✨</span>
+        <span class="sparkle s4">🌸</span>
+        <span class="sparkle s5">⭐</span>
+        <span class="sparkle s6">🧶</span>
         <h1>Funky, Cute & Trendy Finds!</h1>
         <p>Elevate your aesthetic with magical accessories 🚀</p>
         <br>
@@ -932,30 +1312,30 @@
         <h2 class="section-title">Best Sellers 🔥</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
+                <div class="product-img"><span class="badge">🔥 Best Seller</span><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
                 <div class="product-info">
                     <div><h3>thai rose</h3><div class="price">Rs. 1,100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Handmade Crochet Rose Stem', 1100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
+                <div class="product-img"><span class="badge blue">🔥 Best Seller</span><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
                 <div class="product-info">
                     <div><h3>Cute Chick Keychain</h3><div class="price">Rs. 350</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Cute Chick Keychain', 350)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
+                <div class="product-img"><span class="badge purple">🔥 Best Seller</span><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
                 <div class="product-info">
                     <div><h3>rose brooche</h3><div class="price">Rs. 250</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Suit Rose Lapel Pin', 250)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
+                <div class="product-img"><span class="badge green">🔥 Best Seller</span><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
                 <div class="product-info">
-                    <div><h3> glasses holder</h3><div class="price">Rs. 750</div></div>
+                    <div><h3>glasses holder</h3><div class="price">Rs. 750</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Smiley Face Glasses Case', 750)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -979,42 +1359,42 @@
         <h2 class="section-title">Flower Collection 🌷</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="flower 1 zylo.jpeg" alt="Tangled Inspired Flower Stand"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="Tangled Inspired Flower Stand"></div>
                 <div class="product-info">
                     <div><h3>Tangled Inspired Flower Stand</h3><div class="price">Rs. 2,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Tangled Inspired Flower Stand', 2500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="flower 5 zylo.jpeg" alt="Thai Rose"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flower 5 zylo.jpeg" alt="Thai Rose"></div>
                 <div class="product-info">
                     <div><h3>Thai Rose</h3><div class="price">Rs. 1,100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Thai Rose', 1100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="flowers zylo.jpeg" alt="Roses Each"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flowers zylo.jpeg" alt="Roses Each"></div>
                 <div class="product-info">
                     <div><h3>Roses (Each)</h3><div class="price">Rs. 300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Roses (Each)', 300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="flower 3 zylo.jpeg" alt="3 Sunflower Bouquet"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flower 3 zylo.jpeg" alt="3 Sunflower Bouquet"></div>
                 <div class="product-info">
                     <div><h3>3 Sunflower Bouquet</h3><div class="price">Rs. 1,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('3 Sunflower Bouquet', 1500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="flower 4 zylo.jpeg" alt="7 Roses Bouquet"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flower 4 zylo.jpeg" alt="7 Roses Bouquet"></div>
                 <div class="product-info">
                     <div><h3>7 Roses Bouquet</h3><div class="price">Rs. 2,300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('7 Roses Bouquet', 2300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="flower 6 zylo.jpeg" alt="Sunflower Bouquet"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="flower 6 zylo.jpeg" alt="Sunflower Bouquet"></div>
                 <div class="product-info">
                     <div><h3>Sunflower</h3><div class="price">Rs. 450 (Each)</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bouquet', 2200)">Add to Cart ✨</button>
@@ -1028,42 +1408,42 @@
         <h2 class="section-title">Keychain Collection 🔑</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
                 <div class="product-info">
                     <div><h3>Luffy Inspired Crocheted Plushie Keychain</h3><div class="price">Rs. 1,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Luffy Inspired Crocheted Plushie Keychain', 1000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="key chain 2 zylo.jpg" alt="Batman Keychains"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 2 zylo.jpg" alt="Batman Keychains"></div>
                 <div class="product-info">
                     <div><h3>Matching Batman Keychains</h3><div class="price">Rs. 1,300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Batman Keychains', 1300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="key chain 3 zylo.jpg" alt="Capybara Keychains"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 3 zylo.jpg" alt="Capybara Keychains"></div>
                 <div class="product-info">
                     <div><h3>Matching Capybara Keychains</h3><div class="price">Rs. 600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Capybara Keychains', 600)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="key chain 4 zylo.jpg" alt="Strawberry Keychain"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 4 zylo.jpg" alt="Strawberry Keychain"></div>
                 <div class="product-info">
                     <div><h3>Strawberry Keychain</h3><div class="price">Rs. 300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Strawberry Keychain', 300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="key chain 5 zylo.jpg" alt="Hello Kitty Keychain"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 5 zylo.jpg" alt="Hello Kitty Keychain"></div>
                 <div class="product-info">
                     <div><h3>Hello Kitty Keychain</h3><div class="price">Rs. 650</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Hello Kitty Keychain', 650)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="key chain 6 zylo.jpg" alt="Strawberry Mushroom Keychain"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="key chain 6 zylo.jpg" alt="Strawberry Mushroom Keychain"></div>
                 <div class="product-info">
                     <div><h3>Strawberry Mushroom Keychain</h3><div class="price">Rs. 450</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Strawberry Mushroom Keychain', 450)">Add to Cart ✨</button>
@@ -1077,35 +1457,35 @@
         <h2 class="section-title">Plushies Collection 🧸</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="plushies zylo 1.jpeg" alt="Mr. Bean Teddy"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="Mr. Bean Teddy"></div>
                 <div class="product-info">
                     <div><h3>Mr. Bean Teddy</h3><div class="price">Rs. 1,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mr. Bean Teddy', 1000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="plushies zylo 2.jpeg" alt="Bunny holding a heart"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 2.jpeg" alt="Bunny holding a heart"></div>
                 <div class="product-info">
                     <div><h3>Bunny Holding a Heart</h3><div class="price">Rs. 5,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Bunny Holding a Heart', 5000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="plushies zylo 3.jpeg" alt="Penguin"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 3.jpeg" alt="Penguin"></div>
                 <div class="product-info">
                     <div><h3>Penguin</h3><div class="price">Rs. 700</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Penguin', 700)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="plushies zylo 4.jpeg" alt="Fav Bean"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 4.jpeg" alt="Fav Bean"></div>
                 <div class="product-info">
                     <div><h3>Fav Bean</h3><div class="price">Rs. 550</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Fav Bean', 550)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="plushies zylo 5.jpeg" alt="Mini Bunny"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 5.jpeg" alt="Mini Bunny"></div>
                 <div class="product-info">
                     <div><h3>Mini Bunny</h3><div class="price">Rs. 1,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mini Bunny', 1500)">Add to Cart ✨</button>
@@ -1119,28 +1499,28 @@
         <h2 class="section-title">Decor Collection 🪴</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="decor zylo 1.jpeg" alt="Sunflower Desk Pot"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 1.jpeg" alt="Sunflower Desk Pot"></div>
                 <div class="product-info">
                     <div><h3>Sunflower Desk Pot</h3><div class="price">Rs. 700</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Desk Pot', 700)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="decor zylo 4.jpeg" alt="Glasses Holder"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 4.jpeg" alt="Glasses Holder"></div>
                 <div class="product-info">
                     <div><h3>Glasses Holder</h3><div class="price">Rs. 750</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Glasses Holder', 750)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="decor zylo 3.jpeg" alt="Sunflower Bookmark"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 3.jpeg" alt="Sunflower Bookmark"></div>
                 <div class="product-info">
                     <div><h3>Sunflower Bookmark</h3><div class="price">Rs. 150</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bookmark', 150)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="decor zylo 2.jpeg" alt="Book Cover with Zipper Pouch"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 2.jpeg" alt="Book Cover with Zipper Pouch"></div>
                 <div class="product-info">
                     <div><h3>Book Cover with Attached Zipper Pouch</h3><div class="price">Rs. 1,600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Book Cover with Attached Zipper Pouch', 1600)">Add to Cart ✨</button>
@@ -1154,35 +1534,35 @@
         <h2 class="section-title">Accessories Collection 🎀</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img"><img src="custom categary 1 zylo.jpeg" alt="Angry Clip"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 1 zylo.jpeg" alt="Angry Clip"></div>
                 <div class="product-info">
                     <div><h3>Angry Clip</h3><div class="price">Rs. 250</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Angry Clip', 250)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="custom categary 2 zylo.jpeg" alt="Matching Bracelets"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 2 zylo.jpeg" alt="Matching Bracelets"></div>
                 <div class="product-info">
                     <div><h3>Matching Bracelets (Pair of 3)</h3><div class="price">Rs. 450</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Bracelets (Pair of 3)', 450)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="custom categary 5 zylo.jpeg" alt="Mesh Tote Bag"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 5 zylo.jpeg" alt="Mesh Tote Bag"></div>
                 <div class="product-info">
                     <div><h3>Mesh Tote Bag</h3><div class="price">Rs. 4,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mesh Tote Bag', 4000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="custom categary 4 zylo.jpeg" alt="Y2K Mini Suitcase Bag"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 4 zylo.jpeg" alt="Y2K Mini Suitcase Bag"></div>
                 <div class="product-info">
                     <div><h3>Y2K Kawaii Mini Suitcase Bag</h3><div class="price">Rs. 6,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Y2K Kawaii Mini Suitcase Bag', 6000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="custom categary 3 zylo.jpeg" alt="Star Clip"></div>
+                <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 3 zylo.jpeg" alt="Star Clip"></div>
                 <div class="product-info">
                     <div><h3>Star Clip</h3><div class="price">Rs. 100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Star Clip', 100)">Add to Cart ✨</button>
@@ -1204,19 +1584,19 @@
         <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
         <div class="insta-grid">
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
-                <img src="best seller 1 zylo.jpeg" alt="Zylo Instagram Post 1">
+                <img loading="lazy" decoding="async" src="best seller 1 zylo.jpeg" alt="Zylo Instagram Post 1">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
-                <img src="flower 1 zylo.jpeg" alt="Zylo Instagram Post 2">
+                <img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="Zylo Instagram Post 2">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
-                <img src="key chain 1 zylo.jpg" alt="Zylo Instagram Post 3">
+                <img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="Zylo Instagram Post 3">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
-                <img src="plushies zylo 1.jpeg" alt="Zylo Instagram Post 4">
+                <img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="Zylo Instagram Post 4">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
         </div>
@@ -1242,13 +1622,36 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Wave Divider & Footer -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,42 C180,70 360,8 540,24 C720,40 900,64 1080,44 C1260,24 1380,14 1440,30 L1440,70 L0,70 Z" fill="#1E1E24"/>
+        </svg>
+    </div>
     <footer>
         <h3>⚡ ZYLO</h3>
-        <p>&copy; 2026 ZYLO. All rights reserved. Made with love, stars, and sparkles ✨</p>
-        <p style="margin-top: 12px; font-size: 13px; color: #b0c4c1;">Made by ahmad | Phone: <a href="https://wa.me/923244231008" target="_blank" style="color: inherit; text-decoration: underline;">03244231008</a> | Mail: <a href="mailto:ahmadkamran0978@gmail.com" style="color: inherit; text-decoration: underline;">ahmadkamran0978@gmail.com</a></p>
-        <p style="margin-top: 6px; font-size: 13px; color: #b0c4c1;">Zylo by Zaynah</p>
+        <p class="footer-tagline">Handmade with love, stars, and sparkles ✨</p>
+        <nav class="footer-links">
+            <a href="#shop">🛍️ Shop</a>
+            <a href="#about">✨ About</a>
+            <a href="#social">📸 Social</a>
+            <a href="#contact">💌 Contact</a>
+        </nav>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="footer-social-btn">📸 Instagram</a>
+            <a href="mailto:ahmadkamran0978@gmail.com" class="footer-social-btn">💌 Email</a>
+            <a href="https://wa.me/923244231008" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
+        </div>
+        <p>&copy; 2026 ZYLO. All rights reserved.</p>
+        <p class="credits" style="margin-top: 12px; font-size: 13px;">Made by ahmad | Phone: <a href="https://wa.me/923244231008" target="_blank">03244231008</a> | Mail: <a href="mailto:ahmadkamran0978@gmail.com">ahmadkamran0978@gmail.com</a></p>
+        <p class="credits" style="margin-top: 6px; font-size: 13px;">Zylo by Zaynah 💖</p>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">↑</button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
 
     <!-- Cart Drawer & Overlay -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
@@ -1261,7 +1664,7 @@
         <div class="cart-body-content" id="cart-body-content">
             <!-- Dynamic Cart Items view -->
             <div class="cart-items" id="cart-items-container">
-                <p style="text-align: center; color: #777; margin-top: 40px; font-weight: bold;">Your cart is empty! ✨</p>
+                <div class="cart-empty"><span class="cart-empty-icon">🛍️</span><p>Your cart is empty!</p><small>Add something cute ✨</small></div>
             </div>
             <div class="cart-footer" id="cart-footer-section">
                 <div class="cart-total">
@@ -1279,7 +1682,9 @@
 
         function toggleMenu() {
             const menu = document.getElementById('dropdown-menu');
+            const btn = document.getElementById('hamburger-btn');
             menu.classList.toggle('open');
+            btn.classList.toggle('active', menu.classList.contains('open'));
         }
 
         // Close dropdown menu when clicking outside
@@ -1288,6 +1693,7 @@
             const hamburger = document.querySelector('.hamburger-btn');
             if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
                 menu.classList.remove('open');
+                hamburger.classList.remove('active');
             }
         });
 
@@ -1298,6 +1704,15 @@
             overlay.style.display = drawer.classList.contains('open') ? 'block' : 'none';
         }
 
+        let toastTimer = null;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
         function addToCart(name, price) {
             const existingItem = cart.find(item => item.name === name);
             if (existingItem) {
@@ -1306,7 +1721,8 @@
                 cart.push({ name, price, quantity: 1 });
             }
             updateCartUI();
-            
+            showToast('✨ ' + name + ' added to cart!');
+
             const cartCountBadge = document.getElementById('cart-count');
             cartCountBadge.style.transform = 'scale(1.4)';
             setTimeout(() => cartCountBadge.style.transform = 'scale(1)', 200);
@@ -1335,7 +1751,7 @@
 
             if (cart.length === 0) {
                 if (container) {
-                    container.innerHTML = '<p style="text-align: center; color: #777; margin-top: 40px; font-weight: bold;">Your cart is empty! ✨</p>';
+                    container.innerHTML = '<div class="cart-empty"><span class="cart-empty-icon">🛍️</span><p>Your cart is empty!</p><small>Add something cute ✨</small></div>';
                 }
                 if (totalPriceElement) {
                     totalPriceElement.innerText = 'Rs. 0';
@@ -1344,6 +1760,7 @@
             }
 
             if (!container) return;
+
             container.innerHTML = '';
             let subtotal = 0;
 
@@ -1488,6 +1905,42 @@
                 alert('Network error! Please check your connection and try again.');
             });
         }
+
+        // Close cart / menu with Escape key
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const drawer = document.getElementById('cart-drawer');
+                if (drawer.classList.contains('open')) toggleCart();
+                const menu = document.getElementById('dropdown-menu');
+                if (menu.classList.contains('open')) toggleMenu();
+            }
+        });
+
+        // Back to Top button visibility
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            backToTopBtn.classList.toggle('show', window.scrollY > 500);
+        }, { passive: true });
+
+        // Scroll reveal animations
+        (function() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
+            const revealEls = document.querySelectorAll('.product-card, .category-card, .insta-box, .about-section');
+            revealEls.forEach(el => el.classList.add('reveal'));
+
+            const io = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            revealEls.forEach(el => io.observe(el));
+        })();
     </script>
 </body>
 </html>
