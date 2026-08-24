@@ -1392,6 +1392,274 @@
             100% { opacity: 0; transform: translate(-50%, -140%) scale(0.2) rotate(25deg); }
         }
 
+        /* ===== Zuzu Chat Assistant ===== */
+        .chat-toggle {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+            border: 3px solid var(--text-dark);
+            box-shadow: 4px 4px 0 var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 1650;
+            transition: all 0.2s ease;
+        }
+
+        .chat-toggle:hover {
+            transform: translate(-2px, -2px) scale(1.05);
+            box-shadow: 6px 6px 0 var(--text-dark);
+        }
+
+        .chat-unread {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--neon-yellow);
+            color: #1E1E24;
+            border: 2px solid var(--text-dark);
+            font-size: 11px;
+            font-weight: bold;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+        }
+
+        .chat-panel {
+            position: fixed;
+            bottom: 94px;
+            left: 22px;
+            width: 360px;
+            max-width: calc(100vw - 44px);
+            height: 480px;
+            max-height: min(68vh, 540px);
+            background: var(--white);
+            border: 3px solid var(--text-dark);
+            border-radius: 24px;
+            box-shadow: 8px 8px 0 var(--text-dark);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1950;
+        }
+
+        .chat-panel.open {
+            display: flex;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chat-head {
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px solid var(--text-dark);
+        }
+
+        .chat-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .chat-title {
+            font-family: 'Fredoka One', cursive;
+            color: #fff;
+            font-size: 17px;
+            text-shadow: 1px 1px 0 rgba(30, 30, 36, 0.35);
+        }
+
+        .chat-status {
+            font-size: 11px;
+            color: #ffe3ec;
+            font-weight: 700;
+        }
+
+        .chat-close {
+            margin-left: auto;
+            background: #fff;
+            border: 2px solid var(--text-dark);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1E1E24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0 rgba(30, 30, 36, 0.35);
+            transition: all 0.15s;
+        }
+
+        .chat-close:hover { transform: rotate(90deg); }
+
+        .chat-msgs {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+        }
+
+        .msg {
+            max-width: 84%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.55;
+            animation: msgPop 0.25s ease;
+        }
+
+        @keyframes msgPop {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .msg.bot {
+            background: var(--cream);
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            box-shadow: 2px 2px 0 var(--text-dark);
+        }
+
+        .msg.bot b { color: var(--primary-dark); }
+        body.dark .msg.bot b { color: var(--neon-yellow); }
+
+        .msg.user {
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+            color: #fff;
+            border: 2px solid var(--text-dark);
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+            box-shadow: 2px 2px 0 var(--text-dark);
+        }
+
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 12px 14px;
+            background: var(--cream);
+            border: 2px solid var(--text-dark);
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            box-shadow: 2px 2px 0 var(--text-dark);
+        }
+
+        .typing span {
+            width: 7px;
+            height: 7px;
+            background: var(--text-dark);
+            border-radius: 50%;
+            animation: typDot 1s infinite;
+        }
+
+        .typing span:nth-child(2) { animation-delay: 0.15s; }
+        .typing span:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes typDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        .chat-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 16px 12px;
+        }
+
+        .chip {
+            background: var(--neon-yellow);
+            border: 2px solid var(--text-dark);
+            color: var(--text-dark);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--text-dark);
+            transition: all 0.15s;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .chip:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--text-dark);
+            background: var(--light-blue);
+        }
+
+        body.dark .chip { color: #1E1E24; }
+
+        .chat-inputbar {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            border-top: 3px solid var(--text-dark);
+            background: var(--white);
+        }
+
+        .chat-inputbar input {
+            flex: 1;
+            min-width: 0;
+            border: 2px solid var(--text-dark);
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 13px;
+            outline: none;
+            background: var(--cream);
+            color: var(--text-dark);
+        }
+
+        .chat-inputbar input:focus { border-color: var(--primary); }
+
+        .chat-send {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: 2px solid var(--text-dark);
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 2px 2px 0 var(--text-dark);
+            transition: all 0.15s;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-send:hover { transform: scale(1.1); }
+        .chat-send:active { transform: scale(0.92); }
+
         /* ===== Dark Mode ===== */
         body.dark {
             --white: #23272f;
@@ -1538,6 +1806,8 @@
             .reviews-grid { gap: 14px; }
             .review-card { padding: 18px 16px; border-radius: 18px; box-shadow: 3px 3px 0 var(--text-dark); }
             .dev-card { margin: 24px 8px 0; }
+            .chat-toggle { width: 54px; height: 54px; bottom: 18px; left: 18px; font-size: 24px; }
+            .chat-panel { left: 16px; right: 16px; width: auto; bottom: 86px; height: 62vh; }
         }
 
         @media (max-width: 400px) {
@@ -2103,7 +2373,7 @@
         <div class="footer-social">
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="footer-social-btn">📸 Instagram</a>
             <a href="mailto:ahmadkamran0978@gmail.com" class="footer-social-btn">💌 Email</a>
-            <a href="https://wa.me/923244231008" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
+            <a href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
         </div>
         <p>&copy; 2026 ZYLO. All rights reserved.</p>
         <p class="credits" style="margin-top: 14px;">Zylo by Zaynah 💖</p>
@@ -2117,11 +2387,33 @@
         </div>
     </footer>
 
+    <!-- Zuzu Chat Assistant -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" aria-label="Chat with Zuzu">
+        🧶
+        <span class="chat-unread" id="chatUnread">1</span>
+    </button>
+    <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Zuzu chat">
+        <div class="chat-head">
+            <div class="chat-avatar">🧶</div>
+            <div>
+                <div class="chat-title">Zuzu ✨</div>
+                <div class="chat-status">online • your crochet bestie</div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">×</button>
+        </div>
+        <div class="chat-msgs" id="chatMsgs"></div>
+        <div class="chat-chips" id="chatChips"></div>
+        <div class="chat-inputbar">
+            <input type="text" id="chatInput" placeholder="Ask me anything about ZYLO..." autocomplete="off">
+            <button class="chat-send" onclick="sendChatMessage()" aria-label="Send message">➤</button>
+        </div>
+    </div>
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
     <!-- WhatsApp Float Button -->
-    <a class="whatsapp-float" href="https://wa.me/923244231008" target="_blank" rel="noopener" aria-label="Chat with ZYLO on WhatsApp">
+    <a class="whatsapp-float" href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" rel="noopener" aria-label="Chat with ZYLO on WhatsApp">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
@@ -2419,6 +2711,187 @@
                     document.getElementById('theme-toggle').innerText = '☀️';
                 }
             } catch (e) {}
+        })();
+
+        // ===== Zuzu Chat Assistant =====
+        (function() {
+            const PRODUCTS = [
+                { n: "Handmade Crochet Rose Stem", p: "Rs. 1,100", c: "Best Sellers", k: ["rose stem", "handmade rose"] },
+                { n: "Cute Chick Keychain", p: "Rs. 350", c: "Best Sellers", k: ["chick keychain", "chick"] },
+                { n: "Suit Rose Lapel Pin", p: "Rs. 250", c: "Best Sellers", k: ["lapel", "rose pin"] },
+                { n: "Smiley Face Glasses Case", p: "Rs. 750", c: "Best Sellers", k: ["smiley glasses", "glasses case", "smiley case"] },
+                { n: "Tangled Inspired Flower Stand", p: "Rs. 2,500", c: "Flowers", k: ["tangled", "flower stand", "rapunzel"] },
+                { n: "Thai Rose", p: "Rs. 1,100", c: "Flowers", k: ["thai rose"] },
+                { n: "Roses (Each)", p: "Rs. 300", c: "Flowers", k: ["single rose", "roses each"] },
+                { n: "3 Sunflower Bouquet", p: "Rs. 1,500", c: "Flowers", k: ["3 sunflower", "three sunflower", "sunflower bouquet"] },
+                { n: "7 Roses Bouquet", p: "Rs. 2,300", c: "Flowers", k: ["7 roses", "seven roses", "roses bouquet"] },
+                { n: "Sunflower", p: "Rs. 450 (each)", c: "Flowers", k: ["sunflower"] },
+                { n: "Pink Roses Bouquet of 7", p: "Rs. 2,500", c: "Flowers", k: ["pink roses"] },
+                { n: "White Roses Bouquet of 7", p: "Rs. 2,500", c: "Flowers", k: ["white roses"] },
+                { n: "Batman Inspired Bouquet", p: "Rs. 1,800", c: "Flowers", k: ["batman bouquet"] },
+                { n: "Tulip", p: "Rs. 450", c: "Flowers", k: ["tulip"] },
+                { n: "Lavender", p: "Rs. 350", c: "Flowers", k: ["lavender"] },
+                { n: "Daisy", p: "Rs. 350", c: "Flowers", k: ["daisy flower", "daisy"] },
+                { n: "Custom-Made Bouquet", p: "Rs. 4,900", c: "Flowers", k: ["custom made bouquet", "custom-made", "custom bouquet"] },
+                { n: "Teddy Bouquet", p: "Rs. 3,200", c: "Flowers", k: ["teddy bouquet"] },
+                { n: "Luffy Inspired Keychain", p: "Rs. 1,000", c: "Keychains", k: ["luffy", "one piece"] },
+                { n: "Matching Batman Keychains", p: "Rs. 1,300", c: "Keychains", k: ["matching batman", "batman keychain"] },
+                { n: "Matching Capybara Keychains", p: "Rs. 600", c: "Keychains", k: ["capybara"] },
+                { n: "Strawberry Keychain", p: "Rs. 300", c: "Keychains", k: ["strawberry keychain"] },
+                { n: "Hello Kitty Keychain", p: "Rs. 650", c: "Keychains", k: ["hello kitty", "kitty"] },
+                { n: "Strawberry Mushroom Keychain", p: "Rs. 450", c: "Keychains", k: ["strawberry mushroom", "mushroom keychain"] },
+                { n: "Mr. Bean Teddy", p: "Rs. 1,000", c: "Plushies", k: ["mr bean", "bean teddy"] },
+                { n: "Bunny Holding a Heart", p: "Rs. 5,000", c: "Plushies", k: ["bunny holding", "bunny heart", "holding a heart"] },
+                { n: "Penguin Plushie", p: "Rs. 700", c: "Plushies", k: ["penguin"] },
+                { n: "Fav Bean Plushie", p: "Rs. 550", c: "Plushies", k: ["fav bean"] },
+                { n: "Mini Bunny", p: "Rs. 1,500", c: "Plushies", k: ["mini bunny", "small bunny"] },
+                { n: "Sunflower Desk Pot", p: "Rs. 700", c: "Decor", k: ["desk pot", "sunflower pot", "planter"] },
+                { n: "Glasses Holder", p: "Rs. 750", c: "Decor", k: ["glasses holder"] },
+                { n: "Sunflower Bookmark", p: "Rs. 150", c: "Decor", k: ["bookmark"] },
+                { n: "Book Cover with Zipper Pouch", p: "Rs. 1,600", c: "Decor", k: ["book cover", "zipper pouch"] },
+                { n: "Angry Clip", p: "Rs. 250", c: "Accessories", k: ["angry clip"] },
+                { n: "Matching Bracelets (Pair of 3)", p: "Rs. 450", c: "Accessories", k: ["bracelet"] },
+                { n: "Mesh Tote Bag", p: "Rs. 4,000", c: "Accessories", k: ["tote bag", "mesh tote", "tote"] },
+                { n: "Y2K Kawaii Mini Suitcase Bag", p: "Rs. 6,000", c: "Accessories", k: ["suitcase", "y2k bag", "y2k"] },
+                { n: "Star Clip", p: "Rs. 100", c: "Accessories", k: ["star clip"] },
+                { n: "Daisy Hair Clip", p: "Rs. 200", c: "Accessories", k: ["daisy hair clip", "daisy clip"] },
+                { n: "Rose Brooches", p: "Rs. 250 (each)", c: "Accessories", k: ["brooch", "brooche"] },
+                { n: "Butterfly Hair Clips", p: "Rs. 100 (each)", c: "Accessories", k: ["butterfly clip", "butterfly"] },
+                { n: "Mikasa Inspired Scarf", p: "Rs. 1,600", c: "Accessories", k: ["mikasa", "scarf"] },
+                { n: "Mesh Top", p: "Rs. 3,000–3,500", c: "Accessories", k: ["mesh top"] },
+                { n: "Cat Paw Gloves", p: "Rs. 1,600", c: "Accessories", k: ["cat paw", "paw gloves", "gloves"] }
+            ];
+
+            const CATS = {
+                flowers: { title: "🌷 Flower Collection", cname: "Flowers", match: ["flower", "bouquet", "rose", "phool"] },
+                keychains: { title: "🔑 Keychain Collection", cname: "Keychains", match: ["keychain", "key chain", "keyring"] },
+                plushies: { title: "🧸 Plushies Collection", cname: "Plushies", match: ["plushie", "plush", "stuffed", "soft toy", "teddy", "bunny"] },
+                decor: { title: "🪴 Decor Collection", cname: "Decor", match: ["decor", "decoration", "room", "desk"] },
+                accessories: { title: "🎀 Accessories Collection", cname: "Accessories", match: ["accessor", "hair clip", "scarf", "glove", "bag", "bracelet"] }
+            };
+
+            const WA_LINK = 'https://wa.me/923114690134';
+            const CONTACT_HTML = 'You can reach our human cuties here 💖<br>• WhatsApp: <b>+92 311 4690134</b><br>• Instagram: <b>@zylocrochet</b><br>• Email: <b>ahmadkamran0978@gmail.com</b>';
+
+            function listCat(key) {
+                let out = '<b>' + CATS[key].title + '</b><br>';
+                PRODUCTS.filter(p => p.c === CATS[key].cname).forEach(p => { out += '• ' + p.n + ' — <b>' + p.p + '</b><br>'; });
+                return out + 'Tap “Add to Cart ✨” on any card to grab one 🛍️';
+            }
+
+            function findProduct(text) {
+                let best = null, bestLen = 0;
+                PRODUCTS.forEach(p => {
+                    p.k.forEach(kw => {
+                        if (text.includes(kw) && kw.length > bestLen) { best = p; bestLen = kw.length; }
+                    });
+                });
+                return best;
+            }
+
+            const INTENTS = [
+                { k: ['deliver', 'shipping', 'ship', 'courier', 'postage', 'delivery'], a: () => '🚚 We offer <b>FREE delivery on orders up to Rs. 2,000</b>! ✨ Your cuties are packed with love and shipped safely across Pakistan 📦💖' },
+                { k: ['pay', 'payment', 'sadapay', 'jazzcash', 'easypaisa', 'card', 'cash on'], a: () => '💳 We accept payments via <b>Sadapay</b>.<br>Just add your faves to the cart → hit <b>Proceed to Checkout ✨</b> → transfer the total → pop your transaction ID in the form. Super easy! 🌸' },
+                { k: ['order', 'buy', 'purchase', 'checkout', 'how to', 'kaise'], a: () => 'Ordering is super simple 🛍️<br>1️⃣ Tap <b>Add to Cart ✨</b> on products you love<br>2️⃣ Open the cart & press <b>Proceed to Checkout</b><br>3️⃣ Fill in your details + Sadapay transaction ID<br>4️⃣ Done! We handmake & ship your cuties 🚚💨' },
+                { k: ['contact', 'whatsapp', 'number', 'email', 'insta', 'instagram', 'social', 'reach'], a: () => CONTACT_HTML },
+                { k: ['custom', 'personalis', 'personalis', 'own design', 'colour', 'color choice', 'customize'], a: () => '🎨 Yes! Custom orders are our love language 💕 We even have a <b>Custom-Made Bouquet</b> (Rs. 4,900). For fully custom pieces, message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea ✨' },
+                { k: ['gift', 'present', 'birthday', 'anniversary', 'valentine', 'shadi', 'couple'], a: () => '🎁 Gift ideas that always win hearts:<br>• <b>Teddy Bouquet</b> — Rs. 3,200<br>• <b>Bunny Holding a Heart</b> — Rs. 5,000<br>• <b>Pink/White Roses Bouquet of 7</b> — Rs. 2,500<br>• <b>Matching Batman Keychains</b> — Rs. 1,300<br>All handmade & wrapped with love 🎀' },
+                { k: ['cheap', 'cheapest', 'budget', 'sasta', 'low price', 'affordable', 'under'], a: () => '💸 Cute AND budget-friendly:<br>• Star Clip — <b>Rs. 100</b><br>• Butterfly Hair Clips — <b>Rs. 100</b> (each)<br>• Sunflower Bookmark — <b>Rs. 150</b><br>• Daisy Hair Clip — <b>Rs. 200</b><br>• Angry Clip — <b>Rs. 250</b><br>• Suit Rose Lapel Pin — <b>Rs. 250</b><br>Tiny prices, big smiles ✨' },
+                { k: ['best seller', 'popular', 'famous', 'trending', 'bestseller'], a: () => '🔥 Our Best Sellers right now:<br>• Thai Rose — Rs. 1,100<br>• Cute Chick Keychain — Rs. 350<br>• Suit Rose Lapel Pin — Rs. 250<br>• Smiley Face Glasses Case — Rs. 750<br>Everyone\'s obsessed with these! 😍' },
+                { k: ['expensive', 'premium', 'luxury', 'most expensive'], a: () => '✨ Our premium treasures:<br>• Y2K Kawaii Mini Suitcase Bag — <b>Rs. 6,000</b><br>• Bunny Holding a Heart — <b>Rs. 5,000</b><br>• Custom-Made Bouquet — <b>Rs. 4,900</b><br>• Mesh Tote Bag — <b>Rs. 4,000</b><br>Luxury made by hand, stitch by stitch 💖' },
+                { k: ['track', 'status of my order', 'where is my order', 'my order'], a: () => '📦 For order updates, send us your name + order details on WhatsApp (<b>+92 311 4690134</b>) and we\'ll check it right away! 💌' },
+                { k: ['return', 'refund', 'exchange', 'damaged', 'broken'], a: () => 'Oh no! 😟 If anything\'s not perfect, please WhatsApp us at <b>+92 311 4690134</b> with a photo — we always make things right 💖' },
+                { k: ['about', 'brand', 'zylo', 'zaynah', 'story', 'handmade', 'who made', 'what is zylo'], a: () => '🧶 <b>ZYLO</b> is a handmade crochet brand by <b>Zaynah</b> 💖 Every flower, keychain, plushie & accessory is crocheted stitch-by-stitch with love — effortlessly aesthetic, irresistibly cute, and made to make you smile ✨' },
+                { k: ['who are you', 'are you a bot', 'robot', 'ai bot', 'your name', 'zuzu'], a: () => 'I\'m <b>Zuzu</b> 🧶✨ — ZYLO\'s crochet bestie! I know every product, price & secret of this shop. What can I help you find, cutie? 🌸' },
+                { k: ['thank', 'shukriya', 'great', 'awesome', 'amazing', 'love you', 'cute bot'], a: () => 'Awww, you\'re the sweetest! 🥹💖 Anything else you\'d like to see? 🌸' },
+                { k: ['bye', 'goodbye', 'good night', 'gn', 'tata', 'see you'], a: () => 'Byee cutie! 👋💖 Come back soon — Zuzu will be here waiting with new drops 🧶✨' },
+                { k: ['hi', 'hello', 'hey', 'salam', 'assalam', 'hola', 'yo '], a: () => 'Heyyy cutie! 👋💖 Welcome to <b>ZYLO</b>! Ask me about any product, price, delivery or payment — I know it all ✨', greet: true }
+            ];
+
+            const panel = document.getElementById('chatPanel');
+            const msgs = document.getElementById('chatMsgs');
+            const input = document.getElementById('chatInput');
+            const chipsBox = document.getElementById('chatChips');
+            const unread = document.getElementById('chatUnread');
+
+            const CHIPS = ['🌸 Flower prices', '🔑 Keychains', '🧸 Plushies', '🎀 Accessories', '🚚 Delivery', '💳 Payment'];
+
+            function addMsg(html, who) {
+                const d = document.createElement('div');
+                d.className = 'msg ' + who;
+                if (who === 'user') { d.textContent = html; } else { d.innerHTML = html; }
+                msgs.appendChild(d);
+                msgs.scrollTop = msgs.scrollHeight;
+            }
+
+            function showChips() {
+                chipsBox.innerHTML = '';
+                CHIPS.forEach(c => {
+                    const b = document.createElement('button');
+                    b.className = 'chip';
+                    b.textContent = c;
+                    b.onclick = () => { userSays(c); };
+                    chipsBox.appendChild(b);
+                });
+            }
+
+            function thinkThen(replyHtml) {
+                const t = document.createElement('div');
+                t.className = 'typing';
+                t.innerHTML = '<span></span><span></span><span></span>';
+                msgs.appendChild(t);
+                msgs.scrollTop = msgs.scrollHeight;
+                setTimeout(() => { t.remove(); addMsg(replyHtml, 'bot'); }, 550 + Math.min(replyHtml.length * 3, 700));
+            }
+
+            function answer(raw) {
+                const text = ' ' + raw.toLowerCase().replace(/[?!,.]/g, ' ') + ' ';
+
+                const prod = findProduct(text);
+                if (prod) {
+                    return '🧶 <b>' + prod.n + '</b><br>💰 Price: <b>' + prod.p + '</b><br>📁 From our <b>' + prod.c + '</b> collection!<br>Scroll to its card & tap “Add to Cart ✨” to grab it 🛍️';
+                }
+
+                for (const key of Object.keys(CATS)) {
+                    if (CATS[key].match.some(m => text.includes(m))) return listCat(key);
+                }
+
+                let bestI = null, bestScore = 0;
+                INTENTS.forEach(it => {
+                    const score = it.k.reduce((s, kw) => s + (text.includes(kw) ? kw.length : 0), 0);
+                    if (score > bestScore) { bestScore = score; bestI = it; }
+                });
+                if (bestI) return bestI.a();
+
+                return 'Hmm, I\'m still learning that one! 🌱 Try asking about a <b>product</b>, <b>price</b>, <b>delivery</b> or <b>payment</b>…<br>Or chat with our humans: ' + CONTACT_HTML;
+            }
+
+            function userSays(text) {
+                if (!text.trim()) return;
+                addMsg(text.trim(), 'user');
+                input.value = '';
+                thinkThen(answer(text));
+            }
+            window.userSays = userSays;
+
+            window.toggleChat = function() {
+                panel.classList.toggle('open');
+                unread.style.display = 'none';
+                if (panel.classList.contains('open') && !msgs.hasChildNodes()) {
+                    setTimeout(() => {
+                        addMsg('Hehe hi there! 🧶💖 I\'m <b>Zuzu</b>, ZYLO\'s little crochet bestie! Ask me about any product, price, delivery or payment — I know everything about this shop ✨', 'bot');
+                        showChips();
+                    }, 300);
+                    setTimeout(() => input.focus(), 350);
+                }
+            };
+
+            window.sendChatMessage = function() { userSays(input.value); };
+            input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); userSays(input.value); } });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && panel.classList.contains('open')) toggleChat();
+            });
         })();
 
         // Sparkle cursor trail
