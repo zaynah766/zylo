@@ -23,6 +23,8 @@
             --text-dark: #1E1E24;
             --accent-pink: #FF70A6;
             --funky-green: #64B9AA;
+            --dot-color: #FFE3EC;
+            --footer-bg: #1E1E24;
         }
 
         * {
@@ -146,6 +148,27 @@
             background: var(--primary);
             color: var(--white);
             transform: rotate(90deg) translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--text-dark);
+        }
+
+        .theme-toggle {
+            background: var(--light-purple);
+            border: 2px solid var(--text-dark);
+            font-size: 19px;
+            cursor: pointer;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0 var(--text-dark);
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .theme-toggle:hover {
+            transform: translate(-2px, -2px) rotate(-14deg);
             box-shadow: 5px 5px 0 var(--text-dark);
         }
 
@@ -540,7 +563,7 @@
         .product-img {
             height: 240px;
             background-color: var(--white);
-            background-image: radial-gradient(#FFE3EC 2px, transparent 2px);
+            background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
             background-size: 18px 18px;
             position: relative;
             overflow: hidden;
@@ -1049,7 +1072,7 @@
         }
 
         footer {
-            background-color: var(--text-dark);
+            background-color: var(--footer-bg);
             color: var(--white);
             text-align: center;
             padding: 44px 20px 36px;
@@ -1134,8 +1157,8 @@
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 94px;
+            right: 26px;
             width: 52px;
             height: 52px;
             border-radius: 50%;
@@ -1193,6 +1216,283 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* ===== Scroll Progress Bar ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--neon-yellow), var(--light-blue));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 2500;
+            pointer-events: none;
+        }
+
+        /* ===== WhatsApp Float ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            border: 3px solid var(--text-dark);
+            box-shadow: 4px 4px 0 var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1650;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #ffffff;
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 3px solid #25D366;
+            animation: waPulse 2.2s ease-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes waPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            70% { transform: scale(1.45); opacity: 0; }
+            100% { transform: scale(1.45); opacity: 0; }
+        }
+
+        .whatsapp-float::after {
+            content: 'Chat with us 💬';
+            position: absolute;
+            right: calc(100% + 14px);
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 3px 3px 0 rgba(30, 30, 36, 0.25);
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .whatsapp-float:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--text-dark);
+        }
+
+        /* ===== Customer Reviews ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            border-radius: 24px;
+            padding: 26px 22px;
+            border: 3px solid var(--text-dark);
+            box-shadow: 5px 5px 0 var(--text-dark);
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .review-card:nth-child(6n+1) { background: #FFD9E8; }
+        .review-card:nth-child(6n+2) { background: #D3F1FF; }
+        .review-card:nth-child(6n+3) { background: #E8DBFF; }
+        .review-card:nth-child(6n+4) { background: #D9F6E6; }
+        .review-card:nth-child(6n+5) { background: #FFE8D6; }
+        .review-card:nth-child(6n)   { background: #FFF3B0; }
+
+        .review-card:hover {
+            transform: translate(-4px, -4px) rotate(-0.5deg);
+            box-shadow: 9px 9px 0 var(--text-dark);
+        }
+
+        .review-stars {
+            letter-spacing: 3px;
+            color: #FFB800;
+            font-size: 18px;
+            text-shadow: 1px 1px 0 rgba(30, 30, 36, 0.25);
+        }
+
+        .review-text {
+            color: #1E1E24;
+            font-weight: 600;
+            line-height: 1.7;
+            font-size: 14.5px;
+            flex-grow: 1;
+        }
+
+        .review-foot {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2px solid #1E1E24;
+            box-shadow: 2px 2px 0 #1E1E24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .review-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 14px;
+            color: #1E1E24;
+        }
+
+        .review-item {
+            font-size: 12px;
+            font-weight: 700;
+            color: #6b7280;
+        }
+
+        /* ===== Sparkle Cursor Trail ===== */
+        .cursor-sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 4000;
+            transform: translate(-50%, -50%);
+            animation: sparkleFade 0.9s ease-out forwards;
+            user-select: none;
+        }
+
+        @keyframes sparkleFade {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: translate(-50%, -140%) scale(0.2) rotate(25deg); }
+        }
+
+        /* ===== Dark Mode ===== */
+        body.dark {
+            --white: #23272f;
+            --cream: #2c313b;
+            --text-dark: #f7f3ea;
+            --funky-green: #141d1a;
+            --dot-color: #3a414d;
+            --footer-bg: #101418;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 0.75px, transparent 0.75px), radial-gradient(rgba(255, 255, 255, 0.07) 0.75px, #141d1a 0.75px);
+        }
+
+        body.dark header { background-color: rgba(20, 25, 23, 0.94); }
+
+        body.dark .cta-btn {
+            background-color: #111418;
+            color: var(--neon-yellow);
+        }
+
+        body.dark .ticker-wrap,
+        body.dark .banner p,
+        body.dark .price,
+        body.dark .add-to-cart-btn,
+        body.dark .cart-header h3,
+        body.dark .hamburger-btn,
+        body.dark .theme-toggle,
+        body.dark .cart-icon-btn,
+        body.dark .qty-btn,
+        body.dark .badge.blue,
+        body.dark .badge.green,
+        body.dark .badge.purple,
+        body.dark .dropdown-menu ul li a:hover,
+        body.dark .category-card {
+            color: #1E1E24;
+        }
+
+        body.dark .toast {
+            background: var(--neon-yellow);
+            color: #1E1E24;
+            border-color: #1E1E24;
+        }
+
+        /* ===== Developer Card (Footer) ===== */
+        .dev-card {
+            margin: 28px auto 0;
+            max-width: 430px;
+            background: #262b31;
+            border: 3px dashed var(--neon-yellow);
+            border-radius: 18px;
+            padding: 18px 22px;
+            transform: rotate(-1deg);
+            transition: all 0.25s ease;
+            box-shadow: 0 0 22px rgba(255, 238, 85, 0.12);
+        }
+
+        .dev-card:hover {
+            transform: rotate(0deg) translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 238, 85, 0.3);
+        }
+
+        .dev-card-head {
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .dev-card-head span { color: var(--neon-yellow); }
+
+        .dev-tag {
+            margin-top: 6px;
+            font-size: 12.5px;
+            color: #cfcfcf;
+            font-weight: 600;
+        }
+
+        .dev-links {
+            margin-top: 13px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            justify-content: center;
+        }
+
+        .dev-links a {
+            color: #ffffff;
+            background: rgba(255, 238, 85, 0.12);
+            border: 1.5px solid rgba(255, 238, 85, 0.5);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .dev-links a:hover {
+            background: var(--neon-yellow);
+            color: #1E1E24;
+            transform: translateY(-2px);
+        }
+
         /* Mobile Styles */
         @media (max-width: 768px) {
             header { padding: 12px 15px; }
@@ -1227,8 +1527,17 @@
             .wave-divider svg { height: 40px; }
             footer { padding: 34px 15px 30px; }
             .footer-social-btn { padding: 8px 16px; font-size: 12px; }
-            .back-to-top { width: 44px; height: 44px; font-size: 18px; bottom: 18px; right: 18px; }
-            .toast { bottom: 76px; font-size: 13px; padding: 11px 18px; }
+            .theme-toggle { width: 38px; height: 38px; font-size: 17px; border-radius: 10px; }
+            .cart-icon-btn { padding: 7px 11px; font-size: 14px; }
+            .scroll-progress { height: 4px; }
+            .whatsapp-float { width: 54px; height: 54px; bottom: 18px; right: 18px; }
+            .whatsapp-float svg { width: 26px; height: 26px; }
+            .whatsapp-float::after { display: none; }
+            .back-to-top { width: 44px; height: 44px; font-size: 18px; bottom: 84px; right: 21px; }
+            .toast { bottom: 84px; right: auto; left: 50%; font-size: 13px; padding: 11px 18px; max-width: calc(100vw - 110px); }
+            .reviews-grid { gap: 14px; }
+            .review-card { padding: 18px 16px; border-radius: 18px; box-shadow: 3px 3px 0 var(--text-dark); }
+            .dev-card { margin: 24px 8px 0; }
         }
 
         @media (max-width: 400px) {
@@ -1272,6 +1581,7 @@
             </a>
         </div>
         <div class="nav-icons">
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
             <button class="cart-icon-btn" onclick="toggleCart()">
                 🛍️ <span class="cart-badge" id="cart-count">0</span>
             </button>
@@ -1677,6 +1987,61 @@
         </div>
     </section>
 
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title">Customer Love ⭐</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The bunny holding a heart is SO soft and bigger than I expected. My sister cried when she opened it 😭💖"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">🐰</div>
+                    <div><div class="review-name">Mahnoor</div><div class="review-item">Bunny Holding a Heart</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Ordered the 7 roses bouquet for my mom's birthday. Perfect stitches, gorgeous colors, and the packaging was adorable!"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">🌷</div>
+                    <div><div class="review-name">Ayesha</div><div class="review-item">Roses Bouquet</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"My Luffy keychain gets compliments EVERYWHERE I go. The quality is unreal for the price ✨"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">🔑</div>
+                    <div><div class="review-name">Zainab</div><div class="review-item">Luffy Keychain</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The mesh top fits perfectly and the color is exactly like the pictures. Obsessed is an understatement 🖤"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">👚</div>
+                    <div><div class="review-name">Hafsa</div><div class="review-item">Mesh Top</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Super fast delivery and the cutest handwritten thank-you note inside. Zylo never misses ✨"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">🪴</div>
+                    <div><div class="review-name">Fatima</div><div class="review-item">Sunflower Desk Pot</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Got matching batman keychains for me and my boyfriend. We're obsessed!! Best couple gift ever 🦇"</p>
+                <div class="review-foot">
+                    <div class="review-avatar">🦇</div>
+                    <div><div class="review-name">Noor</div><div class="review-item">Matching Batman Keychains</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Instagram / Social Media Section -->
     <section id="social">
         <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
@@ -1723,7 +2088,7 @@
     <!-- Wave Divider & Footer -->
     <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,42 C180,70 360,8 540,24 C720,40 900,64 1080,44 C1260,24 1380,14 1440,30 L1440,70 L0,70 Z" fill="#1E1E24"/>
+            <path d="M0,42 C180,70 360,8 540,24 C720,40 900,64 1080,44 C1260,24 1380,14 1440,30 L1440,70 L0,70 Z" fill="var(--footer-bg)"/>
         </svg>
     </div>
     <footer>
@@ -1741,9 +2106,24 @@
             <a href="https://wa.me/923244231008" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
         </div>
         <p>&copy; 2026 ZYLO. All rights reserved.</p>
-        <p class="credits" style="margin-top: 12px; font-size: 13px;">Made by ahmad | Phone: <a href="https://wa.me/923244231008" target="_blank">03244231008</a> | Mail: <a href="mailto:ahmadkamran0978@gmail.com">ahmadkamran0978@gmail.com</a></p>
-        <p class="credits" style="margin-top: 6px; font-size: 13px;">Zylo by Zaynah 💖</p>
+        <p class="credits" style="margin-top: 14px;">Zylo by Zaynah 💖</p>
+        <div class="dev-card">
+            <div class="dev-card-head">💻 Developed by <span>AHMAD</span></div>
+            <p class="dev-tag">Crafting code with the same love as every stitch 🧶</p>
+            <div class="dev-links">
+                <a href="https://wa.me/923244231008" target="_blank">📞 0324 4231008</a>
+                <a href="mailto:ahmadkamran0978@gmail.com">✉️ ahmadkamran0978@gmail.com</a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- WhatsApp Float Button -->
+    <a class="whatsapp-float" href="https://wa.me/923244231008" target="_blank" rel="noopener" aria-label="Chat with ZYLO on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">↑</button>
@@ -2014,18 +2394,61 @@
             }
         });
 
-        // Back to Top button visibility
+        // Back to Top button + Scroll progress bar
         const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
+        const progressBar = document.getElementById('scrollProgress');
+        function onScroll() {
             backToTopBtn.classList.toggle('show', window.scrollY > 500);
-        }, { passive: true });
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Dark mode toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            try { localStorage.setItem('zylo-theme', isDark ? 'dark' : 'light'); } catch (e) {}
+            document.getElementById('theme-toggle').innerText = isDark ? '☀️' : '🌙';
+        }
+        (function() {
+            try {
+                if (localStorage.getItem('zylo-theme') === 'dark') {
+                    document.body.classList.add('dark');
+                    document.getElementById('theme-toggle').innerText = '☀️';
+                }
+            } catch (e) {}
+        })();
+
+        // Sparkle cursor trail
+        (function() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (window.matchMedia('(pointer: coarse)').matches) return;
+            const emojis = ['✨', '💖', '⭐', '🌸', '💫'];
+            let lastX = 0, lastY = 0, alive = 0;
+            window.addEventListener('mousemove', function(e) {
+                const dx = e.clientX - lastX, dy = e.clientY - lastY;
+                if (Math.sqrt(dx * dx + dy * dy) < 34 || alive > 28) return;
+                lastX = e.clientX; lastY = e.clientY;
+                const s = document.createElement('span');
+                s.className = 'cursor-sparkle';
+                s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                s.style.left = e.clientX + 'px';
+                s.style.top = e.clientY + 'px';
+                s.style.fontSize = (9 + Math.random() * 8) + 'px';
+                document.body.appendChild(s);
+                alive++;
+                setTimeout(function() { s.remove(); alive--; }, 900);
+            }, { passive: true });
+        })();
 
         // Scroll reveal animations
         (function() {
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
-            const revealEls = document.querySelectorAll('.product-card, .category-card, .insta-box, .about-section');
+            const revealEls = document.querySelectorAll('.product-card, .category-card, .insta-box, .about-section, .review-card');
             revealEls.forEach(el => el.classList.add('reveal'));
 
             const io = new IntersectionObserver(function(entries) {
