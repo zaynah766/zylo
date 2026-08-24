@@ -2139,7 +2139,14 @@
 
         .lb-close:hover { transform: rotate(90deg) scale(1.1); }
 
-        /* Mobile Styles */
+        /* ===== Performance: browser skips painting sections until you scroll near them ===== */
+    #flowers, #keychains, #plushies, #decor, #accessories,
+    #reviews, #social, #faq, #contact {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
+    }
+
+    /* Mobile Styles */
         @media (max-width: 768px) {
             header { padding: 12px 15px; }
             .logo { font-size: 24px; }
@@ -3158,6 +3165,20 @@
                     document.getElementById('theme-toggle').innerText = '☀️';
                 }
             } catch (e) {}
+        })();
+
+        // ===== Sort product grids by price (cheapest first) =====
+        (function() {
+            document.querySelectorAll('.product-grid').forEach(function(grid) {
+                const cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+                const priced = cards.map(function(card) {
+                    const btn = card.querySelector('.add-to-cart-btn');
+                    const m = btn ? /,\s*(\d+)/.exec(btn.getAttribute('onclick') || '') : null;
+                    return { card: card, price: m ? parseInt(m[1], 10) : 0 };
+                });
+                priced.sort(function(a, b) { return a.price - b.price; });
+                priced.forEach(function(o) { grid.appendChild(o.card); });
+            });
         })();
 
         // ===== Shop UX: wishlist, stock badges, lightbox, FAQ, loader =====
