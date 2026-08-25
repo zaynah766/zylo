@@ -611,6 +611,87 @@
 
         .category-card h3 { font-size: 18px; }
 
+        /* Gift Guide hints */
+        .gift-hint {
+            font-size: 12px;
+            font-weight: 700;
+            color: #5f6b76;
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+        body.dark .gift-hint { color: #a8b3bd; }
+
+        /* How It's Made steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            position: relative;
+            background: var(--white);
+            border: 3px solid var(--text-dark);
+            border-radius: 22px;
+            box-shadow: 4px 6px 0 rgba(30, 30, 36, 0.85);
+            padding: 32px 16px 22px;
+            text-align: center;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+        }
+
+        .step-card:nth-child(1) { background: #FFD9E8; }
+        .step-card:nth-child(2) { background: #D3F1FF; }
+        .step-card:nth-child(3) { background: #E8DBFF; }
+        .step-card:nth-child(4) { background: #D9F6E6; }
+
+        .step-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 10px 0 var(--text-dark);
+        }
+        body.dark .step-card:hover { box-shadow: 7px 9px 0 rgba(247, 243, 234, 0.8); }
+
+        .step-num {
+            position: absolute;
+            top: -14px;
+            left: -10px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--neon-yellow);
+            border: 2.5px solid var(--text-dark);
+            box-shadow: 2px 2px 0 var(--text-dark);
+            font-family: 'Fredoka One', cursive;
+            font-size: 17px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-8deg);
+        }
+
+        .step-icon {
+            font-size: 42px;
+            line-height: 1;
+            margin-bottom: 12px;
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+
+        .step-card:nth-child(2) .step-icon { animation-delay: 0.4s; }
+        .step-card:nth-child(3) .step-icon { animation-delay: 0.8s; }
+        .step-card:nth-child(4) .step-icon { animation-delay: 1.2s; }
+
+        .step-card h3 { font-size: 16px; margin-bottom: 8px; }
+
+        .step-card p {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5560;
+            line-height: 1.6;
+        }
+        body.dark .step-card p { color: #3a414d; }
+
         /* Product Grid */
         .product-grid {
             display: grid;
@@ -695,10 +776,20 @@
 
         .product-info h3 {
             font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--text-dark);
             line-height: 1.35;
         }
+
+        .product-desc {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #6b7280;
+            line-height: 1.55;
+            margin: 0 0 10px;
+        }
+
+        body.dark .product-desc { color: #a8b3bd; }
 
         .price {
             background: var(--neon-yellow);
@@ -2545,7 +2636,7 @@
     }
     .cat-pill:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--text-dark); background-color: var(--neon-yellow); }
     .cat-pill.active { background-color: var(--primary); color: var(--white); }
-    #shop, #flowers, #keychains, #plushies, #decor, #accessories {
+    #shop, #flowers, #keychains, #plushies, #decor, #accessories, #gifts, #process {
         scroll-margin-top: calc(var(--header-h, 64px) + 60px);
     }
     .dark .cat-nav { background: rgba(30, 30, 36, 0.86); }
@@ -2607,6 +2698,14 @@
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .product-img { height: 150px; padding: 10px; }
             .product-info { padding: 12px 10px; }
+            .product-desc { font-size: 10.5px; margin: 0 0 6px; line-height: 1.45; }
+            .steps-grid { gap: 14px; grid-template-columns: repeat(2, 1fr); }
+            .step-card { padding: 26px 12px 16px; border-radius: 16px; box-shadow: 3px 4px 0 var(--text-dark); }
+            .step-icon { font-size: 30px; margin-bottom: 8px; }
+            .step-card h3 { font-size: 13px; }
+            .step-card p { font-size: 11px; line-height: 1.5; }
+            .step-num { width: 30px; height: 30px; font-size: 14px; top: -11px; left: -8px; }
+            .gift-hint { font-size: 10.5px; }
             .product-info h3 { font-size: 13px; }
             .price { font-size: 13px; padding: 4px 10px; }
             .add-to-cart-btn { padding: 8px 6px; font-size: 12px; margin-top: 8px; border-radius: 12px; box-shadow: 2px 2px 0 var(--text-dark); }
@@ -3132,8 +3231,10 @@
             <li><a href="#plushies" onclick="toggleMenu()">🧸 Plushies Collection</a></li>
             <li><a href="#decor" onclick="toggleMenu()">🪴 Decor Collection</a></li>
             <li><a href="#accessories" onclick="toggleMenu()">🎀 Accessories Collection</a></li>
+            <li><a href="#gifts" onclick="toggleMenu()">🎁 Gift Finder</a></li>
             <li><a href="#about" onclick="toggleMenu()">✨ About ZYLO</a></li>
             <li><a href="#stall" onclick="toggleMenu()">🎉 Our First Event</a></li>
+            <li><a href="#process" onclick="toggleMenu()">🧶 How It's Made</a></li>
             <li><a href="#social" onclick="toggleMenu()">📸 Instagram / Social</a></li>
             <li><a href="#contact" onclick="toggleMenu()">💌 Contact Us</a></li>
         </ul>
@@ -3175,28 +3276,28 @@
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><span class="ribbon-badge ribbon-pink">🔥 Best Seller</span><span class="badge">🔥 Best Seller</span><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
                 <div class="product-info">
-                    <div><h3>thai rose</h3><div class="price">Rs. 1,100</div></div>
+                    <div><h3>thai rose</h3><p class="product-desc">A rose that never wilts — hand-crafted petals, forever fresh 🌹</p><div class="price">Rs. 1,100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Handmade Crochet Rose Stem', 1100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><span class="ribbon-badge ribbon-blue">🔥 Best Seller</span><span class="badge blue">🔥 Best Seller</span><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
                 <div class="product-info">
-                    <div><h3>Cute Chick Keychain</h3><div class="price">Rs. 350</div></div>
+                    <div><h3>Cute Chick Keychain</h3><p class="product-desc">A fluffy little bestie for your keys 🔑🐤</p><div class="price">Rs. 350</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Cute Chick Keychain', 350)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><span class="ribbon-badge ribbon-pink">🔥 Best Seller</span><span class="badge purple">🔥 Best Seller</span><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
                 <div class="product-info">
-                    <div><h3>rose brooch</h3><div class="price">Rs. 250</div></div>
+                    <div><h3>rose brooch</h3><p class="product-desc">Pin-on charm for suits, dupattas & everything in between 🌹</p><div class="price">Rs. 250</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Suit Rose Lapel Pin', 250)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-mint">
                 <div class="product-img"><span class="ribbon-badge ribbon-green">🔥 Best Seller</span><span class="badge green">🔥 Best Seller</span><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
                 <div class="product-info">
-                    <div><h3>glasses holder</h3><div class="price">Rs. 750</div></div>
+                    <div><h3>glasses holder</h3><p class="product-desc">Keeps your specs safe & smiling 😎</p><div class="price">Rs. 750</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Smiley Face Glasses Case', 750)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3234,6 +3335,20 @@
             <path d="M0,42 C180,70 360,8 540,24 C720,40 900,64 1080,44 C1260,24 1380,14 1440,30 L1440,70 L0,70 Z"/>
         </svg>
     </div>
+
+    <!-- Gift Guide -->
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,25 C200,5 400,35 600,15 C800,35 1000,5 1200,25 C1300,15 1400,20 1440,25 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="gifts" class="section-theme-pink">
+        <h2 class="section-title">Gift Finder 🎁</h2>
+        <span class="section-sub">can't decide? start here 💝</span>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-2 blue">gift-giving made easy!</span></div>
+        <div class="categories-grid">
+            <a href="#keychains" class="category-card"><div class="category-icon">🪙</div><h3>Under Rs.500</h3><p class="gift-hint">clips, charms &amp; tiny treasures</p></a>
+            <a href="#keychains" class="category-card"><div class="category-icon">💑</div><h3>Couple Goals</h3><p class="gift-hint">matching keychains for two 🦇</p></a>
+            <a href="#plushies" class="category-card"><div class="category-icon">🎂</div><h3>Birthday Wins</h3><p class="gift-hint">plushies they'll never forget 🧸</p></a>
+            <a href="#flowers" class="category-card"><div class="category-icon">💍</div><h3>Grand Gestures</h3><p class="gift-hint">bouquets that say it all 💐</p></a>
+        </div>
+    </section>
 
     <!-- Shop by Category -->
     <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,20 Q120,0 240,20 T480,20 T720,20 T960,20 T1200,20 T1440,20 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
@@ -3289,98 +3404,98 @@
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="Tangled Inspired Flower Stand"></div>
                 <div class="product-info">
-                    <div><h3>Tangled Inspired Flower Stand</h3><div class="price">Rs. 2,500</div></div>
+                    <div><h3>Tangled Inspired Flower Stand</h3><p class="product-desc">Rapunzel energy — a magical centerpiece for Disney hearts 🏰</p><div class="price">Rs. 2,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Tangled Inspired Flower Stand', 2500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 5 zylo.jpeg" alt="Thai Rose"></div>
                 <div class="product-info">
-                    <div><h3>Thai Rose</h3><div class="price">Rs. 1,100</div></div>
+                    <div><h3>Thai Rose</h3><p class="product-desc">Hand-petaled beauty that stays perfect forever 🌺</p><div class="price">Rs. 1,100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Thai Rose', 1100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flowers zylo.jpeg" alt="Roses Each"></div>
                 <div class="product-info">
-                    <div><h3>Roses (Each)</h3><div class="price">Rs. 300</div></div>
+                    <div><h3>Roses (Each)</h3><p class="product-desc">Single stems of forever-love — mix & match your own bouquet 💗</p><div class="price">Rs. 300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Roses (Each)', 300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 3 zylo.jpeg" alt="3 Sunflower Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>3 Sunflower Bouquet</h3><div class="price">Rs. 1,500</div></div>
+                    <div><h3>3 Sunflower Bouquet</h3><p class="product-desc">Three rays of sunshine that never fade ☀️</p><div class="price">Rs. 1,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('3 Sunflower Bouquet', 1500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 4 zylo.jpeg" alt="7 Roses Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>7 Roses Bouquet</h3><div class="price">Rs. 2,300</div></div>
+                    <div><h3>7 Roses Bouquet</h3><p class="product-desc">Seven handmade roses, one grand gesture 💐</p><div class="price">Rs. 2,300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('7 Roses Bouquet', 2300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 6 zylo.jpeg" alt="Sunflower Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>Sunflower</h3><div class="price">Rs. 450 (Each)</div></div>
+                    <div><h3>Sunflower</h3><p class="product-desc">Big, bright & always facing your smile 🌻</p><div class="price">Rs. 450 (Each)</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bouquet', 2200)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Pink roses bouquet of 7 rs. 2500.jpg" alt="Pink Roses Bouquet of 7"></div>
                 <div class="product-info">
-                    <div><h3>Pink Roses Bouquet of 7</h3><div class="price">Rs. 2,500</div></div>
+                    <div><h3>Pink Roses Bouquet of 7</h3><p class="product-desc">Soft pink, hand-stitched, made to melt hearts 🌸</p><div class="price">Rs. 2,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Pink Roses Bouquet of 7', 2500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="White roses bouquet of 7 rs.2500.jpg" alt="White Roses Bouquet of 7"></div>
                 <div class="product-info">
-                    <div><h3>White Roses Bouquet of 7</h3><div class="price">Rs. 2,500</div></div>
+                    <div><h3>White Roses Bouquet of 7</h3><p class="product-desc">Pure, elegant & forever fresh 🤍</p><div class="price">Rs. 2,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('White Roses Bouquet of 7', 2500)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Batman inspired bouquet rs. 1800.jpg" alt="Batman Inspired Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>Batman Inspired Bouquet</h3><div class="price">Rs. 1,800</div></div>
+                    <div><h3>Batman Inspired Bouquet</h3><p class="product-desc">For the hero in your life 🦇</p><div class="price">Rs. 1,800</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Batman Inspired Bouquet', 1800)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Tulip rs.450.jpg" alt="Tulip"></div>
                 <div class="product-info">
-                    <div><h3>Tulip</h3><div class="price">Rs. 450</div></div>
+                    <div><h3>Tulip</h3><p class="product-desc">Springtime vibes, zero watering required 🌷</p><div class="price">Rs. 450</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Tulip', 450)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="lavender rs 350.jpg" alt="Lavender"></div>
                 <div class="product-info">
-                    <div><h3>Lavender</h3><div class="price">Rs. 350</div></div>
+                    <div><h3>Lavender</h3><p class="product-desc">Calm, cute & forever in bloom 💜</p><div class="price">Rs. 350</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Lavender', 350)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="daisey rs 350.jpg" alt="Daisy"></div>
                 <div class="product-info">
-                    <div><h3>Daisy</h3><div class="price">Rs. 350</div></div>
+                    <div><h3>Daisy</h3><p class="product-desc">Fresh as a meadow morning 🌼</p><div class="price">Rs. 350</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Daisy', 350)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Custom-made bouquet rs.4900.jpg" alt="Custom-Made Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>Custom-Made Bouquet</h3><div class="price">Rs. 4,900</div></div>
+                    <div><h3>Custom-Made Bouquet</h3><p class="product-desc">Your dream bouquet, crocheted from scratch 🎨</p><div class="price">Rs. 4,900</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Custom-Made Bouquet', 4900)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="teddy bouqet rs3200.jpg" alt="Teddy Bouquet"></div>
                 <div class="product-info">
-                    <div><h3>Teddy Bouquet</h3><div class="price">Rs. 3,200</div></div>
+                    <div><h3>Teddy Bouquet</h3><p class="product-desc">Teddy bears + flowers = the ultimate gift combo 🧸💐</p><div class="price">Rs. 3,200</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Teddy Bouquet', 3200)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3396,42 +3511,42 @@
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
                 <div class="product-info">
-                    <div><h3>Luffy Inspired Crocheted Plushie Keychain</h3><div class="price">Rs. 1,000</div></div>
+                    <div><h3>Luffy Inspired Crocheted Plushie Keychain</h3><p class="product-desc">Carry a tiny pirate king everywhere 🏴‍☠️</p><div class="price">Rs. 1,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Luffy Inspired Crocheted Plushie Keychain', 1000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 2 zylo.jpg" alt="Batman Keychains"></div>
                 <div class="product-info">
-                    <div><h3>Matching Batman Keychains</h3><div class="price">Rs. 1,300</div></div>
+                    <div><h3>Matching Batman Keychains</h3><p class="product-desc">Couple goals, hero edition 🦇🦇</p><div class="price">Rs. 1,300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Batman Keychains', 1300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 3 zylo.jpg" alt="Capybara Keychains"></div>
                 <div class="product-info">
-                    <div><h3>Matching Capybara Keychains</h3><div class="price">Rs. 600</div></div>
+                    <div><h3>Matching Capybara Keychains</h3><p class="product-desc">A chill duo for very chill people 🦫</p><div class="price">Rs. 600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Capybara Keychains', 600)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 4 zylo.jpg" alt="Strawberry Keychain"></div>
                 <div class="product-info">
-                    <div><h3>Strawberry Keychain</h3><div class="price">Rs. 300</div></div>
+                    <div><h3>Strawberry Keychain</h3><p class="product-desc">The sweetest thing your bag will ever carry 🍓</p><div class="price">Rs. 300</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Strawberry Keychain', 300)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 5 zylo.jpg" alt="Hello Kitty Keychain"></div>
                 <div class="product-info">
-                    <div><h3>Hello Kitty Keychain</h3><div class="price">Rs. 650</div></div>
+                    <div><h3>Hello Kitty Keychain</h3><p class="product-desc">Iconic cuteness, handmade with love 🎀</p><div class="price">Rs. 650</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Hello Kitty Keychain', 650)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 6 zylo.jpg" alt="Strawberry Mushroom Keychain"></div>
                 <div class="product-info">
-                    <div><h3>Strawberry Mushroom Keychain</h3><div class="price">Rs. 450</div></div>
+                    <div><h3>Strawberry Mushroom Keychain</h3><p class="product-desc">Weirdly adorable forest-core friend 🍄</p><div class="price">Rs. 450</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Strawberry Mushroom Keychain', 450)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3447,35 +3562,35 @@
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="Mr. Bean Teddy"></div>
                 <div class="product-info">
-                    <div><h3>Mr. Bean Teddy</h3><div class="price">Rs. 1,000</div></div>
+                    <div><h3>Mr. Bean Teddy</h3><p class="product-desc">Grumpy face, soft heart 🧸</p><div class="price">Rs. 1,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mr. Bean Teddy', 1000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 2.jpeg" alt="Bunny holding a heart"></div>
                 <div class="product-info">
-                    <div><h3>Bunny Holding a Heart</h3><div class="price">Rs. 5,000</div></div>
+                    <div><h3>Bunny Holding a Heart</h3><p class="product-desc">The crying-when-unwrapped gift 😭💖</p><div class="price">Rs. 5,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Bunny Holding a Heart', 5000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 3.jpeg" alt="Penguin"></div>
                 <div class="product-info">
-                    <div><h3>Penguin</h3><div class="price">Rs. 700</div></div>
+                    <div><h3>Penguin</h3><p class="product-desc">Waddles straight into your heart 🐧</p><div class="price">Rs. 700</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Penguin', 700)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 4.jpeg" alt="Fav Bean"></div>
                 <div class="product-info">
-                    <div><h3>Fav Bean</h3><div class="price">Rs. 550</div></div>
+                    <div><h3>Fav Bean</h3><p class="product-desc">Smol bean, big love ✨</p><div class="price">Rs. 550</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Fav Bean', 550)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 5.jpeg" alt="Mini Bunny"></div>
                 <div class="product-info">
-                    <div><h3>Mini Bunny</h3><div class="price">Rs. 1,500</div></div>
+                    <div><h3>Mini Bunny</h3><p class="product-desc">Pocket-sized hop of happiness 🐰</p><div class="price">Rs. 1,500</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mini Bunny', 1500)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3491,28 +3606,28 @@
             <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 1.jpeg" alt="Sunflower Desk Pot"></div>
                 <div class="product-info">
-                    <div><h3>Sunflower Desk Pot</h3><div class="price">Rs. 700</div></div>
+                    <div><h3>Sunflower Desk Pot</h3><p class="product-desc">Sunshine for your study desk 🌻</p><div class="price">Rs. 700</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Desk Pot', 700)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 4.jpeg" alt="Glasses Holder"></div>
                 <div class="product-info">
-                    <div><h3>Glasses Holder</h3><div class="price">Rs. 750</div></div>
+                    <div><h3>Glasses Holder</h3><p class="product-desc">No more lost specs — ever 👓</p><div class="price">Rs. 750</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Glasses Holder', 750)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 3.jpeg" alt="Sunflower Bookmark"></div>
                 <div class="product-info">
-                    <div><h3>Sunflower Bookmark</h3><div class="price">Rs. 150</div></div>
+                    <div><h3>Sunflower Bookmark</h3><p class="product-desc">Never lose your page again 📖</p><div class="price">Rs. 150</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bookmark', 150)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 2.jpeg" alt="Book Cover with Zipper Pouch"></div>
                 <div class="product-info">
-                    <div><h3>Book Cover with Attached Zipper Pouch</h3><div class="price">Rs. 1,600</div></div>
+                    <div><h3>Book Cover with Attached Zipper Pouch</h3><p class="product-desc">A book lover's dream organizer 📚</p><div class="price">Rs. 1,600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Book Cover with Attached Zipper Pouch', 1600)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3528,77 +3643,77 @@
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 1 zylo.jpeg" alt="Angry Clip"></div>
                 <div class="product-info">
-                    <div><h3>Angry Clip</h3><div class="price">Rs. 250</div></div>
+                    <div><h3>Angry Clip</h3><p class="product-desc">Tiny rage, maximum cuteness 😠🎀</p><div class="price">Rs. 250</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Angry Clip', 250)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 2 zylo.jpeg" alt="Matching Bracelets"></div>
                 <div class="product-info">
-                    <div><h3>Matching Bracelets (Pair of 3)</h3><div class="price">Rs. 450</div></div>
+                    <div><h3>Matching Bracelets (Pair of 3)</h3><p class="product-desc">Friendship stack, handmade edition 💞</p><div class="price">Rs. 450</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Matching Bracelets (Pair of 3)', 450)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 5 zylo.jpeg" alt="Mesh Tote Bag"></div>
                 <div class="product-info">
-                    <div><h3>Mesh Tote Bag</h3><div class="price">Rs. 4,000</div></div>
+                    <div><h3>Mesh Tote Bag</h3><p class="product-desc">Sturdy, spacious & effortlessly cool 👜</p><div class="price">Rs. 4,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mesh Tote Bag', 4000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 4 zylo.jpeg" alt="Y2K Mini Suitcase Bag"></div>
                 <div class="product-info">
-                    <div><h3>Y2K Kawaii Mini Suitcase Bag</h3><div class="price">Rs. 6,000</div></div>
+                    <div><h3>Y2K Kawaii Mini Suitcase Bag</h3><p class="product-desc">Main-character accessory energy ✨</p><div class="price">Rs. 6,000</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Y2K Kawaii Mini Suitcase Bag', 6000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 3 zylo.jpeg" alt="Star Clip"></div>
                 <div class="product-info">
-                    <div><h3>Star Clip</h3><div class="price">Rs. 100</div></div>
+                    <div><h3>Star Clip</h3><p class="product-desc">Wish upon your hair ⭐</p><div class="price">Rs. 100</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Star Clip', 100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="daisy hair clip rs 250.jpg" alt="Daisy Hair Clip"></div>
                 <div class="product-info">
-                    <div><h3>Daisy Hair Clip</h3><div class="price">Rs. 200</div></div>
+                    <div><h3>Daisy Hair Clip</h3><p class="product-desc">Meadow-sweet hair moment 🌼</p><div class="price">Rs. 200</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Daisy Hair Clip', 200)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Rose brooches rs.250 each.jpg" alt="Rose Brooches"></div>
                 <div class="product-info">
-                    <div><h3>Rose Brooches</h3><div class="price">Rs. 250 (Each)</div></div>
+                    <div><h3>Rose Brooches</h3><p class="product-desc">Classic rose, pinned with love 🌹</p><div class="price">Rs. 250 (Each)</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Rose Brooches (Each)', 250)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="butterfly clips 100 each.jpg" alt="Butterfly Hair Clips"></div>
                 <div class="product-info">
-                    <div><h3>Butterfly Hair Clips</h3><div class="price">Rs. 100 (Each)</div></div>
+                    <div><h3>Butterfly Hair Clips</h3><p class="product-desc">Fluttery magic for every hairstyle 🦋</p><div class="price">Rs. 100 (Each)</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Butterfly Hair Clips (Each)', 100)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="mikasa scarf 1600.jpg" alt="Mikasa Inspired Scarf"></div>
                 <div class="product-info">
-                    <div><h3>Mikasa Inspired Scarf</h3><div class="price">Rs. 1,600</div></div>
+                    <div><h3>Mikasa Inspired Scarf</h3><p class="product-desc">AoT coziness — cosplay-ready & snuggly 🧣</p><div class="price">Rs. 1,600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mikasa Inspired Scarf', 1600)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="mesh top rs.3000-3500(varies according to size).jpg" alt="Mesh Top"></div>
                 <div class="product-info">
-                    <div><h3>Mesh Top</h3><div class="price">Rs. 3,000–3,500</div><div style="font-size:11px;color:#888;font-weight:700;margin-top:4px;">varies according to size</div></div>
+                    <div><h3>Mesh Top</h3><p class="product-desc">Handmade fit, customized to YOU 👚</p><div class="price">Rs. 3,000–3,500</div><div style="font-size:11px;color:#888;font-weight:700;margin-top:4px;">varies according to size</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Mesh Top', 3000)">Add to Cart ✨</button>
                 </div>
             </div>
             <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="cat paw glove 1600.jpeg" alt="Cat Paw Gloves"></div>
                 <div class="product-info">
-                    <div><h3>Cat Paw Gloves</h3><div class="price">Rs. 1,600</div></div>
+                    <div><h3>Cat Paw Gloves</h3><p class="product-desc">Soft, warm & aggressively cute 🐾</p><div class="price">Rs. 1,600</div></div>
                     <button class="add-to-cart-btn" onclick="addToCart('Cat Paw Gloves', 1600)">Add to Cart ✨</button>
                 </div>
             </div>
@@ -3631,6 +3746,20 @@
                 <h3>Our First Ever Event! 🧶</h3>
                 <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
             </div>
+        </div>
+    </section>
+
+    <!-- How It's Made -->
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,18 C180,32 360,8 540,22 C720,36 900,8 1080,22 C1260,36 1380,18 1440,25 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="process">
+        <h2 class="section-title">How It's Made 🧶</h2>
+        <span class="section-sub">from your order to your door — stitched with love</span>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-4 purple">all handmade!!</span></div>
+        <div class="steps-grid">
+            <div class="step-card"><div class="step-num">1</div><div class="step-icon">🛍️</div><h3>You Pick Your Faves</h3><p>Add cuties to your cart &amp; checkout via Sadapay.</p></div>
+            <div class="step-card"><div class="step-num">2</div><div class="step-icon">🪝</div><h3>We Crochet It</h3><p>Stitched stitch-by-stitch, just for you.</p></div>
+            <div class="step-card"><div class="step-num">3</div><div class="step-icon">🎀</div><h3>Packed With Love</h3><p>Cute packaging + a handwritten thank-you note.</p></div>
+            <div class="step-card"><div class="step-num">4</div><div class="step-icon">🚚</div><h3>At Your Door</h3><p>Free delivery on orders up to Rs. 2,000 ✨</p></div>
         </div>
     </section>
 
@@ -4904,7 +5033,7 @@
                     document.getElementById('qvImg').setAttribute('alt', key);
                     document.getElementById('qvName').textContent = key;
                     document.getElementById('qvPrice').textContent = 'Rs. ' + data.price.toLocaleString();
-                    document.getElementById('qvDesc').textContent = descriptions[key] || 'Handmade with love, stitch by stitch. Each piece is unique and crafted with care. 🧶';
+                    document.getElementById('qvDesc').textContent = (card.querySelector('.product-desc') || {}).textContent || descriptions[key] || 'Handmade with love, stitch by stitch. Each piece is unique and crafted with care. 🧶';
 
                     var addBtn = document.getElementById('qvAddBtn');
                     addBtn.onclick = function() { addToCart(data.name, data.price); closeQuickView(); };
