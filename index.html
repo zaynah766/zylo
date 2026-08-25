@@ -1977,6 +1977,154 @@
 
         body.dark .chip { color: #1E1E24; }
 
+        /* ===== Chat Settings Button ===== */
+        .chat-settings-btn {
+            background: none; border: none; font-size: 18px; cursor: pointer;
+            color: #fff; padding: 5px 7px; border-radius: 8px;
+            transition: background .2s, transform .2s; margin-left: 4px;
+        }
+        .chat-settings-btn:hover { background: rgba(255,255,255,.2); transform: rotate(45deg); }
+
+        /* ===== Quick-Action Grid ===== */
+        .chat-quick-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+            padding: 4px 16px 12px;
+        }
+        .chat-quick-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            background: var(--cream); border: 2px solid var(--text-dark); border-radius: 14px;
+            padding: 10px 6px 8px; cursor: pointer; box-shadow: 2px 2px 0 var(--text-dark);
+            transition: all .15s ease; text-align: center;
+        }
+        .chat-quick-btn:hover {
+            transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--text-dark);
+            background: var(--neon-yellow);
+        }
+        .chat-quick-btn .q-icon { font-size: 22px; line-height: 1; }
+        .chat-quick-btn .q-label {
+            font-size: 10.5px; font-weight: 700; color: var(--text-dark);
+            line-height: 1.25; font-family: 'Quicksand', sans-serif;
+        }
+        body.dark .chat-quick-btn { background: var(--cream); }
+        body.dark .chat-quick-btn:hover { background: var(--neon-yellow); }
+
+        /* ===== Source Badge ===== */
+        .chat-source {
+            display: inline-block; font-size: 9.5px; font-weight: 700;
+            opacity: .55; margin-top: 4px; letter-spacing: .3px;
+        }
+        .chat-source.wiki { color: var(--light-blue); }
+        .chat-source.gemini { color: #9B72CF; }
+
+        /* ===== Thinking Animation ===== */
+        .msg.thinking {
+            background: var(--cream); border: 2px solid var(--text-dark);
+            border-radius: 16px; border-bottom-left-radius: 4px;
+            padding: 12px 16px; align-self: flex-start;
+            box-shadow: 2px 2px 0 var(--text-dark);
+            display: flex; align-items: center; gap: 8px;
+            animation: msgPop .25s ease;
+        }
+        .msg.thinking .think-label {
+            font-size: 12px; font-weight: 700; color: var(--primary-dark);
+        }
+        .msg.thinking .think-dots span {
+            display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+            background: var(--primary); margin: 0 2px;
+            animation: thinkBounce 1s ease-in-out infinite;
+        }
+        .msg.thinking .think-dots span:nth-child(2) { animation-delay: .15s; }
+        .msg.thinking .think-dots span:nth-child(3) { animation-delay: .3s; }
+        @keyframes thinkBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: .4; }
+            30% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        /* ===== Zuzu Settings Modal ===== */
+        .zuzu-settings-overlay {
+            position: fixed; inset: 0; background: rgba(30,30,36,.55);
+            backdrop-filter: blur(5px); z-index: 5900;
+            display: none; align-items: center; justify-content: center;
+        }
+        .zuzu-settings-overlay.open { display: flex; }
+        .zuzu-settings-modal {
+            background: var(--white); border: 3px solid var(--text-dark);
+            border-radius: 24px; box-shadow: 8px 8px 0 var(--text-dark);
+            width: 92%; max-width: 420px; padding: 28px 24px;
+            animation: popIn .3s cubic-bezier(.175,.885,.32,1.275);
+        }
+        .zuzu-settings-modal h3 {
+            font-family: 'Fredoka One', cursive; font-size: 20px;
+            color: var(--text-dark); margin-bottom: 8px;
+        }
+        .zuzu-settings-modal > p {
+            font-size: 13px; font-weight: 600; color: #666;
+            line-height: 1.6; margin-bottom: 16px;
+        }
+        .zuzu-settings-modal .form-group { margin-bottom: 14px; }
+        .zuzu-settings-modal .form-group label {
+            font-size: 12px; font-weight: 700; color: var(--text-dark);
+            margin-bottom: 4px; display: block;
+        }
+        .zuzu-settings-modal .form-group input {
+            width: 100%; padding: 10px 14px; border: 2px solid var(--text-dark);
+            border-radius: 12px; font-family: 'Quicksand', sans-serif;
+            font-size: 13px; background: var(--cream); color: var(--text-dark);
+            outline: none; transition: border-color .2s;
+        }
+        .zuzu-settings-modal .form-group input:focus {
+            border-color: var(--primary);
+        }
+        .zuzu-settings-modal small {
+            display: block; font-size: 11px; color: #888;
+            font-weight: 600; margin-bottom: 16px;
+        }
+        .zuzu-settings-modal small a {
+            color: var(--primary); text-decoration: underline; font-weight: 700;
+        }
+        .zuzu-settings-modal .settings-btns {
+            display: flex; gap: 10px;
+        }
+        .zuzu-settings-modal .settings-btns button {
+            flex: 1; padding: 11px; border-radius: 999px;
+            font-family: 'Fredoka One', cursive; font-size: 13px;
+            cursor: pointer; border: 2px solid var(--text-dark);
+            transition: all .2s; box-shadow: 3px 3px 0 var(--text-dark);
+        }
+        .zuzu-settings-modal .settings-btns .zsave {
+            background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+            color: #fff;
+        }
+        .zuzu-settings-modal .settings-btns .zsave:hover {
+            transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--text-dark);
+        }
+        .zuzu-settings-modal .settings-btns .zcancel {
+            background: var(--white); color: var(--text-dark);
+        }
+        .zuzu-settings-modal .settings-btns .zcancel:hover {
+            background: var(--cream);
+        }
+        .zuzu-settings-modal .settings-btns .zclear {
+            background: var(--neon-yellow); color: var(--text-dark);
+            flex: 0 0 auto; padding: 11px 16px; font-size: 11px;
+        }
+        .zuzu-settings-modal .settings-btns .zclear:hover {
+            background: var(--light-purple);
+        }
+        .zuzu-settings-modal .gemini-status {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 12px; border-radius: 12px; margin-bottom: 14px;
+            font-size: 12px; font-weight: 700;
+        }
+        .zuzu-settings-modal .gemini-status.active {
+            background: #D9F6E6; border: 2px solid var(--text-dark);
+            color: var(--text-dark);
+        }
+        .zuzu-settings-modal .gemini-status.inactive {
+            background: var(--cream); border: 2px dashed #ccc;
+            color: #888;
+        }
+
         .chat-inputbar {
             display: flex;
             gap: 8px;
@@ -3506,7 +3654,7 @@
     </section>
 
     <!-- Best Sellers -->
-    <section class="section-theme-pink">
+    <section id="best-sellers" class="section-theme-pink">
         <h2 class="section-title">Best Sellers 🔥</h2>
         <span class="section-sub">the cuties everyone keeps coming back for ✨</span>
         <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-1 pink">so cute!!</span></div>
@@ -4288,12 +4436,13 @@
                 <div class="chat-title">Zuzu ✨</div>
                 <div class="chat-status">online • your crochet bestie</div>
             </div>
+            <button class="chat-settings-btn" onclick="openZuzuSettings()" aria-label="Zuzu AI settings">⚙️</button>
             <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">×</button>
         </div>
         <div class="chat-msgs" id="chatMsgs"></div>
         <div class="chat-chips" id="chatChips"></div>
         <div class="chat-inputbar">
-            <input type="text" id="chatInput" placeholder="Ask me anything about ZYLO..." autocomplete="off">
+            <input type="text" id="chatInput" placeholder="Ask me anything..." autocomplete="off">
             <button class="chat-send" onclick="sendChatMessage()" aria-label="Send message">➤</button>
         </div>
     </div>
@@ -4308,6 +4457,28 @@
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">↑</button>
+
+    <!-- Zuzu AI Settings Modal -->
+    <div class="zuzu-settings-overlay" id="zuzuSettingsOverlay" onclick="closeZuzuSettings()">
+        <div class="zuzu-settings-modal" onclick="event.stopPropagation()">
+            <h3>🧶 Zuzu AI Settings</h3>
+            <p>Add a Gemini API key to unlock general AI answers about anything. Without it, Zuzu still knows ZYLO products + a huge general knowledge base!</p>
+            <div class="gemini-status" id="geminiStatus">
+                <span id="geminiStatusIcon">⚠️</span>
+                <span id="geminiStatusText">Gemini AI: Not configured</span>
+            </div>
+            <div class="form-group">
+                <label>Gemini API Key (optional)</label>
+                <input type="password" id="geminiKeyInput" placeholder="Paste your Gemini API key...">
+            </div>
+            <small>Free key from <a href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com</a> — no credit card needed!</small>
+            <div class="settings-btns">
+                <button class="zcancel" onclick="closeZuzuSettings()">Cancel</button>
+                <button class="zclear" onclick="clearZuzuKey()">Clear Key</button>
+                <button class="zsave" onclick="saveZuzuKey()">Save Key</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
@@ -5026,8 +5197,9 @@
             });
         })();
 
-        // ===== Zuzu Chat Assistant =====
+        // ===== Zuzu Chat Assistant (AI Overhaul) =====
         (function() {
+            // ── ZYLO Products ──
             const PRODUCTS = [
                 { n: "Handmade Crochet Rose Stem", p: "Rs. 1,100", c: "Best Sellers", k: ["rose stem", "handmade rose"] },
                 { n: "Cute Chick Keychain", p: "Rs. 350", c: "Best Sellers", k: ["chick keychain", "chick"] },
@@ -5056,7 +5228,6 @@
                 { n: "Mini Sunflower Bouquet Keychain", p: "Rs. 350", c: "Keychains", k: ["mini sunflower", "sunflower keychain", "bouquet keychain"] },
                 { n: "Cake Roll Keychain", p: "Rs. 250", c: "Keychains", k: ["cake roll", "cake keychain"] },
                 { n: "Butterfly Keychain", p: "Rs. 200 (each)", c: "Keychains", k: ["butterfly keychain", "butterfly"] },
-                { n: "Strawberry Keychain", p: "Rs. 300", c: "Keychains", k: ["strawberry keychain"] },
                 { n: "Coffee Cup Keychain", p: "Rs. 200 (each)", c: "Keychains", k: ["coffee cup", "coffee keychain", "cup keychain"] },
                 { n: "Whale Keychain", p: "Rs. 250 (each)", c: "Keychains", k: ["whale keychain", "whale"] },
                 { n: "Mr. Bean Teddy", p: "Rs. 1,000", c: "Plushies", k: ["mr bean", "bean teddy"] },
@@ -5075,9 +5246,9 @@
                 { n: "Star Clip", p: "Rs. 100", c: "Accessories", k: ["star clip"] },
                 { n: "Daisy Hair Clip", p: "Rs. 200", c: "Accessories", k: ["daisy hair clip", "daisy clip"] },
                 { n: "Rose Brooches", p: "Rs. 250 (each)", c: "Accessories", k: ["brooch", "brooche"] },
-                { n: "Butterfly Hair Clips", p: "Rs. 100 (each)", c: "Accessories", k: ["butterfly clip", "butterfly"] },
+                { n: "Butterfly Hair Clips", p: "Rs. 100 (each)", c: "Accessories", k: ["butterfly clip"] },
                 { n: "Mikasa Inspired Scarf", p: "Rs. 1,600", c: "Accessories", k: ["mikasa", "scarf"] },
-                { n: "Mesh Top", p: "Rs. 3,000–3,500", c: "Accessories", k: ["mesh top"] },
+                { n: "Mesh Top", p: "Rs. 3,000-3,500", c: "Accessories", k: ["mesh top"] },
                 { n: "Cat Paw Gloves", p: "Rs. 1,600", c: "Accessories", k: ["cat paw", "paw gloves", "gloves"] },
                 { n: "Sunflower Bandana", p: "Rs. 900", c: "Accessories", k: ["sunflower bandana", "bandana", "headband"] }
             ];
@@ -5085,7 +5256,7 @@
             const CATS = {
                 flowers: { title: "🌷 Flower Collection", cname: "Flowers", match: ["flower", "bouquet", "rose", "phool"] },
                 keychains: { title: "🔑 Keychain Collection", cname: "Keychains", match: ["keychain", "key chain", "keyring"] },
-                plushies: { title: "🧸 Plushies Collection", cname: "Plushies", match: ["plushie", "plush", "stuffed", "soft toy", "teddy", "bunny"] },
+                plushies: { title: "🧸 Plushies Collection", cname: "Plushies", match: ["plushie", "plush", "stuffed", "soft toy", "teddy"] },
                 decor: { title: "🪴 Decor Collection", cname: "Decor", match: ["decor", "decoration", "room", "desk"] },
                 accessories: { title: "🎀 Accessories Collection", cname: "Accessories", match: ["accessor", "hair clip", "scarf", "glove", "bag", "bracelet"] }
             };
@@ -5096,7 +5267,7 @@
             function listCat(key) {
                 let out = '<b>' + CATS[key].title + '</b><br>';
                 PRODUCTS.filter(p => p.c === CATS[key].cname).forEach(p => { out += '• ' + p.n + ' — <b>' + p.p + '</b><br>'; });
-                return out + 'Tap “Add to Cart ✨” on any card to grab one 🛍️';
+                return out + 'Tap "Add to Cart ✨" on any card to grab one 🛍️';
             }
 
             function findProduct(text) {
@@ -5109,12 +5280,14 @@
                 return best;
             }
 
+            // ── General Knowledge INTENTS ──
             const INTENTS = [
+                // === ZYLO / Shop ===
                 { k: ['deliver', 'shipping', 'ship', 'courier', 'postage', 'delivery'], a: () => '🚚 Standard delivery takes <b>5-7 days</b> across Pakistan. In a hurry? 💨 Ask for our <b>Urgent Order</b> option and get SAME-DAY delivery (small extra charge) ✨' },
                 { k: ['pay', 'payment', 'sadapay', 'jazzcash', 'easypaisa', 'card', 'cash on'], a: () => '💳 We accept payments via <b>Sadapay</b>.<br>Just add your faves to the cart → hit <b>Proceed to Checkout ✨</b> → transfer the total → pop your transaction ID & payment screenshot in the form. Super easy! 🌸' },
-                { k: ['order', 'buy', 'purchase', 'checkout', 'how to', 'kaise'], a: () => 'Ordering is super simple 🛍️<br>1️⃣ Tap <b>Add to Cart ✨</b> on products you love<br>2️⃣ Open the cart & press <b>Proceed to Checkout</b><br>3️⃣ Fill in your details + Sadapay transaction ID<br>4️⃣ Upload your payment screenshot 📸<br>5️⃣ Done! We handmake & ship your cuties 🚚💨' },
+                { k: ['order', 'buy', 'purchase', 'checkout', 'how to order', 'kaise order'], a: () => 'Ordering is super simple 🛍️<br>1️⃣ Tap <b>Add to Cart ✨</b> on products you love<br>2️⃣ Open the cart & press <b>Proceed to Checkout</b><br>3️⃣ Fill in your details + Sadapay transaction ID<br>4️⃣ Upload your payment screenshot 📸<br>5️⃣ Done! We handmake & ship your cuties 🚚💨' },
                 { k: ['contact', 'whatsapp', 'number', 'email', 'insta', 'instagram', 'social', 'reach'], a: () => CONTACT_HTML },
-                { k: ['custom', 'personalis', 'personalis', 'own design', 'colour', 'color choice', 'customize'], a: () => '🎨 Yes! Custom orders are our love language 💕 We even have a <b>Custom-Made Bouquet</b> (Rs. 4,900). For fully custom pieces, message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea ✨' },
+                { k: ['custom', 'personalis', 'own design', 'colour', 'color choice', 'customize'], a: () => '🎨 Yes! Custom orders are our love language 💕 We even have a <b>Custom-Made Bouquet</b> (Rs. 4,900). For fully custom pieces, message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea ✨' },
                 { k: ['gift', 'present', 'birthday', 'anniversary', 'valentine', 'shadi', 'couple'], a: () => '🎁 Gift ideas that always win hearts:<br>• <b>Teddy Bouquet</b> — Rs. 3,200<br>• <b>Bunny Holding a Heart</b> — Rs. 5,000<br>• <b>Pink/White Roses Bouquet of 7</b> — Rs. 2,500<br>• <b>Matching Batman Keychains</b> — Rs. 1,300<br>All handmade & wrapped with love 🎀' },
                 { k: ['cheap', 'cheapest', 'budget', 'sasta', 'low price', 'affordable', 'under'], a: () => '💸 Cute AND budget-friendly:<br>• Star Clip — <b>Rs. 100</b><br>• Butterfly Hair Clips — <b>Rs. 100</b> (each)<br>• Sunflower Bookmark — <b>Rs. 150</b><br>• Daisy Hair Clip — <b>Rs. 200</b><br>• Angry Clip — <b>Rs. 250</b><br>• Suit Rose Lapel Pin — <b>Rs. 250</b><br>Tiny prices, big smiles ✨' },
                 { k: ['best seller', 'popular', 'famous', 'trending', 'bestseller'], a: () => '🔥 Our Best Sellers right now:<br>• Thai Rose — Rs. 1,100<br>• Cute Chick Keychain — Rs. 350<br>• Suit Rose Lapel Pin — Rs. 250<br>• Smiley Face Glasses Case — Rs. 750<br>Everyone\'s obsessed with these! 😍' },
@@ -5122,75 +5295,551 @@
                 { k: ['track', 'status of my order', 'where is my order', 'my order'], a: () => '📦 For order updates, send us your name + order details on WhatsApp (<b>+92 311 4690134</b>) and we\'ll check it right away! 💌' },
                 { k: ['return', 'refund', 'exchange', 'damaged', 'broken'], a: () => 'Oh no! 😟 If anything\'s not perfect, please WhatsApp us at <b>+92 311 4690134</b> with a photo — we always make things right 💖' },
                 { k: ['about', 'brand', 'zylo', 'zaynah', 'story', 'handmade', 'who made', 'what is zylo'], a: () => '🧶 <b>ZYLO</b> is a handmade crochet brand by <b>Zaynah</b> 💖 Every flower, keychain, plushie & accessory is crocheted stitch-by-stitch with love — effortlessly aesthetic, irresistibly cute, and made to make you smile ✨' },
-                { k: ['who are you', 'are you a bot', 'robot', 'ai bot', 'your name', 'zuzu'], a: () => 'I\'m <b>Zuzu</b> 🧶✨ — ZYLO\'s crochet bestie! I know every product, price & secret of this shop. What can I help you find, cutie? 🌸' },
+                { k: ['who are you', 'are you a bot', 'robot', 'ai bot', 'your name', 'zuzu'], a: () => 'I\'m <b>Zuzu</b> 🧶✨ — ZYLO\'s crochet bestie! I know every product, price & secret of this shop. I can also answer questions about anything — science, math, geography, you name it! What can I help you with? 🌸' },
+                { k: ['size', 'measurement', 'how big', 'dimensions', 'fit', 'length', 'width', 'size guide'], a: () => '📏 Since everything is handmade, sizes vary slightly! Here\'s a guide:<br>• <b>Keychains:</b> ~3-5 inches<br>• <b>Single flowers:</b> ~8-12 inches tall<br>• <b>Bouquets:</b> ~10-14 inches<br>• <b>Plushies:</b> ~6-10 inches<br>• <b>Bags (Tote/Suitcase):</b> Standard bag sizes<br>Need exact dims? WhatsApp us! 📐' },
                 { k: ['thank', 'shukriya', 'great', 'awesome', 'amazing', 'love you', 'cute bot'], a: () => 'Awww, you\'re the sweetest! 🥹💖 Anything else you\'d like to see? 🌸' },
                 { k: ['bye', 'goodbye', 'good night', 'gn', 'tata', 'see you'], a: () => 'Byee cutie! 👋💖 Come back soon — Zuzu will be here waiting with new drops 🧶✨' },
-                { k: ['hi', 'hello', 'hey', 'salam', 'assalam', 'hola', 'yo '], a: () => 'Heyyy cutie! 👋💖 Welcome to <b>ZYLO</b>! Ask me about any product, price, delivery or payment — I know it all ✨', greet: true }
+                { k: ['hi', 'hello', 'hey', 'salam', 'assalam', 'hola', 'yo'], a: () => 'Heyyy cutie! 👋💖 Welcome to <b>ZYLO</b>! Ask me about any product, price, delivery, payment — or ask me anything about the world! I know it all ✨', greet: true },
+
+                // === Geography ===
+                { k: ['capital of pakistan', 'pakistan capital'], a: () => '🇵🇰 The capital of Pakistan is <b>Islamabad</b>! It\'s known for its beautiful Margalla Hills and Faisal Mosque 🕌' },
+                { k: ['capital of india', 'india capital'], a: () => '🇮🇳 The capital of India is <b>New Delhi</b>! Home to the iconic Red Fort and India Gate 🏛️' },
+                { k: ['capital of usa', 'capital of united states', 'america capital', 'us capital'], a: () => '🇺🇸 The capital of the United States is <b>Washington, D.C.</b> — not New York! 🗽' },
+                { k: ['capital of uk', 'capital of england', 'london capital', 'britain capital'], a: () => '🇬🇧 The capital of the United Kingdom is <b>London</b>! Big Ben, the Eye, and all that 🎡' },
+                { k: ['capital of france', 'france capital', 'paris capital'], a: () => '🇫🇷 The capital of France is <b>Paris</b> — the City of Light! The Eiffel Tower is there 🗼' },
+                { k: ['capital of japan', 'japan capital', 'tokyo capital'], a: () => '🇯🇵 The capital of Japan is <b>Tokyo</b>! One of the largest cities in the world 🗾' },
+                { k: ['capital of china', 'china capital', 'beijing capital'], a: () => '🇨🇳 The capital of China is <b>Beijing</b>! Home to the Great Wall and the Forbidden City 🏯' },
+                { k: ['capital of germany', 'germany capital', 'berlin capital'], a: () => '🇩🇪 The capital of Germany is <b>Berlin</b>! Known for its history and vibrant culture 🎭' },
+                { k: ['capital of turkey', 'turkey capital', 'ankara capital', 'turkiye capital'], a: () => '🇹🇷 The capital of Turkey is <b>Ankara</b> (not Istanbul!) 🕌' },
+                { k: ['capital of saudi arabia', 'saudi capital', 'riyadh capital'], a: () => '🇸🇦 The capital of Saudi Arabia is <b>Riyadh</b> 🏜️' },
+                { k: ['capital of egypt', 'egypt capital', 'cairo capital'], a: () => '🇪🇬 The capital of Egypt is <b>Cairo</b> — the Pyramids of Giza are nearby! 🏛️' },
+                { k: ['capital of brazil', 'brazil capital', 'brasilia capital'], a: () => '🇧🇷 The capital of Brazil is <b>Brasília</b> (not Rio de Janeiro!) 🎉' },
+                { k: ['capital of australia', 'australia capital', 'canberra capital'], a: () => '🇦🇺 The capital of Australia is <b>Canberra</b> (not Sydney!) 🦘' },
+                { k: ['capital of russia', 'russia capital', 'moscow capital'], a: () => '🇷🇺 The capital of Russia is <b>Moscow</b> — home to the famous Red Square! 🏰' },
+                { k: ['capital of south korea', 'korea capital', 'seoul capital'], a: () => '🇰🇷 The capital of South Korea is <b>Seoul</b>! K-pop central! 🎶' },
+                { k: ['capital of canada', 'canada capital', 'ottawa capital'], a: () => '🇨🇦 The capital of Canada is <b>Ottawa</b> (not Toronto!) 🍁' },
+                { k: ['capital of italy', 'italy capital', 'rome capital'], a: () => '🇮🇹 The capital of Italy is <b>Rome</b> — the Eternal City! The Colosseum is there 🏛️' },
+                { k: ['capital of spain', 'spain capital', 'madrid capital'], a: () => '🇪🇸 The capital of Spain is <b>Madrid</b>! Great art, food, and football 🎨' },
+                { k: ['capital of thailand', 'thailand capital', 'bangkok capital'], a: () => '🇹🇭 The capital of Thailand is <b>Bangkok</b>! Known for street food and temples 🍜' },
+                { k: ['capital of uae', 'capital of emirates', 'abu dhabi capital', 'dubai capital'], a: () => '🇦🇪 The capital of the UAE is <b>Abu Dhabi</b> (not Dubai!) 🏙️' },
+                { k: ['capital of iran', 'iran capital', 'tehran capital'], a: () => '🇮🇷 The capital of Iran is <b>Tehran</b> 🕌' },
+                { k: ['capital of afghanistan', 'afghanistan capital', 'kabul capital'], a: () => '🇦🇫 The capital of Afghanistan is <b>Kabul</b> 🏔️' },
+                { k: ['capital of china', 'china capital'], a: () => '🇨🇳 The capital of China is <b>Beijing</b>! Home to the Great Wall 🏯' },
+                { k: ['capital of indonesia', 'indonesia capital', 'jakarta capital'], a: () => '🇮🇩 The capital of Indonesia is <b>Jakarta</b> 🌴' },
+                { k: ['capital of nigeria', 'nigeria capital', 'abuja capital'], a: () => '🇳🇬 The capital of Nigeria is <b>Abuja</b> 🌍' },
+                { k: ['capital of mexico', 'mexico capital', 'mexico city capital'], a: () => '🇲🇽 The capital of Mexico is <b>Mexico City</b>! One of the largest cities in the Americas 🌮' },
+                { k: ['capital of argentina', 'argentina capital', 'buenos aires capital'], a: () => '🇦🇷 The capital of Argentina is <b>Buenos Aires</b>! Tango, steak, and passion 💃' },
+                { k: ['capital of south africa', 'south africa capital', 'pretoria capital'], a: () => '🇿🇦 South Africa has three capitals: <b>Pretoria</b> (executive), <b>Cape Town</b> (legislative), and <b>Bloemfontein</b> (judicial)! 🌍' },
+                { k: ['capital of new zealand', 'new zealand capital', 'wellington capital'], a: () => '🇳🇿 The capital of New Zealand is <b>Wellington</b> (not Auckland!) 🥝' },
+                { k: ['capital of singapore', 'singapore capital'], a: () => '🇸🇬 Singapore is a <b>city-state</b> — it IS its own capital! 🌟' },
+                { k: ['capital of bangladesh', 'bangladesh capital', 'dhaka capital'], a: () => '🇧🇩 The capital of Bangladesh is <b>Dhaka</b> 🕌' },
+
+                // === Countries & Flags ===
+                { k: ['how many countries', 'total countries', 'number of countries'], a: () => '🌍 There are <b>195 recognized countries</b> in the world (193 UN members + 2 observers: Vatican City and Palestine)! 🗺️' },
+                { k: ['largest country', 'biggest country'], a: () => '🇷🇺 <b>Russia</b> is the largest country by area at ~17.1 million km²! It spans 11 time zones 🌏' },
+                { k: ['smallest country', 'tiniest country'], a: () => '🇻🇦 <b>Vatican City</b> is the smallest country at just 0.44 km²! It's inside Rome 🏛️' },
+                { k: ['most populous', 'most people', 'largest population'], a: () => '🇮🇳 <b>India</b> surpassed China as the world\'s most populous country in 2023 with over 1.4 billion people! 👥' },
+                { k: ['longest river', 'longest river in the world'], a: () => '🇳🇪 The <b>Nile River</b> is the longest at ~6,650 km, flowing through 11 countries in Africa! 🌊' },
+                { k: ['tallest mountain', 'highest mountain', 'highest peak'], a: () => '🇳🇵 <b>Mount Everest</b> is the tallest at 8,849 meters! It sits on the Nepal-Tibet border 🏔️' },
+                { k: ['largest ocean', 'biggest ocean'], a: () => '🌊 The <b>Pacific Ocean</b> is the largest, covering more area than all the land on Earth combined! 🌏' },
+                { k: ['largest desert', 'biggest desert'], a: () => '🏜️ The <b>Sahara Desert</b> in Africa is the largest hot desert (~9.2 million km²). The largest desert overall is <b>Antarctica</b>! ❄️' },
+                { k: ['seven continents', 'continents', 'how many continents'], a: () => '🌍 The 7 continents are:<br>1️⃣ <b>Asia</b> (largest)<br>2️⃣ <b>Africa</b><br>3️⃣ <b>North America</b><br>4️⃣ <b>South America</b><br>5️⃣ <b>Antarctica</b><br>6️⃣ <b>Europe</b><br>7️⃣ <b>Oceania/Australia</b> (smallest)' },
+
+                // === Space & Astronomy ===
+                { k: ['planets in solar system', 'how many planets', 'name the planets', 'list planets'], a: () => '🪐 The 8 planets are:<br>1️⃣ <b>Mercury</b> (closest to Sun)<br>2️⃣ <b>Venus</b> (hottest)<br>3️⃣ <b>Earth</b> (our home!)<br>4️⃣ <b>Mars</b> (Red Planet)<br>5️⃣ <b>Jupiter</b> (largest)<br>6️⃣ <b>Saturn</b> (rings!)<br>7️⃣ <b>Uranus</b> (sideways)<br>8️⃣ <b>Neptune</b> (farthest)' },
+                { k: ['how far is the sun', 'distance to sun', 'sun distance'], a: () => '☀️ The Sun is about <b>150 million km</b> (93 million miles) from Earth — that\'s called 1 Astronomical Unit (AU)! Light takes ~8 minutes to reach us ⚡' },
+                { k: ['how far is the moon', 'distance to moon', 'moon distance'], a: () => '🌙 The Moon is about <b>384,400 km</b> from Earth. That\'s roughly 30 Earth diameters away! 🌕' },
+                { k: ['what is a black hole'], a: () => '🕳️ A <b>black hole</b> is a region of space where gravity is so strong that nothing — not even light — can escape! They form when massive stars collapse 💫' },
+                { k: ['what is a galaxy'], a: () => '🌌 A <b>galaxy</b> is a massive system of stars, gas, dust, and dark matter held together by gravity. Our Milky Way has 100-400 billion stars! ⭐' },
+                { k: ['milky way'], a: () => '🌌 The <b>Milky Way</b> is our home galaxy! It\'s a barred spiral galaxy about 100,000 light-years across. We\'re in the Orion Arm 🌟' },
+                { k: ['how old is the universe', 'age of universe', 'universe age'], a: () => '🌟 The universe is approximately <b>13.8 billion years old</b>! It started with the Big Bang 🔥' },
+                { k: ['how old is the earth', 'age of earth', 'earth age'], a: () => '🌍 Earth is about <b>4.54 billion years old</b>! Life appeared roughly 3.7 billion years ago 🦠' },
+                { k: ['what is nasa'], a: () => '🚀 <b>NASA</b> (National Aeronautics and Space Administration) is the US space agency! They\'ve sent astronauts to the Moon, built the ISS, and have rovers on Mars 🔴' },
+                { k: ['speed of light', 'how fast is light', 'light speed'], a: () => '⚡ The speed of light in a vacuum is <b>299,792,458 m/s</b> (about 300,000 km/s). Nothing with mass can travel faster! 🌟' },
+                { k: ['what is a constellation'], a: () => '⭐ A <b>constellation</b> is a group of stars that form a pattern in the sky. There are 88 officially recognized constellations! Orion (the Hunter) is one of the most famous 🌌' },
+
+                // === Science ===
+                { k: ['what is photosynthesis'], a: () => '🌱 <b>Photosynthesis</b> is how plants convert sunlight, water, and CO₂ into glucose and oxygen! 🌞🌿公式: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂' },
+                { k: ['what is dna'], a: () => '🧬 <b>DNA</b> (Deoxyribonucleic Acid) is the molecule that carries genetic instructions for life! It\'s a double helix shape made of nucleotide base pairs: A-T and C-G 🧪' },
+                { k: ['what is gravity', 'explain gravity', 'how does gravity work'], a: () => '🍎 <b>Gravity</b> is the force that attracts objects toward each other. Earth\'s gravity keeps us grounded! The more mass an object has, the stronger its gravity 💫' },
+                { k: ['what is evolution', 'explain evolution'], a: () => '🐒 <b>Evolution</b> is the process by which species change over generations through natural selection. Charles Darwin famously described it — survival of the fittest! 🌿' },
+                { k: ['what is atom', 'what is an atom', 'explain atom'], a: () => '⚛️ An <b>atom</b> is the basic building block of matter! It has a nucleus (protons + neutrons) surrounded by electrons. Everything you see is made of atoms 🔬' },
+                { k: ['what is molecule'], a: () => '🧪 A <b>molecule</b> is two or more atoms bonded together! Water (H₂O) is a molecule — 2 hydrogen atoms + 1 oxygen atom 💧' },
+                { k: ['what is energy', 'explain energy'], a: () => '⚡ <b>Energy</b> is the ability to do work! It comes in forms like kinetic (movement), potential (stored), thermal (heat), chemical, nuclear, and electrical 🔋' },
+                { k: ['what is electricity'], a: () => '⚡ <b>Electricity</b> is the flow of electric charge (usually electrons) through a conductor. It powers everything from your phone to this chat! 🔌' },
+                { k: ['what is sound', 'how does sound work'], a: () => '🔊 <b>Sound</b> is a vibration that travels as a wave through air, water, or solids! It needs a medium to travel — that\'s why there\'s no sound in space 🌌' },
+                { k: ['what is light', 'what is sunlight'], a: () => '☀️ <b>Light</b> is electromagnetic radiation visible to the human eye! It travels at 300,000 km/s and behaves as both a wave and a particle (photons) 🌈' },
+                { k: ['periodic table', 'elements', 'chemical elements'], a: () => '🧪 The <b>Periodic Table</b> has <b>118 confirmed elements</b>! From Hydrogen (H, #1) to Oganesson (Og, #118). The most common ones are Oxygen, Carbon, Hydrogen, and Nitrogen 🔬' },
+                { k: ['what is oxygen'], a: () => '💨 <b>Oxygen</b> (O) is element #8 — we breathe it! It makes up 21% of Earth\'s atmosphere and is essential for life 🫁' },
+                { k: ['what is carbon'], a: () => '⬛ <b>Carbon</b> (C) is element #6 — the basis of all known life! It\'s in diamonds, graphite, CO₂, and every living thing 💎' },
+                { k: ['what is water made of', 'composition of water'], a: () => '💧 Water (H₂O) is made of <b>2 hydrogen atoms + 1 oxygen atom</b>. It covers 71% of Earth\'s surface and is essential for all known life! 🌊' },
+                { k: ['what is temperature'], a: () => '🌡️ <b>Temperature</b> measures how hot or cold something is! It\'s the average kinetic energy of particles. Scales: Celsius (°C), Fahrenheit (°F), and Kelvin (K) 🌡️' },
+                { k: ['what is friction'], a: () => '🛝 <b>Friction</b> is the force that opposes motion between two surfaces in contact. It\'s why you can walk (your shoes grip the ground!) but also why things wear out 🔧' },
+                { k: ['what is magnetism', 'what is a magnet'], a: () => '🧲 <b>Magnetism</b> is a force caused by moving electric charges! Magnets have north and south poles — opposites attract, likes repel. Earth itself is a giant magnet! 🧭' },
+                { k: ['what is sleep', 'why do we sleep'], a: () => '😴 We sleep to <b>restore energy, consolidate memories, repair tissues, and regulate hormones</b>! Adults need 7-9 hours. Your brain literally cleans itself during deep sleep 🧠' },
+                { k: ['what is the human body', 'how many bones', 'bones in human body'], a: () => '🦴 The human body has <b>206 bones</b> as an adult! Babies are born with ~270, but many fuse together as they grow 👶' },
+                { k: ['how many muscles', 'muscles in body'], a: () => '💪 The human body has over <b>600 muscles</b>! The strongest is the masseter (jaw muscle) — it can close your teeth with 200 pounds of force 🦷' },
+
+                // === History ===
+                { k: ['world war 2', 'ww2', 'second world war'], a: () => '⚔️ <b>World War II</b> (1939-1945) was the deadliest conflict in history, involving 30+ countries. It ended with the defeat of Nazi Germany and Imperial Japan 🕊️' },
+                { k: ['world war 1', 'ww1', 'first world war'], a: () => '⚔️ <b>World War I</b> (1914-1918) involved most of the world\'s great powers. It ended with the Treaty of Versailles and reshaped the map of Europe 🗺️' },
+                { k: ['who invented the light bulb', 'light bulb invented', 'edison light bulb'], a: () => '💡 <b>Thomas Edison</b> developed the first practical incandescent light bulb in 1879! Though others like Humphry Davy and Joseph Swan also contributed 🔬' },
+                { k: ['who invented the telephone', 'telephone invented', 'who invented phone'], a: () => '📞 <b>Alexander Graham Bell</b> patented the telephone in 1876! The first words spoken were reportedly "Mr. Watson, come here" 🗣️' },
+                { k: ['who invented the internet', 'internet invented', 'who created internet'], a: () => '🌐 The internet evolved from <b>ARPANET</b> (1969), a US military project. <b>Vint Cerf</b> and <b>Bob Kahn</b> are called "fathers of the Internet" for developing TCP/IP protocols 💻' },
+                { k: ['independence day of pakistan', 'pakistan independence', '14 august'], a: () => '🇵🇰 Pakistan\'s Independence Day is <b>August 14, 1947</b>! The nation was founded by Quaid-e-Azam Muhammad Ali Jinnah 🎉' },
+                { k: ['independence day of india', 'india independence', '15 august'], a: () => '🇮🇳 India\'s Independence Day is <b>August 15, 1947</b>! Jawaharlal Nehru became the first Prime Minister 🇮🇳' },
+                { k: ['who was albert einstein', 'einstein'], a: () => '🧠 <b>Albert Einstein</b> (1879-1955) was a physicist who developed the Theory of Relativity (E=mc²)! He won the Nobel Prize in Physics in 1921 🔬' },
+                { k: ['who was napoleon', 'napoleon bonaparte'], a: () => '⚔️ <b>Napoleon Bonaparte</b> (1769-1821) was a French military leader who became Emperor of France! He conquered much of Europe before his defeat at Waterloo 🏰' },
+                { k: ['who was cleopatra', 'cleopatra'], a: () => '👸 <b>Cleopatra VII</b> (69-30 BC) was the last active pharaoh of Egypt! Known for her intelligence, political skill, and relationships with Julius Caesar and Mark Antony 👑' },
+                { k: ['who was quaid-e-azam', 'jinnah', 'muhammad ali jinnah'], a: () => '🇵🇰 <b>Muhammad Ali Jinnah</b> (1876-1948) was the founder of Pakistan! Known as Quaid-e-Azam (Great Leader), he led the Muslim League to create Pakistan in 1947 🌟' },
+                { k: ['moon landing', 'first moon landing', 'apollo 11'], a: () => '🌙 <b>Apollo 11</b> landed on the Moon on <b>July 20, 1969</b>! <b>Neil Armstrong</b> was the first person to walk on the Moon, saying "That\'s one small step for man, one giant leap for mankind" 🚀' },
+                { k: ['when was pizza invented', 'origin of pizza', 'who invented pizza'], a: () => '🍕 Modern <b>pizza</b> originated in <b>Naples, Italy</b> in the 18th-19th century! The Margherita pizza (tomato, mozzarella, basil) was named after Queen Margherita in 1889 🇮🇹' },
+                { k: ['when was coffee discovered', 'origin of coffee', 'history of coffee'], a: () => '☕ <b>Coffee</b> was discovered in Ethiopia around the <b>9th century</b>! Legend says a goat herder named Kaldi noticed his goats became energetic after eating coffee berries 🐐' },
+                { k: ['ancient egypt', 'egypt pyramids built', 'pyramids age'], a: () => '🏛️ The Great Pyramid of Giza was built around <b>2560 BC</b> — over 4,500 years ago! It was the tallest structure for nearly 4,000 years 👷' },
+                { k: ['how old is the calendar', 'who made the calendar', 'julian calendar'], a: () => '📅 The <b>Julian Calendar</b> was introduced by Julius Caesar in 46 BC! The <b>Gregorian Calendar</b> (current) was introduced by Pope Gregory XIII in 1582 to fix a small error 🗓️' },
+
+                // === Math (basic facts) ===
+                { k: ['what is pi', 'value of pi', 'pi value', 'ratio of circle'], a: () => '🥧 <b>Pi (π)</b> is approximately <b>3.14159</b> — the ratio of a circle\'s circumference to its diameter! It\'s an irrational number that goes on forever 🔄' },
+                { k: ['what is zero', 'who invented zero', 'zero invented'], a: () => '0️⃣ <b>Zero</b> was conceptualized by Indian mathematician <b>Brahmagupta</b> in 628 AD! It\'s both a number and a placeholder. The concept spread to the Arab world and then Europe 🇮🇳' },
+                { k: ['what is prime number', 'prime numbers'], a: () => '🔢 A <b>prime number</b> is only divisible by 1 and itself! The first few are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29... There are infinitely many primes! ∞' },
+                { k: ['what is fibonacci', 'fibonacci sequence'], a: () => '🐚 The <b>Fibonacci Sequence</b> is: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34... Each number is the sum of the two before it! It appears everywhere in nature 🌻' },
+                { k: ['what is the Pythagorean theorem', 'pythagoras theorem', 'a2 b2 c2'], a: () => '📐 The <b>Pythagorean Theorem</b>: In a right triangle, <b>a² + b² = c²</b> (where c is the hypotenuse)! Named after the Greek mathematician Pythagoras 📏' },
+                { k: ['what is infinity', 'infinity symbol'], a: () => '∞ <b>Infinity (∞)</b> is not a number — it\'s a concept meaning "without limit"! The symbol was first used by English mathematician John Wallis in 1655 🔢' },
+                { k: ['what is a fraction'], a: () => '🔢 A <b>fraction</b> represents a part of a whole! The top number (numerator) tells how many parts, the bottom (denominator) tells how many equal parts make the whole 🍰' },
+                { k: ['what is a percentage'], a: () => '💯 A <b>percentage</b> is a fraction out of 100! 50% = 50/100 = 0.5. The word comes from Latin "per centum" meaning "by the hundred" 📊' },
+
+                // === Languages ===
+                { k: ['how do you say hello in japanese', 'hello in japanese', 'japanese hello'], a: () => '🇯🇵 In Japanese, "Hello" is <b>こんにちは (Konnichiwa)</b>! Or for informal: <b>やあ (Yaa)</b> 👋' },
+                { k: ['how do you say hello in french', 'hello in french', 'french hello'], a: () => '🇫🇷 In French, "Hello" is <b>Bonjour</b> (literally "good day")! Informal: <b>Salut</b> 👋' },
+                { k: ['how do you say hello in spanish', 'hello in spanish', 'spanish hello'], a: () => '🇪🇸 In Spanish, "Hello" is <b>Hola</b>! Other greetings: <b>Buenos días</b> (good morning), <b>Buenas tardes</b> (good afternoon) 👋' },
+                { k: ['how do you say hello in korean', 'hello in korean', 'korean hello'], a: () => '🇰🇷 In Korean, "Hello" is <b>안녕하세요 (Annyeonghaseyo)</b>! Informal: <b>안녕 (Annyeong)</b> 👋' },
+                { k: ['how do you say hello in german', 'hello in german', 'german hello'], a: () => '🇩🇪 In German, "Hello" is <b>Hallo</b> or <b>Guten Tag</b> (good day)! 👋' },
+                { k: ['how do you say hello in arabic', 'hello in arabic', 'arabic hello', 'salaam'], a: () => '🇸🇦 In Arabic, "Hello" is <b>مرحبا (Marhaba)</b> or <b>السلام عليكم (As-salamu alaykum)</b> — "peace be upon you"! 🕊️' },
+                { k: ['how do you say hello in turkish', 'hello in turkish', 'turkish hello'], a: () => '🇹🇷 In Turkish, "Hello" is <b>Merhaba</b> or <b>Selam</b>! 👋' },
+                { k: ['how do you say thank you in japanese', 'thank you in japanese'], a: () => '🇯🇵 "Thank you" in Japanese is <b>ありがとう (Arigatou)</b>! Formal: <b>ありがとうございます (Arigatou gozaimasu)</b> 🙏' },
+                { k: ['how do you say thank you in french', 'thank you in french'], a: () => '🇫🇷 "Thank you" in French is <b>Merci</b>! Formal: <b>Merci beaucoup</b> (thank you very much) 🙏' },
+                { k: ['how do you say thank you in spanish', 'thank you in spanish'], a: () => '🇪🇸 "Thank you" in Spanish is <b>Gracias</b>! Formal: <b>Muchas gracias</b> (many thanks) 🙏' },
+                { k: ['how do you say i love you in french', 'i love you in french'], a: () => '🇫🇷 "I love you" in French is <b>Je t\'aime</b> 💕 One of the most romantic phrases! 💖' },
+                { k: ['how do you say i love you in japanese', 'i love you in japanese'], a: () => '🇯🇵 "I love you" in Japanese is <b>愛してる (Aishiteru)</b>! Though Japanese people rarely say it directly — they show love through actions 💕' },
+                { k: ['how do you say i love you in spanish', 'i love you in spanish'], a: () => '🇪🇸 "I love you" in Spanish is <b>Te quiero</b> (casual) or <b>Te amo</b> (deep love) 💕' },
+                { k: ['how do you say goodbye in french', 'goodbye in french'], a: () => '🇫🇷 "Goodbye" in French is <b>Au revoir</b>! Informal: <b>Salut</b> or <b>À bientôt</b> (see you soon) 👋' },
+                { k: ['how do you say good morning in spanish', 'good morning in spanish'], a: () => '🇪🇸 "Good morning" in Spanish is <b>Buenos días</b>! 🌅' },
+                { k: ['how many languages are there', 'total languages in world'], a: () => '🌍 There are approximately <b>7,000 languages</b> spoken in the world! The most spoken by total speakers are English, Mandarin Chinese, Hindi, and Spanish 🗣️' },
+                { k: ['most spoken language', 'popular language', 'widely spoken language'], a: () => '🗣️ By total speakers (native + second language):<br>1. <b>English</b> — ~1.5 billion<br>2. <b>Mandarin Chinese</b> — ~1.1 billion<br>3. <b>Hindi</b> — ~600 million<br>4. <b>Spanish</b> — ~550 million 🌍' },
+                { k: ['oldest language', 'which is the oldest language'], a: () => '📜 The oldest known language is <b>Sumerian</b> (written, ~3400 BC)! Among still-spoken languages, <b>Sanskrit</b>, <b>Tamil</b>, and <b>Hebrew</b> are among the oldest 🏛️' },
+
+                // === Food & Cooking ===
+                { k: ['how to make chai', 'make tea', 'chai recipe', 'how to make tea'], a: () => '☕ <b>Chai Recipe (Pakistani Style):</b><br>1️⃣ Boil 1 cup water<br>2️⃣ Add 1 tsp tea leaves (or 1 tea bag)<br>3️⃣ Add sugar to taste<br>4️⃣ Add ½ cup milk<br>5️⃣ Bring to boil, then simmer 2-3 min<br>6️⃣ Strain & enjoy! ☕✨' },
+                { k: ['how to make maggi', 'maggi recipe', 'instant noodles recipe'], a: () => '🍜 <b>Maggi/Instant Noodles:</b><br>1️⃣ Boil 2 cups water<br>2️⃣ Add noodles + masala packet<br>3️⃣ Cook 2-3 minutes<br>4️⃣ Optional: add egg, veggies, cheese! 🧀<br>Simple & delicious 🤤' },
+                { k: ['calories in banana', 'banana calories'], a: () => '🍌 A medium banana (~118g) has about <b>105 calories</b>! It\'s also packed with potassium, vitamin B6, and fiber 🍌' },
+                { k: ['calories in egg', 'egg calories'], a: () => '🥚 One large egg has about <b>78 calories</b> — 6g protein, 5g fat, and zero carbs! One of nature\'s perfect foods 🍳' },
+                { k: ['calories in rice', 'rice calories'], a: () => '🍚 One cup of cooked white rice has about <b>205 calories</b>! Brown rice has ~216 calories but more fiber and nutrients 🍚' },
+                { k: ['calories in chicken', 'chicken calories'], a: () => '🍗 100g of grilled chicken breast has about <b>165 calories</b> and <b>31g protein</b>! Great for muscle building 💪' },
+                { k: ['calories in bread', 'bread calories'], a: () => '🍞 One slice of white bread has about <b>75-80 calories</b>. Whole wheat bread has ~80-85 calories with more fiber 🥖' },
+                { k: ['calories in apple', 'apple calories'], a: () => '🍎 A medium apple has about <b>95 calories</b>! They\'re also high in fiber and vitamin C — "an apple a day keeps the doctor away" 🩺' },
+                { k: ['how to make pancakes', 'pancake recipe'], a: () => '🥞 <b>Easy Pancakes:</b><br>1 cup flour + 1 egg + 1 cup milk + 1 tbsp sugar + 1 tsp baking powder + pinch of salt<br>Mix, pour on hot pan, flip when bubbly! Top with syrup 🍯✨' },
+                { k: ['how to make omelette', 'omelette recipe', 'how to make eggs'], a: () => '🍳 <b>Easy Omelette:</b><br>1️⃣ Beat 2-3 eggs with salt & pepper<br>2️⃣ Heat butter in a pan<br>3️⃣ Pour eggs, let set<br>4️⃣ Add cheese, veggies, herbs<br>5️⃣ Fold & serve! 🧀🌶️' },
+                { k: ['most spicy food', 'spiciest food', 'spiciest cuisine'], a: () => '🌶️ The world\'s spiciest cuisines include <b>Indian, Thai, Mexican, Korean, and Sichuan Chinese</b>! The Carolina Reaper is the world\'s hottest pepper at 2.2 million Scoville units 🔥' },
+                { k: ['food chain', 'what is food chain'], a: () => '🔗 A <b>food chain</b> shows how energy flows: Plants → Herbivores → Carnivores → Top Predators. Example: Grass → Grasshopper → Frog → Snake → Hawk 🦅' },
+
+                // === Tech & Internet ===
+                { k: ['what is ai', 'what is artificial intelligence', 'explain ai'], a: () => '🤖 <b>Artificial Intelligence (AI)</b> is technology that mimics human intelligence — learning, reasoning, problem-solving! Examples: chatbots (like me!), self-driving cars, and voice assistants 🧠' },
+                { k: ['what is blockchain'], a: () => '⛓️ <b>Blockchain</b> is a decentralized digital ledger that records transactions across many computers! It\'s the technology behind cryptocurrencies like Bitcoin 🔗' },
+                { k: ['what is wifi', 'how does wifi work'], a: () => '📡 <b>Wi-Fi</b> uses radio waves to connect devices to the internet wirelessly! A router sends data through 2.4GHz and 5GHz frequency bands 📶' },
+                { k: ['what is seo', 'seo meaning'], a: () => '🔍 <b>SEO</b> (Search Engine Optimization) is the practice of improving website visibility in search engine results! It involves keywords, content quality, and technical optimization 📈' },
+                { k: ['what is cloud computing', 'explain cloud computing'], a: () => '☁️ <b>Cloud Computing</b> means storing and accessing data/software over the internet instead of your hard drive! Examples: Google Drive, AWS, Dropbox 📁' },
+                { k: ['what is html'], a: () => '🌐 <b>HTML</b> (HyperText Markup Language) is the standard language for creating web pages! It defines the structure of content on the web — and this website uses it! 📄' },
+                { k: ['what is css'], a: () => '🎨 <b>CSS</b> (Cascading Style Sheets) controls the visual presentation of web pages — colors, fonts, layouts, animations! It makes websites look beautiful ✨' },
+                { k: ['what is javascript'], a: () => '⚡ <b>JavaScript</b> is a programming language that makes websites interactive! It handles dynamic content, animations, and user interactions. This chat is powered by JavaScript! 💻' },
+                { k: ['what is python', 'python programming'], a: () => '🐍 <b>Python</b> is a popular programming language known for its simplicity! Used in web dev, AI/ML, data science, automation, and more. Created by Guido van Rossum in 1991 💻' },
+                { k: ['what is machine learning', 'explain machine learning'], a: () => '🧠 <b>Machine Learning</b> is a subset of AI where computers learn patterns from data to make predictions — without being explicitly programmed! Examples: Netflix recommendations, spam filters 📊' },
+                { k: ['what is an algorithm'], a: () => '📐 An <b>algorithm</b> is a step-by-step set of instructions to solve a problem! Think of it like a recipe — follow the steps and you get a result 🍳' },
+                { k: ['what is a database'], a: () => '🗄️ A <b>database</b> is an organized collection of data! Think of it like a super-powered spreadsheet. Examples: MySQL, PostgreSQL, MongoDB 📊' },
+                { k: ['what is an api', 'api meaning'], a: () => '🔌 An <b>API</b> (Application Programming Interface) allows different software to talk to each other! Like a waiter taking your order to the kitchen and bringing food back 🍽️' },
+                { k: ['what is a website'], a: () => '🌐 A <b>website</b> is a collection of web pages accessible via the internet! Made with HTML (structure), CSS (style), and JavaScript (interactivity) — like this one! 🖥️' },
+                { k: ['who invented the computer', 'computer invented', 'first computer'], a: () => '💻 <b>Charles Babbage</b> designed the first mechanical computer (Analytical Engine) in the 1830s! The first electronic computer was <b>ENIAC</b> (1945) 🖥️' },
+                { k: ['what is email', 'how does email work'], a: () => '📧 <b>Email</b> (Electronic Mail) is digital messages sent between people! Ray Tomlinson sent the first email in 1971 and chose the @ symbol 📨' },
+                { k: ['what is a smartphone'], a: () => '📱 A <b>smartphone</b> is a mobile phone with internet access and a computer processor! The first was the IBM Simon (1994). Modern smartphones have more computing power than 1960s NASA computers! 🚀' },
+                { k: ['what is social media'], a: () => '📱 <b>Social Media</b> are digital platforms for creating/sharing content and social networking! Major ones: Facebook, Instagram, TikTok, Twitter/X, YouTube 🌐' },
+                { k: ['what is 5g', '5g meaning'], a: () => '📡 <b>5G</b> is the 5th generation of cellular network technology! It\'s up to 100x faster than 4G, with lower latency — enabling things like real-time gaming and autonomous vehicles ⚡' },
+
+                // === Health & Wellness ===
+                { k: ['how much water should i drink', 'daily water intake', 'water per day'], a: () => '💧 The general recommendation is <b>8 glasses (2 liters)</b> per day! But it varies — active people need more. A good indicator: if your urine is pale yellow, you\'re hydrated! 🚰' },
+                { k: ['how to sleep better', 'sleep tips', 'improve sleep'], a: () => '😴 <b>Sleep Tips:</b><br>🌙 Stick to a schedule<br>📵 Avoid screens 1hr before bed<br>☕ No caffeine after 2pm<br>🛏️ Keep room cool & dark<br>🧘 Try deep breathing<br>Aim for 7-9 hours! 💤' },
+                { k: ['how to lose weight', 'weight loss tips'], a: () => '🏃‍♀️ <b>Healthy Weight Loss Tips:</b><br>🥗 Eat more fruits, veggies, protein<br>💧 Drink plenty of water<br>🏃 Exercise regularly (150 min/week)<br>😴 Get enough sleep<br>📉 Aim for 0.5-1kg/week (sustainable!) 💪' },
+                { k: ['how to build muscle', 'muscle building tips'], a: () => '💪 <b>Muscle Building:</b><br>🏋️ Lift weights 3-4x/week<br>🥩 Eat 1.6-2.2g protein per kg body weight<br>😴 Sleep 7-9 hours<br>💧 Stay hydrated<br>📈 Progressive overload (gradually increase weight)! 🏋️‍♂️' },
+                { k: ['what is bmi', 'bmi meaning', 'body mass index'], a: () => '📊 <b>BMI</b> (Body Mass Index) = weight(kg) / height(m)²<br>• Underweight: < 18.5<br>• Normal: 18.5-24.9<br>• Overweight: 25-29.9<br>• Obese: 30+<br>It\'s a basic screening tool, not perfect! 📏' },
+                { k: ['vitamins', 'types of vitamins', 'essential vitamins'], a: () => '💊 <b>Essential Vitamins:</b><br>A — Eyes & skin 👁️<br>B — Energy ⚡<br>C — Immunity 🍊<br>D — Bones 🦴<br>E — Antioxidants 🌿<br>K — Blood clotting 🩸<br>Get them from a balanced diet! 🥗' },
+                { k: ['how to study', 'study tips', 'effective studying'], a: () => '📚 <b>Study Tips:</b><br>🧠 Use active recall (quiz yourself!)<br>🔄 Space your practice (spaced repetition)<br>⏰ Use Pomodoro (25min study, 5min break)<br>📝 Teach someone else<br>😴 Sleep well — memory consolidation! 📖' },
+                { k: ['how to reduce stress', 'stress relief', 'manage stress'], a: () => '🧘 <b>Stress Relief Tips:</b><br>🫁 Deep breathing exercises<br>🚶 Go for a walk<br>🎵 Listen to music<br>📝 Write in a journal<br>👨‍👩‍👧 Talk to someone you trust<br>😴 Prioritize sleep<br>📵 Take screen breaks! 🌸' },
+
+                // === Nature & Animals ===
+                { k: ['how fast is a cheetah', 'cheetah speed', 'fastest animal'], a: () => '🐆 The <b>cheetah</b> is the fastest land animal at <b>112 km/h (70 mph)</b>! They can accelerate from 0-100 km/h in just 3 seconds! ⚡' },
+                { k: ['how long do elephants live', 'elephant lifespan'], a: () => '🐘 Elephants live <b>60-70 years</b> in the wild! They\'re the largest land animals and have incredible memories 🧠' },
+                { k: ['how long do turtles live', 'turtle lifespan'], a: () => '🐢 Some turtles can live over <b>150 years</b>! The oldest known tortoise, Jonathan, is over 190 years old! 🕰️' },
+                { k: ['how many species', 'total species on earth', 'number of species'], a: () => '🌍 Scientists have identified about <b>8.7 million species</b> on Earth, but millions more are undiscovered! Most are insects 🐛' },
+                { k: ['what causes rain', 'how does rain form', 'why does it rain'], a: () => '🌧️ <b>Rain</b> forms when water evaporates from oceans/lakes → rises as vapor → cools and condenses into clouds → droplets combine → become too heavy → fall as rain! ☁️💧' },
+                { k: ['what causes lightning', 'how does lightning form'], a: () => '⚡ <b>Lightning</b> is an electrical discharge between clouds or between a cloud and the ground! Static charge builds up until it releases in a massive spark 🔥' },
+                { k: ['what is an earthquake', 'why do earthquakes happen'], a: () => '🌍 <b>Earthquakes</b> happen when tectonic plates in Earth\'s crust shift suddenly! Most occur along plate boundaries. They\'re measured on the Richter scale 📊' },
+                { k: ['what is a volcano', 'how do volcanoes erupt'], a: () => '🌋 <b>Volcanoes</b> are openings in Earth\'s crust where magma (lava) escapes! There are about 1,500 active volcanoes on Earth 🌋' },
+                { k: ['what is a tornado', 'how do tornadoes form'], a: () => '🌪️ <b>Tornadoes</b> are violently rotating columns of air! They form during severe thunderstorms when warm, moist air meets cold, dry air. The strongest can reach 480 km/h! 💨' },
+                { k: ['what is a tsunami', 'how do tsunamis form'], a: () => '🌊 <b>Tsunamis</b> are giant ocean waves caused by underwater earthquakes, volcanic eruptions, or landslides! They can travel across entire oceans at 800 km/h 🌊' },
+                { k: ['why is the sky blue', 'sky color'], a: () => '🔵 The sky is blue because of <b>Rayleigh scattering</b>! The atmosphere scatters blue light (shorter wavelength) more than other colors. At sunset, light travels through more atmosphere, scattering more blue — leaving reds and oranges! 🌅' },
+                { k: ['why is the sun yellow', 'sun color'], a: () => '☀️ The Sun is actually <b>white</b>! It appears yellow from Earth because our atmosphere scatters blue light away. From space, it looks white! 🌍' },
+                { k: ['what is the tallest animal', 'tallest animal in the world'], a: () => '🦒 The <b>giraffe</b> is the tallest animal! Males can reach <b>5.5 meters (18 feet)</b> tall! Their tongues are 45cm long and dark-colored to prevent sunburn 👅' },
+                { k: ['what is the largest animal', 'biggest animal ever'], a: () => '🐋 The <b>blue whale</b> is the largest animal ever — up to <b>30 meters</b> long and <b>150 tons</b>! Its heart is the size of a small car 💙' },
+                { k: ['what is photosynthesis in plants'], a: () => '🌿 Plants use <b>chlorophyll</b> (the green pigment) to capture sunlight and convert CO₂ + H₂O into glucose + O₂. This is why plants are essential — they produce the oxygen we breathe! 🌱' },
+
+                // === Sports ===
+                { k: ['how many players in cricket', 'cricket players', 'cricket team size'], a: () => '🏏 Each cricket team has <b>11 players</b>. In limited-overs matches, each team bats once; in Test matches, they can bat twice! 🏏' },
+                { k: ['how many players in football', 'football players', 'soccer players'], a: () => '⚽ Each football (soccer) team has <b>11 players</b> on the field. Total: 22 players plus substitutes 🏟️' },
+                { k: ['how many players in basketball', 'basketball players', 'basketball team size'], a: () => '🏀 Each basketball team has <b>5 players</b> on the court. Total: 10 players on the court at a time 🏀' },
+                { k: ['how many players in baseball', 'baseball team size'], a: () => '⚾ Each baseball team has <b>9 players</b> on the field. The batting order has 9 batters ⚾' },
+                { k: ['who is messi', 'lionel messi'], a: () => '⚽ <b>Lionel Messi</b> is an Argentine footballer — widely considered one of the greatest ever! He won the 2022 FIFA World Cup with Argentina 🇦🇷🏆' },
+                { k: ['who is cristiano ronaldo', 'ronaldo'], a: () => '⚽ <b>Cristiano Ronaldo</b> is a Portuguese footballer known for his incredible goalscoring! All-time top scorer in men\'s international football 🇵🇹⚽' },
+                { k: ['who is virat kohli', 'kohli'], a: () => '🏏 <b>Virat Kohli</b> is an Indian cricketer — one of the greatest batsmen ever! Known as "King Kohli" for his incredible consistency 👑🏏' },
+                { k: ['what is the olympics', 'olympic games'], a: () => '🏅 The <b>Olympic Games</b> are the world\'s biggest sporting event! Started in ancient Greece (~776 BC). The modern Olympics began in 1896 in Athens. Held every 4 years! 🌍' },
+                { k: ['fifa world cup', 'football world cup'], a: () => '🏆 The <b>FIFA World Cup</b> is the most-watched sporting event! Held every 4 years. Brazil has won the most (5 times). The 2026 World Cup will be in USA, Canada & Mexico! ⚽' },
+                { k: ['how many holes in golf', 'golf holes'], a: () => '⛳ A standard golf course has <b>18 holes</b>! The game originated in Scotland in the 15th century 🏴󠁧󠁢󠁳󠁣󠁴󠁿' },
+
+                // === Pop Culture & Fun Facts ===
+                { k: ['what year was harry potter', 'harry potter released', 'first harry potter book'], a: () => '🧙‍♂️ The first <b>Harry Potter</b> book ("Philosopher\'s Stone") was published in <b>1997</b> by J.K. Rowling! The movies ran from 2001-2011 📚⚡' },
+                { k: ['what year was minecraft made', 'minecraft release', 'when did minecraft come out'], a: () => '⛏️ <b>Minecraft</b> was first released in <b>2011</b> by Markus "Notch" Persson! It\'s the best-selling video game ever with 300M+ copies sold 🎮' },
+                { k: ['what year was the iphone released', 'first iphone', 'iphone launch'], a: () => '📱 The first <b>iPhone</b> was released on <b>June 29, 2007</b>! Steve Jobs called it "a widescreen iPod, a revolutionary mobile phone, and a breakthrough internet communicator" 🍎' },
+                { k: ['who is taylor swift', 'taylor swift'], a: () => '🎤 <b>Taylor Swift</b> is an American singer-songwriter — one of the best-selling music artists ever! She\'s won 14 Grammy Awards and has broken countless records 🏆' },
+                { k: ['who is bts', 'what is bts'], a: () => '🎶 <b>BTS</b> (Bangtan Sonyeondan) is a South Korean boy band! They\'ve broken global records, addressed the UN, and have millions of devoted fans (ARMY) worldwide 🇰🇷💜' },
+                { k: ['what is netflix', 'explain netflix'], a: () => '🎬 <b>Netflix</b> is a streaming service for movies, TV shows, and documentaries! It started as a DVD rental service in 1997 and became a streaming giant in 2007 🍿' },
+                { k: ['most followed person on instagram', 'instagram most followers'], a: () => '📸 <b>Cristiano Ronaldo</b> has the most Instagram followers with over 600 million! He surpassed many celebrities and brands 🏆' },
+                { k: ['longest movie ever', 'longest film'], a: () => '🎬 The longest narrative film is <b>"Logistics"</b> (2012) — it\'s 51,420 minutes (857 hours / 35.7 days)! The longest conventional film is "Ambiancé" at 720 minutes 🕐' },
+                { k: ['most watched youtube video', 'youtube most viewed'], a: () => '📺 <b>"Baby Shark Dance"</b> by Pinkfregg is the most-viewed YouTube video with over 14 billion views! 👶🦈' },
+                { k: ['what is anime', 'explain anime'], a: () => '🎌 <b>Anime</b> is Japanese animation! It covers every genre — action, romance, horror, sci-fi, slice of life. Popular ones: Naruto, One Piece, Attack on Titan, Demon Slayer 🇯🇵' },
+
+                // === Idioms & Phrases ===
+                { k: ['what does break a leg mean', 'break a leg meaning'], a: () => '🦵 "Break a leg" means <b>"Good luck!"</b> — used in theater. The origin is debated, but it\'s meant to avoid jinxing a performance by wishing good luck directly! 🎭' },
+                { k: ['what does piece of cake mean', 'piece of cake meaning'], a: () => '🍰 "Piece of cake" means <b>something very easy!</b> Example: "That test was a piece of cake!" 🍰' },
+                { k: ['what does hit the hay mean', 'hit the hay meaning'], a: () => '🛏️ "Hit the hay" means <b>go to sleep!</b> It comes from the days when people used hay as mattress stuffing 🌾' },
+                { k: ['what does costs an arm and a leg', 'cost an arm and leg meaning'], a: () => '💰 "Costs an arm and a leg" means <b>very expensive!</b> Like, "That bag costs an arm and a leg!" 💸' },
+                { k: ['what does once in a blue moon', 'once in a blue moon meaning'], a: () => '🌙 "Once in a blue moon" means <b>very rarely!</b> A "blue moon" is the second full moon in a calendar month — which doesn\'t happen often! 🔵' },
+                { k: ['what does spill the beans', 'spill the beans meaning'], a: () => '🫘 "Spill the beans" means <b>to reveal a secret!</b> Example: "Come on, spill the beans — who\'s the surprise for?" 🤫' },
+                { k: ['what does the ball is in your court', 'ball in your court meaning'], a: () => '🎾 "The ball is in your court" means <b>it\'s your turn to make a decision or take action!</b> From tennis 🎾' },
+                { k: ['what does bite the bullet', 'bite the bullet meaning'], a: () => '💪 "Bite the bullet" means <b>to endure a painful situation with courage!</b> Origin: soldiers biting bullets during surgery without anesthesia 😬' },
+                { k: ['what does let the cat out of the bag', 'cat out of bag meaning'], a: () => '🐱 "Let the cat out of the bag" means <b>accidentally revealing a secret!</b> 🤫' },
+                { k: ['what does beat around the bush', 'beat around the bush meaning'], a: () => '🌳 "Beat around the bush" means <b>avoiding the main topic!</b> Like, "Stop beating around the bush and tell me!" 🗣️' },
+
+                // === Common Questions ===
+                { k: ['what time is it', 'current time', 'tell me the time', 'time now'], a: () => '🕐 The current time is <b>' + new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + '</b> ⏰' },
+                { k: ['what day is it', 'what is today', 'today date', 'what date is it', "what's today's date", 'current date'], a: () => '📅 Today is <b>' + new Date().toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) + '</b> 📆' },
+                { k: ['what year is it', 'current year', 'what year are we in'], a: () => '📅 The current year is <b>' + new Date().getFullYear() + '</b>! 🗓️' },
+                { k: ['who am i', 'what is my name'], a: () => '🤔 Hmm, I can\'t see you through the screen! But you\'re someone awesome enough to be chatting with Zuzu 💖 Who are you, cutie?' },
+                { k: ['what is love'], a: () => '💖 <b>Love</b> is a complex emotion involving deep affection, attachment, and care for someone or something! It releases oxytocin and dopamine in the brain 🧠💕' },
+                { k: ['what is the meaning of life', 'meaning of life'], a: () => '🌌 That\'s the ultimate question! Philosophers have debated it for millennia. Douglas Adams said <b>42</b> 🤓 But I think the meaning is whatever makes you happy — like crochet! 🧶💖' },
+                { k: ['do aliens exist', 'are aliens real', 'extraterrestrial life'], a: () => '👽 With an estimated <b>2 trillion galaxies</b> each containing billions of stars, statistically aliens seem likely! But we haven\'t found definitive proof yet. The universe is very, very big! 🌌' },
+                { k: ['what happens after death', 'afterlife', 'what is after death'], a: () => '🌌 That\'s one of humanity\'s deepest mysteries! Different cultures and religions have various beliefs. Science tells us energy is conserved — our atoms return to the earth and become part of new life 🌱' },
+                { k: ['is there santa claus', 'does santa exist', 'santa claus real'], a: () => '🎅 Santa Claus was inspired by <b>Saint Nicholas</b>, a real 4th-century Greek bishop known for generosity! The modern image comes from Coca-Cola ads in the 1930s 🎁✨' },
+                { k: ['what is democracy'], a: () => '🗳️ <b>Democracy</b> is a system of government where people elect their leaders! "Rule by the people" — from Greek "demos" (people) + "kratos" (power) 🏛️' },
+                { k: ['what is climate change'], a: () => '🌍 <b>Climate change</b> refers to long-term shifts in global temperatures and weather patterns! Mainly driven by human activities since the 1800s, especially burning fossil fuels 🔥' },
+                { k: ['what is renewable energy'], a: () => '♻️ <b>Renewable energy</b> comes from naturally replenishing sources: ☀️ Solar, 💨 Wind, 💧 Hydro, 🌋 Geothermal, 🌿 Biomass! They don\'t run out and produce less pollution ⚡' },
+                { k: ['what is recycle', 'recycling meaning'], a: () => '♻️ <b>Recycling</b> is converting waste materials into new materials! ♻️ The 3 R\'s: <b>Reduce</b> (use less), <b>Reuse</b> (use again), <b>Recycle</b> (process into new)! 🌍' },
+                { k: ['what is yoga', 'benefits of yoga'], a: () => '🧘 <b>Yoga</b> is a mind-body practice combining physical poses, breathing exercises, and meditation! Benefits: flexibility, strength, stress reduction, better sleep 🧘‍♀️' },
+                { k: ['what is meditation'], a: () => '🧘 <b>Meditation</b> is training your mind to focus and achieve mental clarity! Regular practice reduces stress, anxiety, and improves focus. Even 5 minutes daily helps! 🧘' },
+                { k: ['how to be happy', 'how to find happiness'], a: () => '😊 <b>Science-backed happiness tips:</b><br>🤝 Strengthen relationships<br>🙏 Practice gratitude daily<br>🏃 Exercise regularly<br>😴 Prioritize sleep<br>🎯 Set meaningful goals<br>🧘 Be present (mindfulness)<br>Happiness is a practice, not a destination! 💖' }
             ];
 
-            const panel = document.getElementById('chatPanel');
-            const msgs = document.getElementById('chatMsgs');
-            const input = document.getElementById('chatInput');
-            const chipsBox = document.getElementById('chatChips');
-            const unread = document.getElementById('chatUnread');
-
-            const CHIPS = ['🌸 Flower prices', '🔑 Keychains', '🧸 Plushies', '🎀 Accessories', '🚚 Delivery', '💳 Payment'];
-
-            function addMsg(html, who) {
-                const d = document.createElement('div');
-                d.className = 'msg ' + who;
-                if (who === 'user') { d.textContent = html; } else { d.innerHTML = html; }
-                msgs.appendChild(d);
-                msgs.scrollTop = msgs.scrollHeight;
+            // ── Pattern Detectors ──
+            function detectMath(text) {
+                var cleaned = text.replace(/[^0-9\+\-\*\/\^\%\.\(\)x\s]/g, ' ');
+                var exprMatch = cleaned.match(/(\d+\.?\d*\s*[\+\-\*\/\^]\s*\d+\.?\d*)/);
+                if (exprMatch) {
+                    try {
+                        var expr = exprMatch[0].replace(/\^/g, '**');
+                        var result = Function('"use strict"; return (' + expr + ')')();
+                        if (isFinite(result) && !isNaN(result)) {
+                            var formatted = Number.isInteger(result) ? result : parseFloat(result.toFixed(6));
+                            return '🧮 <b>' + exprMatch[0].trim() + ' = ' + formatted + '</b>';
+                        }
+                    } catch(e) {}
+                }
+                var pctMatch = text.match(/(\d+\.?\d*)\s*%\s*(?:of)?\s*(\d+\.?\d*)/);
+                if (pctMatch) {
+                    var pct = parseFloat(pctMatch[1]), of = parseFloat(pctMatch[2]);
+                    return '🧮 <b>' + pct + '% of ' + of + ' = ' + (pct * of / 100) + '</b>';
+                }
+                return null;
             }
 
-            function showChips() {
+            function detectConversion(text) {
+                var convMap = {
+                    'kg to lbs': [2.20462, 'lbs'], 'lbs to kg': [0.453592, 'kg'],
+                    'km to miles': [0.621371, 'miles'], 'miles to km': [1.60934, 'km'],
+                    'cm to inches': [0.393701, 'inches'], 'inches to cm': [2.54, 'cm'],
+                    'celsius to fahrenheit': [null, 'fahrenheit'], 'fahrenheit to celsius': [null, 'celsius'],
+                    'liters to gallons': [0.264172, 'gallons'], 'gallons to liters': [3.78541, 'liters'],
+                    'meters to feet': [3.28084, 'feet'], 'feet to meters': [0.3048, 'meters'],
+                    'kg to grams': [1000, 'grams'], 'grams to kg': [0.001, 'kg'],
+                    'cm to mm': [10, 'mm'], 'mm to cm': [0.1, 'cm']
+                };
+                var match = text.match(/convert\s+(\d+\.?\d*)\s+(\w+)\s+(?:to|in|into)\s+(\w+)/i);
+                if (!match) return null;
+                var val = parseFloat(match[1]);
+                var from = match[2].toLowerCase();
+                var to = match[3].toLowerCase();
+                var key = from + ' to ' + to;
+                if (convMap[key]) {
+                    if (key === 'celsius to fahrenheit') return '🔄 <b>' + val + '°C = ' + (val * 9/5 + 32).toFixed(1) + '°F</b>';
+                    if (key === 'fahrenheit to celsius') return '🔄 <b>' + val + '°F = ' + ((val - 32) * 5/9).toFixed(1) + '°C</b>';
+                    return '🔄 <b>' + val + ' ' + match[2] + ' = ' + (val * convMap[key][0]).toFixed(4).replace(/\.?0+$/, '') + ' ' + convMap[key][1] + '</b>';
+                }
+                return null;
+            }
+
+            function detectLanguage(text) {
+                var langMap = {
+                    'japanese': { 'hello': 'こんにちは (Konnichiwa)', 'thank you': 'ありがとう (Arigatou)', 'goodbye': 'さようなら (Sayounara)', 'good morning': 'おはよう (Ohayou)', 'i love you': '愛してる (Aishiteru)', 'yes': 'はい (Hai)', 'no': 'いいえ (Iie)', 'sorry': 'ごめんなさい (Gomen nasai)', 'please': 'お願いします (Onegaishimasu)', 'cheers': '乾杯 (Kanpai)' },
+                    'french': { 'hello': 'Bonjour', 'thank you': 'Merci', 'goodbye': 'Au revoir', 'good morning': 'Bonjour', 'good night': 'Bonne nuit', 'i love you': 'Je t\'aime', 'yes': 'Oui', 'no': 'Non', 'please': 'S\'il vous plaît', 'sorry': 'Désolé(e)', 'cheers': 'Santé' },
+                    'spanish': { 'hello': 'Hola', 'thank you': 'Gracias', 'goodbye': 'Adiós', 'good morning': 'Buenos días', 'good night': 'Buenas noches', 'i love you': 'Te quiero / Te amo', 'yes': 'Sí', 'no': 'No', 'please': 'Por favor', 'sorry': 'Lo siento', 'cheers': '¡Salud!' },
+                    'korean': { 'hello': '안녕하세요 (Annyeonghaseyo)', 'thank you': '감사합니다 (Gamsahamnida)', 'goodbye': '안녕히 가세요 (Annyeonghi gaseyo)', 'good morning': '좋은 아침 (Joeun achim)', 'i love you': '사랑해요 (Saranghaeyo)', 'yes': '네 (Ne)', 'no': '아니요 (Aniyo)', 'sorry': '미안합니다 (Mianhamnida)', 'please': '제발 (Jebal)' },
+                    'german': { 'hello': 'Hallo / Guten Tag', 'thank you': 'Danke', 'goodbye': 'Auf Wiedersehen', 'good morning': 'Guten Morgen', 'good night': 'Gute Nacht', 'i love you': 'Ich liebe dich', 'yes': 'Ja', 'no': 'Nein', 'please': 'Bitte', 'sorry': 'Entschuldigung', 'cheers': 'Prost' },
+                    'arabic': { 'hello': 'مرحبا (Marhaba)', 'thank you': 'شكرا (Shukran)', 'goodbye': 'مع السلامة (Ma\'a salama)', 'good morning': 'صباح الخير (Sabah al-khair)', 'good night': 'تصبح على خير (Tusbih ala khayr)', 'i love you': 'أحبك (Uhibbuka)', 'yes': 'نعم (Na\'am)', 'no': 'لا (La)', 'please': 'من فضلك (Min fadlak)', 'sorry': 'آسف (Aasif)', 'peace': 'سلام (Salaam)' },
+                    'turkish': { 'hello': 'Merhaba', 'thank you': 'Teşekkür ederim', 'goodbye': 'Hoşça kal', 'good morning': 'Günaydın', 'good night': 'İyi geceler', 'i love you': 'Seni seviyorum', 'yes': 'Evet', 'no': 'Hayır', 'please': 'Lütfen', 'sorry': 'Özür dilerim', 'cheers': 'Şerefe' },
+                    'italian': { 'hello': 'Ciao / Buongiorno', 'thank you': 'Grazie', 'goodbye': 'Arrivederci', 'good morning': 'Buongiorno', 'good night': 'Buona notte', 'i love you': 'Ti amo', 'yes': 'Sì', 'no': 'No', 'please': 'Per favore', 'sorry': 'Scusa', 'cheers': 'Salute' },
+                    'portuguese': { 'hello': 'Olá / Oi', 'thank you': 'Obrigado(a)', 'goodbye': 'Tchau / Adeus', 'good morning': 'Bom dia', 'good night': 'Boa noite', 'i love you': 'Eu te amo', 'yes': 'Sim', 'no': 'Não', 'please': 'Por favor', 'sorry': 'Desculpe', 'cheers': 'Saúde' },
+                    'hindi': { 'hello': 'नमस्ते (Namaste)', 'thank you': 'धन्यवाद (Dhanyavaad)', 'goodbye': 'अलविदा (Alvida)', 'good morning': 'सुप्रभात (Suprabhat)', 'good night': 'शुभ रात्रि (Shubh Ratri)', 'i love you': 'मैं तुमसे प्यार करता हूँ (Main tumse pyar karta hoon)', 'yes': 'हाँ (Haan)', 'no': 'नहीं (Nahin)', 'please': 'कृपया (Kripya)', 'sorry': 'माफ़ कीजिये (Maaf kijiye)' },
+                    'chinese': { 'hello': '你好 (Nǐ hǎo)', 'thank you': '谢谢 (Xièxiè)', 'goodbye': '再见 (Zàijiàn)', 'good morning': '早上好 (Zǎoshang hǎo)', 'i love you': '我爱你 (Wǒ ài nǐ)', 'yes': '是 (Shì)', 'no': '不 (Bù)', 'please': '请 (Qǐng)', 'sorry': '对不起 (Duìbùqǐ)' }
+                };
+                var match = text.match(/(?:how (?:do you |to )?)?(?:say|translate)\s+(.+?)\s+(?:in|to)\s+(\w+)/i);
+                if (!match) return null;
+                var phrase = match[1].trim().toLowerCase();
+                var lang = match[2].toLowerCase();
+                if (langMap[lang] && langMap[lang][phrase]) {
+                    return '🗣️ "<b>' + phrase.charAt(0).toUpperCase() + phrase.slice(1) + '</b>" in <b>' + lang.charAt(0).toUpperCase() + lang.slice(1) + '</b>: ' + langMap[lang][phrase];
+                }
+                if (langMap[lang]) {
+                    var keys = Object.keys(langMap[lang]).join(', ');
+                    return '🗣️ I know these <b>' + lang.charAt(0).toUpperCase() + lang.slice(1) + '</b> phrases: ' + keys + '. Try asking for one of those!';
+                }
+                return null;
+            }
+
+            // ── Wikipedia API ──
+            async function queryWikipedia(query) {
+                var topic = query
+                    .replace(/^(what is|who is|who was|what are|tell me about|explain|describe|how does|how do)\s+/i, '')
+                    .replace(/\?/g, '').trim();
+                if (topic.length < 2 || topic.length > 60) return null;
+                try {
+                    var resp = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(topic), {
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!resp.ok) return null;
+                    var data = await resp.json();
+                    if (data.extract && data.type !== 'disambiguation' && data.type !== 'not-found') {
+                        var short = data.extract.length > 300 ? data.extract.substring(0, 297) + '...' : data.extract;
+                        return '📚 <b>' + data.title + '</b><br>' + short + '<br><a href="' + data.content_urls.desktop.page + '" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700;font-size:12px;">Read more on Wikipedia ↗</a>';
+                    }
+                } catch(e) {}
+                return null;
+            }
+
+            // ── Gemini API (optional) ──
+            async function queryGemini(query) {
+                var key = localStorage.getItem('zuzu_gemini_key');
+                if (!key) return null;
+                try {
+                    var resp = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + key, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{
+                                text: 'You are Zuzu, a friendly, fun crochet-themed AI assistant for ZYLO (a handmade crochet brand based in Pakistan). Keep your personality warm, cute, and use occasional emoji. Keep answers concise (2-4 sentences max). For ZYLO-specific questions, prioritize the shop\'s products and policies. For general questions, be helpful and accurate. User asked: "' + query + '"'
+                            }] }],
+                            generationConfig: { maxOutputTokens: 250, temperature: 0.7 }
+                        })
+                    });
+                    if (!resp.ok) {
+                        if (resp.status === 400 || resp.status === 403) {
+                            localStorage.removeItem('zuzu_gemini_key');
+                            return null;
+                        }
+                        return null;
+                    }
+                    var data = await resp.json();
+                    return data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] ? data.candidates[0].content.parts[0].text : null;
+                } catch(e) { return null; }
+            }
+
+            // ── Core Answer Function (7-layer chain) ──
+            async function answer(raw) {
+                var text = ' ' + raw.toLowerCase().replace(/[?!,.]/g, ' ') + ' ';
+                var source = 'zylo';
+
+                // Layer 1a: ZYLO Products
+                var prod = findProduct(text);
+                if (prod) {
+                    return { html: '🧶 <b>' + prod.n + '</b><br>💰 Price: <b>' + prod.p + '</b><br>📁 From our <b>' + prod.c + '</b> collection!<br>Scroll to its card & tap "Add to Cart ✨" to grab it 🛍️', source: 'zylo', context: 'product' };
+                }
+
+                // Layer 1b: ZYLO Categories
+                for (var key in CATS) {
+                    if (CATS[key].match.some(function(m) { return text.includes(m); })) {
+                        return { html: listCat(key), source: 'zylo', context: 'category' };
+                    }
+                }
+
+                // Layer 1c: ZYLO + General INTENTS
+                var bestI = null, bestScore = 0;
+                INTENTS.forEach(function(it) {
+                    var score = it.k.reduce(function(s, kw) { return s + (text.includes(kw) ? kw.length : 0); }, 0);
+                    if (score > bestScore) { bestScore = score; bestI = it; }
+                });
+                if (bestI && bestScore > 0) {
+                    return { html: bestI.a(), source: 'zylo', context: 'intent' };
+                }
+
+                // Layer 1d: Pattern Detectors
+                var mathResult = detectMath(text);
+                if (mathResult) return { html: mathResult, source: 'zylo', context: 'math' };
+
+                var convResult = detectConversion(text);
+                if (convResult) return { html: convResult, source: 'zylo', context: 'conversion' };
+
+                var langResult = detectLanguage(text);
+                if (langResult) return { html: langResult, source: 'zylo', context: 'language' };
+
+                // Layer 2: Wikipedia API
+                var wikiResult = await queryWikipedia(raw);
+                if (wikiResult) return { html: wikiResult, source: 'wiki', context: 'general' };
+
+                // Layer 3: Gemini API (optional)
+                var geminiResult = await queryGemini(raw);
+                if (geminiResult) {
+                    var safeText = geminiResult.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+                    return { html: safeText, source: 'gemini', context: 'general' };
+                }
+
+                // Fallback
+                return {
+                    html: "Hmm, I'm not sure about that one! 🌱 My knowledge is still growing. Try asking about <b>ZYLO products</b>, <b>science</b>, <b>geography</b>, <b>math</b>, <b>languages</b>, or anything else — I'll do my best! 🧶✨<br><br>Or chat with our humans: " + CONTACT_HTML,
+                    source: 'zylo',
+                    context: 'fallback'
+                };
+            }
+
+            // ── DOM References ──
+            var panel = document.getElementById('chatPanel');
+            var msgs = document.getElementById('chatMsgs');
+            var input = document.getElementById('chatInput');
+            var chipsBox = document.getElementById('chatChips');
+            var unread = document.getElementById('chatUnread');
+
+            // ── Dynamic Chip Sets ──
+            var CHIP_SETS = {
+                greeting: [
+                    { icon: '📦', label: 'Track Order' },
+                    { icon: '🎨', label: 'Custom Inquiry' },
+                    { icon: '📏', label: 'Size Help' },
+                    { icon: '🌸', label: 'Flowers' },
+                    { icon: '🚚', label: 'Delivery' },
+                    { icon: '💳', label: 'Payment' }
+                ],
+                afterProduct: [
+                    { icon: '🔑', label: 'Keychains' },
+                    { icon: '🧸', label: 'Plushies' },
+                    { icon: '🎁', label: 'Gift Ideas' }
+                ],
+                afterCategory: [
+                    { icon: '🔥', label: 'Best Sellers' },
+                    { icon: '💸', label: 'Budget Finds' },
+                    { icon: '✨', label: 'Premium' }
+                ],
+                afterGeneral: [
+                    { icon: '🔎', label: 'Ask Something Else' },
+                    { icon: '🛍️', label: 'Browse ZYLO' },
+                    { icon: '📏', label: 'Size Guide' },
+                    { icon: '🌍', label: 'Fun Fact' }
+                ],
+                general: [
+                    { icon: '🚀', label: 'Speed of Light' },
+                    { icon: '🪐', label: 'Planets' },
+                    { icon: '🗣️', label: 'Say Hello in Japanese' },
+                    { icon: '🧮', label: 'Math: 42 * 7' },
+                    { icon: '🌍', label: 'Capital of France' },
+                    { icon: '🛍️', label: 'Browse ZYLO' }
+                ]
+            };
+
+            function showQuickActionGrid() {
                 chipsBox.innerHTML = '';
-                CHIPS.forEach(c => {
-                    const b = document.createElement('button');
+                var grid = document.createElement('div');
+                grid.className = 'chat-quick-grid';
+                CHIP_SETS.greeting.forEach(function(c) {
+                    var btn = document.createElement('button');
+                    btn.className = 'chat-quick-btn';
+                    btn.innerHTML = '<span class="q-icon">' + c.icon + '</span><span class="q-label">' + c.label + '</span>';
+                    btn.onclick = function() { userSays(c.label); };
+                    grid.appendChild(btn);
+                });
+                chipsBox.appendChild(grid);
+            }
+
+            function showChips(context) {
+                chipsBox.innerHTML = '';
+                var set = CHIP_SETS[context] || CHIP_SETS.afterGeneral;
+                set.forEach(function(c) {
+                    var b = document.createElement('button');
                     b.className = 'chip';
-                    b.textContent = c;
-                    b.onclick = () => { userSays(c); };
+                    b.textContent = c.icon + ' ' + c.label;
+                    b.onclick = function() { userSays(c.label); };
                     chipsBox.appendChild(b);
                 });
             }
 
-            function thinkThen(replyHtml) {
-                const t = document.createElement('div');
-                t.className = 'typing';
-                t.innerHTML = '<span></span><span></span><span></span>';
-                msgs.appendChild(t);
+            function addMsg(html, who, source) {
+                var d = document.createElement('div');
+                d.className = 'msg ' + who;
+                if (who === 'user') {
+                    d.textContent = html;
+                } else {
+                    var content = html;
+                    if (source === 'wiki') content += '<span class="chat-source wiki">📚 from Wikipedia</span>';
+                    else if (source === 'gemini') content += '<span class="chat-source gemini">🤖 from AI</span>';
+                    d.innerHTML = content;
+                }
+                msgs.appendChild(d);
                 msgs.scrollTop = msgs.scrollHeight;
-                setTimeout(() => { t.remove(); addMsg(replyHtml, 'bot'); }, 550 + Math.min(replyHtml.length * 3, 700));
             }
 
-            function answer(raw) {
-                const text = ' ' + raw.toLowerCase().replace(/[?!,.]/g, ' ') + ' ';
+            function showThinking(label) {
+                var t = document.createElement('div');
+                t.className = 'msg thinking';
+                t.id = 'zuzuThinking';
+                t.innerHTML = '<span class="think-label">' + (label || 'Zuzu is thinking') + '</span><span class="think-dots"><span></span><span></span><span></span></span>';
+                msgs.appendChild(t);
+                msgs.scrollTop = msgs.scrollHeight;
+            }
 
-                const prod = findProduct(text);
-                if (prod) {
-                    return '🧶 <b>' + prod.n + '</b><br>💰 Price: <b>' + prod.p + '</b><br>📁 From our <b>' + prod.c + '</b> collection!<br>Scroll to its card & tap “Add to Cart ✨” to grab it 🛍️';
+            function removeThinking() {
+                var el = document.getElementById('zuzuThinking');
+                if (el) el.remove();
+            }
+
+            async function processAndReply(text) {
+                showThinking('Zuzu is thinking...');
+                try {
+                    var result = await answer(text);
+                    removeThinking();
+                    addMsg(result.html, 'bot', result.source);
+                    showChips(result.context === 'product' ? 'afterProduct' : result.context === 'category' ? 'afterCategory' : 'afterGeneral');
+                } catch(e) {
+                    removeThinking();
+                    addMsg('Oops, something went wrong! 😅 Try again? 🧶', 'bot', 'zylo');
                 }
-
-                for (const key of Object.keys(CATS)) {
-                    if (CATS[key].match.some(m => text.includes(m))) return listCat(key);
-                }
-
-                let bestI = null, bestScore = 0;
-                INTENTS.forEach(it => {
-                    const score = it.k.reduce((s, kw) => s + (text.includes(kw) ? kw.length : 0), 0);
-                    if (score > bestScore) { bestScore = score; bestI = it; }
-                });
-                if (bestI) return bestI.a();
-
-                return 'Hmm, I\'m still learning that one! 🌱 Try asking about a <b>product</b>, <b>price</b>, <b>delivery</b> or <b>payment</b>…<br>Or chat with our humans: ' + CONTACT_HTML;
             }
 
             function userSays(text) {
                 if (!text.trim()) return;
                 addMsg(text.trim(), 'user');
                 input.value = '';
-                thinkThen(answer(text));
+                processAndReply(text);
             }
             window.userSays = userSays;
 
@@ -5198,20 +5847,66 @@
                 panel.classList.toggle('open');
                 unread.style.display = 'none';
                 if (panel.classList.contains('open') && !msgs.hasChildNodes()) {
-                    setTimeout(() => {
-                        addMsg('Hehe hi there! 🧶💖 I\'m <b>Zuzu</b>, ZYLO\'s little crochet bestie! Ask me about any product, price, delivery or payment — I know everything about this shop ✨', 'bot');
-                        showChips();
+                    setTimeout(function() {
+                        addMsg('Heyyy cutie! 👋💖 I\'m <b>Zuzu</b> — ZYLO\'s crochet bestie & your all-purpose AI assistant! 🧶✨<br><br>I know everything about ZYLO\'s products, prices & orders. But I can also answer questions about <b>science</b>, <b>math</b>, <b>geography</b>, <b>languages</b>, <b>history</b>, and pretty much anything! 🌍🧠', 'bot', 'zylo');
+                        setTimeout(function() { addMsg('Try asking me something! Like "capital of Japan" or "speed of light" or just browse our cute products 🛍️', 'bot', 'zylo'); }, 400);
+                        showQuickActionGrid();
                     }, 300);
-                    setTimeout(() => input.focus(), 350);
+                    setTimeout(function() { input.focus(); }, 350);
                 }
             };
 
             window.sendChatMessage = function() { userSays(input.value); };
-            input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); userSays(input.value); } });
+            input.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); userSays(input.value); } });
 
-            window.addEventListener('keydown', e => {
+            window.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && panel.classList.contains('open')) toggleChat();
             });
+
+            // ── Settings Functions ──
+            window.openZuzuSettings = function() {
+                var overlay = document.getElementById('zuzuSettingsOverlay');
+                var keyInput = document.getElementById('geminiKeyInput');
+                var statusEl = document.getElementById('geminiStatus');
+                var statusIcon = document.getElementById('geminiStatusIcon');
+                var statusText = document.getElementById('geminiStatusText');
+                var existingKey = localStorage.getItem('zuzu_gemini_key');
+                keyInput.value = existingKey || '';
+                if (existingKey) {
+                    statusEl.className = 'gemini-status active';
+                    statusIcon.textContent = '✅';
+                    statusText.textContent = 'Gemini AI: Configured & active!';
+                } else {
+                    statusEl.className = 'gemini-status inactive';
+                    statusIcon.textContent = '⚠️';
+                    statusText.textContent = 'Gemini AI: Not configured (Zuzu still works without it!)';
+                }
+                overlay.classList.add('open');
+            };
+
+            window.closeZuzuSettings = function() {
+                document.getElementById('zuzuSettingsOverlay').classList.remove('open');
+            };
+
+            window.saveZuzuKey = function() {
+                var key = document.getElementById('geminiKeyInput').value.trim();
+                if (key) {
+                    localStorage.setItem('zuzu_gemini_key', key);
+                    showToast('✅ Gemini AI key saved! Zuzu is now even smarter!');
+                } else {
+                    localStorage.removeItem('zuzu_gemini_key');
+                }
+                closeZuzuSettings();
+            };
+
+            window.clearZuzuKey = function() {
+                localStorage.removeItem('zuzu_gemini_key');
+                document.getElementById('geminiKeyInput').value = '';
+                document.getElementById('geminiStatus').className = 'gemini-status inactive';
+                document.getElementById('geminiStatusIcon').textContent = '⚠️';
+                document.getElementById('geminiStatusText').textContent = 'Gemini AI: Not configured';
+                showToast('🗑️ Gemini AI key removed');
+            };
         })();
 
         // Sparkle cursor trail
@@ -5562,7 +6257,7 @@
                 var display = '';
                 document.querySelectorAll('.product-card').forEach(function(card) {
                     var btn = card.querySelector('.add-to-cart-btn');
-                    if (btn && btn.getAttribute('onclick').indexOf("'" + name + "'") !== -1) {
+                    if (btn && (btn.getAttribute('onclick') || '').indexOf("'" + name + "'") !== -1) {
                         display = card.querySelector('.product-info h3').textContent.trim();
                     }
                 });
