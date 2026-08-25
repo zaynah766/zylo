@@ -2499,6 +2499,66 @@
         /* ---- Product JSON-LD schema hidden ---- */
         .product-schema { display:none; }
 
+        /* ========== TESTIMONIAL CAROUSEL ========== */
+        .testimonial-carousel { position:relative; max-width:1000px; margin:0 auto; overflow:hidden; padding:0 48px; }
+        .testimonial-track { display:flex; transition:transform .5s cubic-bezier(.25,.8,.25,1); gap:20px; }
+        .testimonial-track .review-card { flex:0 0 calc(33.333% - 14px); min-width:0; }
+        .tc-arrow { position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%; background:var(--neon-yellow); border:3px solid var(--text-dark); box-shadow:3px 3px 0 var(--text-dark); font-size:18px; font-weight:bold; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center; transition:all .2s; color:var(--text-dark); }
+        .tc-arrow:hover { transform:translateY(-50%) translate(-2px,-2px); box-shadow:5px 5px 0 var(--text-dark); background:var(--primary); color:#fff; }
+        .tc-arrow.prev { left:0; }
+        .tc-arrow.next { right:0; }
+        .tc-dots { display:flex; justify-content:center; gap:10px; margin-top:22px; }
+        .tc-dot { width:12px; height:12px; border-radius:50%; background:var(--dot-color); border:2px solid var(--text-dark); cursor:pointer; transition:all .25s; }
+        .tc-dot.active { background:var(--primary); transform:scale(1.2); box-shadow:2px 2px 0 var(--text-dark); }
+        .tc-dot:hover { background:var(--accent-pink); }
+        @media (max-width:768px) {
+            .testimonial-carousel { padding:0 36px; }
+            .testimonial-track .review-card { flex:0 0 calc(100% - 0px); }
+            .tc-arrow { width:34px; height:34px; font-size:15px; }
+        }
+
+        /* ========== ANIMATED HERO ========== */
+        .hero-particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+        .hero-particle { position:absolute; bottom:-40px; font-size:28px; opacity:.45; animation:driftUp linear infinite; filter:drop-shadow(1px 1px 0 rgba(30,30,36,.2)); }
+        @keyframes driftUp {
+            0% { transform:translateY(0) translateX(0) rotate(0deg); opacity:.45; }
+            50% { opacity:.6; }
+            100% { transform:translateY(-110vh) translateX(30px) rotate(360deg); opacity:0; }
+        }
+        .banner .hero-particles .hero-particle:nth-child(1) { left:5%; animation-duration:14s; animation-delay:0s; font-size:24px; }
+        .hero-particles .hero-particle:nth-child(2) { left:15%; animation-duration:18s; animation-delay:2s; font-size:20px; }
+        .hero-particles .hero-particle:nth-child(3) { left:28%; animation-duration:16s; animation-delay:4s; font-size:30px; }
+        .hero-particles .hero-particle:nth-child(4) { left:42%; animation-duration:20s; animation-delay:1s; font-size:22px; }
+        .hero-particles .hero-particle:nth-child(5) { left:56%; animation-duration:15s; animation-delay:5s; font-size:26px; }
+        .hero-particles .hero-particle:nth-child(6) { left:68%; animation-duration:19s; animation-delay:3s; font-size:20px; }
+        .hero-particles .hero-particle:nth-child(7) { left:80%; animation-duration:17s; animation-delay:6s; font-size:28px; }
+        .hero-particles .hero-particle:nth-child(8) { left:92%; animation-duration:21s; animation-delay:0.5s; font-size:22px; }
+        .banner h1 { position:relative; z-index:2; }
+        .banner .cta-btn { position:relative; z-index:2; animation:ctaGlow 2.5s ease-in-out infinite; }
+        @keyframes ctaGlow {
+            0%,100% { box-shadow:5px 5px 0 var(--accent-pink), 0 0 0 rgba(255,94,126,0); }
+            50% { box-shadow:5px 5px 0 var(--accent-pink), 0 0 28px rgba(255,94,126,.35); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-particle { animation:none; opacity:.2; }
+            .banner .cta-btn { animation:none; }
+        }
+
+        /* ========== STALL EVENT SECTION ========== */
+        .stall-card { background:var(--white); border:3px solid var(--text-dark); border-radius:26px; box-shadow:7px 7px 0 var(--text-dark); max-width:720px; margin:0 auto; overflow:hidden; transition:all .25s; }
+        .stall-card:hover { transform:translate(-3px,-3px); box-shadow:10px 10px 0 var(--text-dark); }
+        .stall-img { width:100%; height:auto; display:block; border-bottom:3px solid var(--text-dark); object-fit:cover; max-height:400px; }
+        .stall-caption { padding:28px 30px 30px; text-align:center; }
+        .stall-caption h3 { font-family:'Fredoka One',cursive; font-size:22px; color:var(--text-dark); margin-bottom:10px; text-shadow:2px 2px 0 rgba(30,30,36,.08); }
+        .stall-caption p { font-size:15px; font-weight:600; line-height:1.75; color:var(--text-dark); }
+        @media (max-width:768px) {
+            .stall-card { border-radius:18px; box-shadow:4px 4px 0 var(--text-dark); margin:0 10px; }
+            .stall-caption { padding:20px 18px 22px; }
+            .stall-caption h3 { font-size:18px; }
+            .stall-caption p { font-size:13.5px; }
+            .stall-img { max-height:260px; }
+        }
+
         /* ---- Sprinkles Cookie Consent Banner ---- */
         .sprinkles-overlay { position:fixed; inset:0; background:rgba(30,30,36,.5); backdrop-filter:blur(4px); z-index:5500; display:none; align-items:flex-end; justify-content:center; }
         .sprinkles-overlay.open { display:flex; }
@@ -2532,6 +2592,15 @@
         body.dark .sprinkles-banner { background:var(--white); }
         body.dark .sprinkles-banner > p { color:var(--text-dark); }
         body.dark .sprinkle-row .sr-info p { color:#aaa; }
+        body.dark .stall-card { background:var(--cream); }
+        body.dark .stall-card:hover { background:#fff; }
+        body.dark .stall-img { border-bottom-color:var(--text-dark); }
+        body.dark .stall-caption h3 { color:var(--text-dark); }
+        body.dark .stall-caption p { color:var(--text-dark); }
+        body.dark .tc-arrow { background:var(--neon-yellow); color:var(--text-dark); }
+        body.dark .tc-dot { background:var(--dot-color); border-color:var(--text-dark); }
+        body.dark .tc-dot.active { background:var(--primary); }
+        body.dark .testimonial-carousel .review-card { background:var(--cream); }
         @media (max-width:768px) {
             .sprinkles-banner { padding:22px 18px 20px; border-radius:20px 20px 0 0; }
             .sprinkles-head h3 { font-size:17px; }
@@ -2648,6 +2717,7 @@
             <li><a href="#decor" onclick="toggleMenu()">🪴 Decor Collection</a></li>
             <li><a href="#accessories" onclick="toggleMenu()">🎀 Accessories Collection</a></li>
             <li><a href="#about" onclick="toggleMenu()">✨ About ZYLO</a></li>
+            <li><a href="#stall" onclick="toggleMenu()">🎉 Our First Event</a></li>
             <li><a href="#social" onclick="toggleMenu()">📸 Instagram / Social</a></li>
             <li><a href="#contact" onclick="toggleMenu()">💌 Contact Us</a></li>
         </ul>
@@ -2655,6 +2725,16 @@
 
     <!-- Banner Section -->
     <section class="banner">
+        <div class="hero-particles" aria-hidden="true">
+            <span class="hero-particle">🧶</span>
+            <span class="hero-particle">🌸</span>
+            <span class="hero-particle">✨</span>
+            <span class="hero-particle">💖</span>
+            <span class="hero-particle">⭐</span>
+            <span class="hero-particle">🌷</span>
+            <span class="hero-particle">🎀</span>
+            <span class="hero-particle">💫</span>
+        </div>
         <span class="sparkle s1">⚡</span>
         <span class="sparkle s2">💖</span>
         <span class="sparkle s3">✨</span>
@@ -2768,7 +2848,7 @@
             <div class="process-card"><span class="process-num">1</span><span class="process-icon">🛍️</span><h3>Pick Your Cutie</h3><p>Browse the shop &amp; tap Add to Cart on everything you love.</p></div>
             <div class="process-card"><span class="process-num">2</span><span class="process-icon">🧶</span><h3>We Crochet It</h3><p>Each piece is handmade stitch-by-stitch with love &amp; sparkles.</p></div>
             <div class="process-card"><span class="process-num">3</span><span class="process-icon">🎁</span><h3>Wrapped Cutely</h3><p>Packed with adorable packaging + a handwritten thank-you note.</p></div>
-            <div class="process-card"><span class="process-num">4</span><span class="process-icon">🚚</span><h3>Shipped To You</h3><p>Safely delivered across Pakistan in 3–7 working days.</p></div>
+            <div class="process-card"><span class="process-num">4</span><span class="process-icon">🚚</span><h3>Shipped To You</h3><p>Safely delivered across Pakistan in 5–7 working days.</p></div>
         </div>
     </section>
 
@@ -3113,60 +3193,78 @@
         </div>
     </section>
 
+    <!-- Our First Event -->
+    <section id="stall">
+        <h2 class="section-title">Where It All Began 🎉</h2>
+        <span class="section-sub">our very first stall — from a dream to a table full of cuties</span>
+        <div class="stall-card">
+            <img class="stall-img" src="it was at an event organized by bargad at LC.jpg" alt="ZYLO's first stall at the Bargad event at LC — where the crochet journey began">
+            <div class="stall-caption">
+                <h3>Our First Ever Event! 🧶</h3>
+                <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Customer Reviews Section -->
     <section id="reviews">
         <h2 class="section-title">Customer Love ⭐</h2>
         <span class="section-sub">real words from real cuties 💌</span>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The bunny holding a heart is SO soft and bigger than I expected. My sister cried when she opened it 😭💖"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">🐰</div>
-                    <div><div class="review-name">Mahnoor</div><div class="review-item">Bunny Holding a Heart</div></div>
+        <div class="testimonial-carousel" id="testimonialCarousel">
+            <button class="tc-arrow prev" onclick="testimonialGo(-1)" aria-label="Previous review">◀</button>
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The bunny holding a heart is SO soft and bigger than I expected. My sister cried when she opened it 😭💖"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">🐰</div>
+                        <div><div class="review-name">Mahnoor</div><div class="review-item">Bunny Holding a Heart</div></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ordered the 7 roses bouquet for my mom's birthday. Perfect stitches, gorgeous colors, and the packaging was adorable!"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">🌷</div>
+                        <div><div class="review-name">Ayesha</div><div class="review-item">Roses Bouquet</div></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"My Luffy keychain gets compliments EVERYWHERE I go. The quality is unreal for the price ✨"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">🔑</div>
+                        <div><div class="review-name">Zainab</div><div class="review-item">Luffy Keychain</div></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The mesh top fits perfectly and the color is exactly like the pictures. Obsessed is an understatement 🖤"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">👚</div>
+                        <div><div class="review-name">Hafsa</div><div class="review-item">Mesh Top</div></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Super fast delivery and the cutest handwritten thank-you note inside. Zylo never misses ✨"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">🪴</div>
+                        <div><div class="review-name">Fatima</div><div class="review-item">Sunflower Desk Pot</div></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Got matching batman keychains for me and my boyfriend. We're obsessed!! Best couple gift ever 🦇"</p>
+                    <div class="review-foot">
+                        <div class="review-avatar">🦇</div>
+                        <div><div class="review-name">Noor</div><div class="review-item">Matching Batman Keychains</div></div>
+                    </div>
                 </div>
             </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Ordered the 7 roses bouquet for my mom's birthday. Perfect stitches, gorgeous colors, and the packaging was adorable!"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">🌷</div>
-                    <div><div class="review-name">Ayesha</div><div class="review-item">Roses Bouquet</div></div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"My Luffy keychain gets compliments EVERYWHERE I go. The quality is unreal for the price ✨"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">🔑</div>
-                    <div><div class="review-name">Zainab</div><div class="review-item">Luffy Keychain</div></div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The mesh top fits perfectly and the color is exactly like the pictures. Obsessed is an understatement 🖤"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">👚</div>
-                    <div><div class="review-name">Hafsa</div><div class="review-item">Mesh Top</div></div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Super fast delivery and the cutest handwritten thank-you note inside. Zylo never misses ✨"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">🪴</div>
-                    <div><div class="review-name">Fatima</div><div class="review-item">Sunflower Desk Pot</div></div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Got matching batman keychains for me and my boyfriend. We're obsessed!! Best couple gift ever 🦇"</p>
-                <div class="review-foot">
-                    <div class="review-avatar">🦇</div>
-                    <div><div class="review-name">Noor</div><div class="review-item">Matching Batman Keychains</div></div>
-                </div>
-            </div>
+            <button class="tc-arrow next" onclick="testimonialGo(1)" aria-label="Next review">▶</button>
         </div>
+        <div class="tc-dots" id="testimonialDots"></div>
     </section>
 
     <!-- Instagram / Social Media Section -->
@@ -3270,6 +3368,7 @@
         <nav class="footer-links">
             <a href="#shop">🛍️ Shop</a>
             <a href="#about">✨ About</a>
+            <a href="#stall">🎉 Our First Event</a>
             <a href="#social">📸 Social</a>
             <a href="#contact">💌 Contact</a>
         </nav>
@@ -4117,7 +4216,7 @@
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
-            const revealEls = document.querySelectorAll('.product-card, .category-card, .insta-box, .about-section, .review-card');
+            const revealEls = document.querySelectorAll('.product-card, .category-card, .insta-box, .about-section, .review-card, .stall-card');
             revealEls.forEach(el => el.classList.add('reveal'));
 
             const io = new IntersectionObserver(function(entries) {
@@ -4442,6 +4541,63 @@
                 btn.appendChild(ripple);
                 setTimeout(function() { ripple.remove(); }, 550);
             });
+        })();
+
+        // ===== Testimonial Carousel =====
+        (function() {
+            var track = document.getElementById('testimonialTrack');
+            var dotsWrap = document.getElementById('testimonialDots');
+            if (!track || !dotsWrap) return;
+            var cards = track.querySelectorAll('.review-card');
+            var idx = 0;
+            var perView = 3;
+            var autoTimer = null;
+            var paused = false;
+
+            function calcPerView() {
+                perView = window.innerWidth <= 768 ? 1 : 3;
+            }
+            function maxIdx() { return Math.max(0, cards.length - perView); }
+            function buildDots() {
+                dotsWrap.innerHTML = '';
+                for (var i = 0; i <= maxIdx(); i++) {
+                    var d = document.createElement('span');
+                    d.className = 'tc-dot' + (i === 0 ? ' active' : '');
+                    d.setAttribute('data-i', i);
+                    d.onclick = function() { goTo(parseInt(this.getAttribute('data-i'))); };
+                    dotsWrap.appendChild(d);
+                }
+            }
+            function goTo(n) {
+                idx = Math.max(0, Math.min(n, maxIdx()));
+                var cardW = cards[0].offsetWidth + 20;
+                track.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
+                var dots = dotsWrap.querySelectorAll('.tc-dot');
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+            }
+            function next() { goTo(idx >= maxIdx() ? 0 : idx + 1); }
+            function prev() { goTo(idx <= 0 ? maxIdx() : idx - 1); }
+            function startAuto() { stopAuto(); if (!paused) autoTimer = setInterval(next, 4000); }
+            function stopAuto() { clearInterval(autoTimer); }
+
+            calcPerView();
+            buildDots();
+
+            var carousel = document.getElementById('testimonialCarousel');
+            carousel.addEventListener('mouseenter', function() { paused = true; stopAuto(); });
+            carousel.addEventListener('mouseleave', function() { paused = false; startAuto(); });
+
+            window.testimonialGo = function(dir) { dir > 0 ? next() : prev(); startAuto(); };
+
+            var touchX = 0;
+            track.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', function(e) {
+                var diff = touchX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); startAuto(); }
+            }, { passive: true });
+
+            window.addEventListener('resize', function() { calcPerView(); buildDots(); goTo(Math.min(idx, maxIdx())); });
+            startAuto();
         })();
 
         // ===== Sprinkles Cookie Consent =====
