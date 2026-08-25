@@ -305,6 +305,39 @@
             box-shadow: 5px 5px 0 var(--text-dark);
         }
 
+        /* Search Button & Modal */
+        .search-btn { background:var(--white); border:2.5px solid var(--text-dark); border-radius:50%; width:42px; height:42px; font-size:18px; cursor:pointer; box-shadow:3px 3px 0 var(--text-dark); transition:all .2s; display:flex; align-items:center; justify-content:center; }
+        .search-btn:hover { background:var(--neon-yellow); transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--text-dark); }
+        .search-overlay { position:fixed; inset:0; background:rgba(30,30,36,.55); backdrop-filter:blur(6px); z-index:5800; display:none; align-items:flex-start; justify-content:center; padding-top:12vh; }
+        .search-overlay.open { display:flex; }
+        .search-modal { background:var(--white); border:3px solid var(--text-dark); border-radius:24px; box-shadow:8px 8px 0 var(--text-dark); width:92%; max-width:580px; max-height:70vh; overflow:hidden; display:flex; flex-direction:column; }
+        .search-input-wrap { display:flex; align-items:center; padding:14px 18px; gap:10px; border-bottom:2.5px solid var(--text-dark); }
+        .search-input-wrap span { font-size:22px; }
+        .search-input-wrap input { flex:1; border:none; outline:none; font-size:16px; font-family:'Quicksand',sans-serif; font-weight:600; color:var(--text-dark); background:transparent; }
+        .search-input-wrap input::placeholder { color:#aaa; }
+        .search-close-btn { background:none; border:none; font-size:22px; cursor:pointer; color:var(--text-dark); padding:4px; border-radius:8px; transition:background .2s; }
+        .search-close-btn:hover { background:var(--cream); }
+        .search-results { overflow-y:auto; padding:8px; flex:1; }
+        .search-results:empty::after { content:'Start typing to find your faves... \1F9F6'; display:block; text-align:center; padding:40px 20px; font-weight:700; color:#aaa; font-size:14px; }
+        .search-result-item { display:flex; align-items:center; gap:14px; padding:12px 14px; border-radius:14px; cursor:pointer; transition:background .2s; border:2px solid transparent; }
+        .search-result-item:hover { background:var(--cream); border-color:var(--text-dark); }
+        .search-result-item img { width:56px; height:56px; object-fit:cover; border-radius:12px; border:2px solid var(--text-dark); flex-shrink:0; }
+        .search-result-info { flex:1; min-width:0; }
+        .search-result-info h4 { font-size:14px; font-weight:700; color:var(--text-dark); margin:0 0 2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .search-result-info .sr-price { font-size:13px; font-weight:700; color:var(--primary); }
+        .search-result-info .sr-cat { font-size:11px; font-weight:600; color:#888; }
+        .search-result-item .sr-add { background:var(--primary); color:#fff; border:2px solid var(--text-dark); border-radius:50%; width:36px; height:36px; font-size:18px; cursor:pointer; box-shadow:2px 2px 0 var(--text-dark); flex-shrink:0; transition:all .15s; display:flex; align-items:center; justify-content:center; }
+        .search-result-item .sr-add:hover { background:var(--accent-pink); transform:scale(1.1); }
+        .search-no-results { text-align:center; padding:40px 20px; font-weight:700; color:#aaa; font-size:14px; }
+        @media (max-width:768px) {
+            .search-overlay { padding-top:8vh; }
+            .search-modal { border-radius:20px; box-shadow:4px 4px 0 var(--text-dark); max-height:75vh; }
+            .search-result-item img { width:48px; height:48px; }
+        }
+        body.dark .search-modal { background:var(--white); }
+        body.dark .search-input-wrap { border-bottom-color:var(--text-dark); }
+        body.dark .search-result-item:hover { background:var(--cream); }
+
         .cart-badge {
             background-color: var(--primary);
             color: var(--white);
@@ -2704,6 +2737,7 @@
             </a>
         </div>
         <div class="nav-icons">
+            <button class="search-btn" onclick="openSearch()" aria-label="Search products">🔍</button>
             <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
             <button class="wish-header-btn" onclick="openWishModal()" aria-label="Open wishlist">🤍 <span class="cart-badge" id="wish-count">0</span></button>
             <button class="cart-icon-btn" onclick="toggleCart()">
@@ -3213,7 +3247,7 @@
         <h2 class="section-title">Where It All Began 🎉</h2>
         <span class="section-sub">our very first stall — from a dream to a table full of cuties</span>
         <div class="stall-card">
-            <img class="stall-img" src="it was at an event organized by bargad at LC.jpg" alt="ZYLO's first stall at the Bargad event at LC — where the crochet journey began">
+            <img class="stall-img" src="it%20was%20at%20an%20event%20organized%20by%20bargad%20at%20LC.jpg" alt="ZYLO's first stall at the Bargad event at LC — where the crochet journey began">
             <div class="stall-caption">
                 <h3>Our First Ever Event! 🧶</h3>
                 <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
@@ -3553,6 +3587,18 @@
                 <button class="sprinkle-save" onclick="sprinklesSave()">Save My Sprinkles 💾</button>
                 <button class="sprinkle-reject" onclick="sprinklesReject()">Reject All</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearch()">
+        <div class="search-modal" onclick="event.stopPropagation()">
+            <div class="search-input-wrap">
+                <span>🔍</span>
+                <input type="text" id="searchInput" placeholder="Search flowers, keychains, plushies..." oninput="doSearch(this.value)" autofocus>
+                <button class="search-close-btn" onclick="closeSearch()">✕</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
         </div>
     </div>
 
@@ -4611,6 +4657,98 @@
                 setTimeout(function() { ripple.remove(); }, 550);
             });
         })();
+
+        // ===== Product Search =====
+        var searchProducts = [
+            { n:"Crochet Thai Rose", p:"Rs. 350", c:"Flowers", img:"best seller 1 zylo.jpeg" },
+            { n:"Cute Chick Keychain", p:"Rs. 300", c:"Keychains", img:"best seller 2 zylo.jpeg" },
+            { n:"Suit Rose Lapel Pin", p:"Rs. 250", c:"Keychains", img:"best seller 3 zylo.jpeg" },
+            { n:"Smiley Glasses Case", p:"Rs. 500", c:"Accessories", img:"best seller 4 zylo.jpeg" },
+            { n:"Tangled Inspired Flower Stand", p:"Rs. 2,500", c:"Flowers", img:"flower 1 zylo.jpeg" },
+            { n:"Thai Rose", p:"Rs. 250", c:"Flowers", img:"flower 5 zylo.jpeg" },
+            { n:"Roses Each", p:"Rs. 200", c:"Flowers", img:"flowers zylo.jpeg" },
+            { n:"3 Sunflower Bouquet", p:"Rs. 1,500", c:"Flowers", img:"flower 3 zylo.jpeg" },
+            { n:"7 Roses Bouquet", p:"Rs. 2,500", c:"Flowers", img:"flower 4 zylo.jpeg" },
+            { n:"Sunflower Bouquet", p:"Rs. 2,500", c:"Flowers", img:"flower 6 zylo.jpeg" },
+            { n:"Pink Roses Bouquet of 7", p:"Rs. 2,500", c:"Flowers", img:"Pink roses bouquet of 7 rs. 2500.jpg" },
+            { n:"White Roses Bouquet of 7", p:"Rs. 2,500", c:"Flowers", img:"White roses bouquet of 7 rs.2500.jpg" },
+            { n:"Batman Inspired Bouquet", p:"Rs. 1,800", c:"Flowers", img:"Batman inspired bouquet rs. 1800.jpg" },
+            { n:"Tulip", p:"Rs. 450", c:"Flowers", img:"Tulip rs.450.jpg" },
+            { n:"Lavender", p:"Rs. 350", c:"Flowers", img:"lavender rs 350.jpg" },
+            { n:"Daisy", p:"Rs. 350", c:"Flowers", img:"daisey rs 350.jpg" },
+            { n:"Custom-Made Bouquet", p:"Rs. 4,900", c:"Flowers", img:"Custom-made bouquet rs.4900.jpg" },
+            { n:"Teddy Bouquet", p:"Rs. 3,200", c:"Flowers", img:"teddy bouqet rs3200.jpg" },
+            { n:"Luffy Keychain", p:"Rs. 300", c:"Keychains", img:"key chain 1 zylo.jpg" },
+            { n:"Batman Keychains", p:"Rs. 650", c:"Keychains", img:"key chain 2 zylo.jpg" },
+            { n:"Capybara Keychains", p:"Rs. 650", c:"Keychains", img:"key chain 3 zylo.jpg" },
+            { n:"Strawberry Keychain", p:"Rs. 300", c:"Keychains", img:"key chain 4 zylo.jpg" },
+            { n:"Hello Kitty Keychain", p:"Rs. 300", c:"Keychains", img:"key chain 5 zylo.jpg" },
+            { n:"Strawberry Mushroom Keychain", p:"Rs. 350", c:"Keychains", img:"key chain 6 zylo.jpg" },
+            { n:"Mr. Bean Teddy", p:"Rs. 3,000", c:"Plushies", img:"plushies zylo 1.jpeg" },
+            { n:"Bunny Holding a Heart", p:"Rs. 5,000", c:"Plushies", img:"plushies zylo 2.jpeg" },
+            { n:"Penguin", p:"Rs. 1,500", c:"Plushies", img:"plushies zylo 3.jpeg" },
+            { n:"Fav Bean", p:"Rs. 1,000", c:"Plushies", img:"plushies zylo 4.jpeg" },
+            { n:"Mini Bunny", p:"Rs. 1,500", c:"Plushies", img:"plushies zylo 5.jpeg" },
+            { n:"Sunflower Desk Pot", p:"Rs. 600", c:"Decor", img:"decor zylo 1.jpeg" },
+            { n:"Glasses Holder", p:"Rs. 600", c:"Decor", img:"decor zylo 4.jpeg" },
+            { n:"Sunflower Bookmark", p:"Rs. 200", c:"Decor", img:"decor zylo 3.jpeg" },
+            { n:"Book Cover with Zipper Pouch", p:"Rs. 700", c:"Decor", img:"decor zylo 2.jpeg" },
+            { n:"Angry Clip", p:"Rs. 250", c:"Accessories", img:"custom categary 1 zylo.jpeg" },
+            { n:"Matching Bracelets", p:"Rs. 600", c:"Accessories", img:"custom categary 2 zylo.jpeg" },
+            { n:"Mesh Tote Bag", p:"Rs. 1,800", c:"Accessories", img:"custom categary 5 zylo.jpeg" },
+            { n:"Y2K Mini Suitcase Bag", p:"Rs. 1,800", c:"Accessories", img:"custom categary 4 zylo.jpeg" },
+            { n:"Star Clip", p:"Rs. 250", c:"Accessories", img:"custom categary 3 zylo.jpeg" },
+            { n:"Daisy Hair Clip", p:"Rs. 250", c:"Accessories", img:"daisy hair clip rs 250.jpg" },
+            { n:"Rose Brooches", p:"Rs. 250", c:"Accessories", img:"Rose brooches rs.250 each.jpg" },
+            { n:"Butterfly Hair Clips", p:"Rs. 100", c:"Accessories", img:"butterfly clips 100 each.jpg" },
+            { n:"Mikasa Inspired Scarf", p:"Rs. 1,600", c:"Accessories", img:"mikasa scarf 1600.jpg" },
+            { n:"Mesh Top", p:"Rs. 3,000–3,500", c:"Accessories", img:"mesh top rs.3000-3500(varies according to size).jpg" },
+            { n:"Cat Paw Gloves", p:"Rs. 1,600", c:"Accessories", img:"cat paw glove 1600.jpeg" }
+        ];
+        function openSearch() {
+            var o = document.getElementById('searchOverlay');
+            o.classList.add('open');
+            setTimeout(function(){ document.getElementById('searchInput').focus(); }, 100);
+        }
+        function closeSearch() {
+            document.getElementById('searchOverlay').classList.remove('open');
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').innerHTML = '';
+        }
+        function scrollToProduct(name) {
+            var allH3 = document.querySelectorAll('.product-card h3');
+            for (var i = 0; i < allH3.length; i++) {
+                if (allH3[i].textContent.trim().toLowerCase() === name.toLowerCase()) {
+                    allH3[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    var card = allH3[i].closest('.product-card');
+                    if (card) { card.style.transition = 'box-shadow .3s'; card.style.boxShadow = '0 0 0 4px var(--primary), 6px 6px 0 var(--text-dark)'; setTimeout(function(){ card.style.boxShadow = ''; }, 2000); }
+                    return;
+                }
+            }
+            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+        }
+        function doSearch(q) {
+            var res = document.getElementById('searchResults');
+            q = q.trim().toLowerCase();
+            if (q.length < 1) { res.innerHTML = ''; return; }
+            var matches = searchProducts.filter(function(p) {
+                return p.n.toLowerCase().includes(q) || p.c.toLowerCase().includes(q) || p.p.includes(q);
+            });
+            if (!matches.length) {
+                res.innerHTML = '<div class="search-no-results">No cuties found for "' + q + '" 😢<br>Try something else!</div>';
+                return;
+            }
+            res.innerHTML = matches.map(function(p) {
+                return '<div class="search-result-item" onclick="closeSearch(); scrollToProduct(\'' + p.n.replace(/'/g,"\\'") + '\')">' +
+                    '<img src="' + p.img + '" alt="' + p.n + '">' +
+                    '<div class="search-result-info"><h4>' + p.n + '</h4><div class="sr-price">' + p.p + '</div><div class="sr-cat">' + p.c + '</div></div>' +
+                '</div>';
+            }).join('');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSearch();
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+        });
 
         // ===== Testimonial Carousel =====
         (function() {
