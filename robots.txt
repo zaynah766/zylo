@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /PENDING-zylo-style-pack.html
+Disallow: /ZYLO_ACCESSORIES_DEFINITIVELY_FIXED.html
+Disallow: /zylo-backup-20260825-042109.html
+
+Sitemap: https://zylocrochet.example.com/sitemap.xml
