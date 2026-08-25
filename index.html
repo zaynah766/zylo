@@ -2498,6 +2498,47 @@
 
         /* ---- Product JSON-LD schema hidden ---- */
         .product-schema { display:none; }
+
+        /* ---- Sprinkles Cookie Consent Banner ---- */
+        .sprinkles-overlay { position:fixed; inset:0; background:rgba(30,30,36,.5); backdrop-filter:blur(4px); z-index:5500; display:none; align-items:flex-end; justify-content:center; }
+        .sprinkles-overlay.open { display:flex; }
+        .sprinkles-banner { background:var(--white); border:3px solid var(--text-dark); border-radius:26px 26px 0 0; box-shadow:0 -6px 0 var(--text-dark); width:100%; max-width:640px; padding:28px 28px 24px; animation:sprinkleSlideUp .45s cubic-bezier(.175,.885,.32,1.275); position:relative; }
+        @keyframes sprinkleSlideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
+        .sprinkles-head { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+        .sprinkles-icon { font-size:36px; animation:wiggle 2s ease-in-out infinite; }
+        .sprinkles-head h3 { font-family:'Fredoka One',cursive; font-size:20px; color:var(--text-dark); }
+        .sprinkles-banner > p { font-size:13.5px; font-weight:600; color:var(--text-dark); line-height:1.65; margin-bottom:18px; }
+        .sprinkles-banner > p a { color:var(--primary); text-decoration:underline; font-weight:700; }
+        .sprinkles-types { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+        .sprinkle-row { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--cream); border:2px solid var(--text-dark); border-radius:14px; padding:10px 14px; box-shadow:2px 2px 0 var(--text-dark); }
+        .sprinkle-row .sr-info { flex:1; min-width:0; }
+        .sprinkle-row .sr-info h4 { font-family:'Fredoka One',cursive; font-size:13px; color:var(--text-dark); margin-bottom:2px; }
+        .sprinkle-row .sr-info p { font-size:11px; font-weight:600; color:#777; line-height:1.4; }
+        .sprinkle-toggle { position:relative; width:44px; height:24px; flex-shrink:0; }
+        .sprinkle-toggle input { opacity:0; width:0; height:0; position:absolute; }
+        .sprinkle-slider { position:absolute; inset:0; background:#ccc; border:2px solid var(--text-dark); border-radius:999px; cursor:pointer; transition:all .25s; box-shadow:1px 1px 0 var(--text-dark); }
+        .sprinkle-slider::before { content:''; position:absolute; width:16px; height:16px; left:2px; top:50%; transform:translateY(-50%); background:var(--white); border:2px solid var(--text-dark); border-radius:50%; transition:all .25s; }
+        .sprinkle-toggle input:checked + .sprinkle-slider { background:var(--primary); }
+        .sprinkle-toggle input:checked + .sprinkle-slider::before { transform:translateY(-50%) translateX(20px); }
+        .sprinkle-toggle input:disabled + .sprinkle-slider { background:var(--funky-green); cursor:not-allowed; opacity:.7; }
+        .sprinkles-btns { display:flex; gap:10px; }
+        .sprinkles-btns button { flex:1; padding:12px; border-radius:999px; font-family:'Fredoka One',cursive; font-size:14px; cursor:pointer; border:2px solid var(--text-dark); transition:all .2s; }
+        .sprinkle-accept { background:linear-gradient(135deg,var(--primary),var(--accent-pink)); color:#fff; box-shadow:3px 3px 0 var(--text-dark); }
+        .sprinkle-accept:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--text-dark); }
+        .sprinkle-save { background:var(--neon-yellow); color:var(--text-dark); box-shadow:3px 3px 0 var(--text-dark); }
+        .sprinkle-save:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--text-dark); }
+        .sprinkle-reject { background:var(--white); color:var(--text-dark); box-shadow:3px 3px 0 var(--text-dark); flex:0 0 auto; padding:12px 18px; font-size:12px; }
+        .sprinkle-reject:hover { background:var(--cream); transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--text-dark); }
+        body.dark .sprinkles-banner { background:var(--white); }
+        body.dark .sprinkles-banner > p { color:var(--text-dark); }
+        body.dark .sprinkle-row .sr-info p { color:#aaa; }
+        @media (max-width:768px) {
+            .sprinkles-banner { padding:22px 18px 20px; border-radius:20px 20px 0 0; }
+            .sprinkles-head h3 { font-size:17px; }
+            .sprinkles-banner > p { font-size:12.5px; }
+            .sprinkles-btns { flex-wrap:wrap; }
+            .sprinkle-reject { flex:1 1 100%; }
+        }
     </style>
 </head>
 <body>
@@ -3361,6 +3402,45 @@
         ]
     }
     </script>
+
+    <!-- Sprinkles Cookie Consent Banner -->
+    <div class="sprinkles-overlay" id="sprinklesOverlay">
+        <div class="sprinkles-banner" onclick="event.stopPropagation()">
+            <div class="sprinkles-head">
+                <span class="sprinkles-icon">🍪</span>
+                <h3>We Use Sprinkles!</h3>
+            </div>
+            <p>Just like our crochet needs yarn, our website uses <b>sprinkles</b> (tiny data bits) to give you the best experience. Choose which sprinkles you'd like below 🧶✨ <a href="#faq">Learn more</a></p>
+            <div class="sprinkles-types">
+                <div class="sprinkle-row">
+                    <div class="sr-info">
+                        <h4>🧶 Essential Sprinkles</h4>
+                        <p>Keep the shop running — cart, checkout &amp; dark mode</p>
+                    </div>
+                    <label class="sprinkle-toggle"><input type="checkbox" checked disabled><span class="sprinkle-slider"></span></label>
+                </div>
+                <div class="sprinkle-row">
+                    <div class="sr-info">
+                        <h4>✨ Funky Sprinkles</h4>
+                        <p>Remember your faves, recently viewed &amp; wishlist</p>
+                    </div>
+                    <label class="sprinkle-toggle"><input type="checkbox" id="sprinkleFunky" checked><span class="sprinkle-slider"></span></label>
+                </div>
+                <div class="sprinkle-row">
+                    <div class="sr-info">
+                        <h4>📸 Insta Sprinkles</h4>
+                        <p>Help us see what you love so we can make more of it</p>
+                    </div>
+                    <label class="sprinkle-toggle"><input type="checkbox" id="sprinkleInsta"><span class="sprinkle-slider"></span></label>
+                </div>
+            </div>
+            <div class="sprinkles-btns">
+                <button class="sprinkle-accept" onclick="sprinklesAcceptAll()">Accept All ✨</button>
+                <button class="sprinkle-save" onclick="sprinklesSave()">Save My Sprinkles 💾</button>
+                <button class="sprinkle-reject" onclick="sprinklesReject()">Reject All</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         let cart = [];
@@ -4362,6 +4442,44 @@
                 btn.appendChild(ripple);
                 setTimeout(function() { ripple.remove(); }, 550);
             });
+        })();
+
+        // ===== Sprinkles Cookie Consent =====
+        (function() {
+            var overlay = document.getElementById('sprinklesOverlay');
+            if (!overlay) return;
+            var prefs;
+            try { prefs = JSON.parse(localStorage.getItem('zylo-sprinkles')); } catch(e) {}
+            if (prefs && prefs.decided) return;
+
+            setTimeout(function() { overlay.classList.add('open'); }, 1200);
+
+            window.sprinklesAcceptAll = function() {
+                document.getElementById('sprinkleFunky').checked = true;
+                document.getElementById('sprinkleInsta').checked = true;
+                saveSprinkles(true, true, true);
+            };
+
+            window.sprinklesSave = function() {
+                var funky = document.getElementById('sprinkleFunky').checked;
+                var insta = document.getElementById('sprinkleInsta').checked;
+                saveSprinkles(true, funky, insta);
+            };
+
+            window.sprinklesReject = function() {
+                document.getElementById('sprinkleFunky').checked = false;
+                document.getElementById('sprinkleInsta').checked = false;
+                saveSprinkles(true, false, false);
+            };
+
+            function saveSprinkles(essential, funky, insta) {
+                var data = { decided: true, essential: true, funky: funky, insta: insta, ts: Date.now() };
+                try { localStorage.setItem('zylo-sprinkles', JSON.stringify(data)); } catch(e) {}
+                overlay.classList.remove('open');
+                showToast('🍪 Sprinkles saved! ' + (funky ? 'Funky ' : '') + (insta ? 'Insta ' : '') + (funky || insta ? 'sprinkles ON' : 'only essential sprinkles'));
+            }
+
+            overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('open'); });
         })();
     </script>
 </body>
