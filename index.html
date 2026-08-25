@@ -3268,14 +3268,26 @@
         }
 
         /* ========== STALL EVENT SECTION ========== */
-        .stall-card { background:var(--white); border:3px solid var(--text-dark); border-radius:26px; box-shadow:7px 7px 0 var(--text-dark); max-width:720px; margin:0 auto; overflow:hidden; transition:all .25s; }
+        .stall-carousel { position:relative; max-width:720px; margin:0 auto; overflow:hidden; padding:0 48px; }
+        .stall-track { display:flex; transition:transform .5s cubic-bezier(.25,.8,.25,1); gap:20px; }
+        .stall-track .stall-card { flex:0 0 100%; min-width:0; max-width:none; margin:0; }
+        .stall-carousel .tc-arrow { position:absolute; top:50%; transform:translateY(-50%); }
+        .stall-dots { display:flex; justify-content:center; gap:10px; margin-top:22px; }
+        .stall-dot { width:12px; height:12px; border-radius:50%; background:var(--dot-color); border:2px solid var(--text-dark); cursor:pointer; transition:all .25s; }
+        .stall-dot.active { background:var(--primary); transform:scale(1.2); box-shadow:2px 2px 0 var(--text-dark); }
+        .stall-dot:hover { background:var(--accent-pink); }
+        @media (max-width:768px) {
+            .stall-carousel { padding:0 36px; }
+            .stall-track .stall-card { flex:0 0 100%; }
+        }
+        .stall-card { background:var(--white); border:3px solid var(--text-dark); border-radius:26px; box-shadow:7px 7px 0 var(--text-dark); overflow:hidden; transition:all .25s; }
         .stall-card:hover { transform:translate(-3px,-3px); box-shadow:10px 10px 0 var(--text-dark); }
         .stall-img { width:100%; height:auto; display:block; border-bottom:3px solid var(--text-dark); object-fit:cover; max-height:400px; }
         .stall-caption { padding:28px 30px 30px; text-align:center; }
         .stall-caption h3 { font-family:'Fredoka One',cursive; font-size:22px; color:var(--text-dark); margin-bottom:10px; text-shadow:2px 2px 0 rgba(30,30,36,.08); }
         .stall-caption p { font-size:15px; font-weight:600; line-height:1.75; color:var(--text-dark); }
         @media (max-width:768px) {
-            .stall-card { border-radius:18px; box-shadow:4px 4px 0 var(--text-dark); margin:0 10px; }
+            .stall-card { border-radius:18px; box-shadow:4px 4px 0 var(--text-dark); }
             .stall-caption { padding:20px 18px 22px; }
             .stall-caption h3 { font-size:18px; }
             .stall-caption p { font-size:13.5px; }
@@ -4014,35 +4026,42 @@
     <!-- Our First Event -->
     <section id="stall">
         <h2 class="section-title">Where It All Began 🎉</h2>
-        <span class="section-sub">our very first stall — from a dream to a table full of cuties</span>
-        <div class="stall-card">
-            <img class="stall-img" src="it%20was%20at%20an%20event%20organized%20by%20bargad%20at%20LC.jpg" alt="ZYLO's first stall at the Bargad event at LC — where the crochet journey began">
-            <div class="stall-caption">
-                <h3>Our First Ever Event! 🧶</h3>
-                <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
+        <span class="section-sub">our stalls & events — from a dream to a table full of cuties</span>
+        <div class="stall-carousel" id="stallCarousel">
+            <button class="tc-arrow prev" onclick="stallGo(-1)" aria-label="Previous stall">◀</button>
+            <div class="stall-track" id="stallTrack">
+                <div class="stall-card">
+                    <img class="stall-img" src="it%20was%20at%20an%20event%20organized%20by%20bargad%20at%20LC.jpg" alt="ZYLO's first stall at the Bargad event at LC">
+                    <div class="stall-caption">
+                        <h3>Our First Ever Event! 🧶</h3>
+                        <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
+                    </div>
+                </div>
+                <div class="stall-card">
+                    <img class="stall-img" src="stall at lums in july 2026.jpg" alt="ZYLO stall at LUMS in July 2026">
+                    <div class="stall-caption">
+                        <h3>Stall at LUMS 🎓</h3>
+                        <p>Our crochet journey took us to LUMS in July 2026 — sharing handmade love with the campus crowd 🧶💛</p>
+                    </div>
+                </div>
+                <div class="stall-card">
+                    <img class="stall-img" src="stall at techblitz in crescent model school in jan 2026.jpg" alt="ZYLO stall at TechBlitz in Crescent Model School in January 2026">
+                    <div class="stall-caption">
+                        <h3>TechBlitz at Crescent Model School 🚀</h3>
+                        <p>We brought the yarn magic to TechBlitz at Crescent Model School in January 2026 — crochet meets creativity!</p>
+                    </div>
+                </div>
+                <div class="stall-card">
+                    <img class="stall-img" src="Stall%20at%20Whip%20Cafe%20in%20Aug%202026.jpg" alt="ZYLO stall at Whip Cafe in August 2026">
+                    <div class="stall-caption">
+                        <h3>Stall at Whip Cafe ☕</h3>
+                        <p>Coffee, croissants & crochet — we set up at Whip Cafe in August 2026 for the coziest stall vibes ever 🧶✨</p>
+                    </div>
+                </div>
             </div>
+            <button class="tc-arrow next" onclick="stallGo(1)" aria-label="Next stall">▶</button>
         </div>
-        <div class="stall-card" style="margin-top:30px;">
-            <img class="stall-img" src="stall at lums in july 2026.jpg" alt="ZYLO stall at LUMS in July 2026">
-            <div class="stall-caption">
-                <h3>Stall at LUMS 🎓</h3>
-                <p>Our crochet journey took us to LUMS in July 2026 — sharing handmade love with the campus crowd 🧶💛</p>
-            </div>
-        </div>
-        <div class="stall-card" style="margin-top:30px;">
-            <img class="stall-img" src="stall at techblitz in crescent model school in jan 2026.jpg" alt="ZYLO stall at TechBlitz in Crescent Model School in January 2026">
-            <div class="stall-caption">
-                <h3>TechBlitz at Crescent Model School 🚀</h3>
-                <p>We brought the yarn magic to TechBlitz at Crescent Model School in January 2026 — crochet meets creativity!</p>
-            </div>
-        </div>
-        <div class="stall-card" style="margin-top:30px;">
-            <img class="stall-img" src="Stall%20at%20Whip%20Cafe%20in%20Aug%202026.jpg" alt="ZYLO stall at Whip Cafe in August 2026">
-            <div class="stall-caption">
-                <h3>Stall at Whip Cafe ☕</h3>
-                <p>Coffee, croissants & crochet — we set up at Whip Cafe in August 2026 for the coziest stall vibes ever 🧶✨</p>
-            </div>
-        </div>
+        <div class="stall-dots" id="stallDots"></div>
     </section>
 
     <!-- How It's Made -->
@@ -5750,6 +5769,58 @@
             }, { passive: true });
 
             window.addEventListener('resize', function() { calcPerView(); buildDots(); goTo(Math.min(idx, maxIdx())); });
+            startAuto();
+        })();
+
+        // ===== Stall Carousel =====
+        (function() {
+            var track = document.getElementById('stallTrack');
+            var dotsWrap = document.getElementById('stallDots');
+            if (!track || !dotsWrap) return;
+            var cards = track.querySelectorAll('.stall-card');
+            var idx = 0;
+            var autoTimer = null;
+            var paused = false;
+
+            function maxIdx() { return Math.max(0, cards.length - 1); }
+            function buildDots() {
+                dotsWrap.innerHTML = '';
+                for (var i = 0; i <= maxIdx(); i++) {
+                    var d = document.createElement('span');
+                    d.className = 'stall-dot' + (i === 0 ? ' active' : '');
+                    d.setAttribute('data-i', i);
+                    d.onclick = function() { goTo(parseInt(this.getAttribute('data-i'))); };
+                    dotsWrap.appendChild(d);
+                }
+            }
+            function goTo(n) {
+                idx = Math.max(0, Math.min(n, maxIdx()));
+                var cardW = cards[0].offsetWidth + 20;
+                track.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
+                var dots = dotsWrap.querySelectorAll('.stall-dot');
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+            }
+            function next() { goTo(idx >= maxIdx() ? 0 : idx + 1); }
+            function prev() { goTo(idx <= 0 ? maxIdx() : idx - 1); }
+            function startAuto() { stopAuto(); if (!paused) autoTimer = setInterval(next, 5000); }
+            function stopAuto() { clearInterval(autoTimer); }
+
+            buildDots();
+
+            var carousel = document.getElementById('stallCarousel');
+            carousel.addEventListener('mouseenter', function() { paused = true; stopAuto(); });
+            carousel.addEventListener('mouseleave', function() { paused = false; startAuto(); });
+
+            window.stallGo = function(dir) { dir > 0 ? next() : prev(); startAuto(); };
+
+            var touchX = 0;
+            track.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', function(e) {
+                var diff = touchX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); startAuto(); }
+            }, { passive: true });
+
+            window.addEventListener('resize', function() { buildDots(); goTo(Math.min(idx, maxIdx())); });
             startAuto();
         })();
 
