@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZYLO ⚡ Funky, Cute & Trendy Finds</title>
-    <meta name="description" content="ZYLO – handmade crochet flowers, keychains, plushies, decor & accessories. Funky, cute & trendy finds made with love. 🎀✨">
+    <title>ZYLO âš¡ Funky, Cute & Trendy Finds</title>
+    <meta name="description" content="ZYLO â€“ handmade crochet flowers, keychains, plushies, decor & accessories. Funky, cute & trendy finds made with love. ðŸŽ€âœ¨">
     <meta name="theme-color" content="#FF5E7E">
     <link rel="icon" type="image/png" href="logo zylo.png">
     <!-- Social Share Preview (update og:url + og:image to your live domain when deployed) -->
-    <meta property="og:title" content="ZYLO ⚡ Funky, Cute & Trendy Finds">
-    <meta property="og:description" content="Handmade crochet flowers, keychains, plushies, decor & accessories — made with love, stitch by stitch. 🎀✨">
+    <meta property="og:title" content="ZYLO âš¡ Funky, Cute & Trendy Finds">
+    <meta property="og:description" content="Handmade crochet flowers, keychains, plushies, decor & accessories â€” made with love, stitch by stitch. ðŸŽ€âœ¨">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zylocrochet.example.com/">
     <meta property="og:image" content="https://zylocrochet.example.com/best%20seller%201%20zylo.jpeg">
@@ -17,8 +17,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="ZYLO Handmade Crochet Flowers and Accessories">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZYLO ⚡ Funky, Cute & Trendy Finds">
-    <meta name="twitter:description" content="Handmade crochet flowers, keychains, plushies, decor & accessories — made with love. 🧶💖">
+    <meta name="twitter:title" content="ZYLO âš¡ Funky, Cute & Trendy Finds">
+    <meta name="twitter:description" content="Handmade crochet flowers, keychains, plushies, decor & accessories â€” made with love. ðŸ§¶ðŸ’–">
     <meta name="twitter:image" content="https://zylocrochet.example.com/best%20seller%201%20zylo.jpeg">
     <!-- Google Fonts for Funky & Playful Vibe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -427,7 +427,7 @@
         }
 
         .cta-btn::after {
-            content: '↓';
+            content: 'â†“';
             display: inline-block;
             margin-left: 8px;
             animation: bounceDown 1.4s ease-in-out infinite;
@@ -1346,7 +1346,7 @@
         }
 
         .whatsapp-float::after {
-            content: 'Chat with us 💬';
+            content: 'Chat with us ðŸ’¬';
             position: absolute;
             right: calc(100% + 14px);
             top: 50%;
@@ -2143,7 +2143,7 @@
         .product-img.zoomable { cursor: zoom-in; }
 
         .product-img.zoomable::after {
-            content: '🔍';
+            content: 'ðŸ”';
             position: absolute;
             bottom: 10px;
             right: 12px;
@@ -2547,6 +2547,93 @@
         /* ---- Product JSON-LD schema hidden ---- */
         .product-schema { display:none; }
 
+        /* ========== SECTION COLOR THEMES ========== */
+        .section-theme-pink { background-color:#fff0f4; }
+        .section-theme-rose { background-color:#fff5f0; }
+        .section-theme-blue { background-color:#f0f7ff; }
+        .section-theme-lavender { background-color:#f5f0ff; }
+        .section-theme-mint { background-color:#f0fff7; }
+        .section-theme-peach { background-color:#fff7f0; }
+        .section-theme-yellow { background-color:#fffdf0; }
+        body.dark .section-theme-pink,
+        body.dark .section-theme-rose,
+        body.dark .section-theme-blue,
+        body.dark .section-theme-lavender,
+        body.dark .section-theme-mint,
+        body.dark .section-theme-peach,
+        body.dark .section-theme-yellow { background-color:transparent; }
+
+        /* ========== WASHI / TORN PAPER DIVIDERS ========== */
+        .washi-divider { width:100%; overflow:hidden; line-height:0; margin:0; }
+        .washi-divider svg { display:block; width:100%; height:auto; }
+
+        /* ========== GRADIENT SECTION TITLES ========== */
+        .section-title {
+            background:linear-gradient(135deg, var(--primary) 0%, var(--neon-yellow) 50%, var(--light-blue) 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        /* ========== HANDWRITTEN ANNOTATIONS ========== */
+        .annotation {
+            font-family:'Caveat',cursive;
+            font-size:20px;
+            font-weight:700;
+            position:relative;
+            display:inline-block;
+            pointer-events:none;
+            z-index:2;
+            text-shadow:1px 1px 0 rgba(255,255,255,.7);
+        }
+        .annotation.pink { color:var(--primary); }
+        .annotation.blue { color:var(--light-blue); }
+        .annotation.purple { color:#9B72CF; }
+        .annotation.green { color:var(--funky-green); }
+        .annotation.orange { color:var(--light-purple); }
+        .annotation-1 { transform:rotate(-6deg); }
+        .annotation-2 { transform:rotate(4deg); }
+        .annotation-3 { transform:rotate(-3deg); }
+        .annotation-4 { transform:rotate(7deg); }
+        .annotation-5 { transform:rotate(-5deg); }
+
+        /* ========== DIAGONAL RIBBON BADGES ========== */
+        .ribbon-badge {
+            position:absolute;
+            top:16px;
+            left:-35px;
+            padding:6px 40px;
+            font-family:'Fredoka One',cursive;
+            font-size:11px;
+            letter-spacing:.5px;
+            color:#fff;
+            border:2px solid var(--text-dark);
+            z-index:5;
+            transform:rotate(-45deg);
+            box-shadow:2px 2px 0 var(--text-dark);
+            text-align:center;
+            pointer-events:none;
+        }
+        .ribbon-badge.ribbon-pink { background:var(--primary); }
+        .ribbon-badge.ribbon-blue { background:var(--light-blue); color:var(--text-dark); }
+        .ribbon-badge.ribbon-yellow { background:var(--neon-yellow); color:var(--text-dark); }
+        .ribbon-badge.ribbon-green { background:var(--funky-green); color:var(--text-dark); }
+
+        /* ========== PRODUCT IMAGE BG VARIATION ========== */
+        .pi-theme-rose .product-img { background-color:#fff0f4; background-image:radial-gradient(#ffd9e8 2px,transparent 2px); background-size:18px 18px; }
+        .pi-theme-blue .product-img { background-color:#f0f7ff; background-image:radial-gradient(#d3f1ff 2px,transparent 2px); background-size:18px 18px; }
+        .pi-theme-lavender .product-img { background-color:#f5f0ff; background-image:radial-gradient(#e8dbff 2px,transparent 2px); background-size:18px 18px; }
+        .pi-theme-mint .product-img { background-color:#f0fff7; background-image:radial-gradient(#d9f6e6 2px,transparent 2px); background-size:18px 18px; }
+        .pi-theme-peach .product-img { background-color:#fff7f0; background-image:radial-gradient(#ffe8d6 2px,transparent 2px); background-size:18px 18px; }
+        body.dark .pi-theme-rose .product-img,
+        body.dark .pi-theme-blue .product-img,
+        body.dark .pi-theme-lavender .product-img,
+        body.dark .pi-theme-mint .product-img,
+        body.dark .pi-theme-peach .product-img { background-color:var(--white); background-image:radial-gradient(var(--dot-color) 2px,transparent 2px); }
+
+        /* ========== MAGNETIC BUTTON ========== */
+        .magnetic-btn { transition:transform .15s cubic-bezier(.25,.8,.25,1), background .2s, box-shadow .2s; }
+
         /* ========== TESTIMONIAL CAROUSEL ========== */
         .testimonial-carousel { position:relative; max-width:1000px; margin:0 auto; overflow:hidden; padding:0 48px; }
         .testimonial-track { display:flex; transition:transform .5s cubic-bezier(.25,.8,.25,1); gap:20px; }
@@ -2662,174 +2749,175 @@
 
     <!-- Loading Screen -->
     <div class="loader" id="loader">
-        <div class="loader-yarn">🧶</div>
+        <div class="loader-yarn">ðŸ§¶</div>
         <div class="loader-title">ZYLO</div>
         <div class="loader-sub">winding up the cuteness...</div>
     </div>
 
     <!-- Floating Background Doodles -->
     <div class="doodles" aria-hidden="true">
-        <span style="left:4%;  animation-duration:19s; animation-delay:-2s; font-size:24px;">💗</span>
-        <span style="left:16%; animation-duration:24s; animation-delay:-9s;">⭐</span>
-        <span style="left:28%; animation-duration:21s; animation-delay:-5s; font-size:26px;">🧶</span>
-        <span style="left:41%; animation-duration:27s; animation-delay:-13s;">🌸</span>
-        <span style="left:55%; animation-duration:20s; animation-delay:-7s; font-size:22px;">✨</span>
-        <span style="left:67%; animation-duration:25s; animation-delay:-1s;">💗</span>
-        <span style="left:78%; animation-duration:22s; animation-delay:-11s; font-size:23px;">⭐</span>
-        <span style="left:89%; animation-duration:26s; animation-delay:-4s;">🧶</span>
-        <span style="left:47%; animation-duration:29s; animation-delay:-17s;">💫</span>
-        <span style="left:9%;  animation-duration:23s; animation-delay:-14s; font-size:22px;">🌸</span>
+        <span style="left:4%;  animation-duration:19s; animation-delay:-2s; font-size:24px;">ðŸ’—</span>
+        <span style="left:16%; animation-duration:24s; animation-delay:-9s;">â­</span>
+        <span style="left:28%; animation-duration:21s; animation-delay:-5s; font-size:26px;">ðŸ§¶</span>
+        <span style="left:41%; animation-duration:27s; animation-delay:-13s;">ðŸŒ¸</span>
+        <span style="left:55%; animation-duration:20s; animation-delay:-7s; font-size:22px;">âœ¨</span>
+        <span style="left:67%; animation-duration:25s; animation-delay:-1s;">ðŸ’—</span>
+        <span style="left:78%; animation-duration:22s; animation-delay:-11s; font-size:23px;">â­</span>
+        <span style="left:89%; animation-duration:26s; animation-delay:-4s;">ðŸ§¶</span>
+        <span style="left:47%; animation-duration:29s; animation-delay:-17s;">ðŸ’«</span>
+        <span style="left:9%;  animation-duration:23s; animation-delay:-14s; font-size:22px;">ðŸŒ¸</span>
     </div>
 
     <!-- Funky Marquee Ticker Bar -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>⚡ HANDMADE WITH LOVE, STITCH BY STITCH! ✨</span>
-            <span>💖 CUSTOM ORDERS WELCOME — DM US! 🧸</span>
-            <span>🌷 EXPLORE THE NEW FUNKY DROP TODAY! 🚀</span>
-            <span>⚡ HANDMADE WITH LOVE, STITCH BY STITCH! ✨</span>
-            <span>💖 CUSTOM ORDERS WELCOME — DM US! 🧸</span>
-            <span>🌷 EXPLORE THE NEW FUNKY DROP TODAY! 🚀</span>
+            <span>âš¡ HANDMADE WITH LOVE, STITCH BY STITCH! âœ¨</span>
+            <span>ðŸ’– CUSTOM ORDERS WELCOME â€” DM US! ðŸ§¸</span>
+            <span>ðŸŒ· EXPLORE THE NEW FUNKY DROP TODAY! ðŸš€</span>
+            <span>âš¡ HANDMADE WITH LOVE, STITCH BY STITCH! âœ¨</span>
+            <span>ðŸ’– CUSTOM ORDERS WELCOME â€” DM US! ðŸ§¸</span>
+            <span>ðŸŒ· EXPLORE THE NEW FUNKY DROP TODAY! ðŸš€</span>
         </div>
     </div>
 
     <!-- Social Proof Ticker -->
     <div class="social-ticker-wrap">
         <div class="social-ticker">
-            <span>🛍️ Ayesha from Lahore just ordered 7 Roses Bouquet 💐</span>
-            <span>🛍️ Zainab just grabbed the Luffy Keychain 🔑</span>
-            <span>🛍️ Fatima from Karachi ordered a Sunflower Desk Pot 🌻</span>
-            <span>🛍️ Hafsa just got the Mesh Top 👚</span>
-            <span>🛍️ Noor from Islamabad ordered Matching Batman Keychains 🦇</span>
-            <span>🛍️ Mahnoor just added Bunny Holding a Heart to cart 🐰</span>
-            <span>🛍️ Areeba from Rawalpindi ordered a Custom Bouquet 🎨</span>
-            <span>🛍️ Hira just grabbed Star Clips ✨</span>
-            <span>🛍️ Ayesha from Lahore just ordered 7 Roses Bouquet 💐</span>
-            <span>🛍️ Zainab just grabbed the Luffy Keychain 🔑</span>
-            <span>🛍️ Fatima from Karachi ordered a Sunflower Desk Pot 🌻</span>
-            <span>🛍️ Hafsa just got the Mesh Top 👚</span>
-            <span>🛍️ Noor from Islamabad ordered Matching Batman Keychains 🦇</span>
-            <span>🛍️ Mahnoor just added Bunny Holding a Heart to cart 🐰</span>
-            <span>🛍️ Areeba from Rawalpindi ordered a Custom Bouquet 🎨</span>
-            <span>🛍️ Hira just grabbed Star Clips ✨</span>
+            <span>ðŸ›ï¸ Ayesha from Lahore just ordered 7 Roses Bouquet ðŸ’</span>
+            <span>ðŸ›ï¸ Zainab just grabbed the Luffy Keychain ðŸ”‘</span>
+            <span>ðŸ›ï¸ Fatima from Karachi ordered a Sunflower Desk Pot ðŸŒ»</span>
+            <span>ðŸ›ï¸ Hafsa just got the Mesh Top ðŸ‘š</span>
+            <span>ðŸ›ï¸ Noor from Islamabad ordered Matching Batman Keychains ðŸ¦‡</span>
+            <span>ðŸ›ï¸ Mahnoor just added Bunny Holding a Heart to cart ðŸ°</span>
+            <span>ðŸ›ï¸ Areeba from Rawalpindi ordered a Custom Bouquet ðŸŽ¨</span>
+            <span>ðŸ›ï¸ Hira just grabbed Star Clips âœ¨</span>
+            <span>ðŸ›ï¸ Ayesha from Lahore just ordered 7 Roses Bouquet ðŸ’</span>
+            <span>ðŸ›ï¸ Zainab just grabbed the Luffy Keychain ðŸ”‘</span>
+            <span>ðŸ›ï¸ Fatima from Karachi ordered a Sunflower Desk Pot ðŸŒ»</span>
+            <span>ðŸ›ï¸ Hafsa just got the Mesh Top ðŸ‘š</span>
+            <span>ðŸ›ï¸ Noor from Islamabad ordered Matching Batman Keychains ðŸ¦‡</span>
+            <span>ðŸ›ï¸ Mahnoor just added Bunny Holding a Heart to cart ðŸ°</span>
+            <span>ðŸ›ï¸ Areeba from Rawalpindi ordered a Custom Bouquet ðŸŽ¨</span>
+            <span>ðŸ›ï¸ Hira just grabbed Star Clips âœ¨</span>
         </div>
     </div>
 
     <!-- Countdown Bar -->
     <div class="countdown-bar" id="countdownBar">
-        <span class="cd-label">🔥 FUNKY DROP ENDS SOON:</span>
+        <span class="cd-label">ðŸ”¥ FUNKY DROP ENDS SOON:</span>
         <div class="cd-timer" id="cdTimer">
             <span class="cd-unit" id="cdD">2d</span>
             <span class="cd-unit" id="cdH">14h</span>
             <span class="cd-unit" id="cdM">32m</span>
             <span class="cd-unit" id="cdS">08s</span>
         </div>
-        <span style="font-size:12px;">Hurry, don't miss out! ⚡</span>
+        <span style="font-size:12px;">Hurry, don't miss out! âš¡</span>
     </div>
 
     <!-- Header & Navigation -->
     <header>
         <div class="header-left">
-            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+            <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">â˜°</button>
             <a href="#" class="logo">
                 <img src="logo zylo.png" alt="ZYLO Logo">
                 ZYLO
             </a>
         </div>
         <div class="nav-icons">
-            <button class="search-btn" onclick="openSearch()" aria-label="Search products">🔍</button>
-            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-            <button class="wish-header-btn" onclick="openWishModal()" aria-label="Open wishlist">🤍 <span class="cart-badge" id="wish-count">0</span></button>
+            <button class="search-btn" onclick="openSearch()" aria-label="Search products">ðŸ”</button>
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">ðŸŒ™</button>
+            <button class="wish-header-btn" onclick="openWishModal()" aria-label="Open wishlist">ðŸ¤ <span class="cart-badge" id="wish-count">0</span></button>
             <button class="cart-icon-btn" onclick="toggleCart()">
-                🛍️ <span class="cart-badge" id="cart-count">0</span>
+                ðŸ›ï¸ <span class="cart-badge" id="cart-count">0</span>
             </button>
         </div>
     </header>
 
     <!-- Sticky Category Pills -->
     <nav class="cat-nav" aria-label="Product categories">
-        <a href="#shop" class="cat-pill">🧶 Shop All</a>
-        <a href="#flowers" class="cat-pill">🌸 Flowers</a>
-        <a href="#keychains" class="cat-pill">🔑 Keychains</a>
-        <a href="#plushies" class="cat-pill">🧸 Plushies</a>
-        <a href="#decor" class="cat-pill">🕯️ Decor</a>
-        <a href="#accessories" class="cat-pill">👒 Accessories</a>
+        <a href="#shop" class="cat-pill">ðŸ§¶ Shop All</a>
+        <a href="#flowers" class="cat-pill">ðŸŒ¸ Flowers</a>
+        <a href="#keychains" class="cat-pill">ðŸ”‘ Keychains</a>
+        <a href="#plushies" class="cat-pill">ðŸ§¸ Plushies</a>
+        <a href="#decor" class="cat-pill">ðŸ•¯ï¸ Decor</a>
+        <a href="#accessories" class="cat-pill">ðŸ‘’ Accessories</a>
     </nav>
 
     <!-- Dropdown Menu -->
     <div class="dropdown-menu" id="dropdown-menu">
         <ul>
-            <li><a href="#shop" onclick="toggleMenu()">🛍️ Shop All</a></li>
-            <li><a href="#flowers" onclick="toggleMenu()">🌷 Flowers Collection</a></li>
-            <li><a href="#keychains" onclick="toggleMenu()">🔑 Keychains Collection</a></li>
-            <li><a href="#plushies" onclick="toggleMenu()">🧸 Plushies Collection</a></li>
-            <li><a href="#decor" onclick="toggleMenu()">🪴 Decor Collection</a></li>
-            <li><a href="#accessories" onclick="toggleMenu()">🎀 Accessories Collection</a></li>
-            <li><a href="#about" onclick="toggleMenu()">✨ About ZYLO</a></li>
-            <li><a href="#stall" onclick="toggleMenu()">🎉 Our First Event</a></li>
-            <li><a href="#social" onclick="toggleMenu()">📸 Instagram / Social</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">💌 Contact Us</a></li>
+            <li><a href="#shop" onclick="toggleMenu()">ðŸ›ï¸ Shop All</a></li>
+            <li><a href="#flowers" onclick="toggleMenu()">ðŸŒ· Flowers Collection</a></li>
+            <li><a href="#keychains" onclick="toggleMenu()">ðŸ”‘ Keychains Collection</a></li>
+            <li><a href="#plushies" onclick="toggleMenu()">ðŸ§¸ Plushies Collection</a></li>
+            <li><a href="#decor" onclick="toggleMenu()">ðŸª´ Decor Collection</a></li>
+            <li><a href="#accessories" onclick="toggleMenu()">ðŸŽ€ Accessories Collection</a></li>
+            <li><a href="#about" onclick="toggleMenu()">âœ¨ About ZYLO</a></li>
+            <li><a href="#stall" onclick="toggleMenu()">ðŸŽ‰ Our First Event</a></li>
+            <li><a href="#social" onclick="toggleMenu()">ðŸ“¸ Instagram / Social</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">ðŸ’Œ Contact Us</a></li>
         </ul>
     </div>
 
     <!-- Banner Section -->
     <section class="banner">
         <div class="hero-particles" aria-hidden="true">
-            <span class="hero-particle">🧶</span>
-            <span class="hero-particle">🌸</span>
-            <span class="hero-particle">✨</span>
-            <span class="hero-particle">💖</span>
-            <span class="hero-particle">⭐</span>
-            <span class="hero-particle">🌷</span>
-            <span class="hero-particle">🎀</span>
-            <span class="hero-particle">💫</span>
+            <span class="hero-particle">ðŸ§¶</span>
+            <span class="hero-particle">ðŸŒ¸</span>
+            <span class="hero-particle">âœ¨</span>
+            <span class="hero-particle">ðŸ’–</span>
+            <span class="hero-particle">â­</span>
+            <span class="hero-particle">ðŸŒ·</span>
+            <span class="hero-particle">ðŸŽ€</span>
+            <span class="hero-particle">ðŸ’«</span>
         </div>
-        <span class="sparkle s1">⚡</span>
-        <span class="sparkle s2">💖</span>
-        <span class="sparkle s3">✨</span>
-        <span class="sparkle s4">🌸</span>
-        <span class="sparkle s5">⭐</span>
-        <span class="sparkle s6">🧶</span>
+        <span class="sparkle s1">âš¡</span>
+        <span class="sparkle s2">ðŸ’–</span>
+        <span class="sparkle s3">âœ¨</span>
+        <span class="sparkle s4">ðŸŒ¸</span>
+        <span class="sparkle s5">â­</span>
+        <span class="sparkle s6">ðŸ§¶</span>
         <h1>Funky, Cute & Trendy Finds!</h1>
-        <p>Elevate your aesthetic with magical accessories 🚀</p>
+        <p>Elevate your aesthetic with magical accessories ðŸš€</p>
         <br>
-        <a href="#shop" class="cta-btn">Shop The Drop ✨</a>
+        <a href="#shop" class="cta-btn">Shop The Drop âœ¨</a>
         <div class="hero-polaroid hp1"><img src="best seller 1 zylo.jpeg" alt="Crochet Thai Rose"></div>
         <div class="hero-polaroid hp2"><img src="flower 1 zylo.jpeg" alt="Tangled Flower Stand"></div>
         <div class="hero-polaroid hp3"><img src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
     </section>
 
     <!-- Best Sellers -->
-    <section>
-        <h2 class="section-title">Best Sellers 🔥</h2>
-        <span class="section-sub">the cuties everyone keeps coming back for ✨</span>
+    <section class="section-theme-pink">
+        <h2 class="section-title">Best Sellers ðŸ”¥</h2>
+        <span class="section-sub">the cuties everyone keeps coming back for âœ¨</span>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-1 pink">so cute!!</span></div>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img"><span class="badge">🔥 Best Seller</span><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
+            <div class="product-card pi-theme-rose">
+                <div class="product-img"><span class="ribbon-badge ribbon-pink">ðŸ”¥ Best Seller</span><span class="badge">ðŸ”¥ Best Seller</span><img src="best seller 1 zylo.jpeg" alt="Handmade Crochet Rose"></div>
                 <div class="product-info">
                     <div><h3>thai rose</h3><div class="price">Rs. 1,100</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Handmade Crochet Rose Stem', 1100)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Handmade Crochet Rose Stem', 1100)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-img"><span class="badge blue">🔥 Best Seller</span><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
+            <div class="product-card pi-theme-blue">
+                <div class="product-img"><span class="ribbon-badge ribbon-blue">ðŸ”¥ Best Seller</span><span class="badge blue">ðŸ”¥ Best Seller</span><img src="best seller 2 zylo.jpeg" alt="Cute Chick Keychain"></div>
                 <div class="product-info">
                     <div><h3>Cute Chick Keychain</h3><div class="price">Rs. 350</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Cute Chick Keychain', 350)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Cute Chick Keychain', 350)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-img"><span class="badge purple">🔥 Best Seller</span><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
+            <div class="product-card pi-theme-lavender">
+                <div class="product-img"><span class="ribbon-badge ribbon-pink">ðŸ”¥ Best Seller</span><span class="badge purple">ðŸ”¥ Best Seller</span><img src="best seller 3 zylo.jpeg" alt="Suit Rose Lapel Pin"></div>
                 <div class="product-info">
                     <div><h3>rose brooche</h3><div class="price">Rs. 250</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Suit Rose Lapel Pin', 250)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Suit Rose Lapel Pin', 250)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-img"><span class="badge green">🔥 Best Seller</span><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
+            <div class="product-card pi-theme-mint">
+                <div class="product-img"><span class="ribbon-badge ribbon-green">ðŸ”¥ Best Seller</span><span class="badge green">ðŸ”¥ Best Seller</span><img src="best seller 4 zylo.jpeg" alt="Smiley Glasses Case"></div>
                 <div class="product-info">
                     <div><h3>glasses holder</h3><div class="price">Rs. 750</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Smiley Face Glasses Case', 750)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Smiley Face Glasses Case', 750)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
@@ -2868,359 +2956,370 @@
     </div>
 
     <!-- Shop by Category -->
-    <section id="shop">
-        <h2 class="section-title">Shop By Category ⚡</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,20 Q120,0 240,20 T480,20 T720,20 T960,20 T1200,20 T1440,20 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="shop" class="section-theme-yellow">
+        <h2 class="section-title">Shop By Category âš¡</h2>
         <div class="categories-grid">
-            <a href="#flowers" class="category-card"><div class="category-icon">🌷</div><h3>Flowers</h3></a>
-            <a href="#keychains" class="category-card"><div class="category-icon">🔑</div><h3>Keychains</h3></a>
-            <a href="#plushies" class="category-card"><div class="category-icon">🧸</div><h3>Plushies</h3></a>
-            <a href="#decor" class="category-card"><div class="category-icon">🪴</div><h3>Decor</h3></a>
-            <a href="#accessories" class="category-card"><div class="category-icon">🎀</div><h3>Accessories</h3></a>
+            <a href="#flowers" class="category-card"><div class="category-icon">ðŸŒ·</div><h3>Flowers</h3></a>
+            <a href="#keychains" class="category-card"><div class="category-icon">ðŸ”‘</div><h3>Keychains</h3></a>
+            <a href="#plushies" class="category-card"><div class="category-icon">ðŸ§¸</div><h3>Plushies</h3></a>
+            <a href="#decor" class="category-card"><div class="category-icon">ðŸª´</div><h3>Decor</h3></a>
+            <a href="#accessories" class="category-card"><div class="category-icon">ðŸŽ€</div><h3>Accessories</h3></a>
         </div>
     </section>
 
     <!-- Filter Bar -->
     <div class="filter-bar" id="filter-bar" role="toolbar" aria-label="Filter products by category">
-        <button class="filter-chip active" data-filter="all">🌸 All</button>
-        <button class="filter-chip" data-filter="flowers">🌷 Flowers</button>
-        <button class="filter-chip" data-filter="keychains">🔑 Keychains</button>
-        <button class="filter-chip" data-filter="plushies">🧸 Plushies</button>
-        <button class="filter-chip" data-filter="decor">🪴 Decor</button>
-        <button class="filter-chip" data-filter="accessories">🎀 Accessories</button>
+        <button class="filter-chip active" data-filter="all">ðŸŒ¸ All</button>
+        <button class="filter-chip" data-filter="flowers">ðŸŒ· Flowers</button>
+        <button class="filter-chip" data-filter="keychains">ðŸ”‘ Keychains</button>
+        <button class="filter-chip" data-filter="plushies">ðŸ§¸ Plushies</button>
+        <button class="filter-chip" data-filter="decor">ðŸª´ Decor</button>
+        <button class="filter-chip" data-filter="accessories">ðŸŽ€ Accessories</button>
     </div>
 
     <!-- Process Steps -->
     <section id="process">
-        <h2 class="section-title">From Our Hook To Your Home 🧶</h2>
-        <span class="section-sub">every order goes on this cozy little journey 💖</span>
+        <h2 class="section-title">From Our Hook To Your Home ðŸ§¶</h2>
+        <span class="section-sub">every order goes on this cozy little journey ðŸ’–</span>
         <div class="process-grid">
-            <div class="process-card"><span class="process-num">1</span><span class="process-icon">🛍️</span><h3>Pick Your Cutie</h3><p>Browse the shop &amp; tap Add to Cart on everything you love.</p></div>
-            <div class="process-card"><span class="process-num">2</span><span class="process-icon">🧶</span><h3>We Crochet It</h3><p>Each piece is handmade stitch-by-stitch with love &amp; sparkles.</p></div>
-            <div class="process-card"><span class="process-num">3</span><span class="process-icon">🎁</span><h3>Wrapped Cutely</h3><p>Packed with adorable packaging + a handwritten thank-you note.</p></div>
-            <div class="process-card"><span class="process-num">4</span><span class="process-icon">🚚</span><h3>Shipped To You</h3><p>Safely delivered across Pakistan in 5–7 working days.</p></div>
+            <div class="process-card"><span class="process-num">1</span><span class="process-icon">ðŸ›ï¸</span><h3>Pick Your Cutie</h3><p>Browse the shop &amp; tap Add to Cart on everything you love.</p></div>
+            <div class="process-card"><span class="process-num">2</span><span class="process-icon">ðŸ§¶</span><h3>We Crochet It</h3><p>Each piece is handmade stitch-by-stitch with love &amp; sparkles.</p></div>
+            <div class="process-card"><span class="process-num">3</span><span class="process-icon">ðŸŽ</span><h3>Wrapped Cutely</h3><p>Packed with adorable packaging + a handwritten thank-you note.</p></div>
+            <div class="process-card"><span class="process-num">4</span><span class="process-icon">ðŸšš</span><h3>Shipped To You</h3><p>Safely delivered across Pakistan in 5â€“7 working days.</p></div>
         </div>
     </section>
 
     <!-- Stats Band -->
     <section style="padding-top: 0;">
         <div class="stats-band" id="stats-band">
-            <div class="stat-box"><div class="stat-num" data-count="500">0</div><div class="stat-label">🛍️ Orders Delivered</div></div>
-            <div class="stat-box"><div class="stat-num" data-count="669">0</div><div class="stat-label">📸 Insta Fam</div></div>
-            <div class="stat-box"><div class="stat-num" data-count="120">0</div><div class="stat-label">⭐ 5-Star Reviews</div></div>
-            <div class="stat-box"><div class="stat-num" data-count="150">0</div><div class="stat-label">🎀 Custom Orders</div></div>
+            <div class="stat-box"><div class="stat-num" data-count="500">0</div><div class="stat-label">ðŸ›ï¸ Orders Delivered</div></div>
+            <div class="stat-box"><div class="stat-num" data-count="669">0</div><div class="stat-label">ðŸ“¸ Insta Fam</div></div>
+            <div class="stat-box"><div class="stat-num" data-count="120">0</div><div class="stat-label">â­ 5-Star Reviews</div></div>
+            <div class="stat-box"><div class="stat-num" data-count="150">0</div><div class="stat-label">ðŸŽ€ Custom Orders</div></div>
         </div>
     </section>
 
     <!-- Flowers Collection Section -->
-    <section id="flowers">
-        <h2 class="section-title">Flower Collection 🌷</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,25 C200,5 400,35 600,15 C800,35 1000,5 1200,25 C1300,15 1400,20 1440,25 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="flowers" class="section-theme-rose">
+        <h2 class="section-title">Flower Collection ðŸŒ·</h2>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-2 purple">so pretty ðŸ’</span></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="Tangled Inspired Flower Stand"></div>
                 <div class="product-info">
                     <div><h3>Tangled Inspired Flower Stand</h3><div class="price">Rs. 2,500</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Tangled Inspired Flower Stand', 2500)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Tangled Inspired Flower Stand', 2500)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 5 zylo.jpeg" alt="Thai Rose"></div>
                 <div class="product-info">
                     <div><h3>Thai Rose</h3><div class="price">Rs. 1,100</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Thai Rose', 1100)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Thai Rose', 1100)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flowers zylo.jpeg" alt="Roses Each"></div>
                 <div class="product-info">
                     <div><h3>Roses (Each)</h3><div class="price">Rs. 300</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Roses (Each)', 300)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Roses (Each)', 300)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 3 zylo.jpeg" alt="3 Sunflower Bouquet"></div>
                 <div class="product-info">
                     <div><h3>3 Sunflower Bouquet</h3><div class="price">Rs. 1,500</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('3 Sunflower Bouquet', 1500)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('3 Sunflower Bouquet', 1500)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 4 zylo.jpeg" alt="7 Roses Bouquet"></div>
                 <div class="product-info">
                     <div><h3>7 Roses Bouquet</h3><div class="price">Rs. 2,300</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('7 Roses Bouquet', 2300)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('7 Roses Bouquet', 2300)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="flower 6 zylo.jpeg" alt="Sunflower Bouquet"></div>
                 <div class="product-info">
                     <div><h3>Sunflower</h3><div class="price">Rs. 450 (Each)</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bouquet', 2200)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bouquet', 2200)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Pink roses bouquet of 7 rs. 2500.jpg" alt="Pink Roses Bouquet of 7"></div>
                 <div class="product-info">
                     <div><h3>Pink Roses Bouquet of 7</h3><div class="price">Rs. 2,500</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Pink Roses Bouquet of 7', 2500)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Pink Roses Bouquet of 7', 2500)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="White roses bouquet of 7 rs.2500.jpg" alt="White Roses Bouquet of 7"></div>
                 <div class="product-info">
                     <div><h3>White Roses Bouquet of 7</h3><div class="price">Rs. 2,500</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('White Roses Bouquet of 7', 2500)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('White Roses Bouquet of 7', 2500)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Batman inspired bouquet rs. 1800.jpg" alt="Batman Inspired Bouquet"></div>
                 <div class="product-info">
                     <div><h3>Batman Inspired Bouquet</h3><div class="price">Rs. 1,800</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Batman Inspired Bouquet', 1800)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Batman Inspired Bouquet', 1800)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Tulip rs.450.jpg" alt="Tulip"></div>
                 <div class="product-info">
                     <div><h3>Tulip</h3><div class="price">Rs. 450</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Tulip', 450)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Tulip', 450)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="lavender rs 350.jpg" alt="Lavender"></div>
                 <div class="product-info">
                     <div><h3>Lavender</h3><div class="price">Rs. 350</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Lavender', 350)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Lavender', 350)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="daisey rs 350.jpg" alt="Daisy"></div>
                 <div class="product-info">
                     <div><h3>Daisy</h3><div class="price">Rs. 350</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Daisy', 350)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Daisy', 350)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Custom-made bouquet rs.4900.jpg" alt="Custom-Made Bouquet"></div>
                 <div class="product-info">
                     <div><h3>Custom-Made Bouquet</h3><div class="price">Rs. 4,900</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Custom-Made Bouquet', 4900)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Custom-Made Bouquet', 4900)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-rose">
                 <div class="product-img"><img loading="lazy" decoding="async" src="teddy bouqet rs3200.jpg" alt="Teddy Bouquet"></div>
                 <div class="product-info">
                     <div><h3>Teddy Bouquet</h3><div class="price">Rs. 3,200</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Teddy Bouquet', 3200)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Teddy Bouquet', 3200)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Keychains Collection Section -->
-    <section id="keychains">
-        <h2 class="section-title">Keychain Collection 🔑</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,15 Q180,35 360,15 T720,15 T1080,15 T1440,15 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="keychains" class="section-theme-blue">
+        <h2 class="section-title">Keychain Collection ðŸ”‘</h2>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-3 blue">so tiny & cute!</span></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="Luffy Keychain"></div>
                 <div class="product-info">
                     <div><h3>Luffy Inspired Crocheted Plushie Keychain</h3><div class="price">Rs. 1,000</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Luffy Inspired Crocheted Plushie Keychain', 1000)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Luffy Inspired Crocheted Plushie Keychain', 1000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 2 zylo.jpg" alt="Batman Keychains"></div>
                 <div class="product-info">
                     <div><h3>Matching Batman Keychains</h3><div class="price">Rs. 1,300</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Matching Batman Keychains', 1300)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Batman Keychains', 1300)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 3 zylo.jpg" alt="Capybara Keychains"></div>
                 <div class="product-info">
                     <div><h3>Matching Capybara Keychains</h3><div class="price">Rs. 600</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Matching Capybara Keychains', 600)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Capybara Keychains', 600)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 4 zylo.jpg" alt="Strawberry Keychain"></div>
                 <div class="product-info">
                     <div><h3>Strawberry Keychain</h3><div class="price">Rs. 300</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Keychain', 300)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Keychain', 300)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 5 zylo.jpg" alt="Hello Kitty Keychain"></div>
                 <div class="product-info">
                     <div><h3>Hello Kitty Keychain</h3><div class="price">Rs. 650</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Hello Kitty Keychain', 650)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Hello Kitty Keychain', 650)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-blue">
                 <div class="product-img"><img loading="lazy" decoding="async" src="key chain 6 zylo.jpg" alt="Strawberry Mushroom Keychain"></div>
                 <div class="product-info">
                     <div><h3>Strawberry Mushroom Keychain</h3><div class="price">Rs. 450</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Mushroom Keychain', 450)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Strawberry Mushroom Keychain', 450)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Plushies Collection Section -->
-    <section id="plushies">
-        <h2 class="section-title">Plushies Collection 🧸</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,20 C240,35 480,5 720,20 C960,35 1200,5 1440,20 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="plushies" class="section-theme-lavender">
+        <h2 class="section-title">Plushies Collection ðŸ§¸</h2>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-4 pink">so squishy!!</span></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="Mr. Bean Teddy"></div>
                 <div class="product-info">
                     <div><h3>Mr. Bean Teddy</h3><div class="price">Rs. 1,000</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Mr. Bean Teddy', 1000)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mr. Bean Teddy', 1000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 2.jpeg" alt="Bunny holding a heart"></div>
                 <div class="product-info">
                     <div><h3>Bunny Holding a Heart</h3><div class="price">Rs. 5,000</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Bunny Holding a Heart', 5000)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Bunny Holding a Heart', 5000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 3.jpeg" alt="Penguin"></div>
                 <div class="product-info">
                     <div><h3>Penguin</h3><div class="price">Rs. 700</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Penguin', 700)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Penguin', 700)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 4.jpeg" alt="Fav Bean"></div>
                 <div class="product-info">
                     <div><h3>Fav Bean</h3><div class="price">Rs. 550</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Fav Bean', 550)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fav Bean', 550)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-lavender">
                 <div class="product-img"><img loading="lazy" decoding="async" src="plushies zylo 5.jpeg" alt="Mini Bunny"></div>
                 <div class="product-info">
                     <div><h3>Mini Bunny</h3><div class="price">Rs. 1,500</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Mini Bunny', 1500)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mini Bunny', 1500)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Decor Collection Section -->
-    <section id="decor">
-        <h2 class="section-title">Decor Collection 🪴</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,28 Q360,5 720,28 T1440,28 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="decor" class="section-theme-mint">
+        <h2 class="section-title">Decor Collection ðŸª´</h2>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-5 green">cozy vibes ðŸŒ¿</span></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 1.jpeg" alt="Sunflower Desk Pot"></div>
                 <div class="product-info">
                     <div><h3>Sunflower Desk Pot</h3><div class="price">Rs. 700</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Desk Pot', 700)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Desk Pot', 700)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 4.jpeg" alt="Glasses Holder"></div>
                 <div class="product-info">
                     <div><h3>Glasses Holder</h3><div class="price">Rs. 750</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Glasses Holder', 750)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Glasses Holder', 750)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 3.jpeg" alt="Sunflower Bookmark"></div>
                 <div class="product-info">
                     <div><h3>Sunflower Bookmark</h3><div class="price">Rs. 150</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bookmark', 150)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sunflower Bookmark', 150)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-mint">
                 <div class="product-img"><img loading="lazy" decoding="async" src="decor zylo 2.jpeg" alt="Book Cover with Zipper Pouch"></div>
                 <div class="product-info">
                     <div><h3>Book Cover with Attached Zipper Pouch</h3><div class="price">Rs. 1,600</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Book Cover with Attached Zipper Pouch', 1600)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Book Cover with Attached Zipper Pouch', 1600)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Accessories Collection Section -->
-    <section id="accessories">
-        <h2 class="section-title">Accessories Collection 🎀</h2>
+    <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,18 C180,32 360,8 540,22 C720,36 900,8 1080,22 C1260,36 1380,18 1440,25 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
+    <section id="accessories" class="section-theme-peach">
+        <h2 class="section-title">Accessories Collection ðŸŽ€</h2>
+        <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-1 orange">style upgrade!</span></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 1 zylo.jpeg" alt="Angry Clip"></div>
                 <div class="product-info">
                     <div><h3>Angry Clip</h3><div class="price">Rs. 250</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Angry Clip', 250)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Angry Clip', 250)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 2 zylo.jpeg" alt="Matching Bracelets"></div>
                 <div class="product-info">
                     <div><h3>Matching Bracelets (Pair of 3)</h3><div class="price">Rs. 450</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Matching Bracelets (Pair of 3)', 450)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Matching Bracelets (Pair of 3)', 450)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 5 zylo.jpeg" alt="Mesh Tote Bag"></div>
                 <div class="product-info">
                     <div><h3>Mesh Tote Bag</h3><div class="price">Rs. 4,000</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Mesh Tote Bag', 4000)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mesh Tote Bag', 4000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 4 zylo.jpeg" alt="Y2K Mini Suitcase Bag"></div>
                 <div class="product-info">
                     <div><h3>Y2K Kawaii Mini Suitcase Bag</h3><div class="price">Rs. 6,000</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Y2K Kawaii Mini Suitcase Bag', 6000)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Y2K Kawaii Mini Suitcase Bag', 6000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="custom categary 3 zylo.jpeg" alt="Star Clip"></div>
                 <div class="product-info">
                     <div><h3>Star Clip</h3><div class="price">Rs. 100</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Star Clip', 100)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Star Clip', 100)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="daisy hair clip rs 250.jpg" alt="Daisy Hair Clip"></div>
                 <div class="product-info">
                     <div><h3>Daisy Hair Clip</h3><div class="price">Rs. 200</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Daisy Hair Clip', 200)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Daisy Hair Clip', 200)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="Rose brooches rs.250 each.jpg" alt="Rose Brooches"></div>
                 <div class="product-info">
                     <div><h3>Rose Brooches</h3><div class="price">Rs. 250 (Each)</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Rose Brooches (Each)', 250)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Rose Brooches (Each)', 250)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="butterfly clips 100 each.jpg" alt="Butterfly Hair Clips"></div>
                 <div class="product-info">
                     <div><h3>Butterfly Hair Clips</h3><div class="price">Rs. 100 (Each)</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Butterfly Hair Clips (Each)', 100)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Butterfly Hair Clips (Each)', 100)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="mikasa scarf 1600.jpg" alt="Mikasa Inspired Scarf"></div>
                 <div class="product-info">
                     <div><h3>Mikasa Inspired Scarf</h3><div class="price">Rs. 1,600</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Mikasa Inspired Scarf', 1600)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mikasa Inspired Scarf', 1600)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="mesh top rs.3000-3500(varies according to size).jpg" alt="Mesh Top"></div>
                 <div class="product-info">
-                    <div><h3>Mesh Top</h3><div class="price">Rs. 3,000–3,500</div><div style="font-size:11px;color:#888;font-weight:700;margin-top:4px;">varies according to size</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Mesh Top', 3000)">Add to Cart ✨</button>
+                    <div><h3>Mesh Top</h3><div class="price">Rs. 3,000â€“3,500</div><div style="font-size:11px;color:#888;font-weight:700;margin-top:4px;">varies according to size</div></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mesh Top', 3000)">Add to Cart âœ¨</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card pi-theme-peach">
                 <div class="product-img"><img loading="lazy" decoding="async" src="cat paw glove 1600.jpeg" alt="Cat Paw Gloves"></div>
                 <div class="product-info">
                     <div><h3>Cat Paw Gloves</h3><div class="price">Rs. 1,600</div></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Cat Paw Gloves', 1600)">Add to Cart ✨</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Cat Paw Gloves', 1600)">Add to Cart âœ¨</button>
                 </div>
             </div>
         </div>
@@ -3228,90 +3327,90 @@
 
     <!-- Trust Badges -->
     <div class="trust-badges">
-        <div class="trust-badge"><span class="trust-badge-icon">🧶</span><h4>Handmade with Love</h4><p>Every piece is crocheted stitch by stitch</p></div>
-        <div class="trust-badge"><span class="trust-badge-icon">🚚</span><h4>Fast Shipping</h4><p>Delivered in 3–7 working days</p></div>
-        <div class="trust-badge"><span class="trust-badge-icon">💳</span><h4>Secure Payment</h4><p>Paid via Sadapay — 100% safe</p></div>
-        <div class="trust-badge"><span class="trust-badge-icon">📦</span><h4>Packaged with Care</h4><p>Adorable packaging + thank-you note</p></div>
+        <div class="trust-badge"><span class="trust-badge-icon">ðŸ§¶</span><h4>Handmade with Love</h4><p>Every piece is crocheted stitch by stitch</p></div>
+        <div class="trust-badge"><span class="trust-badge-icon">ðŸšš</span><h4>Fast Shipping</h4><p>Delivered in 3â€“7 working days</p></div>
+        <div class="trust-badge"><span class="trust-badge-icon">ðŸ’³</span><h4>Secure Payment</h4><p>Paid via Sadapay â€” 100% safe</p></div>
+        <div class="trust-badge"><span class="trust-badge-icon">ðŸ“¦</span><h4>Packaged with Care</h4><p>Adorable packaging + thank-you note</p></div>
     </div>
 
     <!-- About Zylo Section -->
     <section id="about">
         <div class="about-section">
             <h2 class="section-title" style="margin-bottom: 10px; color: var(--text-dark); text-shadow: none;">About ZYLO</h2>
-            <p>Discover the most adorable handmade crochet pieces, crafted with love to add a little extra charm to your everyday life. From cute little details to timeless handmade treasures, Zylo brings you pieces that are effortlessly aesthetic, irresistibly cute, and made to make you smile. 🎀✨</p>
+            <p>Discover the most adorable handmade crochet pieces, crafted with love to add a little extra charm to your everyday life. From cute little details to timeless handmade treasures, Zylo brings you pieces that are effortlessly aesthetic, irresistibly cute, and made to make you smile. ðŸŽ€âœ¨</p>
         </div>
     </section>
 
     <!-- Our First Event -->
     <section id="stall">
-        <h2 class="section-title">Where It All Began 🎉</h2>
-        <span class="section-sub">our very first stall — from a dream to a table full of cuties</span>
+        <h2 class="section-title">Where It All Began ðŸŽ‰</h2>
+        <span class="section-sub">our very first stall â€” from a dream to a table full of cuties</span>
         <div class="stall-card">
-            <img class="stall-img" src="it%20was%20at%20an%20event%20organized%20by%20bargad%20at%20LC.jpg" alt="ZYLO's first stall at the Bargad event at LC — where the crochet journey began">
+            <img class="stall-img" src="it%20was%20at%20an%20event%20organized%20by%20bargad%20at%20LC.jpg" alt="ZYLO's first stall at the Bargad event at LC â€” where the crochet journey began">
             <div class="stall-caption">
-                <h3>Our First Ever Event! 🧶</h3>
-                <p>Where it all began — our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born 💖</p>
+                <h3>Our First Ever Event! ðŸ§¶</h3>
+                <p>Where it all began â€” our very first stall at the Bargad event at LC. From a dream and a crochet hook to a table full of handmade cuties. This is where ZYLO was born ðŸ’–</p>
             </div>
         </div>
     </section>
 
     <!-- Customer Reviews Section -->
     <section id="reviews">
-        <h2 class="section-title">Customer Love ⭐</h2>
-        <span class="section-sub">real words from real cuties 💌</span>
+        <h2 class="section-title">Customer Love â­</h2>
+        <span class="section-sub">real words from real cuties ðŸ’Œ</span>
         <div class="testimonial-carousel" id="testimonialCarousel">
-            <button class="tc-arrow prev" onclick="testimonialGo(-1)" aria-label="Previous review">◀</button>
+            <button class="tc-arrow prev" onclick="testimonialGo(-1)" aria-label="Previous review">â—€</button>
             <div class="testimonial-track" id="testimonialTrack">
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"The bunny holding a heart is SO soft and bigger than I expected. My sister cried when she opened it 😭💖"</p>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                    <p class="review-text">"The bunny holding a heart is SO soft and bigger than I expected. My sister cried when she opened it ðŸ˜­ðŸ’–"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">🐰</div>
+                        <div class="review-avatar">ðŸ°</div>
                         <div><div class="review-name">Mahnoor</div><div class="review-item">Bunny Holding a Heart</div></div>
                     </div>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Ordered the 7 roses bouquet for my mom's birthday. Perfect stitches, gorgeous colors, and the packaging was adorable!"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">🌷</div>
+                        <div class="review-avatar">ðŸŒ·</div>
                         <div><div class="review-name">Ayesha</div><div class="review-item">Roses Bouquet</div></div>
                     </div>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"My Luffy keychain gets compliments EVERYWHERE I go. The quality is unreal for the price ✨"</p>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                    <p class="review-text">"My Luffy keychain gets compliments EVERYWHERE I go. The quality is unreal for the price âœ¨"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">🔑</div>
+                        <div class="review-avatar">ðŸ”‘</div>
                         <div><div class="review-name">Zainab</div><div class="review-item">Luffy Keychain</div></div>
                     </div>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"The mesh top fits perfectly and the color is exactly like the pictures. Obsessed is an understatement 🖤"</p>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                    <p class="review-text">"The mesh top fits perfectly and the color is exactly like the pictures. Obsessed is an understatement ðŸ–¤"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">👚</div>
+                        <div class="review-avatar">ðŸ‘š</div>
                         <div><div class="review-name">Hafsa</div><div class="review-item">Mesh Top</div></div>
                     </div>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Super fast delivery and the cutest handwritten thank-you note inside. Zylo never misses ✨"</p>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                    <p class="review-text">"Super fast delivery and the cutest handwritten thank-you note inside. Zylo never misses âœ¨"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">🪴</div>
+                        <div class="review-avatar">ðŸª´</div>
                         <div><div class="review-name">Fatima</div><div class="review-item">Sunflower Desk Pot</div></div>
                     </div>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Got matching batman keychains for me and my boyfriend. We're obsessed!! Best couple gift ever 🦇"</p>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                    <p class="review-text">"Got matching batman keychains for me and my boyfriend. We're obsessed!! Best couple gift ever ðŸ¦‡"</p>
                     <div class="review-foot">
-                        <div class="review-avatar">🦇</div>
+                        <div class="review-avatar">ðŸ¦‡</div>
                         <div><div class="review-name">Noor</div><div class="review-item">Matching Batman Keychains</div></div>
                     </div>
                 </div>
             </div>
-            <button class="tc-arrow next" onclick="testimonialGo(1)" aria-label="Next review">▶</button>
+            <button class="tc-arrow next" onclick="testimonialGo(1)" aria-label="Next review">â–¶</button>
         </div>
         <div class="tc-dots" id="testimonialDots"></div>
     </section>
@@ -3319,54 +3418,54 @@
     <!-- Instagram / Social Media Section -->
     <section id="social">
         <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
-        <div class="ig-pill">📸 Join <span id="igCount">5,000+</span> cuties who follow us on Insta ✨</div>
+        <div class="ig-pill">ðŸ“¸ Join <span id="igCount">5,000+</span> cuties who follow us on Insta âœ¨</div>
         <div class="insta-grid">
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
                 <img loading="lazy" decoding="async" src="best seller 1 zylo.jpeg" alt="Zylo Instagram Post 1">
-                <div class="insta-overlay">Show on Insta ✨</div>
+                <div class="insta-overlay">Show on Insta âœ¨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
                 <img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="Zylo Instagram Post 2">
-                <div class="insta-overlay">Show on Insta ✨</div>
+                <div class="insta-overlay">Show on Insta âœ¨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
                 <img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="Zylo Instagram Post 3">
-                <div class="insta-overlay">Show on Insta ✨</div>
+                <div class="insta-overlay">Show on Insta âœ¨</div>
             </a>
             <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
                 <img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="Zylo Instagram Post 4">
-                <div class="insta-overlay">Show on Insta ✨</div>
+                <div class="insta-overlay">Show on Insta âœ¨</div>
             </a>
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section id="faq">
-        <h2 class="section-title">Frequently Asked Questions 💭</h2>
+        <h2 class="section-title">Frequently Asked Questions ðŸ’­</h2>
         <div class="faq-list">
             <div class="faq-item">
-                <button class="faq-q">🚚 How long does delivery take? <span class="chev">▼</span></button>
-                <div class="faq-a"><p>Standard delivery takes <b>5-7 days</b> across Pakistan. In a hurry? 💨 Choose our <b>Urgent Order</b> option and get your cuties delivered the <b>SAME DAY</b> (small additional charge applies)! ✨</p></div>
+                <button class="faq-q">ðŸšš How long does delivery take? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p>Standard delivery takes <b>5-7 days</b> across Pakistan. In a hurry? ðŸ’¨ Choose our <b>Urgent Order</b> option and get your cuties delivered the <b>SAME DAY</b> (small additional charge applies)! âœ¨</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">💳 How can I pay? <span class="chev">▼</span></button>
-                <div class="faq-a"><p>We accept quick &amp; secure payments via <b>Sadapay</b>. Just transfer at checkout, drop your transaction ID in the form, and your cuties start their journey to you 🎀</p></div>
+                <button class="faq-q">ðŸ’³ How can I pay? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p>We accept quick &amp; secure payments via <b>Sadapay</b>. Just transfer at checkout, drop your transaction ID in the form, and your cuties start their journey to you ðŸŽ€</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">🎨 Do you take custom orders? <span class="chev">▼</span></button>
-                <div class="faq-a"><p><b>YES!</b> Custom pieces are our favorite thing to make 💕 Message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea and we'll bring it to life ✨</p></div>
+                <button class="faq-q">ðŸŽ¨ Do you take custom orders? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p><b>YES!</b> Custom pieces are our favorite thing to make ðŸ’• Message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea and we'll bring it to life âœ¨</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">🧼 How do I care for my crochet pieces? <span class="chev">▼</span></button>
-                <div class="faq-a"><p>Hand wash gently in cold water, squeeze softly (never wring!) and air dry flat 🌸 With a little love, your ZYLO pieces stay perfect for years.</p></div>
+                <button class="faq-q">ðŸ§¼ How do I care for my crochet pieces? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p>Hand wash gently in cold water, squeeze softly (never wring!) and air dry flat ðŸŒ¸ With a little love, your ZYLO pieces stay perfect for years.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">👚 What size is the Mesh Top? <span class="chev">▼</span></button>
-                <div class="faq-a"><p>The Mesh Top is made to fit YOU — the price varies between <b>Rs. 3,000–3,500</b> according to size. WhatsApp us your measurements and we'll hook you up ✨</p></div>
+                <button class="faq-q">ðŸ‘š What size is the Mesh Top? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p>The Mesh Top is made to fit YOU â€” the price varies between <b>Rs. 3,000â€“3,500</b> according to size. WhatsApp us your measurements and we'll hook you up âœ¨</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">🛍️ How do I place an order? <span class="chev">▼</span></button>
-                <div class="faq-a"><p>Tap <b>Add to Cart ✨</b> on anything cute → hit <b>Proceed to Checkout</b> → fill in your details with your Sadapay transaction ID → done! We handmake &amp; ship your order 🚀</p></div>
+                <button class="faq-q">ðŸ›ï¸ How do I place an order? <span class="chev">â–¼</span></button>
+                <div class="faq-a"><p>Tap <b>Add to Cart âœ¨</b> on anything cute â†’ hit <b>Proceed to Checkout</b> â†’ fill in your details with your Sadapay transaction ID â†’ done! We handmake &amp; ship your order ðŸš€</p></div>
             </div>
         </div>
     </section>
@@ -3374,26 +3473,26 @@
     <!-- Formspree Contact Section -->
     <section id="contact">
         <div class="about-section" style="margin-top: 0; padding-top: 30px;">
-            <h2 class="section-title" style="margin-bottom: 10px; color: var(--text-dark); text-shadow: none;">Get In Touch 💌</h2>
+            <h2 class="section-title" style="margin-bottom: 10px; color: var(--text-dark); text-shadow: none;">Get In Touch ðŸ’Œ</h2>
             <p style="margin-bottom: 20px;">Have a question or a custom request? Send a magical message directly to our team!</p>
             <form action="https://formspree.io/f/xaewjqvg" method="POST" class="formspree-contact">
                 <div class="form-group">
-                    <input type="text" name="Name" placeholder="Your Name ✨" required>
+                    <input type="text" name="Name" placeholder="Your Name âœ¨" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="Email" placeholder="Your Email 💌" required>
+                    <input type="email" name="Email" placeholder="Your Email ðŸ’Œ" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="Message" rows="4" placeholder="What's on your mind? 🎀" required></textarea>
+                    <textarea name="Message" rows="4" placeholder="What's on your mind? ðŸŽ€" required></textarea>
                 </div>
-                <button type="submit" class="cta-btn" style="margin-top: 15px; width: 100%; border-radius: 20px;">Send Message 🚀</button>
+                <button type="submit" class="cta-btn" style="margin-top: 15px; width: 100%; border-radius: 20px;">Send Message ðŸš€</button>
             </form>
         </div>
     </section>
 
     <!-- Recently Viewed -->
     <section class="recent-section" id="recentlyViewed" style="display:none;">
-        <h2 class="section-title">Recently Browsed 👀</h2>
+        <h2 class="section-title">Recently Browsed ðŸ‘€</h2>
         <div class="recent-grid" id="recentGrid"></div>
     </section>
 
@@ -3404,59 +3503,59 @@
         </svg>
     </div>
     <footer>
-        <h3>⚡ ZYLO</h3>
-        <p class="footer-tagline">Handmade with love, stars, and sparkles ✨</p>
+        <h3>âš¡ ZYLO</h3>
+        <p class="footer-tagline">Handmade with love, stars, and sparkles âœ¨</p>
         <div class="newsletter-box">
-            <h4>💌 Join The ZYLO Letter</h4>
-            <p>New drops, secret discounts &amp; crochet cuteness — straight to your inbox.</p>
+            <h4>ðŸ’Œ Join The ZYLO Letter</h4>
+            <p>New drops, secret discounts &amp; crochet cuteness â€” straight to your inbox.</p>
             <form class="newsletter-row" id="newsletterForm">
-                <input type="email" name="Email" placeholder="your@email.com ✨" required aria-label="Email address">
-                <button type="submit">Join ✨</button>
+                <input type="email" name="Email" placeholder="your@email.com âœ¨" required aria-label="Email address">
+                <button type="submit">Join âœ¨</button>
             </form>
         </div>
         <nav class="footer-links">
-            <a href="#shop">🛍️ Shop</a>
-            <a href="#about">✨ About</a>
-            <a href="#stall">🎉 Our First Event</a>
-            <a href="#social">📸 Social</a>
-            <a href="#contact">💌 Contact</a>
+            <a href="#shop">ðŸ›ï¸ Shop</a>
+            <a href="#about">âœ¨ About</a>
+            <a href="#stall">ðŸŽ‰ Our First Event</a>
+            <a href="#social">ðŸ“¸ Social</a>
+            <a href="#contact">ðŸ’Œ Contact</a>
         </nav>
         <div class="footer-social">
-            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="footer-social-btn">📸 Instagram</a>
-            <a href="mailto:ahmadkamran0978@gmail.com" class="footer-social-btn">💌 Email</a>
-            <a href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="footer-social-btn">ðŸ“¸ Instagram</a>
+            <a href="mailto:ahmadkamran0978@gmail.com" class="footer-social-btn">ðŸ’Œ Email</a>
+            <a href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" class="footer-social-btn">ðŸ’¬ WhatsApp</a>
         </div>
         <p>&copy; 2026 ZYLO. All rights reserved.</p>
-        <p class="credits" style="margin-top: 14px;">Zylo by Zaynah 💖</p>
+        <p class="credits" style="margin-top: 14px;">Zylo by Zaynah ðŸ’–</p>
         <div class="dev-card">
-            <div class="dev-card-head">💻 Developed by <span>AHMAD</span></div>
-            <p class="dev-tag">Crafting code with the same love as every stitch 🧶</p>
+            <div class="dev-card-head">ðŸ’» Developed by <span>AHMAD</span></div>
+            <p class="dev-tag">Crafting code with the same love as every stitch ðŸ§¶</p>
             <div class="dev-links">
-                <a href="https://wa.me/923244231008" target="_blank">📞 0324 4231008</a>
-                <a href="mailto:ahmadkamran0978@gmail.com">✉️ ahmadkamran0978@gmail.com</a>
+                <a href="https://wa.me/923244231008" target="_blank">ðŸ“ž 0324 4231008</a>
+                <a href="mailto:ahmadkamran0978@gmail.com">âœ‰ï¸ ahmadkamran0978@gmail.com</a>
             </div>
         </div>
     </footer>
 
     <!-- Zuzu Chat Assistant -->
     <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" aria-label="Chat with Zuzu">
-        🧶
+        ðŸ§¶
         <span class="chat-unread" id="chatUnread">1</span>
     </button>
     <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Zuzu chat">
         <div class="chat-head">
-            <div class="chat-avatar">🧶</div>
+            <div class="chat-avatar">ðŸ§¶</div>
             <div>
-                <div class="chat-title">Zuzu ✨</div>
-                <div class="chat-status">online • your crochet bestie</div>
+                <div class="chat-title">Zuzu âœ¨</div>
+                <div class="chat-status">online â€¢ your crochet bestie</div>
             </div>
-            <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">×</button>
+            <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">Ã—</button>
         </div>
         <div class="chat-msgs" id="chatMsgs"></div>
         <div class="chat-chips" id="chatChips"></div>
         <div class="chat-inputbar">
             <input type="text" id="chatInput" placeholder="Ask me anything about ZYLO..." autocomplete="off">
-            <button class="chat-send" onclick="sendChatMessage()" aria-label="Send message">➤</button>
+            <button class="chat-send" onclick="sendChatMessage()" aria-label="Send message">âž¤</button>
         </div>
     </div>
 
@@ -3469,14 +3568,14 @@
     </a>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">↑</button>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">â†‘</button>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
 
     <!-- Photo Zoom Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lb-close" onclick="closeLightbox()" aria-label="Close photo">×</button>
+        <button class="lb-close" onclick="closeLightbox()" aria-label="Close photo">Ã—</button>
         <img id="lightboxImg" src="" alt="Zoomed product photo">
         <div class="lb-caption" id="lightboxCaption"></div>
     </div>
@@ -3484,13 +3583,13 @@
     <!-- Quick View Modal -->
     <div class="qv-overlay" id="qvOverlay" onclick="closeQuickView()">
         <div class="qv-modal" onclick="event.stopPropagation()">
-            <button class="qv-close" onclick="closeQuickView()" aria-label="Close quick view">×</button>
+            <button class="qv-close" onclick="closeQuickView()" aria-label="Close quick view">Ã—</button>
             <div class="qv-img-wrap"><img id="qvImg" src="" alt=""></div>
             <div class="qv-details">
                 <h3 id="qvName"></h3>
                 <div class="qv-price" id="qvPrice"></div>
                 <p class="qv-desc" id="qvDesc"></p>
-                <button class="qv-add-btn" id="qvAddBtn">Add to Cart ✨</button>
+                <button class="qv-add-btn" id="qvAddBtn">Add to Cart âœ¨</button>
             </div>
         </div>
     </div>
@@ -3499,8 +3598,8 @@
     <div class="wish-overlay" id="wishOverlay" onclick="closeWishModal()"></div>
     <div class="wish-modal" id="wishModal" role="dialog" aria-label="Your wishlist">
         <div class="wish-head">
-            <h3>💖 Your Wishlist</h3>
-            <button class="chat-close" onclick="closeWishModal()" aria-label="Close wishlist">×</button>
+            <h3>ðŸ’– Your Wishlist</h3>
+            <button class="chat-close" onclick="closeWishModal()" aria-label="Close wishlist">Ã—</button>
         </div>
         <div class="wish-items" id="wishItems"></div>
         <div class="wish-foot" id="wishFoot"></div>
@@ -3510,21 +3609,21 @@
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
         <div class="cart-header">
-            <h3 id="cart-drawer-title">🛍️ Your Cute Cart</h3>
+            <h3 id="cart-drawer-title">ðŸ›ï¸ Your Cute Cart</h3>
             <button class="close-cart" onclick="toggleCart()">&times;</button>
         </div>
         
         <div class="cart-body-content" id="cart-body-content">
             <!-- Dynamic Cart Items view -->
             <div class="cart-items" id="cart-items-container">
-                <div class="cart-empty"><span class="cart-empty-icon">🛍️</span><p>Your cart is empty!</p><small>Add something cute ✨</small></div>
+                <div class="cart-empty"><span class="cart-empty-icon">ðŸ›ï¸</span><p>Your cart is empty!</p><small>Add something cute âœ¨</small></div>
             </div>
             <div class="cart-footer" id="cart-footer-section">
                 <div class="cart-total">
                     <span>Total:</span>
                     <span id="cart-total-price">Rs. 0</span>
                 </div>
-                <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout ✨</button>
+                <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout âœ¨</button>
             </div>
         </div>
     </div>
@@ -3555,36 +3654,36 @@
     <div class="sprinkles-overlay" id="sprinklesOverlay">
         <div class="sprinkles-banner" onclick="event.stopPropagation()">
             <div class="sprinkles-head">
-                <span class="sprinkles-icon">🍪</span>
+                <span class="sprinkles-icon">ðŸª</span>
                 <h3>We Use Sprinkles!</h3>
             </div>
-            <p>Just like our crochet needs yarn, our website uses <b>sprinkles</b> (tiny data bits) to give you the best experience. Choose which sprinkles you'd like below 🧶✨ <a href="#faq">Learn more</a></p>
+            <p>Just like our crochet needs yarn, our website uses <b>sprinkles</b> (tiny data bits) to give you the best experience. Choose which sprinkles you'd like below ðŸ§¶âœ¨ <a href="#faq">Learn more</a></p>
             <div class="sprinkles-types">
                 <div class="sprinkle-row">
                     <div class="sr-info">
-                        <h4>🧶 Essential Sprinkles</h4>
-                        <p>Keep the shop running — cart, checkout &amp; dark mode</p>
+                        <h4>ðŸ§¶ Essential Sprinkles</h4>
+                        <p>Keep the shop running â€” cart, checkout &amp; dark mode</p>
                     </div>
                     <label class="sprinkle-toggle"><input type="checkbox" checked disabled><span class="sprinkle-slider"></span></label>
                 </div>
                 <div class="sprinkle-row">
                     <div class="sr-info">
-                        <h4>✨ Funky Sprinkles</h4>
+                        <h4>âœ¨ Funky Sprinkles</h4>
                         <p>Remember your faves, recently viewed &amp; wishlist</p>
                     </div>
                     <label class="sprinkle-toggle"><input type="checkbox" id="sprinkleFunky" checked><span class="sprinkle-slider"></span></label>
                 </div>
                 <div class="sprinkle-row">
                     <div class="sr-info">
-                        <h4>📸 Insta Sprinkles</h4>
+                        <h4>ðŸ“¸ Insta Sprinkles</h4>
                         <p>Help us see what you love so we can make more of it</p>
                     </div>
                     <label class="sprinkle-toggle"><input type="checkbox" id="sprinkleInsta"><span class="sprinkle-slider"></span></label>
                 </div>
             </div>
             <div class="sprinkles-btns">
-                <button class="sprinkle-accept" onclick="sprinklesAcceptAll()">Accept All ✨</button>
-                <button class="sprinkle-save" onclick="sprinklesSave()">Save My Sprinkles 💾</button>
+                <button class="sprinkle-accept" onclick="sprinklesAcceptAll()">Accept All âœ¨</button>
+                <button class="sprinkle-save" onclick="sprinklesSave()">Save My Sprinkles ðŸ’¾</button>
                 <button class="sprinkle-reject" onclick="sprinklesReject()">Reject All</button>
             </div>
         </div>
@@ -3594,9 +3693,9 @@
     <div class="search-overlay" id="searchOverlay" onclick="closeSearch()">
         <div class="search-modal" onclick="event.stopPropagation()">
             <div class="search-input-wrap">
-                <span>🔍</span>
+                <span>ðŸ”</span>
                 <input type="text" id="searchInput" placeholder="Search flowers, keychains, plushies..." oninput="doSearch(this.value)" autofocus>
-                <button class="search-close-btn" onclick="closeSearch()">✕</button>
+                <button class="search-close-btn" onclick="closeSearch()">âœ•</button>
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
@@ -3646,7 +3745,7 @@
                 cart.push({ name, price, quantity: 1 });
             }
             updateCartUI();
-            showToast('✨ ' + name + ' added to cart!');
+            showToast('âœ¨ ' + name + ' added to cart!');
 
             const cartCountBadge = document.getElementById('cart-count');
             cartCountBadge.style.transform = 'scale(1.4)';
@@ -3676,7 +3775,7 @@
 
             if (cart.length === 0) {
                 if (container) {
-                    container.innerHTML = '<div class="cart-empty"><span class="cart-empty-icon">🛍️</span><p>Your cart is empty!</p><small>Add something cute ✨</small></div>';
+                    container.innerHTML = '<div class="cart-empty"><span class="cart-empty-icon">ðŸ›ï¸</span><p>Your cart is empty!</p><small>Add something cute âœ¨</small></div>';
                 }
                 if (totalPriceElement) {
                     totalPriceElement.innerText = 'Rs. 0';
@@ -3701,7 +3800,7 @@
                             <button class="qty-btn" onclick="updateQuantity(${index}, -1)">-</button>
                             <span>${item.quantity}</span>
                             <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                            <button class="remove-item" onclick="removeFromCart(${index})">🗑️</button>
+                            <button class="remove-item" onclick="removeFromCart(${index})">ðŸ—‘ï¸</button>
                         </div>
                     </div>
                 `;
@@ -3712,23 +3811,23 @@
 
         function showCheckoutForm() {
             if (cart.length === 0) {
-                alert('Your cart is empty! Add some magical items first ✨');
+                alert('Your cart is empty! Add some magical items first âœ¨');
                 return;
             }
 
-            document.getElementById('cart-drawer-title').innerText = '📋 Online Payment Checkout';
+            document.getElementById('cart-drawer-title').innerText = 'ðŸ“‹ Online Payment Checkout';
             const bodyContent = document.getElementById('cart-body-content');
 
             bodyContent.innerHTML = `
                 <div class="checkout-form-container">
                     <h4>Online Payment (Sadapay)</h4>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: bold;">Please transfer the total amount via Sadapay before submitting your order ✨</p>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: bold;">Please transfer the total amount via Sadapay before submitting your order âœ¨</p>
                     
                     <div style="background: var(--cream); border: 2px dashed var(--text-dark); padding: 12px; border-radius: 12px; margin-bottom: 15px; font-size: 13px; color: var(--text-dark);">
                         <strong>Sadapay Details:</strong><br>
-                        • Method: <strong>Sadapay</strong><br>
-                        • Account Name: <strong>Isra Yassir</strong><br>
-                        • Account Number: <strong>03499003714</strong>
+                        â€¢ Method: <strong>Sadapay</strong><br>
+                        â€¢ Account Name: <strong>Isra Yassir</strong><br>
+                        â€¢ Account Number: <strong>03499003714</strong>
                     </div>
 
                     <div class="form-group">
@@ -3759,9 +3858,9 @@
                     <div class="form-group">
                         <label>Payment Screenshot (SS) *</label>
                         <div class="ss-upload-zone" id="ssUploadZone">
-                            <span class="ss-upload-icon">📸</span>
+                            <span class="ss-upload-icon">ðŸ“¸</span>
                             <span class="ss-upload-text">Tap to upload payment screenshot</span>
-                            <span class="ss-upload-hint">JPG, PNG or WebP — max 5MB</span>
+                            <span class="ss-upload-hint">JPG, PNG or WebP â€” max 5MB</span>
                             <input type="file" id="cust-ss" accept="image/*" onchange="previewSS(this)">
                         </div>
                         <img class="ss-preview" id="ssPreview" alt="Payment screenshot preview">
@@ -3769,14 +3868,14 @@
 
                     <div class="form-buttons">
                         <button class="back-cart-btn" onclick="backToCartView()">Back</button>
-                        <button class="place-order-btn" onclick="submitOrderToAdmin()">Place Order ✨</button>
+                        <button class="place-order-btn" onclick="submitOrderToAdmin()">Place Order âœ¨</button>
                     </div>
                 </div>
             `;
         }
 
         function backToCartView() {
-            document.getElementById('cart-drawer-title').innerText = '🛍️ Your Cute Cart';
+            document.getElementById('cart-drawer-title').innerText = 'ðŸ›ï¸ Your Cute Cart';
             const bodyContent = document.getElementById('cart-body-content');
             
             bodyContent.innerHTML = `
@@ -3786,7 +3885,7 @@
                         <span>Total:</span>
                         <span id="cart-total-price">Rs. 0</span>
                     </div>
-                    <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout ✨</button>
+                    <button class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout âœ¨</button>
                 </div>
             `;
             updateCartUI();
@@ -3801,17 +3900,17 @@
             const ssInput = document.getElementById('cust-ss');
 
             if (!name || !phone || !address || !city || !trx) {
-                alert('Please fill in all required fields and provide your Sadapay Transaction ID ✨');
+                alert('Please fill in all required fields and provide your Sadapay Transaction ID âœ¨');
                 return;
             }
 
             if (!ssInput.files || ssInput.files.length === 0) {
-                alert('Please upload a screenshot of your payment 📸');
+                alert('Please upload a screenshot of your payment ðŸ“¸');
                 return;
             }
 
             if (ssInput.files[0].size > 5 * 1024 * 1024) {
-                alert('Screenshot must be under 5MB 📸');
+                alert('Screenshot must be under 5MB ðŸ“¸');
                 return;
             }
 
@@ -3842,7 +3941,7 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    alert('Thanks! Your order, payment details & screenshot have been submitted successfully ✨');
+                    alert('Thanks! Your order, payment details & screenshot have been submitted successfully âœ¨');
                     cart = [];
                     backToCartView();
                     toggleCart();
@@ -3911,13 +4010,13 @@
             document.body.classList.toggle('dark');
             const isDark = document.body.classList.contains('dark');
             try { localStorage.setItem('zylo-theme', isDark ? 'dark' : 'light'); } catch (e) {}
-            document.getElementById('theme-toggle').innerText = isDark ? '☀️' : '🌙';
+            document.getElementById('theme-toggle').innerText = isDark ? 'â˜€ï¸' : 'ðŸŒ™';
         }
         (function() {
             try {
                 if (localStorage.getItem('zylo-theme') === 'dark') {
                     document.body.classList.add('dark');
-                    document.getElementById('theme-toggle').innerText = '☀️';
+                    document.getElementById('theme-toggle').innerText = 'â˜€ï¸';
                 }
             } catch (e) {}
         })();
@@ -3966,14 +4065,14 @@
         (function() {
             const CATALOG = {};
             const STOCK_BADGES = [
-                ['Tangled Inspired', '🔥 Only 1 left!', 'red'],
-                ['Bunny Holding a Heart', '🔥 Only 2 left!', 'red'],
-                ['Matching Batman Keychains', '🔥 Only 2 left!', 'red'],
-                ['Teddy Bouquet', '🔥 Only 3 left!', 'red'],
-                ['Y2K Kawaii', '⚡ Selling fast', 'orange'],
-                ['Mikasa', '⚡ Selling fast', 'orange'],
-                ['Mesh Top', '⚡ Selling fast', 'orange'],
-                ['Custom-Made Bouquet', '✨ Made to order', 'blue']
+                ['Tangled Inspired', 'ðŸ”¥ Only 1 left!', 'red'],
+                ['Bunny Holding a Heart', 'ðŸ”¥ Only 2 left!', 'red'],
+                ['Matching Batman Keychains', 'ðŸ”¥ Only 2 left!', 'red'],
+                ['Teddy Bouquet', 'ðŸ”¥ Only 3 left!', 'red'],
+                ['Y2K Kawaii', 'âš¡ Selling fast', 'orange'],
+                ['Mikasa', 'âš¡ Selling fast', 'orange'],
+                ['Mesh Top', 'âš¡ Selling fast', 'orange'],
+                ['Custom-Made Bouquet', 'âœ¨ Made to order', 'blue']
             ];
 
             document.querySelectorAll('.product-card').forEach(function(card) {
@@ -3990,7 +4089,7 @@
                 const heart = document.createElement('button');
                 heart.className = 'wish-btn';
                 heart.setAttribute('aria-label', 'Add to wishlist');
-                heart.innerHTML = '🤍';
+                heart.innerHTML = 'ðŸ¤';
                 heart.addEventListener('click', function(e) { e.stopPropagation(); toggleWish(disp, heart); });
                 if (imgBox) imgBox.appendChild(heart);
 
@@ -4007,7 +4106,7 @@
                     imgBox.classList.add('zoomable');
                     imgBox.addEventListener('click', function() {
                         document.getElementById('lightboxImg').setAttribute('src', CATALOG[disp].img);
-                        document.getElementById('lightboxCaption').textContent = disp + ' • Rs. ' + CATALOG[disp].price.toLocaleString();
+                        document.getElementById('lightboxCaption').textContent = disp + ' â€¢ Rs. ' + CATALOG[disp].price.toLocaleString();
                         document.getElementById('lightbox').classList.add('open');
                     });
                 }
@@ -4029,7 +4128,7 @@
                 const i = wish.indexOf(disp);
                 if (i === -1) {
                     wish.push(disp);
-                    showToast('💖 Saved to your wishlist!');
+                    showToast('ðŸ’– Saved to your wishlist!');
                 } else {
                     wish.splice(i, 1);
                     showToast('Removed from wishlist');
@@ -4044,7 +4143,7 @@
                 document.querySelectorAll('.wish-btn').forEach(function(hb) {
                     const active = wish.indexOf(hb.dataset.disp) !== -1;
                     hb.classList.toggle('active', active);
-                    hb.innerHTML = active ? '💖' : '🤍';
+                    hb.innerHTML = active ? 'ðŸ’–' : 'ðŸ¤';
                 });
             }
 
@@ -4062,7 +4161,7 @@
                 const box = document.getElementById('wishItems');
                 const foot = document.getElementById('wishFoot');
                 if (wish.length === 0) {
-                    box.innerHTML = '<div class="wish-empty"><span>💔</span><p>Your wishlist is empty!</p><small style="color:#888;font-weight:700;">Tap 🤍 on any cutie to save it</small></div>';
+                    box.innerHTML = '<div class="wish-empty"><span>ðŸ’”</span><p>Your wishlist is empty!</p><small style="color:#888;font-weight:700;">Tap ðŸ¤ on any cutie to save it</small></div>';
                     foot.innerHTML = '';
                     return;
                 }
@@ -4075,12 +4174,12 @@
                     const row = document.createElement('div');
                     row.className = 'wish-row';
                     row.innerHTML = '<div class="wish-row-info"><h4>' + disp + '</h4><p>' + 'Rs. ' + item.price.toLocaleString() + '</p></div>' +
-                                    '<button class="wish-add-mini">Add to Cart ✨</button><button class="wish-remove" aria-label="Remove">🗑️</button>';
+                                    '<button class="wish-add-mini">Add to Cart âœ¨</button><button class="wish-remove" aria-label="Remove">ðŸ—‘ï¸</button>';
                     row.querySelector('.wish-add-mini').onclick = function() { addToCart(item.name, item.price); };
                     row.querySelector('.wish-remove').onclick = function() { toggleWish(disp); };
                     box.appendChild(row);
                 });
-                foot.innerHTML = '<button class="checkout-btn" id="wishAddAll">Add All to Cart 🛒 (' + wish.length + ') — Rs. ' + total.toLocaleString() + '</button>';
+                foot.innerHTML = '<button class="checkout-btn" id="wishAddAll">Add All to Cart ðŸ›’ (' + wish.length + ') â€” Rs. ' + total.toLocaleString() + '</button>';
                 foot.querySelector('#wishAddAll').onclick = function() {
                     wish.forEach(function(disp) { const it = CATALOG[disp]; if (it) addToCart(it.name, it.price); });
                     closeWishModal();
@@ -4168,25 +4267,25 @@
                 { n: "Rose Brooches", p: "Rs. 250 (each)", c: "Accessories", k: ["brooch", "brooche"] },
                 { n: "Butterfly Hair Clips", p: "Rs. 100 (each)", c: "Accessories", k: ["butterfly clip", "butterfly"] },
                 { n: "Mikasa Inspired Scarf", p: "Rs. 1,600", c: "Accessories", k: ["mikasa", "scarf"] },
-                { n: "Mesh Top", p: "Rs. 3,000–3,500", c: "Accessories", k: ["mesh top"] },
+                { n: "Mesh Top", p: "Rs. 3,000â€“3,500", c: "Accessories", k: ["mesh top"] },
                 { n: "Cat Paw Gloves", p: "Rs. 1,600", c: "Accessories", k: ["cat paw", "paw gloves", "gloves"] }
             ];
 
             const CATS = {
-                flowers: { title: "🌷 Flower Collection", cname: "Flowers", match: ["flower", "bouquet", "rose", "phool"] },
-                keychains: { title: "🔑 Keychain Collection", cname: "Keychains", match: ["keychain", "key chain", "keyring"] },
-                plushies: { title: "🧸 Plushies Collection", cname: "Plushies", match: ["plushie", "plush", "stuffed", "soft toy", "teddy", "bunny"] },
-                decor: { title: "🪴 Decor Collection", cname: "Decor", match: ["decor", "decoration", "room", "desk"] },
-                accessories: { title: "🎀 Accessories Collection", cname: "Accessories", match: ["accessor", "hair clip", "scarf", "glove", "bag", "bracelet"] }
+                flowers: { title: "ðŸŒ· Flower Collection", cname: "Flowers", match: ["flower", "bouquet", "rose", "phool"] },
+                keychains: { title: "ðŸ”‘ Keychain Collection", cname: "Keychains", match: ["keychain", "key chain", "keyring"] },
+                plushies: { title: "ðŸ§¸ Plushies Collection", cname: "Plushies", match: ["plushie", "plush", "stuffed", "soft toy", "teddy", "bunny"] },
+                decor: { title: "ðŸª´ Decor Collection", cname: "Decor", match: ["decor", "decoration", "room", "desk"] },
+                accessories: { title: "ðŸŽ€ Accessories Collection", cname: "Accessories", match: ["accessor", "hair clip", "scarf", "glove", "bag", "bracelet"] }
             };
 
             const WA_LINK = 'https://wa.me/923114690134';
-            const CONTACT_HTML = 'You can reach our human cuties here 💖<br>• WhatsApp: <b>+92 311 4690134</b><br>• Instagram: <b>@zylocrochet</b><br>• Email: <b>ahmadkamran0978@gmail.com</b>';
+            const CONTACT_HTML = 'You can reach our human cuties here ðŸ’–<br>â€¢ WhatsApp: <b>+92 311 4690134</b><br>â€¢ Instagram: <b>@zylocrochet</b><br>â€¢ Email: <b>ahmadkamran0978@gmail.com</b>';
 
             function listCat(key) {
                 let out = '<b>' + CATS[key].title + '</b><br>';
-                PRODUCTS.filter(p => p.c === CATS[key].cname).forEach(p => { out += '• ' + p.n + ' — <b>' + p.p + '</b><br>'; });
-                return out + 'Tap “Add to Cart ✨” on any card to grab one 🛍️';
+                PRODUCTS.filter(p => p.c === CATS[key].cname).forEach(p => { out += 'â€¢ ' + p.n + ' â€” <b>' + p.p + '</b><br>'; });
+                return out + 'Tap â€œAdd to Cart âœ¨â€ on any card to grab one ðŸ›ï¸';
             }
 
             function findProduct(text) {
@@ -4200,22 +4299,22 @@
             }
 
             const INTENTS = [
-                { k: ['deliver', 'shipping', 'ship', 'courier', 'postage', 'delivery'], a: () => '🚚 Standard delivery takes <b>5-7 days</b> across Pakistan. In a hurry? 💨 Ask for our <b>Urgent Order</b> option and get SAME-DAY delivery (small extra charge) ✨' },
-                { k: ['pay', 'payment', 'sadapay', 'jazzcash', 'easypaisa', 'card', 'cash on'], a: () => '💳 We accept payments via <b>Sadapay</b>.<br>Just add your faves to the cart → hit <b>Proceed to Checkout ✨</b> → transfer the total → pop your transaction ID & payment screenshot in the form. Super easy! 🌸' },
-                { k: ['order', 'buy', 'purchase', 'checkout', 'how to', 'kaise'], a: () => 'Ordering is super simple 🛍️<br>1️⃣ Tap <b>Add to Cart ✨</b> on products you love<br>2️⃣ Open the cart & press <b>Proceed to Checkout</b><br>3️⃣ Fill in your details + Sadapay transaction ID<br>4️⃣ Upload your payment screenshot 📸<br>5️⃣ Done! We handmake & ship your cuties 🚚💨' },
+                { k: ['deliver', 'shipping', 'ship', 'courier', 'postage', 'delivery'], a: () => 'ðŸšš Standard delivery takes <b>5-7 days</b> across Pakistan. In a hurry? ðŸ’¨ Ask for our <b>Urgent Order</b> option and get SAME-DAY delivery (small extra charge) âœ¨' },
+                { k: ['pay', 'payment', 'sadapay', 'jazzcash', 'easypaisa', 'card', 'cash on'], a: () => 'ðŸ’³ We accept payments via <b>Sadapay</b>.<br>Just add your faves to the cart â†’ hit <b>Proceed to Checkout âœ¨</b> â†’ transfer the total â†’ pop your transaction ID & payment screenshot in the form. Super easy! ðŸŒ¸' },
+                { k: ['order', 'buy', 'purchase', 'checkout', 'how to', 'kaise'], a: () => 'Ordering is super simple ðŸ›ï¸<br>1ï¸âƒ£ Tap <b>Add to Cart âœ¨</b> on products you love<br>2ï¸âƒ£ Open the cart & press <b>Proceed to Checkout</b><br>3ï¸âƒ£ Fill in your details + Sadapay transaction ID<br>4ï¸âƒ£ Upload your payment screenshot ðŸ“¸<br>5ï¸âƒ£ Done! We handmake & ship your cuties ðŸššðŸ’¨' },
                 { k: ['contact', 'whatsapp', 'number', 'email', 'insta', 'instagram', 'social', 'reach'], a: () => CONTACT_HTML },
-                { k: ['custom', 'personalis', 'personalis', 'own design', 'colour', 'color choice', 'customize'], a: () => '🎨 Yes! Custom orders are our love language 💕 We even have a <b>Custom-Made Bouquet</b> (Rs. 4,900). For fully custom pieces, message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea ✨' },
-                { k: ['gift', 'present', 'birthday', 'anniversary', 'valentine', 'shadi', 'couple'], a: () => '🎁 Gift ideas that always win hearts:<br>• <b>Teddy Bouquet</b> — Rs. 3,200<br>• <b>Bunny Holding a Heart</b> — Rs. 5,000<br>• <b>Pink/White Roses Bouquet of 7</b> — Rs. 2,500<br>• <b>Matching Batman Keychains</b> — Rs. 1,300<br>All handmade & wrapped with love 🎀' },
-                { k: ['cheap', 'cheapest', 'budget', 'sasta', 'low price', 'affordable', 'under'], a: () => '💸 Cute AND budget-friendly:<br>• Star Clip — <b>Rs. 100</b><br>• Butterfly Hair Clips — <b>Rs. 100</b> (each)<br>• Sunflower Bookmark — <b>Rs. 150</b><br>• Daisy Hair Clip — <b>Rs. 200</b><br>• Angry Clip — <b>Rs. 250</b><br>• Suit Rose Lapel Pin — <b>Rs. 250</b><br>Tiny prices, big smiles ✨' },
-                { k: ['best seller', 'popular', 'famous', 'trending', 'bestseller'], a: () => '🔥 Our Best Sellers right now:<br>• Thai Rose — Rs. 1,100<br>• Cute Chick Keychain — Rs. 350<br>• Suit Rose Lapel Pin — Rs. 250<br>• Smiley Face Glasses Case — Rs. 750<br>Everyone\'s obsessed with these! 😍' },
-                { k: ['expensive', 'premium', 'luxury', 'most expensive'], a: () => '✨ Our premium treasures:<br>• Y2K Kawaii Mini Suitcase Bag — <b>Rs. 6,000</b><br>• Bunny Holding a Heart — <b>Rs. 5,000</b><br>• Custom-Made Bouquet — <b>Rs. 4,900</b><br>• Mesh Tote Bag — <b>Rs. 4,000</b><br>Luxury made by hand, stitch by stitch 💖' },
-                { k: ['track', 'status of my order', 'where is my order', 'my order'], a: () => '📦 For order updates, send us your name + order details on WhatsApp (<b>+92 311 4690134</b>) and we\'ll check it right away! 💌' },
-                { k: ['return', 'refund', 'exchange', 'damaged', 'broken'], a: () => 'Oh no! 😟 If anything\'s not perfect, please WhatsApp us at <b>+92 311 4690134</b> with a photo — we always make things right 💖' },
-                { k: ['about', 'brand', 'zylo', 'zaynah', 'story', 'handmade', 'who made', 'what is zylo'], a: () => '🧶 <b>ZYLO</b> is a handmade crochet brand by <b>Zaynah</b> 💖 Every flower, keychain, plushie & accessory is crocheted stitch-by-stitch with love — effortlessly aesthetic, irresistibly cute, and made to make you smile ✨' },
-                { k: ['who are you', 'are you a bot', 'robot', 'ai bot', 'your name', 'zuzu'], a: () => 'I\'m <b>Zuzu</b> 🧶✨ — ZYLO\'s crochet bestie! I know every product, price & secret of this shop. What can I help you find, cutie? 🌸' },
-                { k: ['thank', 'shukriya', 'great', 'awesome', 'amazing', 'love you', 'cute bot'], a: () => 'Awww, you\'re the sweetest! 🥹💖 Anything else you\'d like to see? 🌸' },
-                { k: ['bye', 'goodbye', 'good night', 'gn', 'tata', 'see you'], a: () => 'Byee cutie! 👋💖 Come back soon — Zuzu will be here waiting with new drops 🧶✨' },
-                { k: ['hi', 'hello', 'hey', 'salam', 'assalam', 'hola', 'yo '], a: () => 'Heyyy cutie! 👋💖 Welcome to <b>ZYLO</b>! Ask me about any product, price, delivery or payment — I know it all ✨', greet: true }
+                { k: ['custom', 'personalis', 'personalis', 'own design', 'colour', 'color choice', 'customize'], a: () => 'ðŸŽ¨ Yes! Custom orders are our love language ðŸ’• We even have a <b>Custom-Made Bouquet</b> (Rs. 4,900). For fully custom pieces, message us on WhatsApp (<b>+92 311 4690134</b>) or DM <b>@zylocrochet</b> with your idea âœ¨' },
+                { k: ['gift', 'present', 'birthday', 'anniversary', 'valentine', 'shadi', 'couple'], a: () => 'ðŸŽ Gift ideas that always win hearts:<br>â€¢ <b>Teddy Bouquet</b> â€” Rs. 3,200<br>â€¢ <b>Bunny Holding a Heart</b> â€” Rs. 5,000<br>â€¢ <b>Pink/White Roses Bouquet of 7</b> â€” Rs. 2,500<br>â€¢ <b>Matching Batman Keychains</b> â€” Rs. 1,300<br>All handmade & wrapped with love ðŸŽ€' },
+                { k: ['cheap', 'cheapest', 'budget', 'sasta', 'low price', 'affordable', 'under'], a: () => 'ðŸ’¸ Cute AND budget-friendly:<br>â€¢ Star Clip â€” <b>Rs. 100</b><br>â€¢ Butterfly Hair Clips â€” <b>Rs. 100</b> (each)<br>â€¢ Sunflower Bookmark â€” <b>Rs. 150</b><br>â€¢ Daisy Hair Clip â€” <b>Rs. 200</b><br>â€¢ Angry Clip â€” <b>Rs. 250</b><br>â€¢ Suit Rose Lapel Pin â€” <b>Rs. 250</b><br>Tiny prices, big smiles âœ¨' },
+                { k: ['best seller', 'popular', 'famous', 'trending', 'bestseller'], a: () => 'ðŸ”¥ Our Best Sellers right now:<br>â€¢ Thai Rose â€” Rs. 1,100<br>â€¢ Cute Chick Keychain â€” Rs. 350<br>â€¢ Suit Rose Lapel Pin â€” Rs. 250<br>â€¢ Smiley Face Glasses Case â€” Rs. 750<br>Everyone\'s obsessed with these! ðŸ˜' },
+                { k: ['expensive', 'premium', 'luxury', 'most expensive'], a: () => 'âœ¨ Our premium treasures:<br>â€¢ Y2K Kawaii Mini Suitcase Bag â€” <b>Rs. 6,000</b><br>â€¢ Bunny Holding a Heart â€” <b>Rs. 5,000</b><br>â€¢ Custom-Made Bouquet â€” <b>Rs. 4,900</b><br>â€¢ Mesh Tote Bag â€” <b>Rs. 4,000</b><br>Luxury made by hand, stitch by stitch ðŸ’–' },
+                { k: ['track', 'status of my order', 'where is my order', 'my order'], a: () => 'ðŸ“¦ For order updates, send us your name + order details on WhatsApp (<b>+92 311 4690134</b>) and we\'ll check it right away! ðŸ’Œ' },
+                { k: ['return', 'refund', 'exchange', 'damaged', 'broken'], a: () => 'Oh no! ðŸ˜Ÿ If anything\'s not perfect, please WhatsApp us at <b>+92 311 4690134</b> with a photo â€” we always make things right ðŸ’–' },
+                { k: ['about', 'brand', 'zylo', 'zaynah', 'story', 'handmade', 'who made', 'what is zylo'], a: () => 'ðŸ§¶ <b>ZYLO</b> is a handmade crochet brand by <b>Zaynah</b> ðŸ’– Every flower, keychain, plushie & accessory is crocheted stitch-by-stitch with love â€” effortlessly aesthetic, irresistibly cute, and made to make you smile âœ¨' },
+                { k: ['who are you', 'are you a bot', 'robot', 'ai bot', 'your name', 'zuzu'], a: () => 'I\'m <b>Zuzu</b> ðŸ§¶âœ¨ â€” ZYLO\'s crochet bestie! I know every product, price & secret of this shop. What can I help you find, cutie? ðŸŒ¸' },
+                { k: ['thank', 'shukriya', 'great', 'awesome', 'amazing', 'love you', 'cute bot'], a: () => 'Awww, you\'re the sweetest! ðŸ¥¹ðŸ’– Anything else you\'d like to see? ðŸŒ¸' },
+                { k: ['bye', 'goodbye', 'good night', 'gn', 'tata', 'see you'], a: () => 'Byee cutie! ðŸ‘‹ðŸ’– Come back soon â€” Zuzu will be here waiting with new drops ðŸ§¶âœ¨' },
+                { k: ['hi', 'hello', 'hey', 'salam', 'assalam', 'hola', 'yo '], a: () => 'Heyyy cutie! ðŸ‘‹ðŸ’– Welcome to <b>ZYLO</b>! Ask me about any product, price, delivery or payment â€” I know it all âœ¨', greet: true }
             ];
 
             const panel = document.getElementById('chatPanel');
@@ -4224,7 +4323,7 @@
             const chipsBox = document.getElementById('chatChips');
             const unread = document.getElementById('chatUnread');
 
-            const CHIPS = ['🌸 Flower prices', '🔑 Keychains', '🧸 Plushies', '🎀 Accessories', '🚚 Delivery', '💳 Payment'];
+            const CHIPS = ['ðŸŒ¸ Flower prices', 'ðŸ”‘ Keychains', 'ðŸ§¸ Plushies', 'ðŸŽ€ Accessories', 'ðŸšš Delivery', 'ðŸ’³ Payment'];
 
             function addMsg(html, who) {
                 const d = document.createElement('div');
@@ -4259,7 +4358,7 @@
 
                 const prod = findProduct(text);
                 if (prod) {
-                    return '🧶 <b>' + prod.n + '</b><br>💰 Price: <b>' + prod.p + '</b><br>📁 From our <b>' + prod.c + '</b> collection!<br>Scroll to its card & tap “Add to Cart ✨” to grab it 🛍️';
+                    return 'ðŸ§¶ <b>' + prod.n + '</b><br>ðŸ’° Price: <b>' + prod.p + '</b><br>ðŸ“ From our <b>' + prod.c + '</b> collection!<br>Scroll to its card & tap â€œAdd to Cart âœ¨â€ to grab it ðŸ›ï¸';
                 }
 
                 for (const key of Object.keys(CATS)) {
@@ -4273,7 +4372,7 @@
                 });
                 if (bestI) return bestI.a();
 
-                return 'Hmm, I\'m still learning that one! 🌱 Try asking about a <b>product</b>, <b>price</b>, <b>delivery</b> or <b>payment</b>…<br>Or chat with our humans: ' + CONTACT_HTML;
+                return 'Hmm, I\'m still learning that one! ðŸŒ± Try asking about a <b>product</b>, <b>price</b>, <b>delivery</b> or <b>payment</b>â€¦<br>Or chat with our humans: ' + CONTACT_HTML;
             }
 
             function userSays(text) {
@@ -4289,7 +4388,7 @@
                 unread.style.display = 'none';
                 if (panel.classList.contains('open') && !msgs.hasChildNodes()) {
                     setTimeout(() => {
-                        addMsg('Hehe hi there! 🧶💖 I\'m <b>Zuzu</b>, ZYLO\'s little crochet bestie! Ask me about any product, price, delivery or payment — I know everything about this shop ✨', 'bot');
+                        addMsg('Hehe hi there! ðŸ§¶ðŸ’– I\'m <b>Zuzu</b>, ZYLO\'s little crochet bestie! Ask me about any product, price, delivery or payment â€” I know everything about this shop âœ¨', 'bot');
                         showChips();
                     }, 300);
                     setTimeout(() => input.focus(), 350);
@@ -4308,7 +4407,7 @@
         (function() {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             if (window.matchMedia('(pointer: coarse)').matches) return;
-            const emojis = ['✨', '💖', '⭐', '🌸', '💫'];
+            const emojis = ['âœ¨', 'ðŸ’–', 'â­', 'ðŸŒ¸', 'ðŸ’«'];
             let lastX = 0, lastY = 0, alive = 0;
             window.addEventListener('mousemove', function(e) {
                 const dx = e.clientX - lastX, dy = e.clientY - lastY;
@@ -4351,7 +4450,7 @@
         // Emoji confetti burst
         function burstConfetti(x, y) {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            var bits = ['✨','💖','⭐','🌸','🧶','💫'];
+            var bits = ['âœ¨','ðŸ’–','â­','ðŸŒ¸','ðŸ§¶','ðŸ’«'];
             for (var i = 0; i < 14; i++) {
                 var s = document.createElement('span');
                 s.className = 'confetti-piece';
@@ -4457,13 +4556,13 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 var fd = new FormData(form);
-                fd.append('_subject', 'Newsletter Signup — ZYLO');
+                fd.append('_subject', 'Newsletter Signup â€” ZYLO');
                 fetch('https://formspree.io/f/xaewjqvg', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
                     .then(function(r) {
-                        showToast(r.ok ? '💖 You are on the list! Cutie mail coming soon ✨' : 'Oops! Please try again.');
+                        showToast(r.ok ? 'ðŸ’– You are on the list! Cutie mail coming soon âœ¨' : 'Oops! Please try again.');
                         if (r.ok) form.reset();
                     })
-                    .catch(function() { showToast('Network error — please try again!'); });
+                    .catch(function() { showToast('Network error â€” please try again!'); });
             });
         })();
 
@@ -4488,9 +4587,9 @@
                 'Bunny Holding a Heart': 'The softest, most huggable crochet bunny clutching a big red heart. A premium handmade treasure.',
                 'Custom-Made Bouquet': 'Your dream bouquet, hand-crocheted from scratch. Tell us your vision and we\'ll bring it to life!',
                 'Y2K Kawaii Mini Suitcase Bag': 'A trendy Y2K-style mini suitcase bag in adorable kawaii crochet. Fashion meets handmade art.',
-                'Mesh Tote Bag': 'A stylish crochet mesh tote — sturdy, spacious, and perfect for everyday use. Size customized to you.',
+                'Mesh Tote Bag': 'A stylish crochet mesh tote â€” sturdy, spacious, and perfect for everyday use. Size customized to you.',
                 'Mikasa Inspired Scarf': 'An Attack on Titan-inspired crochet scarf. Cosplay-ready and cozy enough for everyday.',
-                'Cat Paw Gloves': 'Adorable crochet cat paw gloves — warm, cute, and guaranteed to make everyone smile.',
+                'Cat Paw Gloves': 'Adorable crochet cat paw gloves â€” warm, cute, and guaranteed to make everyone smile.',
                 'Teddy Bouquet': 'A gorgeous bouquet of crochet teddy bears. The ultimate gift for someone special.'
             };
 
@@ -4509,7 +4608,7 @@
                     document.getElementById('qvImg').setAttribute('alt', key);
                     document.getElementById('qvName').textContent = key;
                     document.getElementById('qvPrice').textContent = 'Rs. ' + data.price.toLocaleString();
-                    document.getElementById('qvDesc').textContent = descriptions[key] || 'Handmade with love, stitch by stitch. Each piece is unique and crafted with care. 🧶';
+                    document.getElementById('qvDesc').textContent = descriptions[key] || 'Handmade with love, stitch by stitch. Each piece is unique and crafted with care. ðŸ§¶';
 
                     var addBtn = document.getElementById('qvAddBtn');
                     addBtn.onclick = function() { addToCart(data.name, data.price); closeQuickView(); };
@@ -4538,11 +4637,11 @@
                 var share = document.createElement('button');
                 share.className = 'share-btn';
                 share.setAttribute('aria-label', 'Share this product');
-                share.textContent = '📤';
+                share.textContent = 'ðŸ“¤';
                 share.title = 'Share on WhatsApp';
                 share.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    var text = 'Check out this ' + name + ' from ZYLO! Rs. ' + price.toLocaleString() + ' — handmade with love 🧶✨ ' + window.location.href;
+                    var text = 'Check out this ' + name + ' from ZYLO! Rs. ' + price.toLocaleString() + ' â€” handmade with love ðŸ§¶âœ¨ ' + window.location.href;
                     window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
                 });
                 imgBox.appendChild(share);
@@ -4702,7 +4801,7 @@
             { n:"Rose Brooches", p:"Rs. 250", c:"Accessories", img:"Rose brooches rs.250 each.jpg" },
             { n:"Butterfly Hair Clips", p:"Rs. 100", c:"Accessories", img:"butterfly clips 100 each.jpg" },
             { n:"Mikasa Inspired Scarf", p:"Rs. 1,600", c:"Accessories", img:"mikasa scarf 1600.jpg" },
-            { n:"Mesh Top", p:"Rs. 3,000–3,500", c:"Accessories", img:"mesh top rs.3000-3500(varies according to size).jpg" },
+            { n:"Mesh Top", p:"Rs. 3,000â€“3,500", c:"Accessories", img:"mesh top rs.3000-3500(varies according to size).jpg" },
             { n:"Cat Paw Gloves", p:"Rs. 1,600", c:"Accessories", img:"cat paw glove 1600.jpeg" }
         ];
         function openSearch() {
@@ -4735,7 +4834,7 @@
                 return p.n.toLowerCase().includes(q) || p.c.toLowerCase().includes(q) || p.p.includes(q);
             });
             if (!matches.length) {
-                res.innerHTML = '<div class="search-no-results">No cuties found for "' + q + '" 😢<br>Try something else!</div>';
+                res.innerHTML = '<div class="search-no-results">No cuties found for "' + q + '" ðŸ˜¢<br>Try something else!</div>';
                 return;
             }
             res.innerHTML = matches.map(function(p) {
@@ -4807,6 +4906,22 @@
             startAuto();
         })();
 
+        // ===== Magnetic Button Hover =====
+        (function() {
+            var btns = document.querySelectorAll('.cta-btn, .add-to-cart-btn, .place-order-btn');
+            btns.forEach(function(btn) {
+                btn.addEventListener('mousemove', function(e) {
+                    var rect = btn.getBoundingClientRect();
+                    var x = e.clientX - rect.left - rect.width / 2;
+                    var y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    btn.style.transform = '';
+                });
+            });
+        })();
+
         // ===== Sprinkles Cookie Consent =====
         (function() {
             var overlay = document.getElementById('sprinklesOverlay');
@@ -4839,7 +4954,7 @@
                 var data = { decided: true, essential: true, funky: funky, insta: insta, ts: Date.now() };
                 try { localStorage.setItem('zylo-sprinkles', JSON.stringify(data)); } catch(e) {}
                 overlay.classList.remove('open');
-                showToast('🍪 Sprinkles saved! ' + (funky ? 'Funky ' : '') + (insta ? 'Insta ' : '') + (funky || insta ? 'sprinkles ON' : 'only essential sprinkles'));
+                showToast('ðŸª Sprinkles saved! ' + (funky ? 'Funky ' : '') + (insta ? 'Insta ' : '') + (funky || insta ? 'sprinkles ON' : 'only essential sprinkles'));
             }
 
             overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('open'); });
@@ -4847,3 +4962,4 @@
     </script>
 </body>
 </html>
+
