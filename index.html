@@ -457,6 +457,15 @@
             font-family: 'Quicksand', sans-serif;
             font-weight: bold;
             transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        .cart-bounce { animation: cartBounceAnim 0.45s cubic-bezier(.175,.885,.32,1.275); }
+        @keyframes cartBounceAnim {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.6) rotate(-8deg); }
+            50% { transform: scale(0.85) rotate(5deg); }
+            70% { transform: scale(1.25) rotate(-3deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
 
         /* Banner Section */
@@ -1235,6 +1244,75 @@
         }
 
         .place-order-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text-dark); }
+
+        /* ===== Star Ratings ===== */
+        .product-stars { display:flex; align-items:center; justify-content:center; gap:2px; margin-top:6px; }
+        .product-stars .star { color:#FFB800; font-size:14px; text-shadow:1px 1px 0 rgba(0,0,0,.15); }
+        .product-stars .star.empty { color:#ddd; text-shadow:none; }
+        .product-stars .rating-text { font-size:11px; font-weight:700; color:#888; margin-left:4px; }
+
+        /* ===== Urgency Badges ===== */
+        .urgency-badge {
+            position:absolute; top:12px; right:12px; z-index:2;
+            background:#FF4757; color:#fff; font-family:'Fredoka One',cursive; font-size:10px;
+            padding:5px 10px; border-radius:999px; border:2px solid var(--text-dark);
+            box-shadow:2px 2px 0 var(--text-dark); animation:urgencyPulse 2s ease-in-out infinite;
+        }
+        .urgency-badge.orange { background:#FFA502; }
+        @keyframes urgencyPulse {
+            0%,100% { transform:scale(1); }
+            50% { transform:scale(1.08); }
+        }
+
+        /* ===== Social Proof Popup ===== */
+        .sp-popup {
+            position:fixed; bottom:90px; left:20px; z-index:1800;
+            background:var(--white); border:3px solid var(--text-dark); border-radius:18px;
+            box-shadow:5px 5px 0 var(--text-dark); padding:14px 18px; max-width:320px;
+            display:flex; align-items:center; gap:12px;
+            transform:translateX(-120%); transition:transform .45s cubic-bezier(.175,.885,.32,1.275);
+        }
+        .sp-popup.sp-show { transform:translateX(0); }
+        .sp-popup-icon { font-size:28px; flex-shrink:0; }
+        .sp-popup-text { font-size:12.5px; font-weight:700; color:var(--text-dark); line-height:1.5; }
+        .sp-popup-text strong { color:var(--primary); }
+        .sp-popup-close {
+            position:absolute; top:6px; right:10px; background:none; border:none;
+            font-size:16px; cursor:pointer; color:#999; transition:color .2s;
+        }
+        .sp-popup-close:hover { color:var(--text-dark); }
+
+        /* ===== Breadcrumb ===== */
+        .breadcrumb-bar {
+            background:rgba(255,255,255,.88); backdrop-filter:blur(6px); border-bottom:2px solid rgba(30,30,36,.08);
+            padding:8px 20px; font-size:12.5px; font-weight:700; color:#888;
+        }
+        .breadcrumb-bar a { color:var(--primary); text-decoration:none; transition:color .2s; }
+        .breadcrumb-bar a:hover { color:var(--primary-dark); text-decoration:underline; }
+        .breadcrumb-bar span { color:var(--text-dark); }
+        body.dark .breadcrumb-bar { background:rgba(35,39,47,.88); }
+
+        /* ===== Mobile Sticky Cart Bar ===== */
+        .mobile-cart-bar {
+            display:none; position:fixed; bottom:0; left:0; right:0; z-index:1600;
+            background:var(--white); border-top:3px solid var(--text-dark);
+            padding:10px 16px; align-items:center; justify-content:space-between;
+            box-shadow:0 -4px 14px rgba(30,30,36,.15);
+        }
+        .mobile-cart-bar .mcb-info { display:flex; flex-direction:column; }
+        .mobile-cart-bar .mcb-label { font-size:11px; font-weight:700; color:#888; }
+        .mobile-cart-bar .mcb-total { font-family:'Fredoka One',cursive; font-size:17px; color:var(--text-dark); }
+        .mobile-cart-bar .mcb-btn {
+            background:linear-gradient(135deg,var(--primary),var(--accent-pink)); color:var(--white);
+            border:2px solid var(--text-dark); border-radius:999px; padding:10px 22px;
+            font-family:'Fredoka One',cursive; font-size:14px; cursor:pointer;
+            box-shadow:3px 3px 0 var(--text-dark); transition:all .2s;
+        }
+        .mobile-cart-bar .mcb-btn:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--text-dark); }
+        @media(max-width:768px) {
+            .mobile-cart-bar { display:flex; }
+            body { padding-bottom:62px; }
+        }
 
         /* ===== Send SS WhatsApp Popup ===== */
         .ss-popup-overlay {
@@ -3843,6 +3921,11 @@
 
     <main>
 
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="#">🏠 Home</a> &rsaquo; <span id="breadcrumb-current">Shop All</span>
+    </div>
+
     <!-- Sticky Category Pills -->
     <nav class="cat-nav" aria-label="Product categories">
         <a href="#shop" class="cat-pill">🧶 Shop All</a>
@@ -4707,6 +4790,18 @@
         <div class="recent-grid" id="recentGrid"></div>
     </section>
 
+    <!-- Social Proof Popup Container -->
+    <div id="spContainer" aria-hidden="true"></div>
+
+    <!-- Mobile Sticky Cart Bar -->
+    <div class="mobile-cart-bar" id="mobileCartBar" onclick="toggleCart()">
+        <div class="mcb-info">
+            <span class="mcb-label">🛒 Your Cart</span>
+            <span class="mcb-total" id="mcbTotal">Rs. 0</span>
+        </div>
+        <button class="mcb-btn" onclick="event.stopPropagation(); toggleCart()">View Cart</button>
+    </div>
+
     </main>
 
     <!-- Crochet Scallop Edge + Wave Divider & Footer -->
@@ -5012,7 +5107,8 @@
     </div>
 
     <script>
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem('zylo-cart') || '[]');
+        function saveCart() { localStorage.setItem('zylo-cart', JSON.stringify(cart)); }
 
         function toggleMenu() {
             const menu = document.getElementById('dropdown-menu');
@@ -5054,12 +5150,14 @@
             } else {
                 cart.push({ name, price, quantity: 1 });
             }
+            saveCart();
             updateCartUI();
             showToast('✨ ' + name + ' added to cart!');
 
             const cartCountBadge = document.getElementById('cart-count');
-            cartCountBadge.style.transform = 'scale(1.4)';
-            setTimeout(() => cartCountBadge.style.transform = 'scale(1)', 200);
+            cartCountBadge.classList.remove('cart-bounce');
+            void cartCountBadge.offsetWidth;
+            cartCountBadge.classList.add('cart-bounce');
         }
 
         function shareProduct(card) {
@@ -5091,11 +5189,13 @@
             if (cart[index].quantity <= 0) {
                 cart.splice(index, 1);
             }
+            saveCart();
             updateCartUI();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
+            saveCart();
             updateCartUI();
         }
 
@@ -5114,6 +5214,7 @@
                 if (totalPriceElement) {
                     totalPriceElement.innerText = 'Rs. 0';
                 }
+                if (typeof updateMobileCartBar === 'function') updateMobileCartBar();
                 return;
             }
 
@@ -5141,6 +5242,7 @@
             });
 
             totalPriceElement.innerText = `Rs. ${Math.round(subtotal).toLocaleString()}`;
+            if (typeof updateMobileCartBar === 'function') updateMobileCartBar();
         }
 
         function showCheckoutForm() {
@@ -5193,6 +5295,7 @@
                         <button class="back-cart-btn" onclick="backToCartView()">Back</button>
                         <button class="place-order-btn" onclick="submitOrderToAdmin()">Place Order ✨</button>
                     </div>
+                    <p style="font-size:12px; color:#666; text-align:center; font-weight:700; margin-top:10px; padding:12px; background:var(--cream); border:2px dashed var(--text-dark); border-radius:12px; line-height:1.6;">🚚 Delivery charges are extra and you will be informed about them in under 24 hours after placing your order!</p>
                 </div>
             `;
         }
@@ -5249,6 +5352,7 @@
             }).then(response => {
                 if (response.ok) {
                     cart = [];
+                    localStorage.removeItem('zylo-cart');
                     backToCartView();
                     toggleCart();
                     showSendSSPopup(name, orderSummary, total);
@@ -5330,6 +5434,114 @@
                 excerpt.style.display = 'none';
                 btn.innerHTML = 'Show Less ↑';
             }
+        }
+
+        // ===== Star Ratings on Product Cards =====
+        (function() {
+            var ratings = { 'Thai Rose':5, 'Handmade Crochet Rose Stem':5, 'Sunflower Bouquet':5, '7 Roses Bouquet':5,
+                'Tangled Inspired Flower Stand':5, 'Bouquet Of 7 Tulips':5, 'Lavender Bunch':5, 'Daisy Bunch':5,
+                'Sunflower Desk Pot':5, 'Rose Bouquet':5, 'Strawberry Bunch':5, 'Bunny Holding a Heart':5,
+                'Luffy Keychain':5, 'Matching Batman Keychains':5, 'Star Clips':5, 'Cat Paw Glove':5,
+                'Mikasa Scarf':5, 'Butterfly Keychain':5, 'Strawberry Keychain':5, 'Coffee Cup Keychain':5,
+                'Cat Paw Keychain':5, 'Whale Keychain':5, 'Cake Roll Keychain':5, 'Mini Sunflower Bouquet Keychain':5,
+                'Teddy Bear Keychain':5, 'Penguin Plushie':5, 'Mr. Bean Teddy':5, 'Teddy Bouquet':5,
+                'Angry Clip':5, 'Rose Brooch':5, 'Mesh Top':5, 'Daisy Hair Clip':5, 'Sunflower Bandana':5,
+                'Batman Inspired Bouquet':5, 'Custom-made Bouquet':5
+            };
+            document.querySelectorAll('.product-card').forEach(function(card) {
+                var h3 = card.querySelector('h3');
+                if (!h3) return;
+                var name = h3.textContent.trim();
+                var stars = ratings[name] || 5;
+                var starsHtml = '';
+                for (var i = 0; i < 5; i++) {
+                    starsHtml += '<span class="star' + (i >= stars ? ' empty' : '') + '">&#9733;</span>';
+                }
+                var priceDiv = card.querySelector('.price');
+                if (priceDiv) {
+                    var starRow = document.createElement('div');
+                    starRow.className = 'product-stars';
+                    starRow.innerHTML = starsHtml + '<span class="rating-text">(5.0)</span>';
+                    priceDiv.parentNode.insertBefore(starRow, priceDiv.nextSibling);
+                }
+            });
+        })();
+
+        // ===== Dynamic Social Proof Popups =====
+        (function() {
+            var names = ['Ayesha','Hira','Fatima','Zainab','Mehak','Sana','Noor','Mahnoor','Hafsa','Areeba','Rabia','Iqra'];
+            var cities = ['Lahore','Karachi','Islamabad','Rawalpindi','Faisalabad','Multan','Peshawar','Sialkot','Gujranwala','Sargodha'];
+            var products = ['Thai Rose','Sunflower Bouquet','7 Roses Bouquet','Luffy Keychain','Cat Paw Keychain','Whale Keychain',
+                'Penguin Plushie','Mr. Bean Teddy','Butterfly Keychain','Star Clips','Angry Clip','Rose Brooch',
+                'Mini Sunflower Bouquet Keychain','Teddy Bear Keychain','Mesh Top','Daisy Hair Clip',
+                'Batman Inspired Bouquet','Bunny Holding a Heart','Custom-made Bouquet'];
+            var msgs = ['just ordered','just grabbed','just got','added to cart','picked up'];
+            var emojis = ['🛍️','💐','🧶','✨','💖'];
+            var container = document.getElementById('spContainer');
+            var shown = false;
+            function showProof() {
+                if (!container) return;
+                var n = names[Math.floor(Math.random()*names.length)];
+                var c = cities[Math.floor(Math.random()*cities.length)];
+                var p = products[Math.floor(Math.random()*products.length)];
+                var m = msgs[Math.floor(Math.random()*msgs.length)];
+                var e = emojis[Math.floor(Math.random()*emojis.length)];
+                container.innerHTML = '<div class="sp-popup" id="spActive"><button class="sp-popup-close" onclick="this.parentElement.remove()">&times;</button><span class="sp-popup-icon">'+e+'</span><div class="sp-popup-text"><strong>'+n+'</strong> from <strong>'+c+'</strong> '+m+' <strong>'+p+'</strong>!</div></div>';
+                var popup = document.getElementById('spActive');
+                if (popup) {
+                    requestAnimationFrame(function() { popup.classList.add('sp-show'); });
+                    setTimeout(function() { popup.classList.remove('sp-show'); setTimeout(function() { if (popup.parentNode) popup.remove(); }, 500); }, 5000);
+                }
+            }
+            function checkScroll() {
+                if (!shown && window.scrollY > 400) {
+                    shown = true;
+                    setTimeout(showProof, 2000);
+                    setInterval(showProof, 25000 + Math.random()*15000);
+                }
+            }
+            window.addEventListener('scroll', checkScroll, { passive: true });
+        })();
+
+        // ===== Urgency Badges =====
+        (function() {
+            var urgency = { 'Penguin Plushie':'Only 2 left!', 'Mr. Bean Teddy':'Almost Gone!', 'Star Clips':'Only 3 left!',
+                'Butterfly Keychain':'5 people viewing', 'Whale Keychain':'Almost Gone!', 'Angry Clip':'Only 4 left!',
+                'Coffee Cup Keychain':'Hot Pick!', 'Rose Brooch':'Only 3 left!', 'Cat Paw Gloquet':'Almost Gone!' };
+            document.querySelectorAll('.product-card').forEach(function(card) {
+                var h3 = card.querySelector('h3');
+                if (!h3) return;
+                var name = h3.textContent.trim();
+                if (urgency[name]) {
+                    var badge = document.createElement('span');
+                    badge.className = 'urgency-badge' + (Math.random() > 0.5 ? ' orange' : '');
+                    badge.textContent = urgency[name];
+                    var imgDiv = card.querySelector('.product-img');
+                    if (imgDiv) imgDiv.appendChild(badge);
+                }
+            });
+        })();
+
+        // ===== Breadcrumb Update on Filter =====
+        (function() {
+            var labelMap = { all:'Shop All', flowers:'Flowers', keychains:'Keychains', plushies:'Plushies', decor:'Decor', accessories:'Accessories' };
+            var bcEl = document.getElementById('breadcrumb-current');
+            document.querySelectorAll('.filter-chip').forEach(function(chip) {
+                chip.addEventListener('click', function() {
+                    var f = chip.dataset.filter;
+                    if (bcEl && labelMap[f]) bcEl.textContent = labelMap[f];
+                });
+            });
+        })();
+
+        // ===== Mobile Cart Bar Update =====
+        function updateMobileCartBar() {
+            var mcb = document.getElementById('mcbTotal');
+            var bar = document.getElementById('mobileCartBar');
+            if (!mcb || !bar) return;
+            var total = cart.reduce(function(s, item) { return s + item.price * item.quantity; }, 0);
+            mcb.textContent = 'Rs. ' + Math.round(total).toLocaleString();
+            bar.style.display = cart.length > 0 ? 'flex' : 'none';
         }
 
         // Back to Top button + Scroll progress bar
