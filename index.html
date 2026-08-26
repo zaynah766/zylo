@@ -1130,6 +1130,69 @@
 
         .place-order-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text-dark); }
 
+        /* ===== Send SS WhatsApp Popup ===== */
+        .ss-popup-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            background: rgba(30,30,36,.6); backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px; opacity: 0; transition: opacity .35s ease;
+        }
+        .ss-popup-overlay.ss-popup-visible { opacity: 1; }
+        .ss-popup-card {
+            background: var(--white); border: 3px solid var(--text-dark); border-radius: 28px;
+            box-shadow: 8px 8px 0 var(--text-dark); max-width: 420px; width: 100%;
+            padding: 36px 28px 28px; text-align: center; position: relative;
+            transform: scale(.85) translateY(20px); transition: transform .4s cubic-bezier(.175,.885,.32,1.275);
+            font-family: 'Quicksand', sans-serif;
+        }
+        .ss-popup-visible .ss-popup-card { transform: scale(1) translateY(0); }
+        .ss-popup-confetti { font-size: 52px; margin-bottom: 8px; animation: popupBounce .6s ease both; }
+        @keyframes popupBounce {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .ss-popup-card h3 {
+            font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+        .ss-popup-card > p { font-size: 14px; color: #555; font-weight: 600; margin: 0 0 14px; line-height: 1.6; }
+        .ss-popup-divider {
+            height: 3px; background: linear-gradient(90deg, var(--primary), var(--neon-yellow), var(--light-blue));
+            border-radius: 99px; margin: 0 0 16px;
+        }
+        .ss-popup-whatsapp-box {
+            background: #dcf8c6; border: 2px solid var(--text-dark); border-radius: 16px;
+            padding: 14px 16px; margin-bottom: 12px;
+        }
+        .ss-popup-wa-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+        .ss-popup-whatsapp-box p { margin: 0; font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+        .ss-popup-hint { font-size: 12.5px; color: #777; font-weight: 600; margin: 0 0 16px; line-height: 1.55; }
+        .ss-popup-wa-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #25D366; color: var(--white); text-decoration: none;
+            padding: 14px 26px; border-radius: 999px; font-weight: 700;
+            font-family: 'Fredoka One', cursive; font-size: 15px;
+            border: 2.5px solid var(--text-dark); box-shadow: 4px 4px 0 var(--text-dark);
+            transition: all .2s ease; cursor: pointer;
+        }
+        .ss-popup-wa-btn:hover {
+            background: #1ebe5c; transform: translate(-2px,-2px);
+            box-shadow: 6px 6px 0 var(--text-dark);
+        }
+        .ss-popup-subtext { font-size: 12px; color: #999; font-weight: 700; margin: 10px 0 16px; letter-spacing: .5px; }
+        .ss-popup-close-btn {
+            background: var(--cream); border: 2px solid var(--text-dark); border-radius: 999px;
+            padding: 10px 22px; font-size: 13px; font-weight: 700; cursor: pointer;
+            font-family: 'Fredoka One', cursive; color: var(--text-dark);
+            box-shadow: 2px 2px 0 var(--text-dark); transition: all .2s;
+        }
+        .ss-popup-close-btn:hover { background: var(--white); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--text-dark); }
+        @media (max-width: 480px) {
+            .ss-popup-card { padding: 28px 18px 22px; border-radius: 22px; }
+            .ss-popup-wa-btn { font-size: 13px; padding: 12px 20px; }
+        }
+
         /* About Zylo Section */
         .about-section {
             background-color: var(--white);
@@ -4759,17 +4822,6 @@
                         <input type="text" id="cust-trx" placeholder="Enter your payment reference ID" required>
                     </div>
 
-                    <div class="form-group">
-                        <label>Payment Screenshot (SS) *</label>
-                        <div class="ss-upload-zone" id="ssUploadZone">
-                            <span class="ss-upload-icon">📸</span>
-                            <span class="ss-upload-text">Tap to upload payment screenshot</span>
-                            <span class="ss-upload-hint">JPG, PNG or WebP — max 5MB</span>
-                            <input type="file" id="cust-ss" accept="image/*" onchange="previewSS(this)">
-                        </div>
-                        <img class="ss-preview" id="ssPreview" alt="Payment screenshot preview">
-                    </div>
-
                     <div class="form-buttons">
                         <button class="back-cart-btn" onclick="backToCartView()">Back</button>
                         <button class="place-order-btn" onclick="submitOrderToAdmin()">Place Order ✨</button>
@@ -4801,105 +4853,97 @@
             const address = document.getElementById('cust-address').value.trim();
             const city = document.getElementById('cust-city').value.trim();
             const trx = document.getElementById('cust-trx').value.trim();
-            const ssInput = document.getElementById('cust-ss');
 
             if (!name || !phone || !address || !city || !trx) {
                 alert('Please fill in all required fields and provide your Sadapay Transaction ID ✨');
                 return;
             }
 
-            if (!ssInput.files || ssInput.files.length === 0) {
-                alert('Please upload a screenshot of your payment 📸');
-                return;
-            }
-
-            if (ssInput.files[0].size > 5 * 1024 * 1024) {
-                alert('Screenshot must be under 5MB 📸');
-                return;
-            }
-
-            // Compile the order summary for the email message
             let orderSummary = cart.map(item => `${item.name} (Qty: ${item.quantity}) - Rs. ${(item.price * item.quantity).toLocaleString()}`).join('\n');
             let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            const reader = new FileReader();
-            reader.onload = function() {
-                const base64Screenshot = reader.result;
+            const formData = new FormData();
+            formData.append('Customer Name', name);
+            formData.append('Phone Number', phone);
+            formData.append('Delivery Address', address);
+            formData.append('City', city);
+            formData.append('Payment Method', 'Sadapay');
+            formData.append('Account Name', 'Isra Yassir');
+            formData.append('Account Number', '03499003714');
+            formData.append('Transaction ID', trx);
+            formData.append('Order Items', orderSummary);
+            formData.append('Total Amount', `Rs. ${total.toLocaleString()}`);
+            formData.append('_subject', `New Paid Order (Sadapay) from ${name} - ZYLO`);
 
-                const formData = new FormData();
-                formData.append('Customer Name', name);
-                formData.append('Phone Number', phone);
-                formData.append('Delivery Address', address);
-                formData.append('City', city);
-                formData.append('Payment Method', 'Sadapay');
-                formData.append('Account Name', 'Isra Yassir');
-                formData.append('Account Number', '03499003714');
-                formData.append('Transaction ID', trx);
-                formData.append('Order Items', orderSummary);
-                formData.append('Total Amount', `Rs. ${total.toLocaleString()}`);
-                formData.append('Payment Screenshot', base64Screenshot);
-                formData.append('_subject', `New Paid Order (Sadapay) from ${name} - ZYLO`);
-
-                fetch('https://formspree.io/f/xaewjqvg', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        alert('Thanks! Your order, payment details & screenshot have been submitted successfully ✨');
-                        cart = [];
-                        backToCartView();
-                        toggleCart();
-                    } else {
-                        alert('Oops! There was a problem submitting your order. Please try again.');
-                    }
-                }).catch(error => {
-                    alert('Network error! Please check your connection and try again.');
-                });
-            };
-            reader.readAsDataURL(ssInput.files[0]);
+            fetch('https://formspree.io/f/xaewjqvg', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    cart = [];
+                    backToCartView();
+                    toggleCart();
+                    showSendSSPopup(name, orderSummary, total);
+                } else {
+                    alert('Oops! There was a problem submitting your order. Please try again.');
+                }
+            }).catch(error => {
+                alert('Network error! Please check your connection and try again.');
+            });
         }
 
-        function previewSS(input) {
-            var zone = document.getElementById('ssUploadZone');
-            var preview = document.getElementById('ssPreview');
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                    zone.classList.add('has-file');
-                };
-                reader.readAsDataURL(input.files[0]);
+        function showSendSSPopup(name, orderSummary, total) {
+            const waNumber = '923114690134';
+            const waMsg = encodeURIComponent(`Hi ZYLO! 🧶✨\n\nMy name: ${name}\n\nOrder:\n${orderSummary}\n\nTotal: Rs. ${total.toLocaleString()}\n\n(Payment screenshot attached below)`);
+            const waLink = `https://wa.me/${waNumber}?text=${waMsg}`;
+
+            const overlay = document.createElement('div');
+            overlay.id = 'sendSSPopup';
+            overlay.innerHTML = `
+                <div class="ss-popup-overlay" onclick="closeSendSSPopup(event)">
+                    <div class="ss-popup-card">
+                        <div class="ss-popup-confetti">🎉</div>
+                        <h3>Order Placed Successfully!</h3>
+                        <p>Thank you, <strong>${name}</strong>! Your order has been received.</p>
+                        <div class="ss-popup-divider"></div>
+                        <div class="ss-popup-whatsapp-box">
+                            <span class="ss-popup-wa-icon">📸</span>
+                            <p><strong>Important:</strong> Please send your payment screenshot on WhatsApp!</p>
+                        </div>
+                        <p class="ss-popup-hint">Tap the button below to open WhatsApp and send your payment SS directly to us 💚</p>
+                        <a href="${waLink}" target="_blank" class="ss-popup-wa-btn">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Send Payment Screenshot on WhatsApp
+                        </a>
+                        <p class="ss-popup-subtext">+92 311 4690134</p>
+                        <button class="ss-popup-close-btn" onclick="closeSendSSPopup()">I'll Send It Later</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => overlay.classList.add('ss-popup-visible'));
+        }
+
+        function closeSendSSPopup(e) {
+            if (e && e.target && !e.target.classList.contains('ss-popup-overlay')) return;
+            const popup = document.getElementById('sendSSPopup');
+            if (popup) {
+                popup.classList.remove('ss-popup-visible');
+                setTimeout(() => popup.remove(), 350);
             }
         }
 
-        // Drag & drop for upload zone
-        (function() {
-            var zone = document.getElementById('ssUploadZone');
-            if (!zone) return;
-            zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('dragover'); });
-            zone.addEventListener('dragleave', function() { zone.classList.remove('dragover'); });
-            zone.addEventListener('drop', function(e) {
-                e.preventDefault();
-                zone.classList.remove('dragover');
-                var fileInput = document.getElementById('cust-ss');
-                if (e.dataTransfer.files.length) {
-                    fileInput.files = e.dataTransfer.files;
-                    previewSS(fileInput);
-                }
-            });
-        })();
 
-        // Close cart / menu with Escape key
+        // Close cart / menu / popup with Escape key
         window.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const drawer = document.getElementById('cart-drawer');
                 if (drawer.classList.contains('open')) toggleCart();
                 const menu = document.getElementById('dropdown-menu');
                 if (menu.classList.contains('open')) toggleMenu();
+                const popup = document.getElementById('sendSSPopup');
+                if (popup) closeSendSSPopup();
             }
         });
 
