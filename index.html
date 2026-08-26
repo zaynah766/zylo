@@ -31,6 +31,11 @@
     <meta name="twitter:title" content="ZYLO ⚡ Funky, Cute & Trendy Finds">
     <meta name="twitter:description" content="Handmade crochet flowers, keychains, plushies, decor & accessories — made with love. 🧶💖">
     <meta name="twitter:image" content="https://zaynah766.github.io/zylo/best%20seller%201%20zylo.jpeg">
+    <meta name="twitter:site" content="@zylocrochet">
+    <meta property="og:locale" content="en_PK">
+    <meta property="og:site_name" content="ZYLO Crochet">
+    <link rel="alternate" hreflang="en-pk" href="https://zaynah766.github.io/zylo/">
+    <meta name="keywords" content="handmade crochet Pakistan, crochet flowers Pakistan, crochet keychains Lahore, handmade gifts Pakistan, crochet plushies, crochet accessories, buy crochet online Pakistan, cute keychains Pakistan, bouquet Pakistan, ZYLO crochet">
     <!-- Google Fonts for Funky & Playful Vibe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +52,95 @@
         "sameAs": ["https://www.instagram.com/zylocrochet/"],
         "contactPoint": { "@type": "ContactPoint", "telephone": "+92-311-4690134", "contactType": "customer service" },
         "address": { "@type": "PostalAddress", "addressCountry": "PK" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ZYLO",
+        "url": "https://zaynah766.github.io/zylo/",
+        "logo": "https://zaynah766.github.io/zylo/logo%20zylo.png",
+        "description": "Handmade crochet flowers, keychains, plushies, decor & accessories made with love in Pakistan.",
+        "sameAs": [
+            "https://www.instagram.com/zylocrochet/"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+92-311-4690134",
+            "contactType": "customer service",
+            "areaServed": "PK"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "PK"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "ZYLO Handmade Crochet Collection",
+        "image": "https://zaynah766.github.io/zylo/best%20seller%201%20zylo.jpeg",
+        "description": "Handmade crochet flowers, keychains, plushies, decor & accessories made with love in Pakistan.",
+        "brand": {
+            "@type": "Brand",
+            "name": "ZYLO"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "PKR",
+            "lowPrice": "100",
+            "highPrice": "4900",
+            "availability": "https://schema.org/InStock",
+            "url": "https://zaynah766.github.io/zylo/"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "6",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Ayesha" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "The sunflower bouquet was absolutely gorgeous! ZYLO's quality is unmatched. Best handmade crochet shop in Pakistan!"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Hira" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Ordered the star clips for my friend's birthday. She loved them so much! The quality is amazing and delivery was quick."
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Fatima" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Best gift I've ever given! The crochet teddy bouquet was so cute and well-made. Highly recommend ZYLO for gifts."
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Sana" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "The butterfly keychain is adorable! Perfect size and the crochet work is so neat. Will definitely order again!"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Mehak" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Ordered a custom bouquet for my sister's wedding. Everyone at the event was asking where I got it from! ZYLO is the best."
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Zainab" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "The penguin plushie is so soft and cute! My daughter hasn't let go of it since. Amazing handmade quality from ZYLO."
+            }
+        ]
     }
     </script>
     <style>
@@ -1279,6 +1373,57 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+        }
+
+        /* ===== Blog Section ===== */
+        .blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1100px; margin:0 auto; }
+        .blog-card {
+            background:var(--white); border:3px solid var(--text-dark); border-radius:22px;
+            box-shadow:5px 5px 0 var(--text-dark); overflow:hidden; transition:all .25s cubic-bezier(.175,.885,.32,1.275);
+            cursor:pointer; position:relative;
+        }
+        .blog-card:hover { transform:translate(-4px,-4px) rotate(-.5deg); box-shadow:9px 9px 0 var(--text-dark); }
+        .blog-card-header {
+            padding:22px 22px 14px; position:relative;
+        }
+        .blog-card:nth-child(1) .blog-card-header { background:#FFD9E8; }
+        .blog-card:nth-child(2) .blog-card-header { background:#D3F1FF; }
+        .blog-card:nth-child(3) .blog-card-header { background:#E8DBFF; }
+        .blog-card:nth-child(4) .blog-card-header { background:#D9F6E6; }
+        .blog-card:nth-child(5) .blog-card-header { background:#FFF3B0; }
+        .blog-tag {
+            display:inline-block; background:var(--text-dark); color:var(--neon-yellow);
+            padding:4px 12px; border-radius:999px; font-size:11px; font-weight:700;
+            font-family:'Fredoka One',cursive; letter-spacing:.5px; margin-bottom:10px;
+        }
+        .blog-card-header h3 {
+            font-family:'Fredoka One',cursive; font-size:17px; color:var(--text-dark);
+            margin:0 0 6px; line-height:1.35;
+        }
+        .blog-card-header .blog-date { font-size:12px; font-weight:600; color:#888; }
+        .blog-card-body {
+            padding:16px 22px 20px;
+        }
+        .blog-card-body .blog-excerpt {
+            font-size:13.5px; font-weight:600; color:#555; line-height:1.65; margin:0 0 12px;
+        }
+        .blog-card-body .blog-full {
+            font-size:13.5px; font-weight:600; color:#444; line-height:1.7; margin:0 0 12px;
+            display:none;
+        }
+        .blog-card-body .blog-full.open { display:block; }
+        .blog-read-more {
+            display:inline-flex; align-items:center; gap:6px;
+            background:var(--primary); color:var(--white); border:2px solid var(--text-dark);
+            padding:8px 18px; border-radius:999px; font-size:12.5px; font-weight:700;
+            font-family:'Fredoka One',cursive; cursor:pointer; box-shadow:2px 2px 0 var(--text-dark);
+            transition:all .2s;
+        }
+        .blog-read-more:hover { background:var(--accent-pink); transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--text-dark); }
+        @media(max-width:600px){
+            .blog-grid { grid-template-columns:1fr; gap:16px; }
+            .blog-card-header { padding:18px 16px 12px; }
+            .blog-card-body { padding:14px 16px 18px; }
         }
 
         .insta-box {
@@ -3672,6 +3817,8 @@
         </div>
     </header>
 
+    <main>
+
     <!-- Sticky Category Pills -->
     <nav class="cat-nav" aria-label="Product categories">
         <a href="#shop" class="cat-pill">🧶 Shop All</a>
@@ -4281,7 +4428,7 @@
 
     <!-- How It's Made -->
     <div class="washi-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,18 C180,32 360,8 540,22 C720,36 900,8 1080,22 C1260,36 1380,18 1440,25 L1440,40 L0,40 Z" fill="var(--cream)"/></svg></div>
-    <section id="process">
+    <section id="how-its-made">
         <h2 class="section-title">How It's Made 🧶</h2>
         <span class="section-sub">from your order to your door — stitched with love</span>
         <div style="text-align:center;margin:-20px 0 28px;"><span class="annotation annotation-4 purple">all handmade!!</span></div>
@@ -4356,22 +4503,22 @@
 
     <!-- Instagram / Social Media Section -->
     <section id="social">
-        <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
+        <h2 class="section-title">Join The Vibe <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" style="color: var(--neon-yellow); text-decoration: underline;">@zylocrochet</a></h2>
         <div class="ig-pill">📸 Join <span id="igCount">5,000+</span> cuties who follow us on Insta ✨</div>
         <div class="insta-grid">
-            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" class="insta-box">
                 <img loading="lazy" decoding="async" src="best seller 1 zylo.jpeg" alt="ZYLO handmade crochet rose bouquet - follow us on Instagram">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
-            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" class="insta-box">
                 <img loading="lazy" decoding="async" src="flower 1 zylo.jpeg" alt="ZYLO tangled inspired crochet flower stand - follow us on Instagram">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
-            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" class="insta-box">
                 <img loading="lazy" decoding="async" src="key chain 1 zylo.jpg" alt="ZYLO luffy crochet keychain - follow us on Instagram">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
-            <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="insta-box">
+            <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" class="insta-box">
                 <img loading="lazy" decoding="async" src="plushies zylo 1.jpeg" alt="ZYLO bunny plushie holding heart - follow us on Instagram">
                 <div class="insta-overlay">Show on Insta ✨</div>
             </a>
@@ -4429,11 +4576,81 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2 class="section-title">ZYLO Blog ✨</h2>
+        <span class="section-sub">tips, gift ideas & all things crochet</span>
+        <div class="blog-grid">
+            <div class="blog-card" onclick="toggleBlog(this)">
+                <div class="blog-card-header">
+                    <span class="blog-tag">GIFT IDEAS</span>
+                    <h3>Best Crochet Gift Ideas for Eid 2026 🎁</h3>
+                    <span class="blog-date">August 2026</span>
+                </div>
+                <div class="blog-card-body">
+                    <p class="blog-excerpt">Eid is around the corner and you're still confused about what to gift? Don't worry — ZYLO's got you covered with the cutest handmade crochet gifts!</p>
+                    <p class="blog-full">Eid is the perfect time to give something meaningful, not just another box of mithai. Here are our top picks:<br><br>🌷 <strong>Crochet Flower Bouquets</strong> — They last forever (unlike real flowers!) and look stunning on any dressing table. Our sunflower and rose bouquets start from Rs. 1,800.<br><br>🔑 <strong>Cute Keychains</strong> — Starting at just Rs. 100, these are perfect Eidi fillers. Butterfly, strawberry, and cat paw keychains are fan favourites.<br><br>🧸 <strong>Plushies</strong> — Our penguin and teddy plushies make the most adorable Eid gifts for kids and adults alike.<br><br>🎀 <strong>Custom Bouquets</strong> — Want something truly unique? We make custom bouquets starting from Rs. 4,900. Just tell us the vibe and we'll crochet it!<br><br>Pro tip: Order at least 5-7 days before Eid to ensure your gift arrives on time 🧶✨</p>
+                    <button class="blog-read-more">Read More ↓</button>
+                </div>
+            </div>
+            <div class="blog-card" onclick="toggleBlog(this)">
+                <div class="blog-card-header">
+                    <span class="blog-tag">COMPARISON</span>
+                    <h3>Crochet vs Artificial Flowers — Which is Better? 🌸</h3>
+                    <span class="blog-date">August 2026</span>
+                </div>
+                <div class="blog-card-body">
+                    <p class="blog-excerpt">Artificial flowers are everywhere, but are they really worth it? Let's break down why handmade crochet flowers are the smarter (and cuter) choice.</p>
+                    <p class="blog-full">We've all been there — you buy a bouquet of artificial flowers and within weeks they're collecting dust and looking sad. Here's why crochet flowers are different:<br><br>🌿 <strong>Longevity</strong> — Crochet flowers don't fade, wilt, or shed. They look the same after years. Artificial flowers lose colour and petals over time.<br><br>💚 <strong>Eco-Friendly</strong> — Our flowers are made from yarn, not plastic. No microplastics, no waste. Better for the planet.<br><br>✨ <strong>Uniqueness</strong> — Every single ZYLO flower is handmade. No two are exactly alike. Try finding that in a factory-made bouquet.<br><br>🎁 <strong>Sentimental Value</strong> — A handmade gift says "I actually put thought into this." That hits different.<br><br>💰 <strong>Price</strong> — Our crochet bouquets start from Rs. 1,800 and last forever. Artificial bouquets of similar size cost Rs. 1,200-2,000 and end up in the trash.<br><br>The verdict? Crochet flowers win — by a landslide 🧶🏆</p>
+                    <button class="blog-read-more">Read More ↓</button>
+                </div>
+            </div>
+            <div class="blog-card" onclick="toggleBlog(this)">
+                <div class="blog-card-header">
+                    <span class="blog-tag">CARE GUIDE</span>
+                    <h3>How to Care for Your Crochet Flowers 💐</h3>
+                    <span class="blog-date">July 2026</span>
+                </div>
+                <div class="blog-card-body">
+                    <p class="blog-excerpt">Got your ZYLO crochet flowers? Here's how to keep them looking fresh and beautiful for years to come.</p>
+                    <p class="blog-full">Crochet flowers are low-maintenance, but a little care goes a long way! Here are our top tips:<br><br>🧹 <strong>Dusting</strong> — Use a soft brush or hair dryer on cool/low to gently remove dust. Avoid wet cleaning unless necessary.<br><br>💧 <strong>If They Get Wet</strong> — Don't panic! Gently squeeze out water (don't wring), reshape, and let them air dry flat. They'll bounce back!<br><br>☀️ <strong>Avoid Direct Sunlight</strong> — Prolonged direct sun can fade colours over time. Keep them in a spot with indirect light for the brightest look.<br><br>📦 <strong>Storage</strong> — If storing for a season, place them in a breathable bag (not sealed plastic) to prevent moisture buildup.<br><br>🧴 <strong>Never Use Bleach</strong> — This seems obvious, but just in case — bleach will ruin your crochet flowers permanently!<br><br>Follow these tips and your ZYLO flowers will be the prettiest thing in the room for years 🌸✨</p>
+                    <button class="blog-read-more">Read More ↓</button>
+                </div>
+            </div>
+            <div class="blog-card" onclick="toggleBlog(this)">
+                <div class="blog-card-header">
+                    <span class="blog-tag">TOP PICKS</span>
+                    <h3>Top 10 Cute Keychain Ideas Under Rs. 500 🔑</h3>
+                    <span class="blog-date">July 2026</span>
+                </div>
+                <div class="blog-card-body">
+                    <p class="blog-excerpt">Looking for affordable, adorable keychains? Here are our top picks that won't break the bank but will definitely steal hearts.</p>
+                    <p class="blog-full">Keychains are the ultimate small gift — cute, affordable, and everyone uses them. Here are our best sellers under Rs. 500:<br><br>1. 🦋 <strong>Butterfly Keychain</strong> — Rs. 100 each. Available in 5+ colours.<br>2. 🍓 <strong>Strawberry Keychain</strong> — Rs. 300. The perfect summer vibes keychain.<br>3. ☕ <strong>Coffee Cup Keychain</strong> — Rs. 200. For the coffee lover in your life.<br>4. 🐱 <strong>Cat Paw Keychain</strong> — Rs. 200. So soft, so cute.<br>5. 🐋 <strong>Whale Keychain</strong> — Rs. 250. Unique and adorable.<br>6. 🎂 <strong>Cake Roll Keychain</strong> — Rs. 250. Looks good enough to eat!<br>7. 🌻 <strong>Mini Sunflower Bouquet Keychain</strong> — Rs. 350. A tiny bouquet on your bag? Yes please.<br>8. 🧸 <strong>Teddy Bear Keychain</strong> — Rs. 250. Classic and cuddly.<br><br>All keychains are handmade and come with free delivery! Mix and match to create your own collection 🧶💖</p>
+                    <button class="blog-read-more">Read More ↓</button>
+                </div>
+            </div>
+            <div class="blog-card" onclick="toggleBlog(this)">
+                <div class="blog-card-header">
+                    <span class="blog-tag">WHY ZYLO</span>
+                    <h3>Why Handmade Gifts Hit Different 💖</h3>
+                    <span class="blog-date">June 2026</span>
+                </div>
+                <div class="blog-card-body">
+                    <p class="blog-excerpt">In a world of mass production, handmade gifts stand out. Here's why choosing handmade is always the right call.</p>
+                    <p class="blog-full">We live in a time where you can order almost anything with one tap. But that's exactly why handmade gifts matter more than ever:<br><br>🤲 <strong>Time & Effort</strong> — Every ZYLO piece takes hours to make. That time is embedded in every stitch. When someone receives a handmade gift, they receive your time and love.<br><br>❤️ <strong>Emotional Value</strong> — A machine-made mug is nice. A handmade crochet flower bouquet is unforgettable. It shows you care enough to choose something special.<br><br>🌟 <strong>One of a Kind</strong> — No two handmade items are exactly the same. Your gift is literally unique in the entire world.<br><br>🇮🇳 <strong>Supporting Local Artists</strong> — When you buy handmade from ZYLO, you're supporting a small Pakistani business and the art of crochet. That's a feel-good purchase.<br><br>📸 <strong>Instagram-Worthy</strong> — Let's be honest — handmade gifts look incredible in photos. Your stories will never be the same 😄<br><br>At ZYLO, every stitch is a little piece of love. That's why handmade hits different 🧶✨</p>
+                    <button class="blog-read-more">Read More ↓</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Recently Viewed -->
     <section class="recent-section" id="recentlyViewed" style="display:none;">
         <h2 class="section-title">Recently Browsed 👀</h2>
         <div class="recent-grid" id="recentGrid"></div>
     </section>
+
+    </main>
 
     <!-- Crochet Scallop Edge + Wave Divider & Footer -->
     <div class="scallop-edge" aria-hidden="true"></div>
@@ -4464,9 +4681,9 @@
                 <a href="#contact">💌 Contact</a>
             </nav>
             <div class="footer-social" style="justify-content:center;">
-                <a href="https://www.instagram.com/zylocrochet/" target="_blank" class="footer-social-btn">📸 Instagram</a>
+                <a href="https://www.instagram.com/zylocrochet/" target="_blank" rel="noopener" class="footer-social-btn">📸 Instagram</a>
                 <a href="mailto:ahmadkamran0978@gmail.com" class="footer-social-btn">💌 Email</a>
-                <a href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" class="footer-social-btn">💬 WhatsApp</a>
+                <a href="https://wa.me/923114690134?text=Hi%20ZYLO!%20%F0%9F%92%96" target="_blank" rel="noopener" class="footer-social-btn">💬 WhatsApp</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -4485,7 +4702,7 @@
             </div>
             <p class="dev-tag">Crafting code with the same love as every stitch 🧶 — turning crochet dreams into digital magic, one pixel at a time ✨</p>
             <div class="dev-links">
-                <a href="https://wa.me/923244717364" target="_blank">📞 0324 4717364</a>
+                <a href="https://wa.me/923244717364" target="_blank" rel="noopener">📞 0324 4717364</a>
                 <a href="mailto:ahmadkamran0978@gmail.com">✉️ ahmadkamran0978@gmail.com</a>
             </div>
         </div>
@@ -4981,7 +5198,7 @@
                             <p><strong>Important:</strong> Please send your payment screenshot on WhatsApp!</p>
                         </div>
                         <p class="ss-popup-hint">Tap the button below to open WhatsApp and send your payment SS directly to us 💚</p>
-                        <a href="${waLink}" target="_blank" class="ss-popup-wa-btn">
+                        <a href="${waLink}" target="_blank" rel="noopener" class="ss-popup-wa-btn">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             Send Payment Screenshot on WhatsApp
                         </a>
@@ -5015,6 +5232,23 @@
                 if (popup) closeSendSSPopup();
             }
         });
+
+        // Blog read-more toggle
+        function toggleBlog(card) {
+            var full = card.querySelector('.blog-full');
+            var excerpt = card.querySelector('.blog-excerpt');
+            var btn = card.querySelector('.blog-read-more');
+            if (!full) return;
+            if (full.classList.contains('open')) {
+                full.classList.remove('open');
+                excerpt.style.display = '';
+                btn.innerHTML = 'Read More ↓';
+            } else {
+                full.classList.add('open');
+                excerpt.style.display = 'none';
+                btn.innerHTML = 'Show Less ↑';
+            }
+        }
 
         // Back to Top button + Scroll progress bar
         const backToTopBtn = document.getElementById('backToTop');
